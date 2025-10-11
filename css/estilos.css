@@ -1,0 +1,379 @@
+/* estilos.css */
+
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Contenedor principal */
+body {
+  font-family: Arial, sans-serif;
+  background: #fafafa;
+  color: #333;
+  line-height: 1.5;
+  padding: 20px;
+}
+
+/* Título principal */
+h1.titulo-pegado-izquierda {
+  text-align: left;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+/* Secciones de pisos */
+.piso-seccion {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 10px 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+}
+
+/* Ajuste de espaciado entre descripción, características y primera planta */
+#caracteristicas-section {
+  margin-bottom: 30px; /* espacio requerido */
+}
+
+/* opcional: asegurar que la primera planta no tenga margen extra encima */
+.piso-seccion:first-of-type {
+  margin-top: 0;
+}
+
+/* asegurar separación moderada antes de cada planta */
+.piso-seccion {
+  margin-top: 12px;     /* reducir si quieres menos separación */
+}
+
+/* Contenedor de imágenes */
+.imagenes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+/* Cada imagen pequeña */
+.imagenes img {
+  width: 100px; /* ancho fijo */
+  height: 75px; /* altura proporcional */
+  object-fit: cover;
+  border-radius: 5px;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+  box-shadow: 0 0 4px rgba(0,0,0,0.15);
+}
+
+.imagenes img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+/* Modal oculto por defecto */
+.modal {
+  display: none; /* ¡Muy importante! Oculta el modal */
+  position: fixed;
+  z-index: 9999;
+  left: 0; top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  flex-direction: column;
+}
+
+/* Modal centrado y fondo oscuro */
+#modal {
+  position: fixed;
+  inset: 0;
+  display: none; /* se controla por JS */
+  z-index: 20000;
+  background: rgba(0,0,0,0.85);
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+/* Imagen del modal: origen centrado, límites por viewport */
+.modal-contenido {
+  touch-action: none;
+  will-change: transform;
+  transform-origin: center center; /* <- importante */
+  transition: transform 0.05s linear;
+  max-width: 90vw;
+  max-height: 80vh;
+  cursor: grab;
+  display: block;
+}
+
+/* cuando no está ampliada, aseguramos que no se traduzca */
+.modal-contenido:not(.zoomed) {
+  transform: none !important;
+}
+
+/* Texto del pie de foto */
+#caption {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 21000;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  max-width: 88%;
+  text-align: center;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  margin-top: 15px;
+  user-select: none;
+}
+
+/* Botón cerrar */
+#cerrar {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2.5rem;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+#cerrar:hover {
+  color: #ff5555;
+}
+
+#anterior, #siguiente {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 21000;
+  background: rgba(0,0,0,0.75);
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 1.05rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+
+#anterior { left: 12px; }
+#siguiente { right: 12px; }
+
+/* Botones de cambiar planta: centrados arriba (uno a la izquierda del centro y otro a la derecha) */
+#planta-anterior,
+#planta-siguiente {
+  position: absolute;
+  top: 14px;
+  z-index: 21000;
+  background: rgba(255,255,255,0.95);
+  color: #111;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 0;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+/* ajusta separación horizontal respecto al centro */
+#planta-anterior { left: 50%; transform: translateX(-120px); }
+#planta-siguiente { left: 50%; transform: translateX(16px); }
+
+/* Evitar que los controles ocupen demasiado espacio en móvil */
+@media (max-width: 600px) {
+  #anterior, #siguiente {
+    padding: 10px 12px;
+    font-size: 0.95rem;
+  }
+  #planta-anterior { transform: translateX(-90px); }
+  #planta-siguiente { transform: translateX(10px); }
+  #caption { font-size: 0.9rem; padding: 6px 10px; }
+}
+
+/* .titulo-movil { display: none; }
+.titulo-escritorio { display: block; } */
+
+/* Ejemplo de efecto espectacular para el header */
+.header-espectacular {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+  letter-spacing: 1.5px;
+  transition: background 0.6s ease;
+}
+
+.header-espectacular:hover {
+  background: linear-gradient(90deg, #ffcc00, #f39c12);
+  color: #182848;
+  cursor: default;
+}
+
+.modal {
+  display: none; /* oculto por defecto */
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  flex-direction: column;
+}
+
+.modal-contenido {
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 8px;
+  box-shadow: 0 0 15px #000;
+  touch-action: none;       /* permitimos interceptar gestos (pinch/pan) */
+  will-change: transform;   /* optimización para transformaciones */
+  transform-origin: 0 0;    /* trabajamos con translate + scale */
+  transition: transform 0.05s linear; /* suave al aplicar transform */
+  max-width: none;          /* dejamos que el JS controle el tamaño */
+  max-height: none;
+}
+
+#caption {
+  color: white;
+  margin-top: 10px;
+  font-size: 1.2rem;
+  max-width: 90%;
+  text-align: center;
+}
+
+#cerrar {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  z-index: 10001;
+}
+
+
+
+.cookie-banner {
+  display: none;
+}
+
+/* Indentar 200px los <li> de descripción, detalles y textos de planta */
+#descripcion ul,
+#detalles-section ul,
+.piso-texto ul {
+  padding-left: 50px; /* indentación deseada */
+  margin-left: 0;      /* evitar margen extra del navegador */
+}
+
+/* reset en los LI para que el texto empiece en la misma columna que el marcador */
+#descripcion ul li,
+#detalles-section ul li,
+.piso-texto ul li {
+  padding-left: 0;
+  list-style-position: outside; /* marcador en la zona de la sangría */
+  /* opcional: controlar el espaciado entre marcador y texto */
+  /* gap entre marcador y texto en navegadores que soportan ::marker margin */
+  /* li::marker { margin-right: 8px; } */
+}
+
+/* hacer la portada algo más grande: sumar ~100px extra al ancho base (antes +150px, se ha restado 50px) */
+#portada .portada-img {
+  width: calc(50% + 100px);
+  max-width: 710px; /* tope reducido en 50px */
+  height: auto;
+  display: inline-block;
+}
+
+/* móvil: mantener más compacto */
+@media (max-width: 600px) {
+  #portada .portada-img {
+    width: 80%;
+    max-width: none;
+  }
+}
+
+/* Responsive para móviles */
+@media (max-width: 1455px) {
+  .titulo-movil { display: block; }
+  .titulo-escritorio { display: none; }
+  
+  .imagenes img {
+    width: 70px;
+    height: 52px;
+  }
+
+#anterior, #siguiente {
+    position: static;
+    transform: none;
+    font-size: 16px;
+    padding: 8px 12px;
+    background-color: #333;
+    color: white;
+    border-radius: 8px;
+    margin: 5px 10px;
+  }
+
+
+  /* Ocultar texto original que venía de los botones */
+  #anterior, #siguiente {
+    color: white !important;
+  }
+
+}
+
+/* Mostrar título grande por defecto (escritorio) y ocultar el pequeño */
+.titulo-escritorio { display: block; }
+.titulo-movil { display: none; }
+
+/* En móviles (<=768px) mostrar el título pequeño y ocultar el grande */
+@media (max-width: 768px) {
+  .titulo-escritorio { display: none !important; }
+  .titulo-movil { display: block !important; }
+
+  /* opcional: ajustar tamaños en móvil */
+  .titulo-movil { font-size: 1.6rem; line-height: 1.1; }
+}
+
+/* opcional: asegurarse de tamaño adecuado en escritorio */
+@media (min-width: 769px) {
+  .titulo-escritorio { font-size: 2.6rem; line-height: 1.05; }
+}
+
+/* Estilos para la imagen de la página de Política de Privacidad */
+.privacy-img {
+  display: block;
+  margin: 18px auto;
+  width: 90%;
+  max-width: 880px;
+  height: auto;
+  border: 1px solid #e6e6e6;
+  padding: 8px;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+@media (max-width: 600px) {
+  .privacy-img { width: 95%; max-width: none; padding: 6px; }
+}
+
+/* Indentar numeración y separar número / texto en la página de política */
+.policy-content ol {
+  margin-left: 28px;       /* espacio a la izquierda del conjunto */
+  padding-left: 12px;      /* espacio interno para el marcador */
+  list-style-position: outside;
+}
+.policy-content ol li {
+  /* ajustar separación entre número y texto */
+  text-indent: 0;
+  padding-left: 6px;
+  margin-bottom: 10px;
+}

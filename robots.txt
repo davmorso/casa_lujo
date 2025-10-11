@@ -1,0 +1,6 @@
+# Permitir a todos los bots rastrear el sitio
+User-agent: *
+Allow: /
+
+# Indicar la ubicación del sitemap
+Sitemap: https://davmorso.github.io/casa/sitemap.xml

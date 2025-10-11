@@ -1,0 +1,138 @@
+<!-- version 40 - placeholders para i18n -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title></title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Meta SEO (se rellenarán desde i18n) -->
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="" />
+
+  <!-- Meta para redes sociales (vacíos, se rellenan desde i18n) -->
+  <meta property="og:title" content="" />
+  <meta property="og:description" content="" />
+  <meta property="og:type" content="" />
+  <meta property="og:url" content="" />
+  <meta property="og:image" content="" />
+
+  <meta name="twitter:card" content="" />
+  <meta name="twitter:title" content="" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:image" content="" />
+  
+  <link rel="stylesheet" href="css/estilos.css" />
+
+  <!-- Cookie Consent (usaremos un aviso ligero y funcional) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
+</head>
+<meta name="google-site-verification" content="sHT64-8pI_MjA_3JmpP-Xt5A5Z7TYWhp6hdiEauIM6I" />
+<body>
+
+  <header class="header-espectacular" style="text-align:center; padding: 30px 10px; background: linear-gradient(90deg, #4b6cb7, #182848); color: white; border-bottom: 4px solid #ffcc00;">
+    <h1 class="titulo-escritorio">
+      <span id="header-title-desktop"></span>
+    </h1>
+    <h1 class="titulo-movil">
+      <span id="header-title-mobile"></span>
+    </h1>
+    <p id="header-price" style="font-size: 1.8rem; color: #ffcc00; font-weight: bold; margin-top: 10px;">
+    </p>
+  </header>
+
+  <!-- Imagen destacada entre la zona azul (header) y la descripción -->
+  <div id="portada" style="text-align:center; margin:18px 0;">
+    <img class="portada-img" src="img/planta 1/casa 0.jpeg" alt="Vista destacada" />
+  </div>
+
+  <!-- Presentación del piso -->
+  <section id="descripcion" style="max-width: 800px; margin: auto; padding: 20px;">
+    <!-- Contenido dinámico: se rellenará desde i18n/galeria.es.json -> descripcion -->
+    <div id="descripcion-text"></div>
+
+  
+    <!-- Características: se rellenará desde i18n.detalles.caracteristicas -->
+    <div id="caracteristicas-section"></div>
+    <!-- Espaciado controlado por CSS -->
+     
+     <!-- Primera planta -->
+    <!-- Primera planta: placeholder. Se rellenará desde textos.planta-1 -->
+    <div class="piso-seccion" id="primer-piso" data-texto="planta-1">
+      <div class="piso-texto"></div>
+      <div class="imagenes"></div>
+    </div>
+ 
+     <!-- Segunda planta -->
+    <div class="piso-seccion" id="segundo-piso" data-texto="planta-2">
+      <div class="piso-texto"></div>
+      <div class="imagenes"></div>
+    </div>
+ 
+     <!-- Tercera planta -->
+    <div class="piso-seccion" id="tercer-piso" data-texto="planta-3">
+      <div class="piso-texto"></div>
+      <div class="imagenes"></div>
+    </div>
+    
+    <!-- Cuarta planta placeholder (si existe textos.planta-4 se mostrará) -->
+    <div class="piso-seccion" id="cuarto-piso" data-texto="planta-4" style="display:none;">
+      <div class="piso-texto"></div>
+      <div class="imagenes"></div>
+    </div>
+
+    <!-- Detalles adicionales (se rellenará desde i18n.detalles) -->
+    <div id="detalles-section"></div>
+
+    <!-- Contacto (rellenable desde i18n.contacto) -->
+    <div id="contacto-section" style="text-align:center; margin-top: 38px;"></div>
+
+  </section>
+
+  <!-- Modal -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true">
+    <span id="cerrar" style="cursor:pointer;"></span>
+    <img class="modal-contenido" id="imagen-ampliada" alt="">
+    <div id="caption"></div>
+
+    <div style="text-align:center; margin-top:10px;">
+      <button id="planta-anterior" data-i18n="ui.modal.plantaAnterior" style="margin-right: 10px;"></button>
+      <button id="planta-siguiente" data-i18n="ui.modal.plantaSiguiente" style="margin-right: 20px;"></button>
+      <button id="anterior" data-i18n="ui.modal.anterior" style="margin-right: 10px;"></button>
+      <button id="siguiente" data-i18n="ui.modal.siguiente"></button>
+    </div>
+   </div>
+
+   <div id="cookie-banner" style="position: fixed; bottom: 0; width: 100%; background: #222; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; z-index: 10000;">
+    <span></span>
+    <div>
+      <button id="aceptar-cookies" style="margin-right: 10px;"></button>
+      <button id="rechazar-cookies"></button>
+    </div>
+  </div>
+
+  <footer style="background-color: #222; color: white; padding: 20px; text-align: center; border-top: 2px solid #444;">
+    <p id="footer-copy" style="margin: 0;"></p>
+    <p style="margin: 5px 0 0;">
+      <a id="footer-privacy" href="politica-privacidad.html" style="color: #aaa; text-decoration: underline;"></a>
+    </p>
+  </footer>
+
+  <!-- Script de galería y UI (cliente) -->
+  <script src="js/application/galeriaUseCase.js"></script>
+  <script src="js/presentation/galeriaView.js"></script>
+  <script src="js/presentation/cookieBannerView.js"></script>
+  <script src="js/infraestructure/cookieService.js"></script>
+  <script src="js/bootstrap.js"></script>
+
+  <!-- Carga i18n y funcionalidades específicas -->
+  <script src="js/i18n-loader.js"></script>
+  <script src="js/galeria.js"></script>
+  <script src="js/zoomable-modal.js"></script>
+
+  <script src="js/application/galeriaUseCase.js"></script>
+  <script src="js/bootstrap.js"></script>
+</body>
+</html>

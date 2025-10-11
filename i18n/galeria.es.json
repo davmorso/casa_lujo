@@ -1,0 +1,138 @@
+{
+  "meta": {
+    "title": "Triplex en Arenys de Mar",
+    "description": "Exclusivo triplex de diseño de tres plantas en el centro de Arenys de Mar. Luz natural, privacidad y diseño cuidado en un entorno único.",
+    "price": "375.000 €",
+    "keywords": "casa de lujo, Arenys de Mar,  casa, centro, centrica, vivienda exclusiva, terraza, ascensor, luz natural, sur, este, oeste",
+    "author": "David M",
+    "og": {
+      "title": "Casa de lujo en venta en Centro de Arenys de Mar",
+      "description": "Exclusivo triplex de diseño de tres plantas en el centro de Arenys de Mar. Luz natural, privacidad y diseño cuidado en un entorno único.",
+      "type": "website",
+      "url": "https://davmorso.github.io/casa/",
+      "image": "/portada.jpg"
+    },
+    "twitter": {
+      "card": "summary_large_image",
+      "title": "Casa de lujo en venta en Centro de Arenys de Mar",
+      "description": "Descubre este exclusivo triplex con luz natural, privacidad y diseño único en Arenys de Mar.",
+      "image": "/img/portada.jpg"
+    }
+  },
+  "header": {
+    "title_desktop": "Casa de lujo en venta en Centro de Arenys de Mar",
+    "title_mobile": "Casa de lujo en Arenys de Mar",
+    "price": "1.290.000 €"
+  },
+  "descripcion": "En pleno corazón de Arenys de Mar, en la calle más emblemática y prestigiosa de la localidad, presentamos esta residencia exclusiva e incomparable, cerca de la playa, la estación y todos los servicios.<br />Con una superficie de 450 m², la vivienda ha sido completamente reformada y equipada con acabados de alta gama, convirtiéndose en una auténtica joya modernista que combina la elegancia de su arquitectura original con el confort de una casa nueva.<br /><br />Dispone de un amplio salón comedor, cocina independiente de diseño totalmente equipada con salida a un espectacular patio, y un total de 5 habitaciones (varias en suite), todas ellas pensadas para el máximo confort. La vivienda cuenta con suelos de parquet de alta gama, mobiliario de lujo, aire acondicionado en todas las estancias, 4 baños, despacho con chimenea, sala de entrada polivalente, bodega, jardín  y garaje incluido en el precio. Además, está equipada con ascensor para mayor comodidad. Todas las instalaciones de la casa (electricdad, gas, aire acondicionado) se han instalado desde cer0 con las tecnologías más moderna.<br /><br />En el exterior, el espacioso patio ofrece la posibilidad de construir una piscina privada, creando un oasis de lujo en pleno centro de la localidad.<br /><br />Una propiedad única e irrepetible en el Maresme, perfecta para quienes buscan exclusividad, diseño y confort en un entorno privilegiado junto al mar.<br /><br />Gastos de compra no incluidos en el precio de venta.",
+  "textos": {
+    "planta-1": {
+      "titulo": "Primera planta – Zona de día",
+      "puntos": [
+        "Amplio y luminoso salón-comedor con cocina semiabierta.",
+        "Acceso directo a una cómoda terraza exterior.",
+        "Excelente entrada de luz.",
+        "Cocina de alta gama, moderna y en perfecto estado.",
+        "Espacios bien integrados, prácticos y con mucho gusto arquitectónico."
+      ],
+      "imagenes": [
+        { "src": "./img/planta 1/casa 0.jpeg", "alt": "Primera planta: salón-comedor amplio y luminoso, vista general" },
+        { "src": "./img/planta 1/casa 1.jpeg", "alt": "Primera planta: cocina semiabierta de alta gama, encimera" },
+        { "src": "./img/planta 1/casa 2.jpeg", "alt": "Primera planta: cocina y zona de trabajo" },
+        { "src": "./img/planta 1/casa 3.jpeg", "alt": "Primera planta: zona de estar con sofá" },
+        { "src": "./img/planta 1/casa 4.jpeg", "alt": "Primera planta: detalle de decoración e interior" },
+        { "src": "./img/planta 1/casa 5.jpeg", "alt": "Primera planta: acceso a terraza exterior" },
+        { "src": "./img/planta 1/casa 6.jpeg", "alt": "Primera planta: baño/aseo de planta baja" },
+        { "src": "./img/planta 1/casa 7.jpeg", "alt": "Primera planta: vistas exteriores y buena entrada de luz" }        
+      ]
+    },
+    "planta-2": {
+      "titulo": "Segunda planta – Suite principal",
+      "puntos": [
+        "Primera suite con terraza y con vistas a la calle principal.",
+        "Segunda suite con vestidor y baño completo con vistas al jardín.",
+        "Espacios generosos y mucha luz natural."
+      ],
+      "imagenes": [
+        { "src": "./img/planta 2/casa 1.jpeg", "alt": "Segunda planta: suite con vestidor" },
+        { "src": "./img/planta 2/casa 2.jpeg", "alt": "Segunda planta: pasillo y acceso a la habitación" },
+        { "src": "./img/planta 2/casa 3.jpeg", "alt": "Segunda planta: habitación principal" },
+        { "src": "./img/planta 2/casa 4.jpeg", "alt": "Segunda planta: terraza privada de la habitación" },
+        { "src": "./img/planta 2/casa 5.jpeg", "alt": "Segunda planta: baño de la habitación, plato de ducha" }
+      ]
+    },
+    "planta-3": {
+      "titulo": "Tercera planta – Segunda suite",
+      "puntos": [
+        "Segunda habitación tipo suite con baño de diseño con tragaluz que proporciona luz natural todo el día, algo más pequeña y abuhardillada.",
+        "Una habitación muy acogedora y especial.",
+        "Acceso a otra terraza privada."
+      ],
+      "imagenes": [
+        { "src": "./img/planta 3/casa 1.jpeg", "alt": "Tercera planta: zona de estar o terraza" },
+        { "src": "./img/planta 3/casa 2.jpeg", "alt": "Tercera planta: segunda suite, algo abuhardillada" },
+        { "src": "./img/planta 3/casa 3.jpeg", "alt": "Tercera planta: Lavadero" }
+      ]
+    },
+    "planta-4": {
+      "titulo": "Cuarta planta – Azotea",
+      "puntos": [
+        "Azotea y terraza superior con buenas vistas.",
+        "Espacio ideal para disfrutar al aire libre y pequeñas reuniones."
+      ],
+      "imagenes": [
+        { "src": "./img/planta 4/casa 1.jpeg", "alt": "Cuarta planta: azotea/terraza con vistas" }
+      ]
+    }
+  },
+  "detalles": {
+    "titulo": "Detalles adicionales",
+    "puntos": [
+      "Escaleras cómodas y seguras entre plantas.",
+      "Toda la vivienda disfruta de espacios exteriores y una gran luminosidad.",
+      "Un piso único, especial y muy bien conservado.",
+      "Orientación sur, este y oeste: sol por las tardes.",
+      "Ascensor en el edificio.",
+      "Parking para 2 coches grandes (3 pequeños) incluido en el precio.",
+      "Trastero grande incluido en el precio."
+      
+    ],
+    "caracteristicas": [
+      "450 m² construidos, 80 m² útiles",
+      "5 habitaciones",
+      "4 baños",
+      "3 Terrazas",
+      "3 pequeños trastero",
+      "Segunda mano / buen estado",
+      "Armarios empotrados",
+      "Orientación este, oeste, sur",
+      "Construido en 2009",
+      "Calefacción individual: Bomba de frío/calor",
+      "Planta 1ª exterior",
+      "Con ascensor",
+      "Certificado energético: No indicado"
+    ]    
+  },
+  "contacto": {
+    "texto": "Para más información, no dudes en contactarnos. Disfruten una visita.",
+    "telefono": ""
+  },
+  "ui": {
+    "modal": {
+      "cerrar": "×",
+      "plantaAnterior": "⬆ Planta anterior",
+      "plantaSiguiente": "⬇ Planta siguiente",
+      "anterior": "Anterior",
+      "siguiente": "Siguiente"
+    },
+    "cookieBanner": {
+      "texto": "Este sitio web utiliza cookies para análisis. Puedes aceptar o rechazar.",
+      "aceptar": "Aceptar",
+      "rechazar": "Rechazar"
+    },
+    "footer": "© 2025 davmorso. Todos los derechos reservados.",
+    "links": {
+      "politica_privacidad": "Política de privacidad"
+    }
+  }
+}
