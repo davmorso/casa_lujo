@@ -1,0 +1,167 @@
+{
+  "meta": {
+    "title": "Luxury house in Arenys de Mar",
+    "description": "Exclusiv Luxury housee in the center of Arenys de Mar. Natural light, privacy and tasteful design in a unique setting.",
+    "price": "1.290.000 €",
+    "keywords": "luxury house, Arenys de Mar, center, exclusive home, terrace, elevator, natural light",
+    "author": "David M",
+    "og": {
+      "title": "Luxury house for sale in the center of Arenys de Mar",
+      "description": "Exclusive Luxury house in the center of Arenys de Mar.",
+      "type": "website",
+      "url": "https://davmorso.github.io/casa/",
+      "image": "/portada.jpg"
+    },
+    "twitter": {
+      "card": "summary_large_image",
+      "title": "Luxury house for sale in the center of Arenys de Mar",
+      "description": "Discover this Luxury house with abundant natural light and unique design in Arenys de Mar.",
+      "image": "/img/portada.jpg"
+    }
+  },
+  "header": {
+    "title_desktop": "Luxury house for sale in the center of Arenys de Mar",
+    "title_mobile": "Luxury house in Arenys de Mar",
+    "price": "1.290.000 €"
+  },
+  "descripcion": "In the heart of Arenys de Mar, on the town's most emblematic and prestigious street, we present this exclusive and incomparable residence, close to the beach, the station and all services. With a surface area of 450 m², the property has been completely renovated and fitted with high-end finishes, becoming a true gem that combines the elegance of its original architecture with the comfort of a modern home.<br/><br/>It features a large living-dining room, a fully fitted designer kitchen with access to a spectacular courtyard, and a total of 5 bedrooms (some en suite), all designed for maximum comfort. The property has high-end parquet flooring, luxury furnishings, air conditioning in all rooms, 4 bathrooms, an office with a fireplace, a versatile entrance room, a wine cellar, a garden and a garage included in the price. In addition, it is equipped with an elevator for added convenience. All installations (electricity, gas, air conditioning) have been installed from scratch with the latest technologies.<br/><br/>Outside, the spacious courtyard offers the possibility of building a private pool, creating a luxury oasis in the very center of town.<br/><br/>A unique and unrepeatable property in the Maresme area, perfect for those seeking exclusivity, design and comfort in a privileged seaside location.<br/><br/>Purchase costs are not included in the sale price.",
+  "textos": {
+    "planta-1": {
+      "titulo": "First floor – Day area",
+      "puntos": [
+        "Spacious and bright living-dining room with a semi-open kitchen.",
+        "Direct access to a comfortable outdoor terrace.",
+        "Excellent natural light.",
+        "High-end, modern and perfectly maintained kitchen.",
+        "Well-integrated, practical spaces with great architectural taste."
+      ],
+      "imagenes": [
+        { "src": "./img/planta 1/casa 0.jpeg", "alt": "First floor: spacious and bright living-dining room, general view" },
+        { "src": "./img/planta 1/casa 1.jpeg", "alt": "First floor: high-end semi-open kitchen, countertop" },
+        { "src": "./img/planta 1/casa 2.jpeg", "alt": "First floor: kitchen and work area" },
+        { "src": "./img/planta 1/casa 3.jpeg", "alt": "First floor: sitting area with sofa" },
+        { "src": "./img/planta 1/casa 4.jpeg", "alt": "First floor: decoration and interior detail" },
+        { "src": "./img/planta 1/casa 5.jpeg", "alt": "First floor: access to outdoor terrace" },
+        { "src": "./img/planta 1/casa 6.jpeg", "alt": "First floor: ground floor toilet/bathroom" },
+        { "src": "./img/planta 1/casa 7.jpeg", "alt": "First floor: exterior views and good natural light" }
+      ]
+    },
+    "planta-2": {
+      "titulo": "Second floor – Master suite",
+      "puntos": [
+        "Master suite with terrace and views to the main street.",
+        "Second suite with dressing room and full bathroom with garden views.",
+        "Generous spaces and lots of natural light."
+      ],
+      "imagenes": [
+        { "src": "./img/planta 2/casa 1.jpeg", "alt": "Second floor: suite with dressing room" },
+        { "src": "./img/planta 2/casa 2.jpeg", "alt": "Second floor: corridor and access to the room" },
+        { "src": "./img/planta 2/casa 3.jpeg", "alt": "Second floor: main bedroom" },
+        { "src": "./img/planta 2/casa 4.jpeg", "alt": "Second floor: private terrace of the bedroom" },
+        { "src": "./img/planta 2/casa 5.jpeg", "alt": "Second floor: bedroom bathroom, shower tray" }
+      ]
+    },
+    "planta-3": {
+      "titulo": "Third floor – Second suite",
+      "puntos": [
+        "Second bedroom as a suite with designer bathroom and a skylight that provides natural light all day, slightly smaller and with a sloped ceiling.",
+        "A very cozy and special room.",
+        "Access to another private terrace."
+      ],
+      "imagenes": [
+        { "src": "./img/planta 3/casa 1.jpeg", "alt": "Third floor: sitting area or terrace" },
+        { "src": "./img/planta 3/casa 2.jpeg", "alt": "Third floor: second suite, slightly attic-like" },
+        { "src": "./img/planta 3/casa 3.jpeg", "alt": "Third floor: laundry area" }
+      ]
+    },
+    "planta-4": {
+      "titulo": "Fourth floor – Upper terrace",
+      "puntos": [
+        "Upper terrace with great views.",
+        "Ideal space to enjoy outdoors and for small gatherings."
+      ],
+      "imagenes": [
+        { "src": "./img/planta 4/casa 1.jpeg", "alt": "Fourth floor: rooftop/terrace with views" }
+      ]
+    }
+  },
+  "detalles": {
+    "titulo": "Additional details",
+    "caracteristicas_titulo": "Features",
+    "puntos": [
+      "Comfortable and safe stairs between floors.",
+      "The entire dwelling enjoys outdoor spaces and great brightness.",
+      "A unique, special and very well-preserved home.",
+      "South, east and west orientation: afternoon sun.",
+      "Elevator in the building.",
+      "Parking for 2 large cars (3 small ones) included in the price.",
+      "Large storage room included in the price."
+    ],
+    "caracteristicas": [
+      "450 m² built, 80 m² usable",
+      "5 bedrooms",
+      "4 bathrooms",
+      "3 terraces",
+      "3 small storage rooms",
+      "Second hand / good condition",
+      "Built-in wardrobes",
+      "South, east, west orientation",
+      "Built in 2009",
+      "Individual heating: Heat pump (heating/cooling)",
+      "1st floor - exterior",
+      "With elevator",
+      "Energy certificate: Not indicated"
+    ]
+  },
+  "contacto": {
+    "titulo": "Contact about this property",
+    "boton_abrir": "Contact (interested)",
+    "labels": {
+      "nombre": "Name",
+      "telefono": "Phone",
+      "estructura_compra": "How do you envision structuring the purchase of your future home (financing, own resources, combination, etc.)?",
+      "experiencia": "What level of experience do you have in real estate transactions of this type or in acquiring premium properties?",
+      "acepto": "I accept the privacy policy"
+    },
+    "placeholders": {
+      "nombre": "Your full name",
+      "telefono": "Contact phone",
+      "estructura_compra": "Describe how you would finance the purchase...",
+      "experiencia": "Brief description of your experience (if applicable)"
+    },
+    "botones": {
+      "enviar": "Prepare email",
+      "cancelar": "Cancel"
+    },
+    "email": {
+      "recipientes": [
+        "dmoraroca@gmail.com",
+        "mmora@canalip.com"
+      ],
+      "asunto_prefijo": "Interest in property - House"
+    },
+    "errores": {
+      "requerido": "This field is required",
+      "aceptar_politica": "You must accept the privacy policy to continue"
+    },
+    "nota_envio": "Your email client will open with the message. Review and press send in your mail application."
+  },
+  "ui": {
+    "modal": {
+      "cerrar": "×",
+      "plantaAnterior": "⬆ Previous floor",
+      "plantaSiguiente": "⬇ Next floor",
+      "anterior": "Previous",
+      "siguiente": "Next"
+    },
+    "cookieBanner": {
+      "texto": "This website uses cookies for analytics. You can accept or reject.",
+      "aceptar": "Accept",
+      "rechazar": "Reject"
+    },
+    "footer": "© 2025 davmorso. All rights reserved.",
+    "links": {
+      "politica_privacidad": "Privacy Policy"
+    }
+  }
+}

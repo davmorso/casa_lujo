@@ -43,6 +43,68 @@
     </p>
   </header>
 
+  <!-- Barra de idioma (gris) -->
+  <nav class="lang-bar" id="lang-bar">
+  <button class="lang-btn" data-lang="ca" aria-label="Català" title="Català">
+    <svg width="28" height="18" viewBox="0 0 28 18" aria-hidden="true"><rect width="28" height="18" fill="#FFD700"/><g fill="#E03C31"><rect y="0" x="0" width="28" height="3"/><rect y="6" x="0" width="28" height="3"/><rect y="12" x="0" width="28" height="3"/></g></svg>
+    <span class="lang-label">CAT</span>
+  </button>
+
+  <!-- Inline bandera España -->
+  <button class="lang-btn" data-lang="es" aria-label="Español" title="Español">
+    <!-- Proporciones correctas: franjas 1:2:1 (total 4 partes) -->
+    <svg class="flag-svg" viewBox="0 0 3 2" preserveAspectRatio="xMidYMid meet" aria-hidden="true" role="img">
+      <!-- altura total = 2 -->
+      <!-- franja superior roja: 0.5 (1/4) -->
+      <rect width="3" height="0.5" y="0" fill="#c60b1e"></rect>
+      <!-- franja amarilla central: 1.0 (2/4) -->
+      <rect width="3" height="1.0" y="0.5" fill="#ffc400"></rect>
+      <!-- franja inferior roja: 0.5 (1/4) -->
+      <rect width="3" height="0.5" y="1.5" fill="#c60b1e"></rect>
+    </svg>
+    <span class="lang-label">ES</span>
+  </button>
+
+  <!-- Inline bandera UK -->
+  <button class="lang-btn" data-lang="en" aria-label="English" title="English">
+    <svg class="flag-svg" viewBox="0 0 60 30" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+      <rect width="60" height="30" fill="#012169"/>
+      <g stroke="#fff" stroke-width="6">
+        <path d="M0 0 L60 30" />
+        <path d="M60 0 L0 30" />
+      </g>
+      <g stroke="#C8102E" stroke-width="4">
+        <path d="M0 0 L60 30" />
+        <path d="M60 0 L0 30" />
+      </g>
+      <rect x="25" width="10" height="30" fill="#fff"/>
+      <rect y="10" width="60" height="10" fill="#fff"/>
+      <rect x="27" width="6" height="30" fill="#C8102E"/>
+      <rect y="12" width="60" height="6" fill="#C8102E"/>
+    </svg>
+    <span class="lang-label">EN</span>
+  </button>
+
+  <button class="lang-btn" data-lang="fr" aria-label="Français" title="Français">
+    <svg class="flag-svg" viewBox="0 0 3 2" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+      <rect width="1" height="2" x="0" fill="#0055A4"></rect>
+      <rect width="1" height="2" x="1" fill="#FFFFFF"></rect>
+      <rect width="1" height="2" x="2" fill="#EF4135"></rect>
+    </svg>
+    <span class="lang-label">FR</span>
+  </button>
+
+  <!-- NUEVO: botón ruso -->
+  <button class="lang-btn" data-lang="ru" aria-label="Русский" title="Русский">
+    <svg class="flag-svg" viewBox="0 0 3 2" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+      <rect width="3" height="0.6667" y="0" fill="#fff"></rect>
+      <rect width="3" height="0.6667" y="0.6667" fill="#0039A6"></rect>
+      <rect width="3" height="0.6667" y="1.3334" fill="#D52B1E"></rect>
+    </svg>
+    <span class="lang-label">RU</span>
+  </button>
+</nav>
+
   <!-- Imagen destacada entre la zona azul (header) y la descripción -->
   <div id="portada" style="text-align:center; margin:18px 0;">
     <img class="portada-img" src="img/planta 1/casa 0.jpeg" alt="Vista destacada" />
@@ -54,7 +116,7 @@
     <div id="descripcion-text"></div>
 
   
-    <!-- Características: se rellenará desde i18n.detalles.caracteristicas -->
+    <!-- Características: se rellená desde i18n.detalles.caracteristicas -->
     <div id="caracteristicas-section"></div>
     <!-- Espaciado controlado por CSS -->
      
@@ -126,13 +188,11 @@
   </footer>
 
   <!-- Script de galería y UI (cliente) -->
-  <script src="js/domain/pisoRepository.js"></script>
   <script src="js/application/galeriaUseCase.js"></script>
   <script src="js/presentation/galeriaView.js"></script>
   <script src="js/presentation/cookieBannerView.js"></script>
   <script src="js/infraestructure/cookieService.js"></script>
-  
-  <!-- Carga i18n y funcionalidades específicas -->
+  <script src="js/lang-switcher.js"></script>
   <script src="js/i18n-loader.js"></script>
   <script src="js/galeria.js"></script>
   <script src="js/zoomable-modal.js"></script>
@@ -185,9 +245,6 @@
       </form>
     </div>
   </div>
-
-  <!-- incluir script que maneja el modal/validación/envío -->
-  <script src="js/contact-form.js"></script>
 
 </body>
 </html>

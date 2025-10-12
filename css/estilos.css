@@ -271,88 +271,95 @@ h1.titulo-pegado-izquierda {
   transition: background 0.6s ease;
 }
 
-/* Header responsive: evitar que el título se corte en pantallas pequeñas */
+/* Header responsivo: grande en laptop, menor en tablet/móvil */
 .header-espectacular {
-  padding: clamp(14px, 4vw, 48px);
   box-sizing: border-box;
+  padding: 18px 12px;
+  text-align: center;
+  background: linear-gradient(90deg,#4e6abf,#22324e);
+  color: #fff;
 }
 
-/* asegurar que los spans pueden envolver texto sin cortarlo */
-.header-espectacular h1 span,
-.header-espectacular h1 {
-  display: block;
-  white-space: normal;
-  overflow-wrap: anywhere;
-  word-break: break-word;
-  hyphens: auto;
-  margin: 0;
+/* contenedor interno para mantener recorte estable */
+.header-espectacular .header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6px 12px;
 }
 
-/* Título para escritorio: escala responsiva */
-.titulo-escritorio {
-  display: block;
-  font-size: clamp(1.8rem, 2.4vw + 1rem, 3.2rem);
-  line-height: 1.05;
-  font-weight: 700;
-  text-shadow: 0 2px 0 rgba(0,0,0,0.15);
+/* Escritorio (laptop/desktop) */
+@media (min-width: 1024px) {
+  .titulo-escritorio {
+    display: block;
+    font-size: 2.4rem; /* grande en laptop */
+    line-height: 1.02;
+    font-weight: 800;
+    margin: 0;
+  }
+  .titulo-movil { display: none; }
 }
 
-/* Título para móvil: oculto en desktop, mostrado en móvil; escala más pequeña */
-.titulo-movil {
-  display: none;
-  font-size: clamp(1.2rem, 4.5vw, 1.9rem);
-  line-height: 1.1;
-  font-weight: 700;
+/* Tablet / móvil */
+@media (max-width: 1023px) {
+  .titulo-escritorio { display: none; }
+  .titulo-movil {
+    display: block;
+    font-size: 1.25rem; /* más pequeño en pantallas pequeñas */
+    font-weight: 700;
+    margin: 0;
+  }
 }
 
-/* Breakpoint: invertir visibilidad y ajustar espaciado en pantallas pequeñas */
-@media (max-width: 768px) {
-  .titulo-escritorio { display: none !important; }
-  .titulo-movil { display: block !important; }
-  .header-espectacular { padding: clamp(10px, 6vw, 22px); }
-}
+/* asegurar que el header no aumente demasiado su altura */
+.header-espectacular { min-height: 80px; }
+@media (min-width:1024px){ .header-espectacular{ min-height: 120px; } }
 
-/* si se necesita truncar en una sola línea en escritorio, usar esto; por ahora lo mantenemos envuelto */
-.header-espectacular .no-wrap-desktop {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* estilos adicionales para el modal de contacto */
-.modal {
-  display: none; /* oculto por defecto */
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.8);
+/* estilo de la barra de idioma para que no empuje el header */
+#lang-bar { background:#f0f0f0; padding:6px 10px; border-top:3px solid #e6b200; }
+.lang-bar {
+  display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 10000;
-  flex-direction: column;
+  gap: 12px;
+  padding: 8px 0;
+}
+.lang-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  padding: 6px;      /* mantener pequeño y simétrico */
+  line-height: 1;    /* evitar estirado vertical del contenido */
 }
 
-.modal-panel { background:#fff; padding:18px; width:clamp(320px, 90%, 640px); border-radius:8px; position:relative; }
+/* Unificar tamaño de banderas: misma altura, ancho automático para mantener proporciones */
+.flag-svg,
+.flag-img {
+  height: 18px !important;   /* altura fija idéntica */
+  width: auto !important;    /* ancho proporcional */
+  display: inline-block;
+  vertical-align: middle;
+  object-fit: contain;
+}
 
-.modal-close { position:absolute; right:10px; top:8px; background:transparent; border:0; font-size:22px; cursor:pointer; }
+/* Evitar que atributos width/height inline de los SVG anulen el CSS */
+.lang-btn svg[width],
+.lang-btn svg[height] {
+  width: auto !important;
+  height: 18px !important;
+}
 
-.form-row { margin-bottom:12px; }
+/* fallback emoji */
+.flag-fallback { font-size: 18px; line-height: 1; display: none; }
+/* Si la imagen falla, el atributo onerror en el HTML mostrará el fallback */
+.lang-btn.active-lang { box-shadow: 0 0 0 2px rgba(0,0,0,0.06) inset, 0 1px 3px rgba(0,0,0,0.08); }
 
-.form-row label { display:block; font-weight:600; margin-bottom:6px; }
-
-.form-row input[type="text"], .form-row input[type="tel"], .form-row textarea { width:100%; padding:8px; border:1px solid #ccc; border-radius:4px; }
-
-.checkbox-row { display:flex; align-items:center; gap:8px; }
-
-.field-error { color:#b00020; font-size:0.9rem; min-height:18px; margin-top:6px; }
-
-.form-actions { display:flex; gap:10px; justify-content:flex-end; margin-top:8px; }
-
-.small-note { font-size:0.85rem; color:#444; margin-top:10px; }
-
-/* Botones básicos (reutiliza si ya tienes clases) */
-.btn-primary { background:#2161ff; color:#fff; border:0; padding:10px 14px; border-radius:6px; cursor:pointer; }
-.btn-secondary { background:#e6e6e6; color:#111; border:0; padding:10px 12px; border-radius:6px; cursor:pointer; }
+/* Ocultar siglas en pantallas muy pequeñas */
+@media (max-width: 520px) {
+  .lang-label { display: none; }
+}
 
 /* Indentar 200px los <li> de descripción, detalles y textos de planta */
 #descripcion ul,
@@ -480,3 +487,56 @@ h1.titulo-pegado-izquierda {
 /* Botones básicos (reutiliza si ya tienes clases) */
 .btn-primary { background:#2161ff; color:#fff; border:0; padding:10px 14px; border-radius:6px; cursor:pointer; }
 .btn-secondary { background:#e6e6e6; color:#111; border:0; padding:10px 12px; border-radius:6px; cursor:pointer; }
+
+/* Forzar header consistente entre idiomas: mismo recuadro y escala responsiva */
+.header-espectacular {
+  box-sizing: border-box;
+  padding: clamp(12px, 3.5vw, 36px);
+  text-align: center;
+}
+
+/* Contener el título para que no cambie de salto entre idiomas */
+.header-espectacular .header-inner {
+  max-width: 1200px;        /* tamaño de contenedor estable */
+  margin: 0 auto;
+}
+
+/* Títulos: uso de clamp para mantener tamaño proporcional pero estable */
+.titulo-escritorio {
+  display: block;
+  font-size: clamp(1.6rem, 2.2vw + 0.9rem, 3rem);
+  line-height: 1.03;
+  margin: 0;
+  white-space: normal;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+/* Título móvil independiente (se muestra solo con media query) */
+.titulo-movil {
+  display: none;
+  font-size: clamp(1.1rem, 4.5vw, 1.9rem);
+  line-height: 1.15;
+  margin: 0;
+}
+
+/* precio / subtítulo */
+.header-espectacular .header-sub {
+  margin-top: 6px;
+  font-weight: 700;
+  color: #ffd000;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.12);
+}
+
+/* Asegurar que ambos títulos no influyan en el layout: el móvil se oculta en escritorio */
+@media (max-width: 768px) {
+  .titulo-escritorio { display: none !important; }
+  .titulo-movil { display: block !important; }
+}
+
+/* Evitar que títulos largos empujen el header demasiado: limitar altura visual */
+.header-espectacular h1, .header-espectacular .titulo-escritorio, .header-espectacular .titulo-movil {
+  margin-left: 8px;
+  margin-right: 8px;
+  box-sizing: border-box;
+}

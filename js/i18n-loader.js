@@ -1,13 +1,41 @@
-// Carga dinámicamente i18n/galeria.es.json y rellena secciones con data-texto
+// filepath: c:\_DATA\repos\casa_rustica\js\i18n-loader.js
 'use strict';
 
-(async function () {
-  try {
-    const res = await fetch('./i18n/galeria.es.json', { cache: 'no-cache' });
-    if (!res.ok) throw new Error('No se pudo cargar i18n');
-    const json = await res.json();
+/*
+  i18n-loader.js
+  - Expone applyI18n / ensureCompleteI18n
+  - Inicialmente carga galeria.es.json
+  - Al recibir evento 'i18nLoaded' aplica la traducción (merge con ES si es necesario)
+*/
 
-    // meta general
+function deepMerge(base, over) {
+  if (!base) return over || {};
+  if (!over) return base;
+  const out = Array.isArray(base) ? base.slice() : Object.assign({}, base);
+  for (const k of Object.keys(over)) {
+    const bv = base[k], ov = over[k];
+    if (bv && typeof bv === 'object' && !Array.isArray(bv) && ov && typeof ov === 'object' && !Array.isArray(ov)) {
+      out[k] = deepMerge(bv, ov);
+    } else {
+      out[k] = ov;
+    }
+  }
+  return out;
+}
+
+function replaceUlWithItems(container, items) {
+  if (!container) return;
+  container.innerHTML = '';
+  (items || []).forEach(i => {
+    const li = document.createElement('li');
+    li.textContent = i;
+    container.appendChild(li);
+  });
+}
+
+function applyI18n(json = {}) {
+  try {
+    // meta
     if (json.meta) {
       if (json.meta.title) document.title = json.meta.title;
       const setMeta = (selector, value, attr = 'content') => {
@@ -18,71 +46,65 @@
       setMeta('meta[name="description"]', json.meta.description);
       setMeta('meta[name="keywords"]', json.meta.keywords);
       setMeta('meta[name="author"]', json.meta.author);
-      // OpenGraph
       setMeta('meta[property="og:title"]', json.meta.og?.title);
       setMeta('meta[property="og:description"]', json.meta.og?.description);
       setMeta('meta[property="og:type"]', json.meta.og?.type);
       setMeta('meta[property="og:url"]', json.meta.og?.url);
       setMeta('meta[property="og:image"]', json.meta.og?.image);
-      // Twitter
       setMeta('meta[name="twitter:card"]', json.meta.twitter?.card);
       setMeta('meta[name="twitter:title"]', json.meta.twitter?.title);
       setMeta('meta[name="twitter:description"]', json.meta.twitter?.description);
       setMeta('meta[name="twitter:image"]', json.meta.twitter?.image);
-    }     
+    }
 
     // header
     if (json.header) {
       const hdDesktop = document.getElementById('header-title-desktop');
       const hdMobile = document.getElementById('header-title-mobile');
       const hdPrice = document.getElementById('header-price');
-      if (hdDesktop && json.header.title_desktop) hdDesktop.textContent = json.header.title_desktop;
-      if (hdMobile && json.header.title_mobile) hdMobile.textContent = json.header.title_mobile;
-      if (hdPrice && (json.header.price || json.header.price === '')) hdPrice.textContent = json.header.price;
+      if (hdDesktop && json.header.title_desktop !== undefined) hdDesktop.textContent = json.header.title_desktop;
+      if (hdMobile && json.header.title_mobile !== undefined) hdMobile.textContent = json.header.title_mobile;
+      if (hdPrice && (json.header.price !== undefined)) hdPrice.textContent = json.header.price;
     }
 
-    // descripción general (si existe)
+    // descripción general
     const desc = document.getElementById('descripcion-text');
-    if (desc && json.descripcion) desc.innerHTML = json.descripcion;
+    if (desc && typeof json.descripcion === 'string') desc.innerHTML = json.descripcion;
 
-    // características (colocadas entre descripción y primera planta)
-    if (json.detalles && Array.isArray(json.detalles.caracteristicas) && json.detalles.caracteristicas.length) {
+    // características colocadas en #caracteristicas-section (entre descripción y primera planta en HTML)
+    if (json.detalles && Array.isArray(json.detalles.caracteristicas)) {
       const carSec = document.getElementById('caracteristicas-section');
       if (carSec) {
         carSec.innerHTML = '';
         const hCar = document.createElement('h3');
-        hCar.textContent = json.detalles.caracteristicas_titulo || 'Características';
+        hCar.textContent = json.detalles.caracteristicas_titulo || json.detalles.caracteristicasTitulo || 'Características';
         carSec.appendChild(hCar);
         const ulCar = document.createElement('ul');
-        json.detalles.caracteristicas.forEach(item => {
-          const li = document.createElement('li');
-          li.textContent = item;
-          ulCar.appendChild(li);
-        });
+        replaceUlWithItems(ulCar, json.detalles.caracteristicas);
         carSec.appendChild(ulCar);
       }
     }
 
-    // rellenar cada sección con data-texto = key en json.textos
-    const textos = (json.textos) || {};
+    // secciones de planta (.piso-seccion[data-texto])
+    const textos = json.textos || {};
     document.querySelectorAll('.piso-seccion[data-texto]').forEach(sec => {
       const key = sec.getAttribute('data-texto');
       const data = textos[key];
       const textoCont = sec.querySelector('.piso-texto');
-      // NO tocar el contenedor .imagenes aquí — lo maneja js/galeria.js
+
       if (!data) {
+        // si no hay traducción, ocultar sección para evitar mostrar texto en otro idioma
         sec.style.display = 'none';
         return;
+      } else {
+        sec.style.display = '';
       }
-      sec.style.display = '';
 
-      // titulo y puntos
       if (textoCont) {
         textoCont.innerHTML = '';
         const h = document.createElement('h2');
         h.textContent = data.titulo || '';
         textoCont.appendChild(h);
-
         if (Array.isArray(data.puntos) && data.puntos.length) {
           const ul = document.createElement('ul');
           data.puntos.forEach(p => {
@@ -93,11 +115,9 @@
           textoCont.appendChild(ul);
         }
       }
-
-      // dejar .imagenes intacto para que galeria.js sea el único que monte miniaturas
     });
 
-    // detalles
+    // detalles (mantener sección en su sitio, reemplazar contenido interno)
     if (json.detalles) {
       const det = document.getElementById('detalles-section');
       if (det) {
@@ -105,7 +125,7 @@
         const h = document.createElement('h3');
         h.textContent = json.detalles.titulo || 'Detalles';
         det.appendChild(h);
-        if (Array.isArray(json.detalles.puntos)) {
+        if (Array.isArray(json.detalles.puntos) && json.detalles.puntos.length) {
           const ul = document.createElement('ul');
           json.detalles.puntos.forEach(p => {
             const li = document.createElement('li');
@@ -133,7 +153,7 @@
       }
     }
 
-    // cookie banner texts
+    // cookie banner
     if (json.ui && json.ui.cookieBanner) {
       const banner = document.getElementById('cookie-banner');
       if (banner) {
@@ -152,13 +172,56 @@
       if (footerP) footerP.textContent = json.ui.footer;
       if (json.ui.links && json.ui.links.politica_privacidad) {
         const fp = document.getElementById('footer-privacy');
-        if (fp) {
-          fp.textContent = json.ui.links.politica_privacidad;
-        }
+        if (fp) fp.textContent = json.ui.links.politica_privacidad;
       }
     }
-
   } catch (err) {
-    console.warn('Carga i18n fallida:', err);
+    console.warn('[i18n-loader] applyI18n error', err);
+  }
+}
+
+async function ensureCompleteI18n(json = {}, lang = 'es') {
+  try {
+    // si el JSON ya tiene las claves principales aplicamos directo
+    if (json && (json.descripcion || json.textos || json.detalles)) {
+      applyI18n(json);
+      return;
+    }
+    // fallback: cargar ES y mergear
+    const resp = await fetch('./i18n/galeria.es.json', { cache: 'no-cache' });
+    if (!resp.ok) {
+      applyI18n(json);
+      return;
+    }
+    const es = await resp.json();
+    const merged = deepMerge(es, json || {});
+    applyI18n(merged);
+  } catch (err) {
+    console.warn('[i18n-loader] ensureCompleteI18n error', err);
+    applyI18n(json);
+  }
+}
+
+/* inicial: cargar ES por defecto */
+(async function init() {
+  try {
+    const res = await fetch('./i18n/galeria.es.json', { cache: 'no-cache' });
+    if (res && res.ok) {
+      const j = await res.json();
+      applyI18n(j);
+    }
+  } catch (err) {
+    console.warn('[i18n-loader] initial load failed', err);
   }
 })();
+
+/* escuchar cambiador de idioma */
+document.addEventListener('i18nLoaded', (ev) => {
+  const j = ev?.detail?.i18n || {};
+  const lang = ev?.detail?.lang || 'es';
+  ensureCompleteI18n(j, lang);
+});
+
+/* exponer para que lang-switcher pueda llamar directamente */
+window.applyI18n = applyI18n;
+window.ensureCompleteI18n = ensureCompleteI18n;
