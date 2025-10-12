@@ -379,3 +379,4 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (modal && modal.style.display === 'flex') ajustarControlesModal();
   });
 });
+  
