@@ -1,4 +1,4 @@
-<!-- version 40 - placeholders para i18n -->
+<!-- version 1 -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -105,6 +105,11 @@
     </div>
    </div>
 
+   <!-- BTN para abrir el formulario de contacto (colocado ANTES del bloque negro cookie-banner) -->
+   <div id="contact-button-before-cookie" style="text-align:center; margin:18px 0;">
+     <button id="open-contact-btn" class="btn-primary"></button>
+   </div>
+
    <div id="cookie-banner" style="position: fixed; bottom: 0; width: 100%; background: #222; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; z-index: 10000;">
     <span></span>
     <div>
@@ -132,5 +137,56 @@
   <script src="js/zoomable-modal.js"></script>
   <script src="js/application/galeriaUseCase.js"></script>
   <script src="js/bootstrap.js"></script>
+
+  <!-- Modal formulario de contacto -->
+  <div id="contact-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" style="display:none;">
+    <div class="modal-panel" role="document">
+      <button id="contact-close" class="modal-close" aria-label="Cerrar">×</button>
+      <h2 id="contact-title"></h2>
+
+      <form id="contact-form" novalidate>
+        <div class="form-row">
+          <label for="contact-nombre" id="label-nombre"></label>
+          <input id="contact-nombre" name="nombre" type="text" />
+          <div class="field-error" data-for="nombre"></div>
+        </div>
+
+        <div class="form-row">
+          <label for="contact-telefono" id="label-telefono"></label>
+          <input id="contact-telefono" name="telefono" type="tel" />
+          <div class="field-error" data-for="telefono"></div>
+        </div>
+
+        <div class="form-row">
+          <label for="contact-estructura" id="label-estructura"></label>
+          <textarea id="contact-estructura" name="estructura_compra" rows="4"></textarea>
+          <div class="field-error" data-for="estructura_compra"></div>
+        </div>
+
+        <div class="form-row">
+          <label for="contact-experiencia" id="label-experiencia"></label>
+          <textarea id="contact-experiencia" name="experiencia" rows="3"></textarea>
+          <div class="field-error" data-for="experiencia"></div>
+        </div>
+
+        <div class="form-row checkbox-row">
+          <input id="contact-acepto" name="acepto" type="checkbox" />
+          <label for="contact-acepto" id="label-acepto"></label>
+          <div class="field-error" data-for="acepto"></div>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" id="contact-cancel" class="btn-secondary"></button>
+          <button type="submit" id="contact-submit" class="btn-primary"></button>
+        </div>
+
+        <p id="contact-note" class="small-note" aria-hidden="true"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- incluir script que maneja el modal/validación/envío -->
+  <script src="js/contact-form.js"></script>
+
 </body>
 </html>

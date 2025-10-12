@@ -271,12 +271,55 @@ h1.titulo-pegado-izquierda {
   transition: background 0.6s ease;
 }
 
-.header-espectacular:hover {
-  background: linear-gradient(90deg, #ffcc00, #f39c12);
-  color: #182848;
-  cursor: default;
+/* Header responsive: evitar que el título se corte en pantallas pequeñas */
+.header-espectacular {
+  padding: clamp(14px, 4vw, 48px);
+  box-sizing: border-box;
 }
 
+/* asegurar que los spans pueden envolver texto sin cortarlo */
+.header-espectacular h1 span,
+.header-espectacular h1 {
+  display: block;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
+  margin: 0;
+}
+
+/* Título para escritorio: escala responsiva */
+.titulo-escritorio {
+  display: block;
+  font-size: clamp(1.8rem, 2.4vw + 1rem, 3.2rem);
+  line-height: 1.05;
+  font-weight: 700;
+  text-shadow: 0 2px 0 rgba(0,0,0,0.15);
+}
+
+/* Título para móvil: oculto en desktop, mostrado en móvil; escala más pequeña */
+.titulo-movil {
+  display: none;
+  font-size: clamp(1.2rem, 4.5vw, 1.9rem);
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+/* Breakpoint: invertir visibilidad y ajustar espaciado en pantallas pequeñas */
+@media (max-width: 768px) {
+  .titulo-escritorio { display: none !important; }
+  .titulo-movil { display: block !important; }
+  .header-espectacular { padding: clamp(10px, 6vw, 22px); }
+}
+
+/* si se necesita truncar en una sola línea en escritorio, usar esto; por ahora lo mantenemos envuelto */
+.header-espectacular .no-wrap-desktop {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* estilos adicionales para el modal de contacto */
 .modal {
   display: none; /* oculto por defecto */
   position: fixed;
@@ -289,43 +332,27 @@ h1.titulo-pegado-izquierda {
   flex-direction: column;
 }
 
-.modal-contenido {
-  max-width: 90%;
-  max-height: 80vh;
-  border-radius: 8px;
-  box-shadow: 0 0 15px #000;
-  touch-action: none;       /* permitimos interceptar gestos (pinch/pan) */
-  will-change: transform;   /* optimización para transformaciones */
-  transform-origin: 0 0;    /* trabajamos con translate + scale */
-  transition: transform 0.05s linear; /* suave al aplicar transform */
-  max-width: none;          /* dejamos que el JS controle el tamaño */
-  max-height: none;
-}
+.modal-panel { background:#fff; padding:18px; width:clamp(320px, 90%, 640px); border-radius:8px; position:relative; }
 
-#caption {
-  color: white;
-  margin-top: 10px;
-  font-size: 1.2rem;
-  max-width: 90%;
-  text-align: center;
-}
+.modal-close { position:absolute; right:10px; top:8px; background:transparent; border:0; font-size:22px; cursor:pointer; }
 
-#cerrar {
-  position: fixed;
-  top: 20px;
-  right: 30px;
-  font-size: 40px;
-  color: white;
-  cursor: pointer;
-  user-select: none;
-  z-index: 10001;
-}
+.form-row { margin-bottom:12px; }
 
+.form-row label { display:block; font-weight:600; margin-bottom:6px; }
 
+.form-row input[type="text"], .form-row input[type="tel"], .form-row textarea { width:100%; padding:8px; border:1px solid #ccc; border-radius:4px; }
 
-.cookie-banner {
-  display: none;
-}
+.checkbox-row { display:flex; align-items:center; gap:8px; }
+
+.field-error { color:#b00020; font-size:0.9rem; min-height:18px; margin-top:6px; }
+
+.form-actions { display:flex; gap:10px; justify-content:flex-end; margin-top:8px; }
+
+.small-note { font-size:0.85rem; color:#444; margin-top:10px; }
+
+/* Botones básicos (reutiliza si ya tienes clases) */
+.btn-primary { background:#2161ff; color:#fff; border:0; padding:10px 14px; border-radius:6px; cursor:pointer; }
+.btn-secondary { background:#e6e6e6; color:#111; border:0; padding:10px 12px; border-radius:6px; cursor:pointer; }
 
 /* Indentar 200px los <li> de descripción, detalles y textos de planta */
 #descripcion ul,
@@ -437,3 +464,19 @@ h1.titulo-pegado-izquierda {
   padding-left: 6px;
   margin-bottom: 10px;
 }
+
+/* Modal contacto */
+.modal { position: fixed; inset: 0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0.6); z-index:30000; }
+.modal-panel { background:#fff; padding:18px; width:clamp(320px, 90%, 640px); border-radius:8px; position:relative; }
+.modal-close { position:absolute; right:10px; top:8px; background:transparent; border:0; font-size:22px; cursor:pointer; }
+.form-row { margin-bottom:12px; }
+.form-row label { display:block; font-weight:600; margin-bottom:6px; }
+.form-row input[type="text"], .form-row input[type="tel"], .form-row textarea { width:100%; padding:8px; border:1px solid #ccc; border-radius:4px; }
+.checkbox-row { display:flex; align-items:center; gap:8px; }
+.field-error { color:#b00020; font-size:0.9rem; min-height:18px; margin-top:6px; }
+.form-actions { display:flex; gap:10px; justify-content:flex-end; margin-top:8px; }
+.small-note { font-size:0.85rem; color:#444; margin-top:10px; }
+
+/* Botones básicos (reutiliza si ya tienes clases) */
+.btn-primary { background:#2161ff; color:#fff; border:0; padding:10px 14px; border-radius:6px; cursor:pointer; }
+.btn-secondary { background:#e6e6e6; color:#111; border:0; padding:10px 12px; border-radius:6px; cursor:pointer; }
