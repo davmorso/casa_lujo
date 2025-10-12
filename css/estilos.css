@@ -152,52 +152,112 @@ h1.titulo-pegado-izquierda {
   color: #ff5555;
 }
 
+/* Controles laterales: versión compacta y no intrusiva */
 #anterior, #siguiente {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   z-index: 21000;
-  background: rgba(0,0,0,0.75);
+  width: 52px;
+  height: 52px;
+  background: rgba(0,0,0,0.45);
   color: #fff;
-  padding: 12px 18px;
-  border-radius: 8px;
+  border-radius: 999px;
   border: none;
   cursor: pointer;
-  font-size: 1.05rem;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+  padding: 0;
 }
 
-#anterior { left: 12px; }
-#siguiente { right: 12px; }
+/* texto largo reemplazado por flecha visual en móvil (mantener accesible) */
+#anterior::before { content: '◀'; font-size: 1.2rem; }
+#siguiente::before { content: '▶'; font-size: 1.2rem; }
 
-/* Botones de cambiar planta: centrados arriba (uno a la izquierda del centro y otro a la derecha) */
-#planta-anterior,
-#planta-siguiente {
+/* separación desde el borde para no tapar esquinas */
+#anterior { left: 8px; }
+#siguiente { right: 8px; }
+
+/* Botones de planta: menos intrusivos y centrados arriba */
+#planta-anterior, #planta-siguiente {
   position: absolute;
-  top: 14px;
+  top: 10px;
   z-index: 21000;
   background: rgba(255,255,255,0.95);
   color: #111;
-  padding: 8px 12px;
+  padding: 6px 10px;
   border-radius: 6px;
   border: 0;
+  font-size: 0.85rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+}
+
+/* centrar alrededor del medio sin tapar la imagen central */
+#planta-anterior { left: 50%; transform: translateX(-110px); }
+#planta-siguiente { left: 50%; transform: translateX(12px); }
+
+/* caption: overlay en escritorio; REUBICABLE en móvil */
+#caption {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 21000;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  max-width: 88%;
+  text-align: center;
   font-size: 0.95rem;
   box-shadow: 0 4px 12px rgba(0,0,0,0.25);
 }
 
-/* ajusta separación horizontal respecto al centro */
-#planta-anterior { left: 50%; transform: translateX(-120px); }
-#planta-siguiente { left: 50%; transform: translateX(16px); }
-
-/* Evitar que los controles ocupen demasiado espacio en móvil */
+/* MÓVIL: reducir tamaño y mover caption fuera de la imagen para no tapar */
 @media (max-width: 600px) {
   #anterior, #siguiente {
-    padding: 10px 12px;
-    font-size: 0.95rem;
+    width: 44px;
+    height: 44px;
+    background: rgba(0,0,0,0.55);
   }
-  #planta-anterior { transform: translateX(-90px); }
-  #planta-siguiente { transform: translateX(10px); }
-  #caption { font-size: 0.9rem; padding: 6px 10px; }
+
+  /* ocultar textos largos de los botones si existieran */
+  #anterior, #siguiente, #planta-anterior, #planta-siguiente {
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  /* cuando se añade la clase .caption-below, mostrar caption fuera del modal image */
+  #modal .caption-below {
+    position: static;
+    transform: none;
+    margin: 8px auto 0;
+    display: block;
+    max-width: 92%;
+  }
+
+  /* hacer que los botones de planta sean más pequeños en móvil */
+  #planta-anterior, #planta-siguiente {
+    font-size: 0.8rem;
+    padding: 6px 8px;
+    top: 8px;
+  }
+
+  /* empujar un poco los laterales hacia fuera para no tapar el centro tanto */
+  #anterior { left: 6px; }
+  #siguiente { right: 6px; }
+}
+
+/* Asegurar siempre visibilidad cuando el modal está abierto */
+#modal .controls-visible #anterior,
+#modal .controls-visible #siguiente,
+#modal .controls-visible #planta-anterior,
+#modal .controls-visible #planta-siguiente {
+  display: flex !important;
+  visibility: visible !important;
 }
 
 /* .titulo-movil { display: none; }

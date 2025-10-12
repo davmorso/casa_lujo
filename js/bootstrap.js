@@ -1,10 +1,5 @@
+// Bootstrap vacío: la inicialización se gestiona en los propios módulos.
+// Este fichero queda como stub para no interferir con el comportamiento existente.
 document.addEventListener('DOMContentLoaded', () => {
-  const repo = new PisoRepository();
-  const galeriaUseCase = new GaleriaUseCase(repo);
-  const galeriaView = new GaleriaView(galeriaUseCase);
-  galeriaView.cargarMiniaturas();
-  galeriaView.conectarEventos();
-
-  const cookies = new CookieBannerView();
-  cookies.inicializar();
+  // No-op: inicialización manejada por los scripts específicos (galeriaUseCase, PisoRepository, etc.)
 });

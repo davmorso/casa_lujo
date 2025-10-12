@@ -36,6 +36,22 @@ document.addEventListener('DOMContentLoaded', async () => {
   let seccionActual = null;
   let imagenActualIndex = 0;
 
+  // Zoom / transform defaults (si el módulo de zoom no está presente, evitamos errores)
+  // Estos valores son usados por mostrarImagen() y clampTransform()
+  let scale = 1;
+  let originX = 0;
+  let originY = 0;
+
+  // setTransform: aplica transform a la imagen ampliada o hace no-op si no existe
+  function setTransform() {
+    if (!imagenAmpliada) return;
+    if (scale > 1) {
+      imagenAmpliada.style.transform = `translate(${originX}px, ${originY}px) scale(${scale})`;
+    } else {
+      imagenAmpliada.style.transform = 'none';
+    }
+  }
+
   // Referencias DOM
   const modal = document.getElementById('modal');
   const imagenAmpliada = document.getElementById('imagen-ampliada');
@@ -319,4 +335,47 @@ document.addEventListener('DOMContentLoaded', async () => {
       // Aquí podrías bloquear scripts si los estuvieras usando
     });
   }
+
+  // Forzar controles visibles y adaptar layout según ancho
+  function ajustarControlesModal() {
+    if (!modal) return;
+    // añadir clase para forzar visibilidad
+    modal.classList.add('controls-visible');
+
+    // en móvil mover caption fuera de la imagen (añade clase caption-below)
+    if (window.innerWidth <= 600) {
+      if (caption) caption.classList.add('caption-below');
+      // opcional: desplazar el caption al final del modal para que quede bajo la imagen
+      if (imagenAmpliada && caption && caption.parentNode !== modal) {
+        // si caption está dentro del modal (posición absoluta), lo dejamos; el CSS .caption-below lo mostrará como estático
+        // no movemos DOM salvo que quieras realmente reubicarlo:
+      }
+    } else {
+      if (caption) caption.classList.remove('caption-below');
+    }
+  }
+
+  // Llamar cuando se abre el modal
+  function abrirModal() {
+    if (!modal) return;
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    // asegurar botones visibles y actualizados
+    ajustarControlesModal();
+    actualizarBotones();
+  }
+
+  // Si tienes un handler que abre, sustituir modal.style.display='flex' por abrirModal()
+  // Ejemplo: en el click de thumbnail:
+  // thumb.addEventListener('click', () => {
+  //   seccionActual = planta;
+  //   imagenActualIndex = index;
+  //   mostrarImagen();
+  //   abrirModal();
+  // });
+
+  // También ajustar al cambiar tamaño de ventana mientras modal abierto
+  window.addEventListener('resize', () => {
+    if (modal && modal.style.display === 'flex') ajustarControlesModal();
+  });
 });

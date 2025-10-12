@@ -66,3 +66,8 @@ class GaleriaUseCase {
     }
   }
 }
+
+// Exponer constructor/función globalmente para bootstrap
+if (typeof window.GaleriaUseCase === 'undefined') {
+  window.GaleriaUseCase = GaleriaUseCase; // o la función/constructor real
+}
