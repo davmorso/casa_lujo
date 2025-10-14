@@ -86,7 +86,8 @@
     }
   },
   "detalles": {
-    "titulo": "Additional details",
+  "titulo": "Additional details",
+  "caracteristicas_titulo": "Features",
     "caracteristicas_titulo": "Features",
     "puntos": [
       "Comfortable and safe stairs between floors.",
@@ -161,7 +162,8 @@
     },
     "footer": "© 2025 davmorso. All rights reserved.",
     "links": {
-      "politica_privacidad": "Privacy Policy"
+  "politica_privacidad": "Privacy Policy",
+  "contacto_boton": "Contact us"
     }
   }
 }

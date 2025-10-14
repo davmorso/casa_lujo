@@ -160,7 +160,8 @@
     },
     "footer": "© 2025 davmorso. Todos los derechos reservados.",
     "links": {
-      "politica_privacidad": "Política de privacidad"
+  "politica_privacidad": "Política de privacidad",
+  "contacto_boton": "Contáctenos"
     }
   }
 }

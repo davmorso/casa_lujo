@@ -87,7 +87,7 @@
   },
   "detalles": {
     "titulo": "Detalls addicionals",
-    "caracteristicas_titulo": "Característiques",
+  "caracteristicas_titulo": "Característiques",
     "puntos": [
       "Escales còmodes i segures entre plantes.",
       "Tota la vivenda gaudeix d'espais exteriors i d'una gran lluminositat.",
@@ -161,7 +161,8 @@
     },
     "footer": "© 2025 davmorso. Tots els drets reservats.",
     "links": {
-      "politica_privacidad": "Política de privacitat"
+  "politica_privacidad": "Política de privacitat",
+  "contacto_boton": "Contacteu-nos"
     }
   }
 }

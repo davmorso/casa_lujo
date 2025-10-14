@@ -86,7 +86,23 @@
     }
   },
   "detalles": {
-    "titulo": "Détails supplémentaires",
+  "titulo": "Détails supplémentaires",
+  "caracteristicas_titulo": "Caractéristiques",
+    "caracteristiques": [
+      "450 m² construits, 80 m² utiles",
+      "5 chambres",
+      "4 salles de bain",
+      "3 terrasses",
+      "3 petits débarras",
+      "Seconde main / bon état",
+      "Placards intégrés",
+      "Orientation sud, est, ouest",
+      "Construit en 2009",
+      "Chauffage individuel : pompe à chaleur",
+      "1er étage extérieur",
+      "Avec ascenseur",
+      "Certificat énergétique : Non indiqué"
+    ],
     "puntos": [
       "Escaliers confortables et sûrs entre les étages.",
       "L'ensemble du logement bénéficie d'espaces extérieurs et d'une grande luminosité.",
@@ -160,7 +176,8 @@
     },
     "footer": "© 2025 davmorso. Tous droits réservés.",
     "links": {
-      "politica_privacidad": "Politique de confidentialité"
+  "politica_privacidad": "Politique de confidentialité",
+  "contacto_boton": "Contactez-nous"
     }
   }
 }

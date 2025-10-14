@@ -34,6 +34,11 @@ function replaceUlWithItems(container, items) {
 }
 
 function applyI18n(json = {}) {
+    // Contact link (barra superior)
+    if (json.ui && json.ui.links && json.ui.links.contacto_boton) {
+      const contactLink = document.getElementById('contact-link');
+      if (contactLink) contactLink.textContent = json.ui.links.contacto_boton;
+    }
   try {
     // meta
     if (json.meta) {

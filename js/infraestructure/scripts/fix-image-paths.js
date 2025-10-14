@@ -1,6 +1,6 @@
 // Escanea img/ y corrige los src en i18n/galeria.es.json intentando
 // emparejar por nombre de fichero (ignora espacios/mayúsculas/ext).
-// Ejecutar: node .\scripts\fix-image-paths.js
+// Ejecutar: node .\js\infraestructure\scripts\fix-image-paths.js
 const fs = require('fs');
 const path = require('path');
 

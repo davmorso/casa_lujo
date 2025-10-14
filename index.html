@@ -1,4 +1,4 @@
-<!-- version 3 -->
+<!-- version 4 -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -44,66 +44,32 @@
   </header>
 
   <!-- Barra de idioma (gris) -->
-  <nav class="lang-bar" id="lang-bar">
-  <button class="lang-btn" data-lang="ca" aria-label="Català" title="Català">
-    <svg width="28" height="18" viewBox="0 0 28 18" aria-hidden="true"><rect width="28" height="18" fill="#FFD700"/><g fill="#E03C31"><rect y="0" x="0" width="28" height="3"/><rect y="6" x="0" width="28" height="3"/><rect y="12" x="0" width="28" height="3"/></g></svg>
-    <span class="lang-label">CAT</span>
-  </button>
+  <nav class="lang-bar" id="lang-bar" style="background: #f7f7f7; border-bottom: 1px solid #eee;">
+  <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 0.5vw; min-height: 40px;">
+      <button class="lang-btn" data-lang="ca" aria-label="Català" title="Català">
+    <svg width="28" height="18" viewBox="0 0 28 18" aria-hidden="true"><rect width="28" height="18" fill="#FFD700"/><g fill="#E03C31"><rect y="0" x="0" width="28" height="3"/><rect y="6" x="0" width="28" height="3"/><rect y="12" x="0" width="28" height="3"/></g></svg><span class="lang-label">CAT</span></button>
 
   <!-- Inline bandera España -->
   <button class="lang-btn" data-lang="es" aria-label="Español" title="Español">
-    <!-- Proporciones correctas: franjas 1:2:1 (total 4 partes) -->
-    <svg class="flag-svg" viewBox="0 0 3 2" preserveAspectRatio="xMidYMid meet" aria-hidden="true" role="img">
-      <!-- altura total = 2 -->
-      <!-- franja superior roja: 0.5 (1/4) -->
-      <rect width="3" height="0.5" y="0" fill="#c60b1e"></rect>
-      <!-- franja amarilla central: 1.0 (2/4) -->
-      <rect width="3" height="1.0" y="0.5" fill="#ffc400"></rect>
-      <!-- franja inferior roja: 0.5 (1/4) -->
-      <rect width="3" height="0.5" y="1.5" fill="#c60b1e"></rect>
-    </svg>
-    <span class="lang-label">ES</span>
-  </button>
+    <svg class="flag-svg" viewBox="0 0 3 2" preserveAspectRatio="xMidYMid meet" aria-hidden="true" role="img"><rect width="3" height="0.5" y="0" fill="#c60b1e"></rect><rect width="3" height="1.0" y="0.5" fill="#ffc400"></rect><rect width="3" height="0.5" y="1.5" fill="#c60b1e"></rect></svg><span class="lang-label">ES</span></button>
 
   <!-- Inline bandera UK -->
   <button class="lang-btn" data-lang="en" aria-label="English" title="English">
-    <svg class="flag-svg" viewBox="0 0 60 30" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-      <rect width="60" height="30" fill="#012169"/>
-      <g stroke="#fff" stroke-width="6">
-        <path d="M0 0 L60 30" />
-        <path d="M60 0 L0 30" />
-      </g>
-      <g stroke="#C8102E" stroke-width="4">
-        <path d="M0 0 L60 30" />
-        <path d="M60 0 L0 30" />
-      </g>
-      <rect x="25" width="10" height="30" fill="#fff"/>
-      <rect y="10" width="60" height="10" fill="#fff"/>
-      <rect x="27" width="6" height="30" fill="#C8102E"/>
-      <rect y="12" width="60" height="6" fill="#C8102E"/>
-    </svg>
-    <span class="lang-label">EN</span>
-  </button>
+    <svg class="flag-svg" viewBox="0 0 60 30" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><rect width="60" height="30" fill="#012169"/><g stroke="#fff" stroke-width="6"><path d="M0 0 L60 30" /><path d="M60 0 L0 30" /></g><g stroke="#C8102E" stroke-width="4"><path d="M0 0 L60 30" /><path d="M60 0 L0 30" /></g><rect x="25" width="10" height="30" fill="#fff"/><rect y="10" width="60" height="10" fill="#fff"/><rect x="27" width="6" height="30" fill="#C8102E"/><rect y="12" width="60" height="6" fill="#C8102E"/></svg><span class="lang-label">EN</span></button>
 
   <button class="lang-btn" data-lang="fr" aria-label="Français" title="Français">
-    <svg class="flag-svg" viewBox="0 0 3 2" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-      <rect width="1" height="2" x="0" fill="#0055A4"></rect>
-      <rect width="1" height="2" x="1" fill="#FFFFFF"></rect>
-      <rect width="1" height="2" x="2" fill="#EF4135"></rect>
-    </svg>
-    <span class="lang-label">FR</span>
-  </button>
+    <svg class="flag-svg" viewBox="0 0 3 2" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><rect width="1" height="2" x="0" fill="#0055A4"></rect><rect width="1" height="2" x="1" fill="#FFFFFF"></rect><rect width="1" height="2" x="2" fill="#EF4135"></rect></svg><span class="lang-label">FR</span></button>
 
   <!-- NUEVO: botón ruso -->
   <button class="lang-btn" data-lang="ru" aria-label="Русский" title="Русский">
-    <svg class="flag-svg" viewBox="0 0 3 2" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-      <rect width="3" height="0.6667" y="0" fill="#fff"></rect>
-      <rect width="3" height="0.6667" y="0.6667" fill="#0039A6"></rect>
-      <rect width="3" height="0.6667" y="1.3334" fill="#D52B1E"></rect>
-    </svg>
-    <span class="lang-label">RU</span>
-  </button>
-</nav>
+    <svg class="flag-svg" viewBox="0 0 3 2" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><rect width="3" height="0.6667" y="0" fill="#fff"></rect><rect width="3" height="0.6667" y="0.6667" fill="#0039A6"></rect><rect width="3" height="0.6667" y="1.3334" fill="#D52B1E"></rect></svg><span class="lang-label">RU</span></button>
+  <!-- Bandera China -->
+  <button class="lang-btn" data-lang="zh" aria-label="中文" title="中文">
+    <svg class="flag-svg" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#DE2910"/><polygon points="5,3 6,7 10,7 7,9 8,13 5,11 2,13 3,9 0,7 4,7" fill="#FFDE00"/><circle cx="11" cy="3" r="1.2" fill="#FFDE00"/><circle cx="13" cy="5" r="1.2" fill="#FFDE00"/><circle cx="13" cy="8" r="1.2" fill="#FFDE00"/><circle cx="11" cy="10" r="1.2" fill="#FFDE00"/></svg><span class="lang-label">中文</span></button>
+
+    <a id="contact-link" href="#" style="font-weight:bold; color:#3366cc; text-decoration:underline; font-size:1.1em; margin-left: 0; margin-right: 0;"></a>
+    </div>
+  </nav>
 
   <!-- Imagen destacada entre la zona azul (header) y la descripción -->
   <div id="portada" style="text-align:center; margin:18px 0;">
@@ -184,19 +150,55 @@
     <p id="footer-copy" style="margin: 0;"></p>
     <p style="margin: 5px 0 0;">
       <a id="footer-privacy" href="politica-privacidad.html" style="color: #aaa; text-decoration: underline;"></a>
+      <script>
+        // Traducciones para el enlace de contacto
+        var contactTranslations = {
+          es: 'Contáctenos',
+          ca: 'Contacteu-nos',
+          en: 'Contact us',
+          fr: 'Contactez-nous',
+          ru: 'Связаться с нами',
+          zh: '联系我们'
+        };
+        // Cambia el enlace de política de privacidad según el idioma seleccionado
+        document.addEventListener('i18nLoaded', function(e) {
+          // Actualizar texto del enlace de contacto
+          var contactLang = lang;
+          var contactText = contactTranslations[contactLang] || contactTranslations['es'];
+          var contactLink = document.getElementById('contact-link');
+          if (contactLink) {
+            contactLink.textContent = contactText;
+            contactLink.href = '#contact-modal';
+            contactLink.onclick = function(ev) {
+              ev.preventDefault();
+              var btn = document.getElementById('open-contact-btn');
+              if (btn) btn.click();
+            };
+          }
+          var lang = (e.detail && e.detail.lang) || 'es';
+          var href = 'politica-privacidad.html';
+          if (lang === 'ca') href = 'politica-privacidad-ca.html';
+          else if (lang === 'en') href = 'politica-privacidad-en.html';
+          else if (lang === 'fr') href = 'politica-privacidad-fr.html';
+          else if (lang === 'ru') href = 'politica-privacidad-ru.html';
+          else if (lang === 'zh') href = 'politica-privacidad-zh.html';
+          document.getElementById('footer-privacy').setAttribute('href', href);
+        });
+      </script>
     </p>
   </footer>
 
   <!-- Script de galería y UI (cliente) -->
   <script src="js/application/galeriaUseCase.js"></script>
-  <script src="js/presentation/galeriaView.js"></script>
-  <script src="js/presentation/cookieBannerView.js"></script>
+  <script src="js/infraestructure/scripts/galeriaView.js"></script>
+  <script src="js/infraestructure/scripts/i18n-loader.js"></script>
+  <script src="js/infraestructure/scripts/contact-form.js"></script>
   <script src="js/infraestructure/cookieService.js"></script>
   <script src="js/lang-switcher.js"></script>
-  <script src="js/i18n-loader.js"></script>
+  <script src="js/infraestructure/scripts/i18n-loader.js"></script>
   <script src="js/galeria.js"></script>
   <script src="js/zoomable-modal.js"></script>
-  <script src="js/contact-form.js"></script>
+  <script src="js/infraestructure/scripts/contact-form.js"></script>
   <script src="js/bootstrap.js"></script>
   
   <!-- Modal formulario de contacto -->

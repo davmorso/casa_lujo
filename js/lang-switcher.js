@@ -1,6 +1,7 @@
 // Gestor de idioma: por defecto ES al recargar; selección temporal al clicar bandera (no se persiste)
 document.addEventListener('DOMContentLoaded', () => {
   const DEFAULT = 'es';
+  const STORAGE_KEY = 'selectedLang';
   const btns = Array.from(document.querySelectorAll('.lang-btn'));
 
   function setActive(lang) {
@@ -80,17 +81,24 @@ document.addEventListener('DOMContentLoaded', () => {
       ev.preventDefault();
       const lang = b.dataset.lang;
       if (!lang) return console.warn('[lang-switcher] button missing data-lang');
+      localStorage.setItem(STORAGE_KEY, lang);
       loadI18n(lang).catch(()=>{});
+      // Opcional: actualizar historial para que el navegador atrás/adelante funcione
+      history.pushState({lang: lang}, '', window.location.pathname + window.location.search);
     });
   });
 
-  // asegurar que por defecto en F5 esté ES (no persistimos elección)
-  try {
-    localStorage.removeItem('site_lang');
-    localStorage.removeItem('site_lang_user_locked');
-  } catch (e) { /* noop */ }
+  // Detectar cambios de historial (navegador atrás/adelante)
+  window.addEventListener('popstate', () => {
+    const lang = localStorage.getItem(STORAGE_KEY) || DEFAULT;
+    if (btns.some(b => b.dataset.lang === lang)) {
+      loadI18n(lang);
+    }
+  });
 
-  // init: cargar ES por defecto al cargar la página
-  setActive(DEFAULT);
-  loadI18n(DEFAULT).catch(()=>{});
+  // init: cargar idioma guardado o ES por defecto
+  let lang = localStorage.getItem(STORAGE_KEY) || DEFAULT;
+  if (!btns.some(b => b.dataset.lang === lang)) lang = DEFAULT;
+  setActive(lang);
+  loadI18n(lang).catch(()=>{});
 });

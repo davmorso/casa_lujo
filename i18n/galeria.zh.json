@@ -1,0 +1,180 @@
+{
+  "meta": {
+    "title": "Arenys de Mar中心豪华住宅出售",
+    "description": "位于Arenys de Mar中心的三层豪华复式住宅。自然采光、私密性和精致设计，独特环境。",
+    "price": "375.000 €",
+    "keywords": "豪华住宅, Arenys de Mar, 房子, 市中心, 独家住宅, 露台, 电梯, 自然光, 朝南, 朝东, 朝西",
+    "author": "David M",
+    "og": {
+      "title": "Arenys de Mar中心豪华住宅出售",
+      "description": "位于Arenys de Mar中心的三层豪华复式住宅。自然采光、私密性和精致设计，独特环境。",
+      "type": "website",
+      "url": "https://davmorso.github.io/casa/",
+      "image": "/portada.jpg"
+    },
+    "twitter": {
+      "card": "summary_large_image",
+      "title": "Arenys de Mar中心豪华住宅出售",
+      "description": "探索这套拥有自然采光、私密性和独特设计的Arenys de Mar复式住宅。",
+      "image": "/img/portada.jpg"
+    }
+  },
+  "header": {
+    "title_desktop": "Arenys de Mar中心豪华住宅出售",
+    "title_mobile": "Arenys de Mar豪华住宅",
+    "price": "1.290.000 €"
+  },
+  "descripcion": "在Arenys de Mar最具代表性和最负盛名的街道中心，呈现这套独一无二的专属住宅，靠近海滩、车站和所有服务设施。<br />住宅面积450平方米，经过全面翻新，配备高端饰面，将原有建筑的优雅与现代住宅的舒适完美结合。<br /><br />设有宽敞的客厅-餐厅、独立设计厨房（配备齐全并通向壮观的庭院），共5间卧室（多间套房），均为最大舒适度而设计。住宅配有高端实木地板、豪华家具、全屋空调、4间浴室、带壁炉的书房、多功能入口大厅、酒窖、花园和车库（含在售价内）。此外，配备电梯以提升便利性。所有设施（电力、燃气、空调）均采用最先进技术全新安装。<br /><br />户外宽敞庭院可建私人泳池，打造市中心的奢华绿洲。<br /><br />Maresme地区独一无二的房产，适合追求专属、设计与舒适、并希望在海边优越环境中生活的人士。<br /><br />购房费用未包含在售价中。",
+  "textos": {
+    "planta-1": {
+      "titulo": "第一层 – 日间区",
+      "puntos": [
+        "宽敞明亮的客厅-餐厅与半开放式厨房。",
+        "可直接通往舒适的户外露台。",
+        "极佳的采光。",
+        "高端现代厨房，状况极佳。",
+        "空间布局合理，实用且极具建筑美感。"
+      ],
+      "imagenes": [
+        { "src": "./img/planta 1/casa 0.jpeg", "alt": "第一层：宽敞明亮的客厅-餐厅，总览" },
+        { "src": "./img/planta 1/casa 1.jpeg", "alt": "第一层：高端半开放式厨房，台面" },
+        { "src": "./img/planta 1/casa 2.jpeg", "alt": "第一层：厨房与工作区" },
+        { "src": "./img/planta 1/casa 3.jpeg", "alt": "第一层：带沙发的起居区" },
+        { "src": "./img/planta 1/casa 4.jpeg", "alt": "第一层：装饰与室内细节" },
+        { "src": "./img/planta 1/casa 5.jpeg", "alt": "第一层：通往户外露台" },
+        { "src": "./img/planta 1/casa 6.jpeg", "alt": "第一层：底层浴室/卫生间" },
+        { "src": "./img/planta 1/casa 7.jpeg", "alt": "第一层：户外景观与良好采光" }
+      ]
+    },
+    "planta-2": {
+      "titulo": "第二层 – 主套房",
+      "puntos": [
+        "主套房带露台，俯瞰主街。",
+        "第二套房带更衣室和可观花园的全套浴室。",
+        "空间宽敞，采光充足。"
+      ],
+      "imagenes": [
+        { "src": "./img/planta 2/casa 1.jpeg", "alt": "第二层：带更衣室的套房" },
+        { "src": "./img/planta 2/casa 2.jpeg", "alt": "第二层：走廊与卧室入口" },
+        { "src": "./img/planta 2/casa 3.jpeg", "alt": "第二层：主卧室" },
+        { "src": "./img/planta 2/casa 4.jpeg", "alt": "第二层：卧室私人露台" },
+        { "src": "./img/planta 2/casa 5.jpeg", "alt": "第二层：卧室浴室，淋浴间" }
+      ]
+    },
+    "planta-3": {
+      "titulo": "第三层 – 第二套房",
+      "puntos": [
+        "第二间套房带天窗设计浴室，全天自然采光，空间较小且带斜顶。",
+        "非常温馨特别的房间。",
+        "可通往另一私人露台。"
+      ],
+      "imagenes": [
+        { "src": "./img/planta 3/casa 1.jpeg", "alt": "第三层：起居区或露台" },
+        { "src": "./img/planta 3/casa 2.jpeg", "alt": "第三层：第二套房，带斜顶" },
+        { "src": "./img/planta 3/casa 3.jpeg", "alt": "第三层：洗衣房" }
+      ]
+    },
+    "planta-4": {
+      "titulo": "第四层 – 天台",
+      "puntos": [
+        "天台和顶层露台，视野开阔。",
+        "理想的户外休闲和小型聚会空间。"
+      ],
+      "imagenes": [
+        { "src": "./img/planta 4/casa 1.jpeg", "alt": "第四层：带景观的天台/露台" }
+      ]
+    }
+  },
+  "detalles": {
+  "titulo": "更多细节",
+  "caracteristicas_titulo": "房屋特征",
+    "caracteristicas": [
+      "450平方米建筑面积，80平方米实用面积",
+      "5间卧室",
+      "4间浴室",
+      "3个露台",
+      "3个小储藏室",
+      "二手/状况良好",
+      "嵌入式衣柜",
+      "朝南、东、西",
+      "建于2009年",
+      "独立供暖：冷热泵",
+      "1楼外部",
+      "带电梯",
+      "能源证书：未指明"
+    ],
+    "puntos": [
+      "楼层间舒适安全的楼梯。",
+      "整栋住宅均享有户外空间和充足采光。",
+      "独特、特别且保存良好的住宅。",
+      "朝南、东、西：下午有阳光。",
+      "大楼配有电梯。",
+      "价格包含2个大型停车位（或3个小型）。",
+      "价格包含大型储藏室。",
+      "5间卧室",
+      "4间浴室",
+      "3个露台",
+      "3个小储藏室",
+      "二手/状况良好",
+      "嵌入式衣柜",
+      "朝南、东、西",
+      "建于2009年",
+      "独立供暖：冷热泵",
+      "1楼外部",
+      "带电梯",
+      "能源证书：未指明"
+    ]
+  },
+  "contacto": {
+    "titulo": "关于本住宅的联系",
+    "boton_abrir": "有意者联系",
+    "labels": {
+      "nombre": "姓名",
+      "telefono": "联系电话",
+      "estructura_compra": "您设想如何安排购房（融资、自有资金、组合等）？",
+      "experiencia": "您在此类房地产交易或高端房产购置方面有何经验？",
+      "acepto": "我接受隐私政策"
+    },
+    "placeholders": {
+      "nombre": "您的全名",
+      "telefono": "联系电话",
+      "estructura_compra": "请描述您将如何筹集购房资金……",
+      "experiencia": "简要描述您的相关经验（如有）"
+    },
+    "botones": {
+      "enviar": "准备邮件",
+      "cancelar": "取消"
+    },
+    "email": {
+      "recipientes": [
+        "dmoraroca@gmail.com",
+        "mmora@canalip.com"
+      ],
+      "asunto_prefijo": "购房意向 - Casa"
+    },
+    "errores": {
+      "requerido": "此字段为必填项",
+      "aceptar_politica": "您必须接受隐私政策才能继续"
+    },
+    "nota_envio": "将打开您的邮件客户端并填写消息。请检查并在邮件应用中点击发送。"
+  },
+  "ui": {
+    "modal": {
+      "cerrar": "×",
+      "plantaAnterior": "⬆ 上一层",
+      "plantaSiguiente": "⬇ 下一层",
+      "anterior": "上一张",
+      "siguiente": "下一张"
+    },
+    "cookieBanner": {
+      "texto": "本网站使用cookie进行分析。您可以接受或拒绝。",
+      "aceptar": "接受",
+      "rechazar": "拒绝"
+    },
+    "footer": "© 2025 davmorso. 保留所有权利。",
+    "links": {
+  "politica_privacidad": "隐私政策",
+  "contacto_boton": "联系我们"
+    }
+  }
+}
