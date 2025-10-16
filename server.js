@@ -1,11 +1,16 @@
 // cargar variables de entorno desde .env si existe (opcional)
 try { require('dotenv').config(); } catch (e) { /* dotenv no instalado, no pasa nada */ }
 
+// Necesitamos fs/path para cargar configuration.env; requerirlos aquí para usarlos abajo
+const fs = require('fs');
+const path = require('path');
+
 // Si existe configuration.env, cargarlo también (es tu elección local)
 try {
   const cfgPath = path.join(process.cwd(), 'configuration.env');
   if (fs.existsSync(cfgPath)) {
     const envContent = fs.readFileSync(cfgPath, 'utf8');
+    const parsedCfg = {};
     envContent.split(/\r?\n/).forEach(line => {
       const m = line.match(/^\s*([^=]+)=(.*)$/);
       if (m) {
@@ -15,15 +20,23 @@ try {
         if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'"))) {
           val = val.slice(1, -1);
         }
+        parsedCfg[key] = val;
         if (!process.env[key]) process.env[key] = val;
       }
     });
+    // DEBUG: mostrar lo que se cargó desde configuration.env (solo fuera de producción)
+    try {
+      if ((process.env.NODE_ENV || 'development') !== 'production') {
+        // Importante: esto puede mostrar credenciales sensibles. Mantener solo para depuración local
+        console.log('[server] configuration.env parsed contents:');
+        console.log(parsedCfg);
+        console.log('[server] End of configuration.env dump (remove this log after debugging)');
+      }
+    } catch (e) { /* ignore console errors */ }
   }
 } catch (e) { /* ignore */ }
 
 const http = require('http');
-const fs = require('fs');
-const path = require('path');
 const nodemailer = require('nodemailer');
 
 const PORT = process.env.PORT || 8000;
