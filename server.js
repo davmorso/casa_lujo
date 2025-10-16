@@ -1,3 +1,6 @@
+// cargar variables de entorno desde .env si existe (opcional)
+try { require('dotenv').config(); } catch (e) { /* dotenv no instalado, no pasa nada */ }
+
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
