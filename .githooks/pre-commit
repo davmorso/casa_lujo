@@ -1,0 +1,16 @@
+#!/bin/sh
+# Pre-commit hook: bump index.html version automatically
+ROOT_DIR=$(cd "$(dirname "$0")/.." && pwd)
+NODE=$(which node || echo '')
+if [ -z "$NODE" ]; then
+  echo "Node.js no encontrado en PATH; omitiendo bump de versión." >&2
+  exit 0
+fi
+
+echo "Ejecutando bump-version.js..."
+node "$ROOT_DIR/scripts/bump-version.js"
+
+# Asegurarse de que index.html se incluya en el commit si fue modificado
+git add "$ROOT_DIR/index.html"
+
+exit 0
