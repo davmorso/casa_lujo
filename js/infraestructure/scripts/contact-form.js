@@ -98,6 +98,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function sendMailClient() {
     const l = labels || {};
+    const payload = {
+      nombre: inpNombre.value.trim(),
+      telefono: inpTelefono.value.trim(),
+      estructura: inpEstructura.value.trim(),
+      experiencia: inpExperiencia.value.trim(),
+      acepta: !!inpAcepto.checked,
+      asunto: (l.email && l.email.asunto_prefijo) ? l.email.asunto_prefijo : 'Interés'
+    };
+
+    // Intentar enviar al servidor via fetch
+    fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(r => r.json().catch(()=>({ok:false}))).then(result => {
+      if (result && result.ok) {
+        note.textContent = l.nota_envio_success || 'Mensaje enviado correctamente.';
+        closeModal();
+      } else if (result && result.error === 'mail_not_configured') {
+        // fallback a mailto si el servidor no está configurado
+        fallbackToMailto(l);
+      } else {
+        // otro fallo -> fallback
+        fallbackToMailto(l);
+      }
+    }).catch(() => {
+      // si hay error de red, fallback a mailto
+      fallbackToMailto(l);
+    });
+  }
+
+  function fallbackToMailto(l) {
     const recipients = (l.email && Array.isArray(l.email.recipientes)) ? l.email.recipientes.join(',') : 'dmoraroca@gmail.com,mmora@canalip.com';
     const subject = encodeURIComponent(`${(l.email && l.email.asunto_prefijo) ? l.email.asunto_prefijo : 'Interés'} - ${inpNombre.value.trim()}`);
     const bodyLines = [

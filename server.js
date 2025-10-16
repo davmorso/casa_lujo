@@ -35,6 +35,77 @@ function sendFile(res, filePath) {
 
 const server = http.createServer((req, res) => {
   try {
+    // Endpoint API: POST /api/contact -> enviar email usando nodemailer
+    if (req.method === 'POST' && req.url === '/api/contact') {
+      let body = '';
+      req.on('data', chunk => { body += chunk.toString(); });
+      req.on('end', async () => {
+        try {
+          const data = JSON.parse(body || '{}');
+          // Validación mínima
+          if (!data.nombre || !data.telefono || !data.experiencia) {
+            res.writeHead(400, { 'Content-Type': 'application/json; charset=utf-8' });
+            return res.end(JSON.stringify({ ok: false, error: 'missing_fields' }));
+          }
+
+          // Requiere nodemailer y credenciales en variables de entorno
+          const SMTP_HOST = process.env.SMTP_HOST;
+          const SMTP_PORT = process.env.SMTP_PORT;
+          const SMTP_USER = process.env.SMTP_USER;
+          const SMTP_PASS = process.env.SMTP_PASS;
+          const RECIPIENTS = (process.env.CONTACT_RECIPIENTS || 'dmoraroca@gmail.com,mmora@canalip.com').split(',').map(s => s.trim());
+
+          if (!SMTP_HOST || !SMTP_USER || !SMTP_PASS) {
+            res.writeHead(501, { 'Content-Type': 'application/json; charset=utf-8' });
+            return res.end(JSON.stringify({ ok: false, error: 'mail_not_configured' }));
+          }
+
+          // Lazy require to avoid dependency error if not installed
+          let nodemailer;
+          try { nodemailer = require('nodemailer'); } catch (err) {
+            res.writeHead(500, { 'Content-Type': 'application/json; charset=utf-8' });
+            return res.end(JSON.stringify({ ok: false, error: 'nodemailer_missing' }));
+          }
+
+          const transporter = nodemailer.createTransport({
+            host: SMTP_HOST,
+            port: parseInt(SMTP_PORT || '587', 10),
+            secure: SMTP_PORT === '465',
+            auth: { user: SMTP_USER, pass: SMTP_PASS }
+          });
+
+          const subject = `${data.asunto || 'Interés'} - ${data.nombre}`;
+          const bodyLines = [];
+          bodyLines.push(`Nombre: ${data.nombre}`);
+          bodyLines.push(`Teléfono: ${data.telefono}`);
+          bodyLines.push('');
+          bodyLines.push('Estructura compra:');
+          bodyLines.push(data.estructura || '');
+          bodyLines.push('');
+          bodyLines.push('Experiencia:');
+          bodyLines.push(data.experiencia || '');
+          bodyLines.push('');
+          bodyLines.push(`Acepta política: ${data.acepta ? 'Sí' : 'No'}`);
+
+          const mailOptions = {
+            from: process.env.FROM_ADDRESS || SMTP_USER,
+            to: RECIPIENTS,
+            subject: subject,
+            text: bodyLines.join('\n')
+          };
+
+          await transporter.sendMail(mailOptions);
+          res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+          return res.end(JSON.stringify({ ok: true }));
+        } catch (err) {
+          console.error('[server] /api/contact error', err);
+          res.writeHead(500, { 'Content-Type': 'application/json; charset=utf-8' });
+          return res.end(JSON.stringify({ ok: false, error: 'send_failed' }));
+        }
+      });
+      return;
+    }
+
     let reqPath = decodeURIComponent(req.url.split('?')[0]);
     if (reqPath.endsWith('/')) reqPath += 'index.html';
     const safePath = path.normalize(path.join(root, reqPath));
