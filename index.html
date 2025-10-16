@@ -1,4 +1,4 @@
-<!-- version 5 -->
+<!-- version 6 -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -218,6 +218,40 @@
         }
       } catch (err) { /* noop */ }
     });
+
+    // Swipe en el modal para móviles/tablets
+    (function() {
+      var modal = document.getElementById('modal');
+      var btnSiguiente = document.getElementById('siguiente');
+      var btnAnterior = document.getElementById('anterior');
+      var touchStartX = null;
+      var touchEndX = null;
+      function isMobile() {
+        return window.innerWidth <= 900 && ('ontouchstart' in window || navigator.maxTouchPoints > 0);
+      }
+      if (modal && isMobile()) {
+        modal.addEventListener('touchstart', function(e) {
+          if (e.touches.length === 1) {
+            touchStartX = e.touches[0].clientX;
+          }
+        });
+        modal.addEventListener('touchend', function(e) {
+          if (touchStartX !== null && e.changedTouches.length === 1) {
+            touchEndX = e.changedTouches[0].clientX;
+            var deltaX = touchEndX - touchStartX;
+            if (Math.abs(deltaX) > 50) { // umbral mínimo para swipe
+              if (deltaX < 0 && btnSiguiente) {
+                btnSiguiente.click(); // swipe izquierda: siguiente
+              } else if (deltaX > 0 && btnAnterior) {
+                btnAnterior.click(); // swipe derecha: anterior
+              }
+            }
+          }
+          touchStartX = null;
+          touchEndX = null;
+        });
+      }
+    })();
   </script>
   
   <!-- Modal formulario de contacto -->
