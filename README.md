@@ -13,16 +13,16 @@ Nota: la configuración `core.hooksPath` es local al clone; cada desarrollador q
 
 ## Versión actual y cambios subidos
 
-Versión subida: 24
+Versión subida: 25
+
 
 Descripción de los cambios aplicados en esta versión:
 
-- Formulario de contacto ahora envía a /api/contact (fetch) y el botón muestra 'Enviar'
-- Backend: endpoint /api/contact que usa nodemailer (lee variables de entorno o configuration.env) y fallback si no configurado
-- Soporta `configuration.env` y carga `dotenv` opcionalmente
-- Ajustes UI: evitar flechas duplicadas en botones modal, captions i18n en galería, responsive CSS para botones modal
-- Añadidos gestos táctiles para navegar la galería en móviles
-- README: instrucciones para activar hook y .env.example agregado
+- Se añade log de usuario y contraseña SMTP en consola para depuración (¡eliminar después de probar!).
+- Mejoras en documentación y advertencias de seguridad.
+- Formulario de contacto y galería i18n ya funcionales.
+- Backend: endpoint /api/contact con nodemailer y soporte de configuration.env/dotenv.
+- Ajustes UI: captions i18n, responsive, gestos táctiles, flechas modal.
 
-Nota de seguridad: el servidor imprime en consola el contenido parseado de `configuration.env` cuando `NODE_ENV` no es 'production' para facilitar la depuración local. Esto puede contener credenciales sensibles; elimina o comenta ese console.log después de depurar y no subas `configuration.env` al repositorio.
+Nota de seguridad: el servidor imprime en consola el usuario y contraseña SMTP para depuración local. Elimina ese log tras probar y nunca subas `configuration.env` al repositorio.
 
