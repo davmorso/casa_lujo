@@ -219,38 +219,75 @@
       } catch (err) { /* noop */ }
     });
 
-    // Swipe en el modal para móviles/tablets
+    // Gestos táctiles en el modal para móviles/tablets
     (function() {
       var modal = document.getElementById('modal');
       var btnSiguiente = document.getElementById('siguiente');
       var btnAnterior = document.getElementById('anterior');
-      var touchStartX = null;
-      var touchEndX = null;
-      function isMobile() {
-        return window.innerWidth <= 900 && ('ontouchstart' in window || navigator.maxTouchPoints > 0);
+      var btnPlantaSiguiente = document.getElementById('planta-siguiente');
+      var btnPlantaAnterior = document.getElementById('planta-anterior');
+
+      var startX = null, startY = null;
+      var threshold = 50; // px mínimo para considerar swipe
+      var restraint = 30; // tolerancia perpendicular
+
+      function isTouchDevice() {
+        return ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
       }
-      if (modal && isMobile()) {
-        modal.addEventListener('touchstart', function(e) {
-          if (e.touches.length === 1) {
-            touchStartX = e.touches[0].clientX;
-          }
-        });
-        modal.addEventListener('touchend', function(e) {
-          if (touchStartX !== null && e.changedTouches.length === 1) {
-            touchEndX = e.changedTouches[0].clientX;
-            var deltaX = touchEndX - touchStartX;
-            if (Math.abs(deltaX) > 50) { // umbral mínimo para swipe
-              if (deltaX < 0 && btnSiguiente) {
-                btnSiguiente.click(); // swipe izquierda: siguiente
-              } else if (deltaX > 0 && btnAnterior) {
-                btnAnterior.click(); // swipe derecha: anterior
-              }
+
+      function shouldEnableGestures() {
+        return window.innerWidth <= 900 && isTouchDevice();
+      }
+
+      if (!modal || !shouldEnableGestures()) return;
+
+      modal.addEventListener('touchstart', function(e) {
+        if (e.touches && e.touches.length === 1) {
+          startX = e.touches[0].clientX;
+          startY = e.touches[0].clientY;
+        }
+      }, { passive: true });
+
+      modal.addEventListener('touchmove', function(e) {
+        // No hacemos nada aquí, solo prevenimos que el navegador tome el gesto
+      }, { passive: true });
+
+      modal.addEventListener('touchend', function(e) {
+        if (!startX || !startY) { startX = null; startY = null; return; }
+        if (!e.changedTouches || e.changedTouches.length !== 1) { startX = null; startY = null; return; }
+        var endX = e.changedTouches[0].clientX;
+        var endY = e.changedTouches[0].clientY;
+        var deltaX = endX - startX;
+        var deltaY = endY - startY;
+
+        // Determinar si el swipe es horizontal o vertical comparando magnitudes
+        if (Math.abs(deltaX) > Math.abs(deltaY)) {
+          // Horizontal
+          if (Math.abs(deltaX) >= threshold) {
+            if (deltaX < 0) {
+              // swipe derecha->izquierda: siguiente
+              if (btnSiguiente) btnSiguiente.click();
+            } else {
+              // swipe izquierda->derecha: anterior
+              if (btnAnterior) btnAnterior.click();
             }
           }
-          touchStartX = null;
-          touchEndX = null;
-        });
-      }
+        } else {
+          // Vertical
+          if (Math.abs(deltaY) >= threshold) {
+            if (deltaY > 0) {
+              // swipe arriba->abajo (de arriba a bajo): según tu petición, "subes planta"
+              if (btnPlantaSiguiente) btnPlantaSiguiente.click();
+            } else {
+              // swipe abajo->arriba (de abajo a arriba): "bajas planta"
+              if (btnPlantaAnterior) btnPlantaAnterior.click();
+            }
+          }
+        }
+
+        startX = null;
+        startY = null;
+      }, { passive: true });
     })();
   </script>
   
