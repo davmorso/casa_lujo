@@ -189,7 +189,23 @@ document.addEventListener('DOMContentLoaded', async () => {
     imagenAmpliada.alt = imgObj.alt || '';
 
     if (caption) {
-      caption.textContent = `${imgObj.alt} (${imagenActualIndex + 1} ${getOfWord()} ${imgs.length})`;
+      // Preferir la descripción (alt/caption) definida en el JSON i18n si existe.
+      // DOM_TO_JSON_KEY mapea el id de la sección al key en el JSON (p.ej. 'primer-piso' -> 'planta-1')
+      let captionText = imgObj.alt || '';
+      try {
+        const jsonKey = DOM_TO_JSON_KEY[seccionActual];
+        if (i18n && i18n.textos && jsonKey && i18n.textos[jsonKey] && Array.isArray(i18n.textos[jsonKey].imagenes)) {
+          const jsonImg = i18n.textos[jsonKey].imagenes[imagenActualIndex];
+          if (jsonImg && (jsonImg.alt || jsonImg.caption)) {
+            captionText = jsonImg.alt || jsonImg.caption || captionText;
+          }
+        }
+      } catch (e) {
+        // en caso de error, mantenemos captionText como estaba
+        console.warn('Error leyendo caption desde i18n:', e);
+      }
+
+      caption.textContent = `${captionText} (${imagenActualIndex + 1} ${getOfWord()} ${imgs.length})`;
     }
   }
 
