@@ -1,9 +1,30 @@
 // cargar variables de entorno desde .env si existe (opcional)
 try { require('dotenv').config(); } catch (e) { /* dotenv no instalado, no pasa nada */ }
 
+// Si existe configuration.env, cargarlo también (es tu elección local)
+try {
+  const cfgPath = path.join(process.cwd(), 'configuration.env');
+  if (fs.existsSync(cfgPath)) {
+    const envContent = fs.readFileSync(cfgPath, 'utf8');
+    envContent.split(/\r?\n/).forEach(line => {
+      const m = line.match(/^\s*([^=]+)=(.*)$/);
+      if (m) {
+        const key = m[1].trim();
+        let val = m[2].trim();
+        // eliminar comillas si las hay
+        if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'"))) {
+          val = val.slice(1, -1);
+        }
+        if (!process.env[key]) process.env[key] = val;
+      }
+    });
+  }
+} catch (e) { /* ignore */ }
+
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const nodemailer = require('nodemailer');
 
 const PORT = process.env.PORT || 8000;
 const root = process.cwd();
@@ -36,6 +57,16 @@ function sendFile(res, filePath) {
   });
 }
 
+const transporter = nodemailer.createTransport({
+  host: process.env.SMTP_HOST || 'smtp.gmail.com',
+  port: parseInt(process.env.SMTP_PORT || '587', 10),
+  secure: (process.env.SMTP_PORT === '465'), // true para 465
+  auth: {
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS, // App Password
+  }
+});
+
 const server = http.createServer((req, res) => {
   try {
     // Endpoint API: POST /api/contact -> enviar email usando nodemailer
@@ -51,32 +82,6 @@ const server = http.createServer((req, res) => {
             return res.end(JSON.stringify({ ok: false, error: 'missing_fields' }));
           }
 
-          // Requiere nodemailer y credenciales en variables de entorno
-          const SMTP_HOST = process.env.SMTP_HOST;
-          const SMTP_PORT = process.env.SMTP_PORT;
-          const SMTP_USER = process.env.SMTP_USER;
-          const SMTP_PASS = process.env.SMTP_PASS;
-          const RECIPIENTS = (process.env.CONTACT_RECIPIENTS || 'dmoraroca@gmail.com,mmora@canalip.com').split(',').map(s => s.trim());
-
-          if (!SMTP_HOST || !SMTP_USER || !SMTP_PASS) {
-            res.writeHead(501, { 'Content-Type': 'application/json; charset=utf-8' });
-            return res.end(JSON.stringify({ ok: false, error: 'mail_not_configured' }));
-          }
-
-          // Lazy require to avoid dependency error if not installed
-          let nodemailer;
-          try { nodemailer = require('nodemailer'); } catch (err) {
-            res.writeHead(500, { 'Content-Type': 'application/json; charset=utf-8' });
-            return res.end(JSON.stringify({ ok: false, error: 'nodemailer_missing' }));
-          }
-
-          const transporter = nodemailer.createTransport({
-            host: SMTP_HOST,
-            port: parseInt(SMTP_PORT || '587', 10),
-            secure: SMTP_PORT === '465',
-            auth: { user: SMTP_USER, pass: SMTP_PASS }
-          });
-
           const subject = `${data.asunto || 'Interés'} - ${data.nombre}`;
           const bodyLines = [];
           bodyLines.push(`Nombre: ${data.nombre}`);
@@ -91,8 +96,8 @@ const server = http.createServer((req, res) => {
           bodyLines.push(`Acepta política: ${data.acepta ? 'Sí' : 'No'}`);
 
           const mailOptions = {
-            from: process.env.FROM_ADDRESS || SMTP_USER,
-            to: RECIPIENTS,
+            from: process.env.FROM_ADDRESS || process.env.SMTP_USER,
+            to: (process.env.CONTACT_RECIPIENTS || 'dmoraroca@gmail.com,mmora@canalip.com').split(',').map(s => s.trim()),
             subject: subject,
             text: bodyLines.join('\n')
           };
