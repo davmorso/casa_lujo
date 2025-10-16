@@ -119,37 +119,20 @@ document.addEventListener('DOMContentLoaded', () => {
         note.textContent = l.nota_envio_success || 'Mensaje enviado correctamente.';
         closeModal();
       } else if (result && result.error === 'mail_not_configured') {
-        // fallback a mailto si el servidor no está configurado
-        fallbackToMailto(l);
+          // Mostrar error al usuario si el servidor no está configurado
+          alert('No se pudo enviar el formulario: el servidor no está configurado para enviar correos.');
       } else {
         // otro fallo -> fallback
-        fallbackToMailto(l);
+          alert('No se pudo enviar el formulario: el servidor no está configurado para enviar correos.');
       }
     }).catch(() => {
       // si hay error de red, fallback a mailto
-      fallbackToMailto(l);
+        // si hay error de red, mostrar error
+        alert('No se pudo enviar el formulario por un error de red.');
     });
   }
 
-  function fallbackToMailto(l) {
-    const recipients = (l.email && Array.isArray(l.email.recipientes)) ? l.email.recipientes.join(',') : 'dmoraroca@gmail.com,mmora@canalip.com';
-    const subject = encodeURIComponent(`${(l.email && l.email.asunto_prefijo) ? l.email.asunto_prefijo : 'Interés'} - ${inpNombre.value.trim()}`);
-    const bodyLines = [
-      `${l.labels?.nombre || 'Nombre'}: ${inpNombre.value.trim()}`,
-      `${l.labels?.telefono || 'Teléfono'}: ${inpTelefono.value.trim()}`,
-      '',
-      `${l.labels?.estructura_compra || 'Estructura compra'}:`,
-      inpEstructura.value.trim(),
-      '',
-      `${l.labels?.experiencia || 'Experiencia'}:`,
-      inpExperiencia.value.trim(),
-      '',
-      `${l.labels?.acepto || 'Acepta política'}: ${inpAcepto.checked ? 'Sí' : 'No'}`
-    ];
-    const body = encodeURIComponent(bodyLines.join('\n'));
-    const mailto = `mailto:${recipients}?subject=${subject}&body=${body}`;
-    window.location.href = mailto;
-  }
+  // Eliminado fallback a mailto: solo se usa envío por servidor
 
   openBtn?.addEventListener('click', openModal);
   closeBtn?.addEventListener('click', closeModal);
