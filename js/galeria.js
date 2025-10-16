@@ -47,10 +47,17 @@ document.addEventListener('DOMContentLoaded', async () => {
   async function loadInitialI18n() {
     let lang = 'es';
     // Prioridad: window.__i18n_buffer.lang > localStorage > html lang
+    // Preferir buffer global si existe (lang + i18n objeto)
     if (window.__i18n_buffer && window.__i18n_buffer.lang) {
       lang = window.__i18n_buffer.lang;
-    } else if (localStorage.getItem('lang')) {
-      lang = localStorage.getItem('lang');
+      // si además ya trae el JSON, usarlo directamente
+      if (window.__i18n_buffer.i18n) {
+        buildGallery(window.__i18n_buffer.i18n);
+        return;
+      }
+    } else if (localStorage.getItem('selectedLang')) {
+      // lang-switcher usa 'selectedLang' como clave en localStorage
+      lang = localStorage.getItem('selectedLang');
     } else if (document.documentElement.lang) {
       lang = document.documentElement.lang;
     }
