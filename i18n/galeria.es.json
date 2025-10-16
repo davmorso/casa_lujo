@@ -129,7 +129,7 @@
       "experiencia": "Breve descripción de tu experiencia (si procede)"
     },
     "botones": {
-      "enviar": "Preparar correo",
+  "enviar": "Enviar",
       "cancelar": "Cancelar"
     },
     "email": {
