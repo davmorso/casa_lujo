@@ -9,32 +9,73 @@ document.addEventListener('DOMContentLoaded', async () => {
     'cuarto-piso': 'planta-4'
   };
 
-  // carga i18n (fallback a vacío si falla)
+  // Variables globales para galería
   let i18n = {};
-  try {
-    const resp = await fetch('./i18n/galeria.es.json', { cache: 'no-cache' });
-    if (resp.ok) i18n = await resp.json();
-  } catch (e) {
-    console.warn('No se pudo cargar i18n/galeria.es.json:', e);
-  }
-
-  // Construye objeto "pisos" usando los arrays imgs de i18n.textos[planta-x].imagen
-  const pisos = {};
-  Object.keys(DOM_TO_JSON_KEY).forEach(domId => {
-    const jsonKey = DOM_TO_JSON_KEY[domId];
-    const data = i18n.textos && i18n.textos[jsonKey];
-    if (data && Array.isArray(data.imagenes)) {
-      pisos[domId] = data.imagenes.map(img => ({ src: img.src, alt: img.alt || '' }));
-    } else {
-      pisos[domId] = []; // vacío si no hay datos
-    }
-  });
-
-  const plantas = Object.keys(pisos);
-
-  // Variables para controlar estado
+  let pisos = {};
+  let plantas = [];
   let seccionActual = null;
   let imagenActualIndex = 0;
+
+  // Función para construir/reconstruir la galería desde i18n
+  function buildGallery(newI18n) {
+    i18n = newI18n || {};
+    pisos = {};
+    Object.keys(DOM_TO_JSON_KEY).forEach(domId => {
+      const jsonKey = DOM_TO_JSON_KEY[domId];
+      const data = i18n.textos && i18n.textos[jsonKey];
+      if (data && Array.isArray(data.imagenes)) {
+        pisos[domId] = data.imagenes.map(img => ({ src: img.src, alt: img.alt || '' }));
+      } else {
+        pisos[domId] = [];
+      }
+    });
+    plantas = Object.keys(pisos);
+    // Si la sección actual no existe en el nuevo idioma, selecciona la primera
+    if (!seccionActual || !pisos[seccionActual]) {
+      seccionActual = plantas[0] || null;
+      imagenActualIndex = 0;
+    }
+    // Limpiar miniaturas y recargar
+    cargarMiniaturas(true);
+    mostrarImagen();
+    actualizarBotones();
+    // Actualizar textos de botones
+    actualizarBotonesI18n();
+  }
+
+  // Cargar i18n inicial según idioma guardado
+  async function loadInitialI18n() {
+    let lang = 'es';
+    // Prioridad: window.__i18n_buffer.lang > localStorage > html lang
+    if (window.__i18n_buffer && window.__i18n_buffer.lang) {
+      lang = window.__i18n_buffer.lang;
+    } else if (localStorage.getItem('lang')) {
+      lang = localStorage.getItem('lang');
+    } else if (document.documentElement.lang) {
+      lang = document.documentElement.lang;
+    }
+    try {
+      const resp = await fetch(`./i18n/galeria.${lang}.json`, { cache: 'no-cache' });
+      if (resp.ok) {
+        const json = await resp.json();
+        buildGallery(json);
+      } else {
+        // fallback a español si no existe el archivo
+        const respEs = await fetch('./i18n/galeria.es.json', { cache: 'no-cache' });
+        if (respEs.ok) {
+          const jsonEs = await respEs.json();
+          buildGallery(jsonEs);
+        } else {
+          buildGallery({});
+        }
+      }
+    } catch (e) {
+      console.warn(`No se pudo cargar i18n/galeria.${lang}.json:`, e);
+      buildGallery({});
+    }
+  }
+
+  // ...variables ahora globales...
 
   // Zoom / transform defaults (si el módulo de zoom no está presente, evitamos errores)
   // Estos valores son usados por mostrarImagen() y clampTransform()
@@ -62,21 +103,26 @@ document.addEventListener('DOMContentLoaded', async () => {
   const btnPlantaAnterior = document.getElementById('planta-anterior');
   const btnPlantaSiguiente = document.getElementById('planta-siguiente');
 
-  // Rellena textos de botones desde i18n (si existen)
-  const uiModal = i18n.ui && i18n.ui.modal ? i18n.ui.modal : {};
-  if (btnPlantaAnterior && uiModal.plantaAnterior) btnPlantaAnterior.textContent = uiModal.plantaAnterior;
-  if (btnPlantaSiguiente && uiModal.plantaSiguiente) btnPlantaSiguiente.textContent = uiModal.plantaSiguiente;
-  if (btnAnterior && uiModal.anterior) btnAnterior.textContent = uiModal.anterior;
-  if (btnSiguiente && uiModal.siguiente) btnSiguiente.textContent = uiModal.siguiente;
-  if (cerrarBtn && uiModal.cerrar) cerrarBtn.textContent = uiModal.cerrar;
+  // Función para actualizar textos de botones desde i18n
+  function actualizarBotonesI18n() {
+    const uiModal = i18n.ui && i18n.ui.modal ? i18n.ui.modal : {};
+    if (btnPlantaAnterior && uiModal.plantaAnterior) btnPlantaAnterior.textContent = uiModal.plantaAnterior;
+    if (btnPlantaSiguiente && uiModal.plantaSiguiente) btnPlantaSiguiente.textContent = uiModal.plantaSiguiente;
+    if (btnAnterior && uiModal.anterior) btnAnterior.textContent = uiModal.anterior;
+    if (btnSiguiente && uiModal.siguiente) btnSiguiente.textContent = uiModal.siguiente;
+    if (cerrarBtn && uiModal.cerrar) cerrarBtn.textContent = uiModal.cerrar;
+  }
 
-  const ofWord = (i18n.ui && i18n.ui.modal && i18n.ui.modal.of) ? i18n.ui.modal.of : 'de';
+  function getOfWord() {
+    return (i18n.ui && i18n.ui.modal && i18n.ui.modal.of) ? i18n.ui.modal.of : 'de';
+  }
 
   // Función para crear las miniaturas en cada sección
-  function cargarMiniaturas() {
+  function cargarMiniaturas(limpiar = false) {
     plantas.forEach((planta) => {
       const contenedor = document.querySelector(`#${planta} .imagenes`);
       if (!contenedor) return;
+      if (limpiar) contenedor.innerHTML = '';
       pisos[planta].forEach((imgObj, index) => {
         const img = document.createElement('img');
         img.src = imgObj.src;
@@ -135,17 +181,15 @@ document.addEventListener('DOMContentLoaded', async () => {
       scale = 1;
       originX = 0;
       originY = 0;
-      setTransform(); // aplicará transform (none si scale==1 por CSS)
-      // NOTA: no abrimos el modal aquí para evitar apertura automática en refresh
+      setTransform();
       actualizarBotones();
     };
 
-    // asignar src (disparará onload si existe)
     imagenAmpliada.src = imgObj.src;
     imagenAmpliada.alt = imgObj.alt || '';
 
     if (caption) {
-      caption.textContent = `${imgObj.alt} (${imagenActualIndex + 1} ${ofWord} ${imgs.length})`;
+      caption.textContent = `${imgObj.alt} (${imagenActualIndex + 1} ${getOfWord()} ${imgs.length})`;
     }
   }
 
@@ -309,8 +353,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   });
 
-  // Cargar miniaturas al inicio
-  cargarMiniaturas();
+  // Cargar i18n inicial y miniaturas
+  await loadInitialI18n();
+  // Escuchar cambio de idioma para recargar galería
+  document.addEventListener('i18nLoaded', function(e) {
+    if (e.detail && e.detail.i18n) {
+      buildGallery(e.detail.i18n);
+    }
+  });
 
   const banner = document.getElementById('cookie-banner');
   const aceptarBtn = document.getElementById('aceptar-cookies');

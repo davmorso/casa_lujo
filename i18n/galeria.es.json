@@ -147,11 +147,12 @@
   },
   "ui": {
     "modal": {
-      "cerrar": "×",
-      "plantaAnterior": "⬆ Planta anterior",
-      "plantaSiguiente": "⬇ Planta siguiente",
-      "anterior": "Anterior",
-      "siguiente": "Siguiente"
+  "cerrar": "×",
+  "plantaAnterior": "⬆ Planta anterior",
+  "plantaSiguiente": "⬇ Planta siguiente",
+  "anterior": "Anterior",
+  "siguiente": "Siguiente",
+  "caption": "Primera planta: detalle de decoración e interior (5 de 8)"
     },
     "cookieBanner": {
       "texto": "Este sitio web utiliza cookies para análisis. Puedes aceptar o rechazar.",

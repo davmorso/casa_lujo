@@ -160,11 +160,12 @@
   },
   "ui": {
     "modal": {
-      "cerrar": "×",
-      "plantaAnterior": "⬆ 上一层",
-      "plantaSiguiente": "⬇ 下一层",
-      "anterior": "上一张",
-      "siguiente": "下一张"
+  "cerrar": "×",
+  "plantaAnterior": "⬆ 上一层",
+  "plantaSiguiente": "⬇ 下一层",
+  "anterior": "上一页",
+  "siguiente": "下一页",
+  "caption": "第一层：装饰和室内细节（第5张，共8张）"
     },
     "cookieBanner": {
       "texto": "本网站使用cookie进行分析。您可以接受或拒绝。",

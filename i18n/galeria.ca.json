@@ -148,11 +148,12 @@
   },
   "ui": {
     "modal": {
-      "cerrar": "×",
-      "plantaAnterior": "⬆ Planta anterior",
-      "plantaSiguiente": "⬇ Planta següent",
-      "anterior": "Anterior",
-      "siguiente": "Següent"
+  "cerrar": "×",
+  "plantaAnterior": "⬆ Planta anterior",
+  "plantaSiguiente": "⬇ Planta següent",
+  "anterior": "Anterior",
+  "siguiente": "Següent",
+  "caption": "Primera planta: detall de decoració i interior (5 de 8)"
     },
     "cookieBanner": {
       "texto": "Aquest lloc web utilitza galetes per a anàlisi. Pots acceptar o rebutjar.",

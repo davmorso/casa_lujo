@@ -163,11 +163,12 @@
   },
   "ui": {
     "modal": {
-      "cerrar": "×",
-      "plantaAnterior": "⬆ Étage précédent",
-      "plantaSiguiente": "⬇ Étage suivant",
-      "anterior": "Précédent",
-      "siguiente": "Suivant"
+  "cerrar": "×",
+  "plantaAnterior": "⬆ Étage précédent",
+  "plantaSiguiente": "⬇ Étage suivant",
+  "anterior": "Précédent",
+  "siguiente": "Suivant",
+  "caption": "Premier étage : détail de décoration et intérieur (5 sur 8)"
     },
     "cookieBanner": {
       "texto": "Ce site utilise des cookies à des fins d'analyse. Vous pouvez accepter ou refuser.",

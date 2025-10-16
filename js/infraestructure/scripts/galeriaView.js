@@ -1,4 +1,16 @@
 class GaleriaView {
+  // Actualiza los textos de los botones del modal según el i18n cargado
+  static actualizarBotonesI18n(i18n) {
+    if (!i18n || !i18n.ui || !i18n.ui.modal) return;
+    const btnAnterior = document.getElementById('anterior');
+    const btnSiguiente = document.getElementById('siguiente');
+    const btnPlantaAnterior = document.getElementById('planta-anterior');
+    const btnPlantaSiguiente = document.getElementById('planta-siguiente');
+    if (btnAnterior && i18n.ui.modal.anterior) btnAnterior.textContent = i18n.ui.modal.anterior;
+    if (btnSiguiente && i18n.ui.modal.siguiente) btnSiguiente.textContent = i18n.ui.modal.siguiente;
+    if (btnPlantaAnterior && i18n.ui.modal.plantaAnterior) btnPlantaAnterior.textContent = i18n.ui.modal.plantaAnterior;
+    if (btnPlantaSiguiente && i18n.ui.modal.plantaSiguiente) btnPlantaSiguiente.textContent = i18n.ui.modal.plantaSiguiente;
+  }
   constructor(useCase) {
     this.useCase = useCase;
     // DOM
@@ -55,6 +67,10 @@ class GaleriaView {
     this.imagenAmpliada.src = imgObj.src;
     this.imagenAmpliada.alt = imgObj.alt;
     const imgs = this.useCase.imagenesDePlanta();
+    // Detectar idioma actual
+    let lang = document.documentElement.lang || 'es';
+    if (window.__i18n_buffer && window.__i18n_buffer.lang) lang = window.__i18n_buffer.lang;
+    // Traducir el caption usando el alt de la imagen actual
     this.caption.textContent = `${imgObj.alt} (${this.useCase.imagenActualIndex + 1} de ${imgs.length})`;
     this.actualizarBotones();
   }
@@ -67,6 +83,10 @@ class GaleriaView {
   }
 
   conectarEventos() {
+    // Escuchar cambio de idioma para actualizar los textos de los botones del modal
+    document.addEventListener('i18nLoaded', function(e) {
+      GaleriaView.actualizarBotonesI18n(e.detail && e.detail.i18n);
+    });
     this.btnAnterior.addEventListener('click', () => {
       this.useCase.irAnterior();
       this.mostrarImagen();

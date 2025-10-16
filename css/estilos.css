@@ -173,13 +173,13 @@ h1.titulo-pegado-izquierda {
   padding: 0;
 }
 
-/* texto largo reemplazado por flecha visual en móvil (mantener accesible) */
-#anterior::before { content: '◀'; font-size: 1.2rem; }
-#siguiente::before { content: '▶'; font-size: 1.2rem; }
+/* Solo una flecha por botón, alineada a la derecha del texto */
+#anterior::before { content: '◀'; font-size: 1.2rem; margin-right: 6px; }
+#siguiente::after { content: '▶'; font-size: 1.2rem; margin-left: 6px; }
 
 /* separación desde el borde para no tapar esquinas */
-#anterior { left: 8px; }
-#siguiente { right: 8px; }
+#anterior { left: 28px; }
+#siguiente { right: 20px; }
 
 /* Botones de planta: menos intrusivos y centrados arriba */
 #planta-anterior, #planta-siguiente {
@@ -226,8 +226,16 @@ h1.titulo-pegado-izquierda {
 
   /* ocultar textos largos de los botones si existieran */
   #anterior, #siguiente, #planta-anterior, #planta-siguiente {
-    white-space: nowrap;
-    overflow: hidden;
+  white-space: nowrap;
+  overflow: hidden;
+  /* Ocultar cualquier icono extra dentro del botón */
+}
+
+/* Ocultar cualquier icono extra dentro del botón siguiente/anterior */
+#siguiente svg, #siguiente img, #siguiente .icon,
+#anterior svg, #anterior img, #anterior .icon {
+  display: none !important;
+}
   }
 
   /* cuando se añade la clase .caption-below, mostrar caption fuera del modal image */
@@ -248,7 +256,7 @@ h1.titulo-pegado-izquierda {
 
   /* empujar un poco los laterales hacia fuera para no tapar el centro tanto */
   #anterior { left: 6px; }
-  #siguiente { right: 6px; }
+  #siguiente { right: 20px; }
 }
 
 /* Asegurar siempre visibilidad cuando el modal está abierto */

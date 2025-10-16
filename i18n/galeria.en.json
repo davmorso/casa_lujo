@@ -88,7 +88,6 @@
   "detalles": {
   "titulo": "Additional details",
   "caracteristicas_titulo": "Features",
-    "caracteristicas_titulo": "Features",
     "puntos": [
       "Comfortable and safe stairs between floors.",
       "The entire dwelling enjoys outdoor spaces and great brightness.",
@@ -149,11 +148,12 @@
   },
   "ui": {
     "modal": {
-      "cerrar": "×",
-      "plantaAnterior": "⬆ Previous floor",
-      "plantaSiguiente": "⬇ Next floor",
-      "anterior": "Previous",
-      "siguiente": "Next"
+  "cerrar": "×",
+  "plantaAnterior": "⬆ Previous floor",
+  "plantaSiguiente": "⬇ Next floor",
+  "anterior": "Previous",
+  "siguiente": "Next",
+  "caption": "First floor: decoration and interior detail (5 of 8)"
     },
     "cookieBanner": {
       "texto": "This website uses cookies for analytics. You can accept or reject.",

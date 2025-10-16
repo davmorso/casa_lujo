@@ -34,6 +34,21 @@ function replaceUlWithItems(container, items) {
 }
 
 function applyI18n(json = {}) {
+    // Botones de navegación del modal (anterior/siguiente/planta)
+    if (json.ui && json.ui.modal) {
+      const btnAnterior = document.getElementById('anterior');
+      const btnSiguiente = document.getElementById('siguiente');
+      const btnPlantaAnterior = document.getElementById('planta-anterior');
+      const btnPlantaSiguiente = document.getElementById('planta-siguiente');
+      // Actualizar caption del modal si existe y hay traducción
+      const caption = document.getElementById('caption');
+      if (caption && json.ui && json.ui.modal && json.ui.modal.caption) {
+        caption.textContent = json.ui.modal.caption;
+      }
+  if (btnSiguiente && json.ui.modal.siguiente) btnSiguiente.innerHTML = `${json.ui.modal.siguiente} &#x25B6;`;
+      if (btnPlantaAnterior && json.ui.modal.plantaAnterior) btnPlantaAnterior.textContent = json.ui.modal.plantaAnterior;
+      if (btnPlantaSiguiente && json.ui.modal.plantaSiguiente) btnPlantaSiguiente.textContent = json.ui.modal.plantaSiguiente;
+    }
     // Contact link (barra superior)
     if (json.ui && json.ui.links && json.ui.links.contacto_boton) {
       const contactLink = document.getElementById('contact-link');

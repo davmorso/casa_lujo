@@ -148,11 +148,12 @@
   },
   "ui": {
     "modal": {
-      "cerrar": "×",
-      "plantaAnterior": "⬆ Предыдущий этаж",
-      "plantaSiguiente": "⬇ Следующий этаж",
-      "anterior": "Назад",
-      "siguiente": "Вперед"
+  "cerrar": "×",
+  "plantaAnterior": "⬆ Предыдущий этаж",
+  "plantaSiguiente": "⬇ Следующий этаж",
+  "anterior": "Назад",
+  "siguiente": "Вперёд",
+  "caption": "Первый этаж: детали декора и интерьера (5 из 8)"
     },
     "cookieBanner": {
       "texto": "Этот сайт использует файлы cookie для аналитики. Вы можете принять или отклонить их.",
