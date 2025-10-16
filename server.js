@@ -70,6 +70,9 @@ function sendFile(res, filePath) {
   });
 }
 
+// ADVERTENCIA: Esto imprime credenciales sensibles en consola. Elimina este log después de depurar.
+console.log('[DEBUG] SMTP_USER:', process.env.SMTP_USER);
+console.log('[DEBUG] SMTP_PASS:', process.env.SMTP_PASS);
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST || 'smtp.gmail.com',
   port: parseInt(process.env.SMTP_PORT || '587', 10),

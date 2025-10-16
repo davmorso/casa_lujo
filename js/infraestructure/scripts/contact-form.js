@@ -107,6 +107,8 @@ document.addEventListener('DOMContentLoaded', () => {
       asunto: (l.email && l.email.asunto_prefijo) ? l.email.asunto_prefijo : 'Interés'
     };
 
+    debugger;
+
     // Intentar enviar al servidor via fetch
     fetch('/api/contact', {
       method: 'POST',
