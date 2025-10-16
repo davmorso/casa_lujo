@@ -45,7 +45,17 @@ function applyI18n(json = {}) {
       if (caption && json.ui && json.ui.modal && json.ui.modal.caption) {
         caption.textContent = json.ui.modal.caption;
       }
-  if (btnSiguiente && json.ui.modal.siguiente) btnSiguiente.innerHTML = `${json.ui.modal.siguiente} &#x25B6;`;
+  if (btnSiguiente && json.ui.modal.siguiente) {
+    // usar textContent para evitar insertar HTML y crear un span para la flecha
+    btnSiguiente.textContent = json.ui.modal.siguiente;
+    // añadir flecha visual si no existe ya (evitar duplicados)
+    if (!btnSiguiente.querySelector('.btn-arrow')) {
+      const span = document.createElement('span');
+      span.className = 'btn-arrow';
+      span.textContent = ' ▶';
+      btnSiguiente.appendChild(span);
+    }
+  }
       if (btnPlantaAnterior && json.ui.modal.plantaAnterior) btnPlantaAnterior.textContent = json.ui.modal.plantaAnterior;
       if (btnPlantaSiguiente && json.ui.modal.plantaSiguiente) btnPlantaSiguiente.textContent = json.ui.modal.plantaSiguiente;
     }
