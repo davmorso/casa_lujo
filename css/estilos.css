@@ -184,6 +184,12 @@ h1.titulo-pegado-izquierda {
 #anterior::before { content: '◀'; font-size: 1.2rem; margin-right: 6px; }
 #siguiente::after { content: '▶'; font-size: 1.2rem; margin-left: 6px; }
 
+/* Evitar flechas duplicadas en idiomas que ya incluyen símbolos (ej. chino) */
+html[lang^="zh"] #anterior::before,
+html[lang^="zh"] #siguiente::after {
+  content: none !important;
+}
+
 /* separación desde el borde para no tapar esquinas */
 #anterior { left: 28px; }
 #siguiente { right: 20px; }
@@ -226,16 +232,22 @@ h1.titulo-pegado-izquierda {
 /* MÓVIL: aumentar ligeramente y garantizar usabilidad táctil */
 @media (max-width: 600px) {
   #anterior, #siguiente {
-    min-width: 64px;
+    min-width: 84px; /* más espacio para textos largos */
     height: 64px;
     background: rgba(0,0,0,0.65);
     font-size: 1rem;
-    padding: 8px 14px;
+    padding: 8px 12px;
     border-radius: 999px;
+    /* Permitir que el texto se muestre completo en varias líneas si hace falta */
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    line-height: 1.1;
+    word-break: keep-all; /* evitar cortar palabras mid-scripts (chino no necesita esto, pero ayuda en otros idiomas) */
   }
 
-  /* Asegurar que el texto no se desborde y quede legible */
-  #anterior, #siguiente, #planta-anterior, #planta-siguiente {
+  /* Para los botones de planta mantenemos ellipsis si son demasiado largos */
+  #planta-anterior, #planta-siguiente {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
