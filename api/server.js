@@ -28,7 +28,7 @@ try {
   console.warn('[WARN] No se pudo leer configuration.env:', e.message);
 }
 
-// 3) App Express + Nodemailer
+// 3) App Express (sin envío de correo)
 const express = require('express');
 // Eliminado Mailgun: no se usará envío de correo
 

@@ -38,6 +38,9 @@ FROM_ADDRESS=tu_usuario@gmail.com
 
 ## Historial de versiones
 
+### Versión 47
+- Eliminadas todas las referencias a nodemailer, smtp y gmail.
+
 ### Versión 46
 - Eliminado Mailgun y envío de correo; endpoint /api/contact ahora es stub.
 
