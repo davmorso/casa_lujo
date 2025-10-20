@@ -54,4 +54,3 @@ coverage/
 *.tgz
 *.tar.gz
 *.zip
-configuration.env

@@ -85,6 +85,17 @@ const transporter = nodemailer.createTransport({
 
 const server = http.createServer((req, res) => {
   try {
+    // Permitir CORS para desarrollo local
+    if (req.url.startsWith('/api/')) {
+      res.setHeader('Access-Control-Allow-Origin', '*');
+      res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
+      res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+      if (req.method === 'OPTIONS') {
+        res.writeHead(204);
+        return res.end();
+      }
+    }
+
     // Endpoint API: POST /api/contact -> enviar email usando nodemailer
     if (req.method === 'POST' && req.url === '/api/contact') {
       let body = '';
@@ -110,6 +121,8 @@ const server = http.createServer((req, res) => {
           bodyLines.push(data.experiencia || '');
           bodyLines.push('');
           bodyLines.push(`Acepta política: ${data.acepta ? 'Sí' : 'No'}`);
+
+          Console.LOG(bodyLines);
 
           const mailOptions = {
             from: process.env.FROM_ADDRESS || process.env.SMTP_USER,

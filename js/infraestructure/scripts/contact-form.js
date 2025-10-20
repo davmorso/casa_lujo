@@ -126,14 +126,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --------- Modal
   function openModal() {
-    if (!modal) return;
-    lastFocused = document.activeElement;
-    modal.style.display = 'flex';
-    modal.setAttribute('aria-hidden', 'false');
-    // A11y: asegúrate de que en HTML el contenedor del modal tenga role y aria-modal:
-    // <div id="contact-modal" role="dialog" aria-modal="true" aria-hidden="true">...</div>
-    enableFocusTrap();
-    setTimeout(() => inpNombre && inpNombre.focus(), 50);
+  if (!modal) return;
+  // Limpiar todos los campos del formulario al abrir
+  if (form) form.reset();
+  if (inpNombre) inpNombre.value = '';
+  if (inpTelefono) inpTelefono.value = '';
+  if (inpEstructura) inpEstructura.value = '';
+  if (inpExperiencia) inpExperiencia.value = '';
+  if (inpAcepto) inpAcepto.checked = false;
+  clearErrors();
+  note && (note.textContent = '');
+  lastFocused = document.activeElement;
+  modal.style.display = 'flex';
+  modal.setAttribute('aria-hidden', 'false');
+  // A11y: asegúrate de que en HTML el contenedor del modal tenga role y aria-modal:
+  // <div id="contact-modal" role="dialog" aria-modal="true" aria-hidden="true">...</div>
+  enableFocusTrap();
+  setTimeout(() => inpNombre && inpNombre.focus(), 50);
   }
 
   function closeModal() {
@@ -162,10 +171,36 @@ document.addEventListener('DOMContentLoaded', () => {
     let ok = true;
 
     const nombre = inpNombre?.value.trim() || '';
-    const telefono = inpTelefono?.value.trim() || '';
+    let telefono = inpTelefono?.value.trim() || '';
     const estructura = inpEstructura?.value.trim() || '';
     const experiencia = inpExperiencia?.value.trim() || '';
     const acepta = !!inpAcepto?.checked;
+    const email = document.getElementById('contact-email')?.value.trim() || '';
+
+    // Validación de teléfono
+    // Si empieza por +, acepta formato internacional
+    // Si son 9 dígitos, añade +34
+    // Si no cumple, error
+    let telefonoValido = false;
+    if (/^\+\d{7,15}$/.test(telefono)) {
+      telefonoValido = true;
+    } else if (/^\d{9}$/.test(telefono)) {
+      telefono = '+34' + telefono;
+      telefonoValido = true;
+    }
+    if (!telefonoValido) {
+      setError('telefono', 'Teléfono inválido. Debe ser 9 dígitos (España) o formato internacional (+XX...).');
+      ok = false;
+    }
+
+    // Validación de email (si existe campo)
+    if (document.getElementById('contact-email')) {
+      const emailRegex = /^[\w.-]+@[\w.-]+\.[A-Za-z]{2,}$/;
+      if (!emailRegex.test(email)) {
+        setError('email', 'Email inválido.');
+        ok = false;
+      }
+    }
 
     if (!nombre) { setError('nombre', l.requerido); ok = false; }
     if (!telefono) { setError('telefono', l.requerido); ok = false; }
