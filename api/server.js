@@ -8,7 +8,7 @@ const path = require('path');
 
 // 2) Cargar configuration.env y volcar a process.env (sin pisar lo ya definido)
 try {
-  const cfgPath = path.join(process.cwd(), 'configuration.env');
+  const cfgPath = path.join(process.cwd(), '../configuration.env');
   if (fs.existsSync(cfgPath)) {
     const envContent = fs.readFileSync(cfgPath, 'utf8');
     envContent.split(/\r?\n/).forEach(line => {
@@ -34,7 +34,6 @@ const nodemailer = require('nodemailer');
 
 const app = express();
 // Nota: En Vercel, el puerto es asignado dinámicamente, pero se mantiene la lógica para pruebas locales.
-const PORT = process.env.PORT || 8000; 
 
 // --- Configuración y Middleware ---
 app.use(express.json());
@@ -122,6 +121,7 @@ app.get('/{*path}', (req, res) => {
 });
 
 // --- Arrancar Servidor ---
+const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
   console.log(`Express server listening on http://localhost:${PORT}`);
 });

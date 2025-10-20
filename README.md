@@ -38,6 +38,9 @@ FROM_ADDRESS=tu_usuario@gmail.com
 
 ## Historial de versiones
 
+### Versión 43
+- Adaptación y confirmación de variables de entorno para Render.
+
 ### Versión 42
 - Bump de versión solicitado por el usuario.
 
