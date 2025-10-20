@@ -38,6 +38,9 @@ FROM_ADDRESS=tu_usuario@gmail.com
 
 ## Historial de versiones
 
+### Versión 48
+- Mailgun sandbox para pruebas, ahora solo se permiten destinatarios verificados. Asegúrate de que tus destinatarios estén verificados en Mailgun para recibir los correos.
+
 ### Versión 47
 - Eliminadas todas las referencias a nodemailer, smtp y gmail.
 
