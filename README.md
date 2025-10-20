@@ -15,11 +15,17 @@ Nota: la configuración `core.hooksPath` es local al clone; cada desarrollador q
 
 ## Versión actual y cambios subidos
 
-Versión subida: 35
+Versión subida: 37
 
-- Ajuste Vercel: server.js como entrypoint y rutas API.
+- Reestructuración de server.js para Express y corrección de errores de sintaxis. Mantiene historial anterior.
 
 ## Historial de versiones
+
+### Versión 37
+- Reestructuración de server.js para Express y corrección de errores de sintaxis. Mantiene historial anterior.
+
+### Versión 36
+- Adaptación completa para Vercel: Express.js y configuración de vercel.json.
 
 ### Versión 35
 - Ajuste Vercel: server.js como entrypoint y rutas API.

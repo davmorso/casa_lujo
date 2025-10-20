@@ -1,10 +1,16 @@
 {
   "version": 2,
   "builds": [
-    { "src": "server.js", "use": "@vercel/node" }
+    { "src": "server.js", "use": "@vercel/node" },
+    { "src": "index.html", "use": "@vercel/static" },
+    { "src": "css/estilos.css", "use": "@vercel/static" },
+    { "src": "js/**/*", "use": "@vercel/static" },
+    { "src": "img/**/*", "use": "@vercel/static" },
+    { "src": "i18n/**/*", "use": "@vercel/static" }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "server.js" },
+    { "src": "/api/contact", "dest": "server.js" },
+    { "src": "/(css|js|img|i18n)/(.*)", "dest": "/$1/$2" },
     { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
