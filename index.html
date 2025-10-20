@@ -1,4 +1,4 @@
-<!-- version 28 -->
+<!-- version 29 -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -176,12 +176,12 @@
             };
           }
           var lang = (e.detail && e.detail.lang) || 'es';
-          var href = 'politica-privacidad.html';
-          if (lang === 'ca') href = 'politica-privacidad-ca.html';
-          else if (lang === 'en') href = 'politica-privacidad-en.html';
-          else if (lang === 'fr') href = 'politica-privacidad-fr.html';
-          else if (lang === 'ru') href = 'politica-privacidad-ru.html';
-          else if (lang === 'zh') href = 'politica-privacidad-zh.html';
+          var href = 'js/application/politica-privacidad.html';
+          if (lang === 'ca') href = 'js/application/politica-privacidad-ca.html';
+          else if (lang === 'en') href = 'js/application/politica-privacidad-en.html';
+          else if (lang === 'fr') href = 'js/application/politica-privacidad-fr.html';
+          else if (lang === 'ru') href = 'js/application/politica-privacidad-ru.html';
+          else if (lang === 'zh') href = 'js/application/politica-privacidad-zh.html';
           document.getElementById('footer-privacy').setAttribute('href', href);
         });
       </script>
@@ -192,14 +192,24 @@
   <script src="js/application/galeriaUseCase.js"></script>
   <script src="js/infraestructure/scripts/galeriaView.js"></script>
   <script src="js/infraestructure/scripts/i18n-loader.js"></script>
+  <script>
+    // Detecta entorno y asigna BACKEND_URL automáticamente
+    if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
+      window.BACKEND_URL = 'http://localhost:8000'; // Desarrollo local
+    } else {
+      window.BACKEND_URL = 'https://davmorso.github.io/casa_lujo'; // Producción: pon aquí la URL de tu backend público
+    }
+  </script>
   <script src="js/infraestructure/scripts/contact-form.js"></script>
-  <script src="js/infraestructure/cookieService.js"></script>
+  
   <script src="js/lang-switcher.js"></script>
   <script src="js/infraestructure/scripts/i18n-loader.js"></script>
   <script src="js/galeria.js"></script>
   <script src="js/zoomable-modal.js"></script>
   <script src="js/infraestructure/scripts/contact-form.js"></script>
   <script src="js/bootstrap.js"></script>
+  <script src="js/infraestructure/scripts/cookieService.js"></script>
+  <script src="js/infraestructure/scripts/cookieBannerView.js"></script>
 
   <script>
     // Forzar actualización de los textos del modal tras cada cambio de idioma
