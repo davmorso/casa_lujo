@@ -13,7 +13,7 @@ Nota: la configuración `core.hooksPath` es local al clone; cada desarrollador q
 
 ## Versión actual y cambios subidos
 
-Versión subida: 29
+Versión subida: 30
 
 
 
@@ -25,6 +25,7 @@ Descripción de los cambios aplicados en esta versión:
 - Mejoras en seguridad y documentación.
 - Todos los enlaces y rutas de scripts actualizados tras reorganización de archivos.
 - Confirmada la seguridad en logging: advertencia sobre logs sensibles y recomendación de eliminar tras depuración.
+- Subida de versión adicional para control y sincronización.
 
 Nota de seguridad: el servidor imprime en consola el usuario y contraseña SMTP para depuración local. Elimina ese log tras probar y nunca subas `configuration.env` al repositorio.
 .
