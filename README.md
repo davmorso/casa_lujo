@@ -38,6 +38,9 @@ FROM_ADDRESS=tu_usuario@gmail.com
 
 ## Historial de versiones
 
+### Versión 40
+- Subida y revisión de archivos de configuración para Vercel, ajustes en vercel.json.
+
 ### Versión 39
 - Corregida ruta comodín en Express para compatibilidad Vercel.
 
