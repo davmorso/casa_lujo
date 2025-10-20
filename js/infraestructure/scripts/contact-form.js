@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
+  // --------- Referencias DOM
   const modal = document.getElementById('contact-modal');
   const openBtn = document.getElementById('open-contact-btn');
   const closeBtn = document.getElementById('contact-close');
@@ -14,37 +15,96 @@ document.addEventListener('DOMContentLoaded', () => {
   const inpExperiencia = document.getElementById('contact-experiencia');
   const inpAcepto = document.getElementById('contact-acepto');
 
-  let labels = null;
+  const submitBtn = document.getElementById('contact-submit');
 
-  // Apply labels when we receive i18n (from lang-switcher)
+  let labels = null;
+  let lastFocused = null;
+
+  // --------- Utilidades
+  function normalizeBaseUrl(url) {
+    if (!url) return '';
+    return url.replace(/\/+$/, ''); // quita barras finales
+  }
+
+  function qsaWithin(container, selector) {
+    return Array.prototype.slice.call(container.querySelectorAll(selector));
+  }
+
+  // Focus trap muy sencillo
+  function enableFocusTrap() {
+    if (!modal) return;
+    const focusables = qsaWithin(
+      modal,
+      'a[href], button, textarea, input, select, [tabindex]:not([tabindex="-1"])'
+    ).filter(el => !el.hasAttribute('disabled') && !el.getAttribute('aria-hidden'));
+    if (focusables.length === 0) return;
+
+    function onKeyDown(e) {
+      if (e.key !== 'Tab') return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (e.shiftKey) { // shift + tab
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else { // tab
+        if (document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    }
+    modal.__trapHandler = onKeyDown;
+    modal.addEventListener('keydown', onKeyDown);
+  }
+
+  function disableFocusTrap() {
+    if (!modal || !modal.__trapHandler) return;
+    modal.removeEventListener('keydown', modal.__trapHandler);
+    delete modal.__trapHandler;
+  }
+
+  // --------- i18n / Etiquetas
   function applyLabels(i18nContact) {
     const l = i18nContact || labels || {
-      titulo: 'Contactar', boton_abrir:'Contactar interesado',
-      labels:{nombre:'Nombre', telefono:'Teléfono', estructura_compra:'Estructura compra', experiencia:'Experiencia', acepto:'Acepto la política'},
-      placeholders:{nombre:'', telefono:'', estructura_compra:'', experiencia:''},
-      botones:{enviar:'Preparar correo', cancelar:'Cancelar'},
-      email:{recipientes:['dmoraroca@gmail.com','mmora@canalip.com']}, nota_envio:'Se abrirá tu cliente de correo.'
+      titulo: 'Contactar',
+      boton_abrir: 'Contactar interesado',
+      labels: {
+        nombre: 'Nombre',
+        telefono: 'Teléfono',
+        estructura_compra: 'Estructura compra',
+        experiencia: 'Experiencia',
+        acepto: 'Acepto la política'
+      },
+      placeholders: { nombre: '', telefono: '', estructura_compra: '', experiencia: '' },
+      botones: { enviar: 'Preparar correo', cancelar: 'Cancelar' },
+      email: { recipientes: ['dmoraroca@gmail.com', 'mmora@canalip.com'] },
+      nota_envio: 'Se abrirá tu cliente de correo.',
+      errores: { requerido: 'Este campo es obligatorio', aceptar_politica: 'Debes aceptar la política de privacidad' }
     };
 
-    document.getElementById('contact-title').textContent = l.titulo;
-    openBtn.textContent = l.boton_abrir;
-    document.getElementById('label-nombre').textContent = l.labels.nombre;
-    document.getElementById('label-telefono').textContent = l.labels.telefono;
-    document.getElementById('label-estructura').textContent = l.labels.estructura_compra;
-    document.getElementById('label-experiencia').textContent = l.labels.experiencia;
-    document.getElementById('label-acepto').textContent = l.labels.acepto;
-    document.getElementById('contact-cancel').textContent = l.botones.cancelar;
-    document.getElementById('contact-submit').textContent = l.botones.enviar;
-    note.textContent = l.nota_envio || '';
+    const byId = (id) => document.getElementById(id);
 
-    inpNombre.placeholder = l.placeholders.nombre || '';
-    inpTelefono.placeholder = l.placeholders.telefono || '';
-    inpEstructura.placeholder = l.placeholders.estructura_compra || '';
-    inpExperiencia.placeholder = l.placeholders.experiencia || '';
+    byId('contact-title') && (byId('contact-title').textContent = l.titulo);
+    openBtn && (openBtn.textContent = l.boton_abrir);
+    byId('label-nombre') && (byId('label-nombre').textContent = l.labels.nombre);
+    byId('label-telefono') && (byId('label-telefono').textContent = l.labels.telefono);
+    byId('label-estructura') && (byId('label-estructura').textContent = l.labels.estructura_compra);
+    byId('label-experiencia') && (byId('label-experiencia').textContent = l.labels.experiencia);
+    byId('label-acepto') && (byId('label-acepto').textContent = l.labels.acepto);
+    cancelBtn && (cancelBtn.textContent = l.botones.cancelar);
+    submitBtn && (submitBtn.textContent = l.botones.enviar);
+    note && (note.textContent = l.nota_envio || '');
+
+    if (inpNombre) inpNombre.placeholder = l.placeholders.nombre || '';
+    if (inpTelefono) inpTelefono.placeholder = l.placeholders.telefono || '';
+    if (inpEstructura) inpEstructura.placeholder = l.placeholders.estructura_compra || '';
+    if (inpExperiencia) inpExperiencia.placeholder = l.placeholders.experiencia || '';
     labels = l;
   }
 
-  // Listen for i18nLoaded from lang-switcher
+  // Escuchar i18nLoaded del lang-switcher
   document.addEventListener('i18nLoaded', (e) => {
     const i18n = e.detail?.i18n || {};
     const lang = e.detail?.lang || localStorage.getItem('site_lang') || 'es';
@@ -52,88 +112,127 @@ document.addEventListener('DOMContentLoaded', () => {
     if (i18n.contacto) applyLabels(i18n.contacto);
     else applyLabels(); // fallback
   });
- 
-  // fallback: if no event fired in 300ms, load based on localStorage (ensures labels available)
+
+  // Fallback: si no llega el evento en 300ms, cargar por localStorage
   setTimeout(() => {
     if (!labels) {
       const lang = localStorage.getItem('site_lang') || 'es';
-      fetch(`./i18n/galeria.${lang}.json`).then(r => r.ok ? r.json() : null).then(j => {
-        applyLabels(j?.contacto || null);
-      }).catch(()=>applyLabels());
+      fetch(`./i18n/galeria.${lang}.json`)
+        .then(r => (r.ok ? r.json() : null))
+        .then(j => { applyLabels(j?.contacto || null); })
+        .catch(() => applyLabels());
     }
   }, 300);
- 
-  // debug
-  console.log('[contact-form] init, site_lang=', localStorage.getItem('site_lang'));
 
+  // --------- Modal
   function openModal() {
     if (!modal) return;
+    lastFocused = document.activeElement;
     modal.style.display = 'flex';
-    modal.setAttribute('aria-hidden','false');
-    setTimeout(() => inpNombre.focus(), 50);
+    modal.setAttribute('aria-hidden', 'false');
+    // A11y: asegúrate de que en HTML el contenedor del modal tenga role y aria-modal:
+    // <div id="contact-modal" role="dialog" aria-modal="true" aria-hidden="true">...</div>
+    enableFocusTrap();
+    setTimeout(() => inpNombre && inpNombre.focus(), 50);
   }
+
   function closeModal() {
     if (!modal) return;
     modal.style.display = 'none';
-    modal.setAttribute('aria-hidden','true');
+    modal.setAttribute('aria-hidden', 'true');
+    disableFocusTrap();
+    if (lastFocused && typeof lastFocused.focus === 'function') {
+      lastFocused.focus();
+    }
   }
 
+  // --------- Validación
   function setError(fieldName, message) {
     const el = document.querySelector(`.field-error[data-for="${fieldName}"]`);
     if (el) el.textContent = message || '';
   }
-  function clearErrors() { document.querySelectorAll('.field-error').forEach(e => e.textContent = ''); }
+
+  function clearErrors() {
+    document.querySelectorAll('.field-error').forEach(e => (e.textContent = ''));
+  }
 
   function validateAll() {
     clearErrors();
-    const l = labels?.errores || { requerido:'Este campo es obligatorio', aceptar_politica:'Debes aceptar la política de privacidad' };
+    const l = labels?.errores || { requerido: 'Este campo es obligatorio', aceptar_politica: 'Debes aceptar la política de privacidad' };
     let ok = true;
-    if (!inpNombre.value.trim()) { setError('nombre', l.requerido); ok = false; }
-    if (!inpTelefono.value.trim()) { setError('telefono', l.requerido); ok = false; }
-    if (!inpEstructura.value.trim()) { setError('estructura_compra', l.requerido); ok = false; }
-    if (!inpExperiencia.value.trim()) { setError('experiencia', l.requerido); ok = false; }
-    if (!inpAcepto.checked) { setError('acepto', l.aceptar_politica || l.aceptar || 'Debes aceptar la política'); ok = false; }
+
+    const nombre = inpNombre?.value.trim() || '';
+    const telefono = inpTelefono?.value.trim() || '';
+    const estructura = inpEstructura?.value.trim() || '';
+    const experiencia = inpExperiencia?.value.trim() || '';
+    const acepta = !!inpAcepto?.checked;
+
+    if (!nombre) { setError('nombre', l.requerido); ok = false; }
+    if (!telefono) { setError('telefono', l.requerido); ok = false; }
+    if (!estructura) { setError('estructura_compra', l.requerido); ok = false; }
+    if (!experiencia) { setError('experiencia', l.requerido); ok = false; }
+    if (!acepta) { setError('acepto', l.aceptar_politica || l.aceptar || 'Debes aceptar la política'); ok = false; }
+
     return ok;
   }
 
-  function sendMailClient() {
+  // --------- Envío
+  async function sendMailClient() {
     const l = labels || {};
     const payload = {
-      nombre: inpNombre.value.trim(),
-      telefono: inpTelefono.value.trim(),
-      estructura: inpEstructura.value.trim(),
-      experiencia: inpExperiencia.value.trim(),
-      acepta: !!inpAcepto.checked,
+      nombre: inpNombre?.value.trim() || '',
+      telefono: inpTelefono?.value.trim() || '',
+      estructura: inpEstructura?.value.trim() || '',
+      experiencia: inpExperiencia?.value.trim() || '',
+      acepta: !!inpAcepto?.checked,
       asunto: (l.email && l.email.asunto_prefijo) ? l.email.asunto_prefijo : 'Interés'
     };
 
-    debugger;
+    const base = normalizeBaseUrl(window.BACKEND_URL) || 'http://192.168.1.41:8080';
+    const url = `${base}/api/contact`;
 
-    // Intentar enviar al servidor via fetch
-    fetch('/api/contact', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    }).then(r => r.json().catch(()=>({ok:false}))).then(result => {
-      if (result && result.ok) {
-        note.textContent = l.nota_envio_success || 'Mensaje enviado correctamente.';
-        closeModal();
-      } else if (result && result.error === 'mail_not_configured') {
-          // Mostrar error al usuario si el servidor no está configurado
-          alert('No se pudo enviar el formulario: el servidor no está configurado para enviar correos.');
-      } else {
-        // otro fallo -> fallback
-          alert('No se pudo enviar el formulario: el servidor no está configurado para enviar correos.');
+    if (submitBtn) submitBtn.disabled = true;
+
+    try {
+      const r = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      // Intenta parsear JSON sólo si viene JSON
+      let data = null;
+      const ct = r.headers.get('content-type') || '';
+      if (ct.includes('application/json')) {
+        try { data = await r.json(); } catch {}
       }
-    }).catch(() => {
-      // si hay error de red, fallback a mailto
-        // si hay error de red, mostrar error
+
+      if (!r.ok) {
+        const msg = (data && (data.message || data.error)) || `Error ${r.status}`;
+        throw new Error(msg);
+      }
+
+      if (data && data.ok) {
+        note && (note.textContent = l.nota_envio_success || 'Mensaje enviado correctamente.');
+        closeModal();
+      } else {
+        throw new Error((data && (data.message || data.error)) || 'No se pudo procesar la solicitud.');
+      }
+    } catch (err) {
+      const msg = String(err?.message || '').toLowerCase();
+      if (msg.includes('mail_not_configured')) {
+        alert('No se pudo enviar el formulario: el servidor no está configurado para enviar correos.');
+      } else if (msg.includes('network') || msg.includes('failed to fetch')) {
         alert('No se pudo enviar el formulario por un error de red.');
-    });
+      } else {
+        alert('No se pudo enviar el formulario. ' + (err?.message || ''));
+      }
+    } finally {
+      if (submitBtn) submitBtn.disabled = false;
+    }
   }
 
-  // Eliminado fallback a mailto: solo se usa envío por servidor
-
+  // --------- Listeners
   openBtn?.addEventListener('click', openModal);
   closeBtn?.addEventListener('click', closeModal);
   cancelBtn?.addEventListener('click', (e) => { e.preventDefault(); closeModal(); });
@@ -144,8 +243,11 @@ document.addEventListener('DOMContentLoaded', () => {
     sendMailClient();
   });
 
+  // Cerrar con Escape
   document.addEventListener('keydown', (ev) => {
     if (ev.key === 'Escape' && modal && modal.style.display === 'flex') closeModal();
   });
 
+  // Debug
+  console.log('[contact-form] init, site_lang=', localStorage.getItem('site_lang'));
 });
