@@ -38,6 +38,9 @@ FROM_ADDRESS=tu_usuario@gmail.com
 
 ## Historial de versiones
 
+### Versión 38
+- Nota sobre variables de entorno en README, instrucciones Vercel/local.
+
 ### Versión 37
 - Reestructuración de server.js para Express y corrección de errores de sintaxis. Mantiene historial anterior.
 
@@ -70,6 +73,10 @@ FROM_ADDRESS=tu_usuario@gmail.com
 - Mensajes de error claros si el servidor no está configurado o hay error de red.
 - Mejoras en seguridad y documentación.
 - Todos los enlaces y rutas de scripts actualizados tras reorganización de archivos.
+
+# Seguridad y logging
+
+**Advertencia:** Si usas `console.log` para depurar variables sensibles (por ejemplo, mostrando el contenido de `configuration.env` o `process.env` en `server.js`), recuerda eliminar ese código tras la depuración. Nunca dejes logs de credenciales o datos privados en producción.
 
 Nota de seguridad: el servidor imprime en consola el usuario y contraseña SMTP para depuración local. Elimina ese log tras probar y nunca subas `configuration.env` al repositorio.
 
