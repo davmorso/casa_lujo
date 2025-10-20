@@ -38,6 +38,8 @@ const app = express();
 // --- Configuración y Middleware ---
 app.use(express.json());
 
+console.log(process);
+
 // CORS simple (ajusta el Access-Control-Allow-Origin en producción)
 app.use((req, res, next) => {
   // Mejora: Verifica si la solicitud viene de un origen seguro si es posible

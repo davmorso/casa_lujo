@@ -38,6 +38,9 @@ FROM_ADDRESS=tu_usuario@gmail.com
 
 ## Historial de versiones
 
+### Versión 44
+- Log de timeout SMTP en Render documentado. Se recomienda usar Mailgun, SendGrid o servicios de email compatibles con Render.
+
 ### Versión 43
 - Adaptación y confirmación de variables de entorno para Render.
 
