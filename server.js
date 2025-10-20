@@ -96,7 +96,7 @@ app.post('/api/contact', async (req, res) => {
 
 // (opcional) servir estáticos si quieres probar localmente una SPA
 app.use(express.static(path.join(process.cwd(), '.')));
-app.get('*', (req, res) => {
+app.get('/*', (req, res) => {
   res.sendFile(path.join(process.cwd(), 'index.html'));
 });
 

@@ -38,6 +38,9 @@ FROM_ADDRESS=tu_usuario@gmail.com
 
 ## Historial de versiones
 
+### Versión 39
+- Corregida ruta comodín en Express para compatibilidad Vercel.
+
 ### Versión 38
 - Nota sobre variables de entorno en README, instrucciones Vercel/local.
 
