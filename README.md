@@ -38,6 +38,9 @@ FROM_ADDRESS=tu_usuario@gmail.com
 
 ## Historial de versiones
 
+### Versión 45
+- Adaptación para Mailgun API, compatible con Render. Variables necesarias: MAILGUN_API_KEY, MAILGUN_DOMAIN, CONTACT_RECIPIENTS, FROM_ADDRESS.
+
 ### Versión 44
 - Log de timeout SMTP en Render documentado. Se recomienda usar Mailgun, SendGrid o servicios de email compatibles con Render.
 

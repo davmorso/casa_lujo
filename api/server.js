@@ -30,7 +30,7 @@ try {
 
 // 3) App Express + Nodemailer
 const express = require('express');
-const nodemailer = require('nodemailer');
+const mailgun = require('mailgun-js');
 
 const app = express();
 // Nota: En Vercel, el puerto es asignado dinámicamente, pero se mantiene la lógica para pruebas locales.
@@ -50,22 +50,17 @@ app.use((req, res, next) => {
   next();
 });
 
-// Transport SMTP
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST || 'smtp.gmail.com',
-  port: Number(process.env.SMTP_PORT) || 587,
-  secure: String(process.env.SMTP_PORT) === '465',
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS, // Usa App Password si es Gmail
-  },
+
+// Configuración Mailgun
+const mg = mailgun({
+  apiKey: process.env.MAILGUN_API_KEY,
+  domain: process.env.MAILGUN_DOMAIN
 });
 
 // --- Endpoint de Contacto ---
 app.post('/api/contact', async (req, res) => {
   try {
     const data = req.body || {};
-    // Valida que los campos cruciales existan
     if (!data.nombre || !data.telefono || !data.experiencia) {
       return res.status(400).json({ ok: false, error: 'missing_fields', message: 'Faltan campos obligatorios: nombre, teléfono o experiencia.' });
     }
@@ -84,27 +79,26 @@ app.post('/api/contact', async (req, res) => {
       `Acepta política: ${data.acepta ? 'Sí' : 'No'}`
     ];
 
-    const mailOptions = {
-      from: process.env.FROM_ADDRESS || process.env.SMTP_USER,
-      // Se utiliza el array de destinatarios
+    const mailData = {
+      from: process.env.FROM_ADDRESS || `noreply@${process.env.MAILGUN_DOMAIN}`,
       to: (process.env.CONTACT_RECIPIENTS || 'dmoraroca@gmail.com,mmora@canalip.com')
-          .split(',')
-          .map(s => s.trim())
-          .filter(Boolean),
+        .split(',')
+        .map(s => s.trim())
+        .filter(Boolean),
       subject,
       text: bodyLines.join('\n'),
     };
 
-    await transporter.sendMail(mailOptions);
-    return res.status(200).json({ ok: true, message: 'Correo enviado con éxito.' });
+    mg.messages().send(mailData, function (error, body) {
+      if (error) {
+        console.error('[server] /api/contact error', error);
+        return res.status(500).json({ ok: false, error: error.message || 'internal_error' });
+      }
+      return res.status(200).json({ ok: true, message: 'Correo enviado con éxito.' });
+    });
   } catch (err) {
     console.error('[server] /api/contact error', err);
-    // Mejora: Añadir un mensaje más descriptivo si la autenticación falla
-    let errorMsg = err.message || 'internal_error';
-    if (err.code === 'EAUTH') {
-        errorMsg = 'Error de autenticación SMTP. Revise SMTP_USER y SMTP_PASS.';
-    }
-    return res.status(500).json({ ok: false, error: errorMsg });
+    return res.status(500).json({ ok: false, error: err.message || 'internal_error' });
   }
 });
 
