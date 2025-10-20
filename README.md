@@ -12,13 +12,20 @@ Esto hará que el hook `pre-commit` incluido en `.githooks` ejecute `scripts/bum
 Nota: la configuración `core.hooksPath` es local al clone; cada desarrollador que quiera este comportamiento deberá ejecutar el comando anterior en su máquina.
 
 
+
 ## Versión actual y cambios subidos
 
-Versión subida: 34
+Versión subida: 35
 
-- Cambios recientes en index.html y sincronización de versión.
+- Ajuste Vercel: server.js como entrypoint y rutas API.
 
 ## Historial de versiones
+
+### Versión 35
+- Ajuste Vercel: server.js como entrypoint y rutas API.
+
+### Versión 34
+- Cambios recientes en index.html y sincronización de versión.
 
 ### Versión 33
 - Cambios recientes en index.html y sincronización de versión.
