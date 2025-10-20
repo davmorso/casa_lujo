@@ -38,6 +38,9 @@ FROM_ADDRESS=tu_usuario@gmail.com
 
 ## Historial de versiones
 
+### Versión 41
+- Actualización de archivos y commit tras cambios en server.js.
+
 ### Versión 40
 - Subida y revisión de archivos de configuración para Vercel, ajustes en vercel.json.
 
