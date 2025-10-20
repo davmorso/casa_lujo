@@ -30,7 +30,7 @@ try {
 
 // 3) App Express + Nodemailer
 const express = require('express');
-const mailgun = require('mailgun-js');
+// Eliminado Mailgun: no se usará envío de correo
 
 const app = express();
 // Nota: En Vercel, el puerto es asignado dinámicamente, pero se mantiene la lógica para pruebas locales.
@@ -51,55 +51,12 @@ app.use((req, res, next) => {
 });
 
 
-// Configuración Mailgun
-const mg = mailgun({
-  apiKey: process.env.MAILGUN_API_KEY,
-  domain: process.env.MAILGUN_DOMAIN
-});
+// No hay configuración de email
 
 // --- Endpoint de Contacto ---
 app.post('/api/contact', async (req, res) => {
-  try {
-    const data = req.body || {};
-    if (!data.nombre || !data.telefono || !data.experiencia) {
-      return res.status(400).json({ ok: false, error: 'missing_fields', message: 'Faltan campos obligatorios: nombre, teléfono o experiencia.' });
-    }
-
-    const subject = `${data.asunto || 'Interés'} - ${data.nombre}`;
-    const bodyLines = [
-      `Nombre: ${data.nombre}`,
-      `Teléfono: ${data.telefono}`,
-      '',
-      'Estructura compra:',
-      data.estructura || 'No especificada',
-      '',
-      'Experiencia:',
-      data.experiencia || 'No especificada',
-      '',
-      `Acepta política: ${data.acepta ? 'Sí' : 'No'}`
-    ];
-
-    const mailData = {
-      from: process.env.FROM_ADDRESS || `noreply@${process.env.MAILGUN_DOMAIN}`,
-      to: (process.env.CONTACT_RECIPIENTS || 'dmoraroca@gmail.com,mmora@canalip.com')
-        .split(',')
-        .map(s => s.trim())
-        .filter(Boolean),
-      subject,
-      text: bodyLines.join('\n'),
-    };
-
-    mg.messages().send(mailData, function (error, body) {
-      if (error) {
-        console.error('[server] /api/contact error', error);
-        return res.status(500).json({ ok: false, error: error.message || 'internal_error' });
-      }
-      return res.status(200).json({ ok: true, message: 'Correo enviado con éxito.' });
-    });
-  } catch (err) {
-    console.error('[server] /api/contact error', err);
-    return res.status(500).json({ ok: false, error: err.message || 'internal_error' });
-  }
+  // Stub: no se envía correo
+  return res.status(200).json({ ok: false, message: 'Envío de correo deshabilitado. Contacta por otro medio.' });
 });
 
 // --- Manejo de Estáticos y Rutas SPA (¡CORREGIDO: SOLUCIONA EL PATH ERROR!) ---
