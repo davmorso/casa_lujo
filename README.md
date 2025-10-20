@@ -19,6 +19,23 @@ Versión subida: 37
 
 - Reestructuración de server.js para Express y corrección de errores de sintaxis. Mantiene historial anterior.
 
+# Variables de entorno
+
+El backend Express utiliza variables de entorno para la configuración SMTP y destinatarios del formulario de contacto.
+
+- **En producción (Vercel):** Las variables se configuran en el dashboard de Vercel, sección *Environment Variables*. No es necesario subir `configuration.env` ni `.env`.
+- **En local:** Puedes usar un archivo `configuration.env` en la raíz del proyecto, con el mismo formato que `.env`. El servidor lo carga automáticamente si existe.
+
+Ejemplo de `configuration.env`:
+```
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=tu_usuario@gmail.com
+SMTP_PASS=tu_app_password
+CONTACT_RECIPIENTS=tu_usuario@gmail.com
+FROM_ADDRESS=tu_usuario@gmail.com
+```
+
 ## Historial de versiones
 
 ### Versión 37

@@ -4,7 +4,6 @@ try { require('dotenv').config(); } catch (e) { /* si no está dotenv, no pasa n
 // 2) Si existe configuration.env, lo cargamos y volcamos a process.env (sin pisar lo ya definido)
 const fs = require('fs');
 const path = require('path');
-
 try {
   const cfgPath = path.join(process.cwd(), 'configuration.env');
   if (fs.existsSync(cfgPath)) {
