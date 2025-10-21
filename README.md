@@ -38,6 +38,15 @@ FROM_ADDRESS=tu_usuario@gmail.com
 
 ## Historial de versiones
 
+### Versión 50
+- Integración completa con SendGrid para envío de emails desde el formulario de contacto.
+- Remitente y destinatarios en copia (CC) configurados en configuration.env.
+- Se requiere el paquete @sendgrid/mail instalado.
+- No es necesario configurar DNS ni dominio propio.
+
+### Versión 49
+- Mailgun eliminado, endpoint /api/contact vuelve a ser stub.
+
 ### Versión 48
 - Mailgun sandbox para pruebas, ahora solo se permiten destinatarios verificados. Asegúrate de que tus destinatarios estén verificados en Mailgun para recibir los correos.
 

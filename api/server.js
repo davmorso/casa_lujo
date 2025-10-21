@@ -1,9 +1,4 @@
-// Mailgun sandbox (solo para pruebas, destinatarios deben estar verificados)
-const mailgun = require('mailgun-js');
-const mg = mailgun({
-  apiKey: process.env.MAILGUN_API_KEY,
-  domain: process.env.MAILGUN_DOMAIN // ejemplo: sandboxXXXXXX.mailgun.org
-});
+// Sin integración de email (Mailgun eliminado)
 // server.js
 
 // 1) Variables de entorno: Cargar desde .env (opcional) y configuration.env
@@ -60,45 +55,41 @@ app.use((req, res, next) => {
 // No hay configuración de email
 
 // --- Endpoint de Contacto ---
+const sgMail = require('@sendgrid/mail');
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
 app.post('/api/contact', async (req, res) => {
   try {
-    const data = req.body || {};
-    if (!data.nombre || !data.telefono || !data.experiencia) {
-      return res.status(400).json({ ok: false, error: 'missing_fields', message: 'Faltan campos obligatorios: nombre, teléfono o experiencia.' });
+    const { nombre, telefono, estructura, experiencia, acepta, asunto } = req.body;
+    if (!nombre || !telefono || !estructura || !experiencia || !acepta) {
+      return res.status(400).json({ ok: false, message: 'Faltan campos obligatorios.' });
     }
-
-    const subject = `${data.asunto || 'Interés'} - ${data.nombre}`;
-    const bodyLines = [
-      `Nombre: ${data.nombre}`,
-      `Teléfono: ${data.telefono}`,
-      '',
-      'Estructura compra:',
-      data.estructura || 'No especificada',
-      '',
-      'Experiencia:',
-      data.experiencia || 'No especificada',
-      '',
-      `Acepta política: ${data.acepta ? 'Sí' : 'No'}`
-    ];
-
-    // Solo puedes enviar a destinatarios verificados en Mailgun sandbox
-    const mailData = {
-      from: process.env.FROM_ADDRESS || `noreply@${process.env.MAILGUN_DOMAIN}`,
-      to: (process.env.CONTACT_RECIPIENTS || '').split(',').map(s => s.trim()).filter(Boolean),
+    const from = process.env.SENDGRID_FROM;
+    const cc = (process.env.SENDGRID_CC || '').split(',').map(e => e.trim()).filter(Boolean);
+    const to = from;
+    const subject = asunto || 'Nuevo contacto desde Casa Lujo';
+    const html = `
+      <h2>Nuevo contacto desde Casa Lujo</h2>
+      <ul>
+        <li><b>Nombre:</b> ${nombre}</li>
+        <li><b>Teléfono:</b> ${telefono}</li>
+        <li><b>Estructura compra:</b> ${estructura}</li>
+        <li><b>Experiencia:</b> ${experiencia}</li>
+      </ul>
+      <p>El usuario ha aceptado la política de privacidad.</p>
+    `;
+    const msg = {
+      to,
+      cc,
+      from,
       subject,
-      text: bodyLines.join('\n'),
+      html
     };
-
-    mg.messages().send(mailData, function (error, body) {
-      if (error) {
-        console.error('[server] /api/contact error', error);
-        return res.status(500).json({ ok: false, error: error.message || 'internal_error' });
-      }
-      return res.status(200).json({ ok: true, message: 'Correo enviado con éxito (sandbox, destinatarios verificados).' });
-    });
+    await sgMail.send(msg);
+    return res.status(200).json({ ok: true, message: 'Mensaje enviado correctamente.' });
   } catch (err) {
-    console.error('[server] /api/contact error', err);
-    return res.status(500).json({ ok: false, error: err.message || 'internal_error' });
+    console.error('Error enviando email:', err);
+    return res.status(500).json({ ok: false, message: 'No se pudo enviar el email.' });
   }
 });
 
