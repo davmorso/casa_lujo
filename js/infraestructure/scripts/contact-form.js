@@ -92,7 +92,18 @@ document.addEventListener('DOMContentLoaded', () => {
     byId('label-telefono') && (byId('label-telefono').textContent = l.labels.telefono);
     byId('label-estructura') && (byId('label-estructura').textContent = l.labels.estructura_compra);
     byId('label-experiencia') && (byId('label-experiencia').textContent = l.labels.experiencia);
-    byId('label-acepto') && (byId('label-acepto').textContent = l.labels.acepto);
+    // Enlace a política de privacidad según idioma
+    if (byId('label-acepto')) {
+      const lang = localStorage.getItem('site_lang') || 'es';
+      let href = 'js/application/politica-privacidad.html';
+      if (lang === 'ca') href = 'js/application/politica-privacidad-ca.html';
+      else if (lang === 'en') href = 'js/application/politica-privacidad-en.html';
+      else if (lang === 'fr') href = 'js/application/politica-privacidad-fr.html';
+      else if (lang === 'ru') href = 'js/application/politica-privacidad-ru.html';
+      else if (lang === 'zh') href = 'js/application/politica-privacidad-zh.html';
+      byId('label-acepto').innerHTML =
+        'Acepto la <a href="' + href + '" target="_blank" rel="noopener" style="color:#3366cc;text-decoration:underline;">política de privacidad</a>';
+    }
     cancelBtn && (cancelBtn.textContent = l.botones.cancelar);
     submitBtn && (submitBtn.textContent = l.botones.enviar);
     note && (note.textContent = l.nota_envio || '');

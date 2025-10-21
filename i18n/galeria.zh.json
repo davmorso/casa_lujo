@@ -89,6 +89,8 @@
   "titulo": "更多细节",
   "caracteristicas_titulo": "房屋特征",
     "caracteristicas": [
+      "配有私人花园",
+      "配有私人双车库，可直接通往住宅。",
       "450平方米建筑面积，80平方米实用面积",
       "5间卧室",
       "4间浴室",
@@ -125,9 +127,10 @@
       "能源证书：未指明"
     ]
   },
-  "contacto": {
-    "titulo": "关于本住宅的联系",
-    "boton_abrir": "有意者联系",
+  "contact": {
+    ...existing code...
+    "concertar_visita_btn": "如果您想预约参观，请点击这里"
+  }
     "labels": {
       "nombre": "姓名",
       "telefono": "联系电话",

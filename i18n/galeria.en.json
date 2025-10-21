@@ -98,7 +98,9 @@
       "Large storage room included in the price."
     ],
     "caracteristicas": [
-      "450 m² built, 80 m² usable",
+      "Includes private garden",
+      "Includes a private double garage with direct access to the house.",
+  "450 m² built, 450 m² usable",
       "5 bedrooms",
       "4 bathrooms",
       "3 terraces",
@@ -113,9 +115,10 @@
       "Energy certificate: Not indicated"
     ]
   },
-  "contacto": {
-    "titulo": "Contact about this property",
-    "boton_abrir": "Contact (interested)",
+  "contact": {
+    ...existing code...
+    "concertar_visita_btn": "If you want to schedule a visit, click here"
+  }
     "labels": {
       "nombre": "Name",
       "telefono": "Phone",

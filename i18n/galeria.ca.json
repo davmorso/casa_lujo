@@ -98,7 +98,9 @@
       "Traster gran inclòs en el preu."
     ],
     "caracteristicas": [
-      "450 m² construïts, 80 m² útils",
+      "Inclou jardí privat",
+      "Inclou garatge particular doble amb accés directe a l'habitatge.",
+  "450 m² construïts, 450 m² útils",
       "5 habitacions",
       "4 banys",
       "3 terrasses",
@@ -113,9 +115,10 @@
       "Certificat energètic: No indicat"
     ]
   },
-  "contacto": {
-    "titulo": "Contactar sobre aquest habitatge",
-    "boton_abrir": "Contactar interessat",
+  "contacte": {
+    ...existing code...
+    "concertar_visita_btn": "Si vols concertar visita fes clic aquí"
+  }
     "labels": {
       "nombre": "Nom",
       "telefono": "Telèfon",

@@ -89,7 +89,7 @@
   "titulo": "Détails supplémentaires",
   "caracteristicas_titulo": "Caractéristiques",
     "caracteristiques": [
-      "450 m² construits, 80 m² utiles",
+  "450 m² construits, 450 m² utiles",
       "5 chambres",
       "4 salles de bain",
       "3 terrasses",
@@ -113,6 +113,8 @@
       "Grand local de stockage inclus dans le prix."
     ],
     "caracteristicas": [
+      "Comprend un jardin privé",
+      "Comprend un garage privé double avec accès direct à la maison.",
       "450 m² construits, 80 m² utiles",
       "5 chambres",
       "4 salles de bain",
@@ -128,9 +130,10 @@
       "Certificat énergétique : Non indiqué"
     ]
   },
-  "contacto": {
-    "titulo": "Contacter au sujet de ce logement",
-    "boton_abrir": "Contacter (intéressé)",
+  "contact": {
+    ...existing code...
+    "concertar_visita_btn": "Si vous souhaitez organiser une visite, cliquez ici"
+  }
     "labels": {
       "nombre": "Nom",
       "telefono": "Téléphone",

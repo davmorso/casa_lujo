@@ -15,7 +15,17 @@ Nota: la configuración `core.hooksPath` es local al clone; cada desarrollador q
 
 
 
+
+
 ## Versión actual y cambios subidos
+
+Versión subida: 55
+
+- Mantenimiento y bump de versión.
+
+Versión subida: 54
+
+- Añadido garaje doble y jardín privado en características en todos los idiomas.
 
 Versión subida: 52
 
