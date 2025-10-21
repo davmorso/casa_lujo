@@ -17,7 +17,29 @@ Nota: la configuración `core.hooksPath` es local al clone; cada desarrollador q
 
 
 
+
+
 ## Versión actual y cambios subidos
+
+Versión subida: 60
+
+- Añadido parámetro de versión en recursos estáticos para refresco de caché.
+
+Versión subida: 59
+
+- El enlace superior es 'Contáctenos'/'Contact us'/etc. en todos los idiomas.
+
+Versión subida: 58
+
+- Corregida sintaxis JSON en archivos de idiomas (coma tras contact) para evitar errores al cambiar de idioma.
+
+Versión subida: 57
+
+- Solo 'aquí' es el enlace de contacto, el resto del texto queda fuera del link en todos los lugares relevantes.
+
+Versión subida: 56
+
+- El botón de contacto ahora es un enlace con texto personalizado en todos los idiomas. Al hacer clic, se abre el formulario de contacto.
 
 Versión subida: 55
 
