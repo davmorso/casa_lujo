@@ -1,12 +1,12 @@
-<!-- version 61 -->
-<!-- Versión 61: Eliminado el texto de concertar visita de la barra gris de idiomas. -->
+<!-- version 63 -->
+<!-- Versión 63: Restaurado el enlace 'Contáctenos' en la barra gris de idiomas, solo link y traducción por idioma. -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <title></title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+  <a id="contact-link" class="contact-link" href="#contact-form" onclick="document.getElementById('contact-form').scrollIntoView({behavior: 'smooth'}); return false;">Contáctenos</a>
   <!-- Meta SEO (se rellenarán desde i18n) -->
   <meta name="description" content="Versión 28 — Eliminado mailto en formulario de contacto, ahora solo se envía por servidor (/api/contact). Mejoras de seguridad y mensajes de error claros." />
   <meta name="keywords" content="" />
