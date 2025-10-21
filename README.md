@@ -22,7 +22,16 @@ Nota: la configuración `core.hooksPath` es local al clone; cada desarrollador q
 
 
 
+
 ## Versión actual y cambios subidos
+
+Versión subida: 64
+
+- El enlace 'Contáctenos' está en la barra gris de idiomas, traducido y funcional en todos los idiomas.
+
+Versión subida: 63
+
+- Ajuste visual y refactor para restaurar el enlace 'Contáctenos' en la barra gris de idiomas, solo link y traducción por idioma.
 
 Versión subida: 62
 
