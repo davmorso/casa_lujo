@@ -1,5 +1,5 @@
-<!-- version 55 -->
-<!-- Versión 55: Mantenimiento y bump de versión. -->
+<!-- version 56 -->
+<!-- Versión 56: El botón de contacto ahora es un enlace con texto personalizado en todos los idiomas. -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -136,7 +136,7 @@
 
    <!-- BTN para abrir el formulario de contacto (colocado ANTES del bloque negro cookie-banner) -->
    <div id="contact-button-before-cookie" style="text-align:center; margin:18px 0;">
-     <button id="open-contact-btn" class="btn-primary"></button>
+     <a href="#contact-form" class="contact-link" id="contact-link" onclick="document.getElementById('contact-form').scrollIntoView({behavior: 'smooth'}); return false;">Si quieres concertar visita haz clic aquí.</a>
    </div>
 
    <div id="cookie-banner" style="position: fixed; bottom: 0; width: 100%; background: #222; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; z-index: 10000;">

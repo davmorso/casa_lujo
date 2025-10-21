@@ -128,8 +128,8 @@
     ]
   },
   "contact": {
-    ...existing code...
-    "concertar_visita_btn": "如果您想预约参观，请点击这里"
+     "concertar_visita_btn": "如果您想预约参观，请点击这里",
+     "boton_abrir": "如需预约参观，请点击此处。"
   }
     "labels": {
       "nombre": "姓名",

@@ -116,7 +116,7 @@
   },
   "contacto": {
     "titulo": "Contactar sobre esta vivienda",
-    "boton_abrir": "Contactar interesado",
+  "boton_abrir": "Si quieres concertar visita haz clic aquí.",
     "labels": {
       "nombre": "Nombre",
       "telefono": "Teléfono",
