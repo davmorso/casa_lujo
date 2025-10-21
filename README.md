@@ -14,7 +14,12 @@ Nota: la configuración `core.hooksPath` es local al clone; cada desarrollador q
 
 
 
+
 ## Versión actual y cambios subidos
+
+Versión subida: 52
+
+- Se usa casa.lujo.2025@gmail.com como remitente verificado en SendGrid.
 
 Versión subida: 51
 
