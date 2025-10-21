@@ -117,7 +117,7 @@
   },
   "contacte": {
     ...existing code...
-    "concertar_visita_btn": "Si vols concertar visita fes clic aquí"
+     "concertar_visita_btn": "Contacteu-nos"
   }
     "labels": {
       "nombre": "Nom",
