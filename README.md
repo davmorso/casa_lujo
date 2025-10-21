@@ -13,11 +13,19 @@ Nota: la configuración `core.hooksPath` es local al clone; cada desarrollador q
 
 
 
+
 ## Versión actual y cambios subidos
 
-Versión subida: 37
+Versión subida: 51
 
-- Reestructuración de server.js para Express y corrección de errores de sintaxis. Mantiene historial anterior.
+- Cambio de API Key SendGrid en configuration.env para solucionar error 401 Unauthorized en Render.
+
+Versión subida: 50
+
+- Integración completa con SendGrid para envío de emails desde el formulario de contacto.
+- Remitente y destinatarios en copia (CC) configurados en configuration.env.
+- Se requiere el paquete @sendgrid/mail instalado.
+- No es necesario configurar DNS ni dominio propio.
 
 # Variables de entorno
 
