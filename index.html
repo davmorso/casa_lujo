@@ -1,5 +1,5 @@
-<!-- version 79 -->
-<!-- Versión 79: CORS global forzado en todas las respuestas para compatibilidad total con Render y navegadores. -->
+<!-- version 80 -->
+<!-- Versión 80: El backend principal ahora es Render (https://casa-lujo.onrender.com), no Vercel. -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -255,7 +255,7 @@
     if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
       window.BACKEND_URL = 'http://localhost:8000'; // Desarrollo local
     } else {
-      window.BACKEND_URL = 'https://casa-lujo.vercel.app';
+      window.BACKEND_URL = 'https://casa-lujo.onrender.'; // Producción en Render
     }
   </script>
   <script src="js/infraestructure/scripts/contact-form.js"></script>
