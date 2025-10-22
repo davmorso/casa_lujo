@@ -1,11 +1,6 @@
-// ...otros requires y configuración...
 
-// Eliminada inicialización duplicada de Express y app. Corrección definitiva de error de app.
-// version 75
-// Nota: En Vercel, el puerto es asignado dinámicamente, pero se mantiene la lógica para pruebas locales.
-// ...otros requires y configuración...
-const express = require('express');
-const app = express();
+// version 76
+// Eliminada inicialización duplicada de Express y app. Corrección definitiva de error de doble declaración.
 
 // Log especial para depuración de CORS: muestra el Origin recibido en cada petición
 app.use((req, res, next) => {
@@ -51,10 +46,6 @@ try {
   console.warn('[WARN] No se pudo leer configuration.env:', e.message);
 }
 
-// 3) App Express (sin envío de correo)
-// Eliminado Mailgun: no se usará envío de correo
-
-// Nota: En Vercel, el puerto es asignado dinámicamente, pero se mantiene la lógica para pruebas locales.
 
 // --- Configuración y Middleware ---
 app.use(express.json());

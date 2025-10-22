@@ -114,9 +114,10 @@ FROM_ADDRESS=tu_usuario@gmail.com
 
 
 
-### Versión 75
+
+### Versión 76
 - Eliminada inicialización duplicada de Express y app en server.js.
-- Corrección definitiva de error de app.
+- Corrección definitiva de error de doble declaración.
 - Revisa los logs en Render tras enviar desde el navegador para ajustar la lista de orígenes permitidos.
 
 ### Versión 70
