@@ -53,8 +53,25 @@ console.log('[DEBUG] process.env (filtrado):', safeEnv);
 
 // CORS simple (ajusta el Access-Control-Allow-Origin en producción)
 app.use((req, res, next) => {
-  console.log(`[CORS] ${req.method} ${req.originalUrl} from ${req.headers.origin}`);
-  res.setHeader('Access-Control-Allow-Origin', 'https://davmorso.github.io');
+  // Log completo de CORS y cabeceras relevantes
+  console.log(`[CORS] ${req.method} ${req.originalUrl} from ${req.headers.origin || '[NO ORIGIN]'} | Referer: ${req.headers.referer || '[NO REFERER]'} | User-Agent: ${req.headers['user-agent']}`);
+  console.log('[CORS] Headers:', req.headers);
+
+  // Permitir origen dinámico para depuración y desarrollo
+  const allowedOrigins = [
+    'https://davmorso.github.io',
+    'http://localhost:8080',
+    'http://127.0.0.1:8080',
+    'http://localhost',
+    'http://127.0.0.1'
+  ];
+  const origin = req.headers.origin;
+  if (origin && allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  } else {
+    res.setHeader('Access-Control-Allow-Origin', allowedOrigins[0]); // por defecto GitHub Pages
+  }
+  res.setHeader('Vary', 'Origin');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   if (req.method === 'OPTIONS') {
