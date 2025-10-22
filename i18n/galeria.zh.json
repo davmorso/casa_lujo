@@ -128,9 +128,8 @@
     ]
   },
   "contact": {
-     "concertar_visita_btn": "如果您想预约参观，请点击这里",
-  "boton_abrir": "联系我们"
-  }
+    "concertar_visita_btn": "如果您想预约参观，请点击这里",
+    "boton_abrir": "联系我们",
     "labels": {
       "nombre": "姓名",
       "telefono": "联系电话",

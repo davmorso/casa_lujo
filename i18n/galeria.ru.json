@@ -116,9 +116,8 @@
     ]
   },
   "contact": {
-     "concertar_visita_btn": "Если вы хотите назначить визит, нажмите здесь",
-  "boton_abrir": "Связаться с нами"
-  }
+    "concertar_visita_btn": "Если вы хотите назначить визит, нажмите здесь",
+    "boton_abrir": "Связаться с нами",
     "labels": {
       "nombre": "Имя",
       "telefono": "Телефон",
@@ -166,7 +165,7 @@
     "footer": "© 2025 davmorso. Все права защищены.",
     "links": {
   "politica_privacidad": "Политика конфиденциальности",
-  "contacto_boton": "Связаться с нами"
+  "contacto_boton": "здесь"
     }
   }
 }

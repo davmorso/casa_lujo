@@ -116,9 +116,8 @@
     ]
   },
   "contacte": {
-    ...existing code...
-     "concertar_visita_btn": "Contacteu-nos"
-  }
+    "concertar_visita_btn": "Contacteu-nos",
+    "boton_abrir": "Contacteu-nos",
     "labels": {
       "nombre": "Nom",
       "telefono": "Telèfon",
@@ -166,7 +165,7 @@
     "footer": "© 2025 davmorso. Tots els drets reservats.",
     "links": {
   "politica_privacidad": "Política de privacitat",
-  "contacto_boton": "Contacteu-nos"
+  "contacto_boton": "aquí"
     }
   }
 }
