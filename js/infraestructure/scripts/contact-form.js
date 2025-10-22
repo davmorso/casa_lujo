@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const inpNombre = document.getElementById('contact-nombre');
   const inpTelefono = document.getElementById('contact-telefono');
+  const inpEmail = document.getElementById('contact-email');
   const inpEstructura = document.getElementById('contact-estructura');
   const inpExperiencia = document.getElementById('contact-experiencia');
   const inpAcepto = document.getElementById('contact-acepto');
@@ -73,6 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
       labels: {
         nombre: 'Nombre',
         telefono: 'Teléfono',
+        email: 'Email',
         estructura_compra: 'Estructura compra',
         experiencia: 'Experiencia',
         acepto: 'Acepto la política'
@@ -227,6 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const l = labels || {};
     const payload = {
       nombre: inpNombre?.value.trim() || '',
+      email: inpEmail?.value.trim() || '', // Added email to payload
       telefono: inpTelefono?.value.trim() || '',
       estructura: inpEstructura?.value.trim() || '',
       experiencia: inpExperiencia?.value.trim() || '',

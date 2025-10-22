@@ -121,7 +121,7 @@ app.post('/api/contact', async (req, res) => {
     SENDGRID_CC: process.env.SENDGRID_CC
   });
   try {
-    const { nombre, telefono, estructura, experiencia, acepta, asunto } = req.body;
+    const { nombre, telefono, estructura, experiencia, acepta /*, asunto (ignored) */ } = req.body;
     if (!nombre || !telefono || !estructura || !experiencia || !acepta) {
       const errorMsg = '[CONTACT] Faltan campos obligatorios: ' + JSON.stringify({ nombre, telefono, estructura, experiencia, acepta });
       console.warn(errorMsg);
@@ -130,7 +130,8 @@ app.post('/api/contact', async (req, res) => {
     const from = process.env.SENDGRID_FROM;
     const cc = (process.env.SENDGRID_CC || '').split(',').map(e => e.trim()).filter(Boolean);
     const to = from;
-    const subject = asunto || 'Nuevo contacto desde Casa Lujo';
+    // Forzar asunto y cuerpo en ESPAÑOL siempre (el cliente puede estar en cualquier idioma)
+    const subject = 'Nuevo contacto desde Casa Lujo';
     const email = req.body.email || '';
     const html = `
       <h2>Nuevo contacto desde Casa Lujo</h2>
@@ -138,8 +139,8 @@ app.post('/api/contact', async (req, res) => {
         <li><b>Nombre y Apellidos:</b> ${nombre}</li>
         <li><b>Email:</b> ${email}</li>
         <li><b>Teléfono:</b> ${telefono}</li>
-  <li><b>¿Cómo imaginas estructurar la compra de tu futura vivienda (financiación, recursos propios, combinación, etc.)?</b> ${estructura}</li>
-  <li><b>¿Qué nivel de experiencia tienes en operaciones inmobiliarias de este tipo o en la adquisición de propiedades premium?</b> ${experiencia}</li>
+        <li><b>¿Cómo imaginas estructurar la compra de tu futura vivienda (financiación, recursos propios, combinación, etc.)?</b> ${estructura}</li>
+        <li><b>¿Qué nivel de experiencia tienes en operaciones inmobiliarias de este tipo o en la adquisición de propiedades premium?</b> ${experiencia}</li>
       </ul>
       <p>El usuario ha aceptado la política de privacidad.</p>
     `;
