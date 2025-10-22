@@ -112,10 +112,16 @@ FROM_ADDRESS=tu_usuario@gmail.com
 
 ## Historial de versiones
 
-### Versión 50
-- Integración completa con SendGrid para envío de emails desde el formulario de contacto.
-- Remitente y destinatarios en copia (CC) configurados en configuration.env.
-- Se requiere el paquete @sendgrid/mail instalado.
+
+### Versión 71
+- Añadidos logs detallados en backend (server.js) para depuración de errores y variables clave en POST /api/contact.
+- Bloque de depuración visual en index.html para mostrar errores del formulario directamente en la web.
+- contact-form.js actualizado para mostrar errores en el bloque de depuración.
+
+### Versión 70
+- Filtrado seguro de logs en backend (server.js): las claves/API y datos sensibles se ocultan en los logs.
+- Añadida advertencia en el código para eliminar logs sensibles tras depuración.
+- README actualizado con nota de seguridad sobre logging.
 - No es necesario configurar DNS ni dominio propio.
 
 ### Versión 49

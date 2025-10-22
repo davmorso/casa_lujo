@@ -1,5 +1,5 @@
-<!-- version 70 -->
-<!-- Versión 70: Filtrado seguro de logs en backend (server.js), advertencia añadida para eliminar logs sensibles tras depuración. README actualizado con nota de seguridad. -->
+<!-- version 71 -->
+<!-- Versión 71: Añadidos logs detallados en backend y bloque de depuración visual en index.html para mostrar errores del formulario. -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -77,6 +77,12 @@
   <!-- Imagen destacada entre la zona azul (header) y la descripción -->
   <div id="portada" style="text-align:center; margin:18px 0;">
     <img class="portada-img" src="img/planta 1/casa 0.jpeg" alt="Vista destacada" />
+  </div>
+
+  <!-- Bloque de depuración para mostrar errores y estado del backend -->
+  <div id="debug-info" style="background:#fffbe6; color:#333; border:1px solid #ffe58f; padding:10px; margin:20px auto; max-width:700px; display:none;">
+    <h3 style="margin-top:0;">Información de depuración</h3>
+    <pre id="debug-log" style="white-space:pre-wrap; word-break:break-all;"></pre>
   </div>
 
   <!-- Presentación del piso -->

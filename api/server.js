@@ -2,6 +2,8 @@
 // server.js
 // version 70
 // Filtrado seguro de logs: las claves/API y datos sensibles se ocultan en los logs. Eliminar este bloque tras depuración.
+// version 71
+// Añadidos logs detallados para depuración de errores y variables clave en POST /api/contact. Eliminar este bloque tras depuración.
 
 // 1) Variables de entorno: Cargar desde .env (opcional) y configuration.env
 try { require('dotenv').config(); } catch (e) { /* dotenv no es obligatorio */ }
@@ -74,6 +76,18 @@ app.post('/api/contact', async (req, res) => {
   console.log('[CONTACT] POST /api/contact');
   console.log('[CONTACT] Headers:', req.headers);
   console.log('[CONTACT] Body:', req.body);
+  console.log('[CONTACT] process.env (filtrado):', {
+    SENDGRID_API_KEY: process.env.SENDGRID_API_KEY ? '[HIDDEN]' : '[MISSING]',
+    SENDGRID_FROM: process.env.SENDGRID_FROM,
+    SENDGRID_CC: process.env.SENDGRID_CC,
+    NODE_ENV: process.env.NODE_ENV,
+    PORT: process.env.PORT
+  });
+  console.log('[CONTACT] configuration.env (filtrado):', {
+    SENDGRID_API_KEY: process.env.SENDGRID_API_KEY ? '[HIDDEN]' : '[MISSING]',
+    SENDGRID_FROM: process.env.SENDGRID_FROM,
+    SENDGRID_CC: process.env.SENDGRID_CC
+  });
   try {
     const { nombre, telefono, estructura, experiencia, acepta, asunto } = req.body;
     if (!nombre || !telefono || !estructura || !experiencia || !acepta) {

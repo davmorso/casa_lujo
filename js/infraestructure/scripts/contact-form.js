@@ -266,12 +266,21 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     } catch (err) {
       const msg = String(err?.message || '').toLowerCase();
+      const debugDiv = document.getElementById('debug-info');
+      const debugLog = document.getElementById('debug-log');
+      let debugMsg = '';
       if (msg.includes('mail_not_configured')) {
-        alert('No se pudo enviar el formulario: el servidor no está configurado para enviar correos.');
+        debugMsg = 'No se pudo enviar el formulario: el servidor no está configurado para enviar correos.';
       } else if (msg.includes('network') || msg.includes('failed to fetch')) {
-        alert('No se pudo enviar el formulario por un error de red.');
+        debugMsg = 'No se pudo enviar el formulario por un error de red.';
       } else {
-        alert('No se pudo enviar el formulario. ' + (err?.message || ''));
+        debugMsg = 'No se pudo enviar el formulario. ' + (err?.message || '');
+      }
+      if (debugDiv && debugLog) {
+        debugDiv.style.display = 'block';
+        debugLog.textContent = debugMsg;
+      } else {
+        alert(debugMsg);
       }
     } finally {
       if (submitBtn) submitBtn.disabled = false;
