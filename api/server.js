@@ -1,3 +1,8 @@
+// ...otros requires y configuración...
+
+const express = require('express');
+const app = express();
+
 // Log especial para depuración de CORS: muestra el Origin recibido en cada petición
 app.use((req, res, next) => {
   if (req.headers.origin) {
