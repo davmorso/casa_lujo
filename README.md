@@ -30,11 +30,11 @@ Nota: la configuración `core.hooksPath` es local al clone; cada desarrollador q
 
 ## Versión actual y cambios subidos
 
-Versión subida: 97
+Versión subida: 98
 
-- El label del campo email en el formulario de contacto ahora aparece correctamente en todos los idiomas como "E-mail".
-- Unificación y corrección de traducciones en todos los idiomas para el formulario.
-- Versionado estricto en index.html y README.md en cada subida.
+- El label del campo email en el formulario de contacto ahora se actualiza dinámicamente y correctamente en todos los idiomas.
+- Refuerzo de la lógica de i18n para que todos los textos del formulario se refresquen al cambiar de idioma.
+- Versionado estricto en index.html, README.md y contact-form.js en cada subida.
  
 - Backend: los correos enviados desde el formulario se envían siempre en ESPAÑOL (asunto y cuerpo), independientemente del idioma seleccionado por el usuario en la UI. Esto facilita la recepción y lectura de mensajes por el propietario.
 - Versionado estricto en index.html, README.md y api/server.js en cada subida.

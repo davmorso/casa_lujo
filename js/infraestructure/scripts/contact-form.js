@@ -88,12 +88,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const byId = (id) => document.getElementById(id);
 
-    byId('contact-title') && (byId('contact-title').textContent = l.titulo);
-    openBtn && (openBtn.textContent = l.boton_abrir);
-    byId('label-nombre') && (byId('label-nombre').textContent = l.labels.nombre);
-    byId('label-telefono') && (byId('label-telefono').textContent = l.labels.telefono);
-    byId('label-estructura') && (byId('label-estructura').textContent = l.labels.estructura_compra);
-    byId('label-experiencia') && (byId('label-experiencia').textContent = l.labels.experiencia);
+  byId('contact-title') && (byId('contact-title').textContent = l.titulo);
+  openBtn && (openBtn.textContent = l.boton_abrir);
+  byId('label-nombre') && (byId('label-nombre').textContent = l.labels.nombre);
+  byId('label-telefono') && (byId('label-telefono').textContent = l.labels.telefono);
+  byId('label-email') && (byId('label-email').textContent = l.labels.email);
+  byId('label-estructura') && (byId('label-estructura').textContent = l.labels.estructura_compra);
+  byId('label-experiencia') && (byId('label-experiencia').textContent = l.labels.experiencia);
     // Enlace a política de privacidad según idioma
     if (byId('label-acepto')) {
       const lang = localStorage.getItem('site_lang') || 'es';
@@ -103,8 +104,24 @@ document.addEventListener('DOMContentLoaded', () => {
       else if (lang === 'fr') href = 'js/application/politica-privacidad-fr.html';
       else if (lang === 'ru') href = 'js/application/politica-privacidad-ru.html';
       else if (lang === 'zh') href = 'js/application/politica-privacidad-zh.html';
-      byId('label-acepto').innerHTML =
-        'Acepto la <a href="' + href + '" target="_blank" rel="noopener" style="color:#3366cc;text-decoration:underline;">política de privacidad</a>';
+      // Usar la traducción de la etiqueta, reemplazando el texto por un enlace si es necesario
+      let label = l.labels.acepto || '';
+      // Buscar la palabra "política de privacidad" (o su traducción) y convertirla en enlace
+      // Si la traducción contiene <a>, no hacer nada
+      if (!/<a /i.test(label)) {
+        // Buscar la palabra clave (en cada idioma)
+        let keyword = '';
+        if (lang === 'es') keyword = 'política de privacidad';
+        else if (lang === 'ca') keyword = 'política de privacitat';
+        else if (lang === 'en') keyword = 'privacy policy';
+        else if (lang === 'fr') keyword = 'politique de confidentialité';
+        else if (lang === 'ru') keyword = 'политику конфиденциальности';
+        else if (lang === 'zh') keyword = '隐私政策';
+        if (keyword && label.includes(keyword)) {
+          label = label.replace(keyword, '<a href="' + href + '" target="_blank" rel="noopener" style="color:#3366cc;text-decoration:underline;">' + keyword + '</a>');
+        }
+      }
+      byId('label-acepto').innerHTML = label;
     }
     cancelBtn && (cancelBtn.textContent = l.botones.cancelar);
     submitBtn && (submitBtn.textContent = l.botones.enviar);
@@ -124,6 +141,12 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('[contact-form] i18nLoaded for', lang);
     if (i18n.contacto) applyLabels(i18n.contacto);
     else applyLabels(); // fallback
+    // Si el modal está abierto, volver a aplicar etiquetas
+    const modal = document.getElementById('contact-modal');
+    if (modal && modal.style.display === 'flex') {
+      if (i18n.contacto) applyLabels(i18n.contacto);
+      else applyLabels();
+    }
   });
 
   // Fallback: si no llega el evento en 300ms, cargar por localStorage
@@ -140,6 +163,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // --------- Modal
   function openModal() {
   if (!modal) return;
+  // Aplicar etiquetas del idioma actual SIEMPRE al abrir
+  try {
+    const lang = localStorage.getItem('site_lang') || 'es';
+    fetch(`./i18n/galeria.${lang}.json`)
+      .then(r => (r.ok ? r.json() : null))
+      .then(j => { if (j && j.contacto) applyLabels(j.contacto); });
+  } catch (e) {}
   // Limpiar todos los campos del formulario al abrir
   if (form) form.reset();
   if (inpNombre) inpNombre.value = '';
@@ -152,8 +182,6 @@ document.addEventListener('DOMContentLoaded', () => {
   lastFocused = document.activeElement;
   modal.style.display = 'flex';
   modal.setAttribute('aria-hidden', 'false');
-  // A11y: asegúrate de que en HTML el contenedor del modal tenga role y aria-modal:
-  // <div id="contact-modal" role="dialog" aria-modal="true" aria-hidden="true">...</div>
   enableFocusTrap();
   setTimeout(() => inpNombre && inpNombre.focus(), 50);
   }

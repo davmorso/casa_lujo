@@ -509,7 +509,9 @@ html[lang^="zh"] #siguiente::after {
 .form-row { margin-bottom:12px; }
 .form-row label { display:block; font-weight:600; margin-bottom:6px; }
 .form-row input[type="text"], .form-row input[type="tel"], .form-row textarea { width:100%; padding:8px; border:1px solid #ccc; border-radius:4px; }
-.checkbox-row { display:flex; align-items:center; gap:8px; }
+.checkbox-row { display: flex; align-items: center; gap: 8px; }
+.checkbox-row input[type="checkbox"] { margin-top: 0; margin-bottom: 0; vertical-align: middle; }
+.checkbox-row label { margin-bottom: 0; padding-left: 4px; vertical-align: middle; }
 .field-error { color:#b00020; font-size:0.9rem; min-height:18px; margin-top:6px; }
 .form-actions { display:flex; gap:10px; justify-content:flex-end; margin-top:8px; }
 .small-note { font-size:0.85rem; color:#444; margin-top:10px; }
