@@ -53,14 +53,19 @@ try {
 
 
 // --- Configuración y Middleware ---
-// Middleware global para forzar CORS en todas las respuestas, incluso errores
+// Middleware CORS único y global
 app.use((req, res, next) => {
+  // Logging de depuración CORS
+  if (req.headers.origin) {
+    console.log(`[CORS-DEBUG] Origin recibido: ${req.headers.origin}`);
+  } else {
+    console.log('[CORS-DEBUG] Origin no presente en la petición');
+  }
+  console.log('[CORS-DEBUG] Headers:', req.headers);
   const allowedOrigins = [
     'https://davmorso.github.io',
-    'http://localhost:8080',
-    'http://127.0.0.1:8080',
-    'http://localhost',
-    'http://127.0.0.1'
+    'http://localhost:8000',
+    'http://127.0.0.1:8000'
   ];
   const origin = req.headers.origin;
   if (origin && allowedOrigins.includes(origin)) {
@@ -71,6 +76,10 @@ app.use((req, res, next) => {
   res.setHeader('Vary', 'Origin');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With, Accept, Origin, Referer, User-Agent, Sec-Fetch-Mode, Sec-Fetch-Site, Sec-Fetch-Dest, Sec-Ch-Ua, Sec-Ch-Ua-Mobile, Sec-Ch-Ua-Platform');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  if (req.method === 'OPTIONS') {
+    res.status(200).end();
+    return;
+  }
   next();
 });
 app.use(express.json());
@@ -87,36 +96,6 @@ console.log('[DEBUG] process.env (filtrado):', safeEnv);
 // ...eliminar este bloque tras depuración
 
 // CORS simple (ajusta el Access-Control-Allow-Origin en producción)
-app.use((req, res, next) => {
-  // Log completo de CORS y cabeceras relevantes
-  console.log(`[CORS] ${req.method} ${req.originalUrl} from ${req.headers.origin || '[NO ORIGIN]'} | Referer: ${req.headers.referer || '[NO REFERER]'} | User-Agent: ${req.headers['user-agent']}`);
-  console.log('[CORS] Headers:', req.headers);
-
-  // Permitir origen dinámico para depuración y desarrollo
-  const allowedOrigins = [
-    'https://davmorso.github.io',
-    'http://localhost:8080',
-    'http://127.0.0.1:8080',
-    'http://localhost',
-    'http://127.0.0.1'
-  ];
-  const origin = req.headers.origin;
-  if (origin && allowedOrigins.includes(origin)) {
-    res.setHeader('Access-Control-Allow-Origin', origin);
-  } else {
-    res.setHeader('Access-Control-Allow-Origin', allowedOrigins[0]); // por defecto GitHub Pages
-  }
-  res.setHeader('Vary', 'Origin');
-  // Ampliar los headers permitidos para CORS (incluye headers modernos y personalizados)
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With, Accept, Origin, Referer, User-Agent, Sec-Fetch-Mode, Sec-Fetch-Site, Sec-Fetch-Dest, Sec-Ch-Ua, Sec-Ch-Ua-Mobile, Sec-Ch-Ua-Platform');
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  if (req.method === 'OPTIONS') {
-    console.log('[CORS] OPTIONS preflight respondido. Headers enviados:', res.getHeaders());
-    res.status(200).end();
-    return;
-  }
-  next();
-});
 
 
 // No hay configuración de email
@@ -144,8 +123,9 @@ app.post('/api/contact', async (req, res) => {
   try {
     const { nombre, telefono, estructura, experiencia, acepta, asunto } = req.body;
     if (!nombre || !telefono || !estructura || !experiencia || !acepta) {
-      console.warn('[CONTACT] Faltan campos obligatorios:', { nombre, telefono, estructura, experiencia, acepta });
-      return res.status(400).json({ ok: false, message: 'Faltan campos obligatorios.' });
+      const errorMsg = '[CONTACT] Faltan campos obligatorios: ' + JSON.stringify({ nombre, telefono, estructura, experiencia, acepta });
+      console.warn(errorMsg);
+      return res.status(400).json({ ok: false, message: errorMsg });
     }
     const from = process.env.SENDGRID_FROM;
     const cc = (process.env.SENDGRID_CC || '').split(',').map(e => e.trim()).filter(Boolean);
@@ -173,8 +153,9 @@ app.post('/api/contact', async (req, res) => {
     console.log('[CONTACT] Email enviado correctamente');
     return res.status(200).json({ ok: true, message: 'Mensaje enviado correctamente.' });
   } catch (err) {
-    console.error('[CONTACT] Error enviando email:', err);
-    return res.status(500).json({ ok: false, message: 'No se pudo enviar el email.' });
+    const errorMsg = '[CONTACT] Error enviando email: ' + (err?.message || err);
+    console.error(errorMsg);
+    return res.status(500).json({ ok: false, message: errorMsg });
   }
 });
 

@@ -30,6 +30,16 @@ Nota: la configuración `core.hooksPath` es local al clone; cada desarrollador q
 
 ## Versión actual y cambios subidos
 
+Versión subida: 85
+
+- Añadido logging de depuración CORS en el backend para mostrar Origin y headers recibidos.
+- Versionado estricto en index.html, README.md y server.js en cada subida.
+
+Versión subida: 84
+
+- Limpieza y corrección del middleware CORS global en backend. Solo orígenes necesarios.
+- Versionado estricto en index.html, README.md y contact-form.js en cada subida.
+
 Versión subida: 83
 
 - Corregido dominio .com en BACKEND_URL de index.html.
