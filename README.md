@@ -32,6 +32,12 @@ Nota: la configuración `core.hooksPath` es local al clone; cada desarrollador q
 
 
 
+Versión subida: 78
+
+- CORS headers ampliados para compatibilidad navegador (Sec-Fetch, Sec-Ch-Ua, etc).
+- Advertencia añadida sobre logging sensible en server.js. Eliminar tras depuración.
+- Versionado estricto en index.html y README.md en cada subida.
+
 Versión subida: 70
 
 - Filtrado seguro de logs en backend (server.js): las claves/API y datos sensibles se ocultan en los logs.
