@@ -30,6 +30,36 @@ Nota: la configuración `core.hooksPath` es local al clone; cada desarrollador q
 
 ## Versión actual y cambios subidos
 
+Versión subida: 93
+
+- Email enviado:
+	- 'Nombre' ahora es 'Nombre y Apellidos'.
+	- 'Email' aparece entre nombre y teléfono.
+	- 'Estructura compra' muestra la pregunta completa sobre financiación, recursos propios, combinación, etc.
+	- 'Experiencia' muestra la pregunta completa sobre nivel de experiencia en operaciones inmobiliarias premium.
+- Logging de depuración CORS añadido en backend.
+- Versionado estricto en index.html, README.md y server.js en cada subida.
+
+Versión subida: 89
+
+- En el email enviado, el campo 'Experiencia' ahora muestra la pregunta completa: ¿Qué nivel de experiencia tienes en operaciones inmobiliarias de este tipo o en la adquisición de propiedades premium?
+- Versionado estricto en index.html, README.md y server.js en cada subida.
+
+Versión subida: 88
+
+- En el email enviado, el campo 'Estructura compra' ahora muestra la pregunta completa: ¿Cómo imaginas estructurar la compra de tu futura vivienda (financiación, recursos propios, combinación, etc.)?
+- Versionado estricto en index.html, README.md y server.js en cada subida.
+
+Versión subida: 87
+
+- En el email enviado, el campo 'Email' aparece entre 'Nombre y Apellidos' y 'Teléfono'.
+- Versionado estricto en index.html, README.md y server.js en cada subida.
+
+Versión subida: 86
+
+- En el email enviado, el campo 'Nombre' ahora aparece como 'Nombre y Apellidos'.
+- Versionado estricto en index.html, README.md y server.js en cada subida.
+
 Versión subida: 85
 
 - Añadido logging de depuración CORS en el backend para mostrar Origin y headers recibidos.
