@@ -25,11 +25,12 @@ Nota: la configuración `core.hooksPath` es local al clone; cada desarrollador q
 
 
 
+
 ## Versión actual y cambios subidos
 
-Versión subida: 66
+Versión subida: 67
 
-- Corregido error de sintaxis en galeria.zh.json. Ahora el cambio de idioma a chino funciona correctamente.
+- Solicitud de subida de versión y push tras corrección de CORS y errores previos.
 
 Versión subida: 63
 

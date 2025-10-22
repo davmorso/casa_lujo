@@ -44,10 +44,15 @@ console.log(process);
 // CORS simple (ajusta el Access-Control-Allow-Origin en producción)
 app.use((req, res, next) => {
   // Mejora: Verifica si la solicitud viene de un origen seguro si es posible
-  res.setHeader('Access-Control-Allow-Origin', process.env.CORS_ORIGIN || '*'); 
+  res.setHeader('Access-Control-Allow-Origin', 'https://davmorso.github.io');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  if (req.method === 'OPTIONS') return res.sendStatus(204);
+  if (req.method === 'OPTIONS') {
+    res.setHeader('Access-Control-Allow-Origin', 'https://davmorso.github.io');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.status(200).end();
+    return;
+  }
   next();
 });
 
