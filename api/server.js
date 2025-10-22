@@ -55,6 +55,9 @@ try {
 // --- Configuración y Middleware ---
 app.use(express.json());
 
+// [ADVERTENCIA] El siguiente log de configuration.env es solo para depuración. Eliminar tras revisar problemas de entorno.
+console.warn('[ADVERTENCIA] El log de process.env y configuration.env contiene datos sensibles. Eliminar tras depuración.');
+
 // [ADVERTENCIA] Solo para depuración. Eliminar este log tras revisar problemas.
 // Filtra datos sensibles antes de mostrar en logs:
 const safeEnv = { ...process.env };
@@ -84,10 +87,11 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', allowedOrigins[0]); // por defecto GitHub Pages
   }
   res.setHeader('Vary', 'Origin');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  // Ampliar los headers permitidos para CORS (incluye headers modernos y personalizados)
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With, Accept, Origin, Referer, User-Agent, Sec-Fetch-Mode, Sec-Fetch-Site, Sec-Fetch-Dest, Sec-Ch-Ua, Sec-Ch-Ua-Mobile, Sec-Ch-Ua-Platform');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   if (req.method === 'OPTIONS') {
-    console.log('[CORS] OPTIONS preflight respondido');
+    console.log('[CORS] OPTIONS preflight respondido. Headers enviados:', res.getHeaders());
     res.status(200).end();
     return;
   }
