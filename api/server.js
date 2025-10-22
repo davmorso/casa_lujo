@@ -53,6 +53,26 @@ try {
 
 
 // --- Configuración y Middleware ---
+// Middleware global para forzar CORS en todas las respuestas, incluso errores
+app.use((req, res, next) => {
+  const allowedOrigins = [
+    'https://davmorso.github.io',
+    'http://localhost:8080',
+    'http://127.0.0.1:8080',
+    'http://localhost',
+    'http://127.0.0.1'
+  ];
+  const origin = req.headers.origin;
+  if (origin && allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  } else {
+    res.setHeader('Access-Control-Allow-Origin', allowedOrigins[0]);
+  }
+  res.setHeader('Vary', 'Origin');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With, Accept, Origin, Referer, User-Agent, Sec-Fetch-Mode, Sec-Fetch-Site, Sec-Fetch-Dest, Sec-Ch-Ua, Sec-Ch-Ua-Mobile, Sec-Ch-Ua-Platform');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  next();
+});
 app.use(express.json());
 
 // [ADVERTENCIA] El siguiente log de configuration.env es solo para depuración. Eliminar tras revisar problemas de entorno.
