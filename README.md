@@ -30,11 +30,13 @@ Nota: la configuración `core.hooksPath` es local al clone; cada desarrollador q
 
 ## Versión actual y cambios subidos
 
-Versión subida: 69
 
-- Añadidos logs detallados en el backend (server.js) para depuración de CORS, rutas y envío de email.
-- Los headers CORS están configurados correctamente en Express para permitir peticiones desde GitHub Pages.
-- Recomendado revisar los logs en producción para identificar problemas de acceso y envío de formularios.
+
+Versión subida: 70
+
+- Filtrado seguro de logs en backend (server.js): las claves/API y datos sensibles se ocultan en los logs.
+- Añadida advertencia en el código para eliminar logs sensibles tras depuración.
+- README actualizado con nota de seguridad sobre logging.
 
 Versión subida: 63
 

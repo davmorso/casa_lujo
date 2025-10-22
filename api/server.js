@@ -1,5 +1,7 @@
 // Sin integración de email (Mailgun eliminado)
 // server.js
+// version 70
+// Filtrado seguro de logs: las claves/API y datos sensibles se ocultan en los logs. Eliminar este bloque tras depuración.
 
 // 1) Variables de entorno: Cargar desde .env (opcional) y configuration.env
 try { require('dotenv').config(); } catch (e) { /* dotenv no es obligatorio */ }
@@ -39,7 +41,13 @@ const app = express();
 // --- Configuración y Middleware ---
 app.use(express.json());
 
-console.log(process);
+// [ADVERTENCIA] Solo para depuración. Eliminar este log tras revisar problemas.
+// Filtra datos sensibles antes de mostrar en logs:
+const safeEnv = { ...process.env };
+if (safeEnv.SENDGRID_API_KEY) safeEnv.SENDGRID_API_KEY = '[HIDDEN]';
+if (safeEnv.twilio) safeEnv.twilio = '[HIDDEN]';
+console.log('[DEBUG] process.env (filtrado):', safeEnv);
+// ...eliminar este bloque tras depuración
 
 // CORS simple (ajusta el Access-Control-Allow-Origin en producción)
 app.use((req, res, next) => {
