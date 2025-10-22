@@ -1,5 +1,5 @@
-<!-- version 64 -->
-<!-- Versión 64: El enlace 'Contáctenos' está en la barra gris de idiomas, traducido y funcional en todos los idiomas. -->
+<!-- version 65 -->
+<!-- Versión 65: El enlace 'Contáctenos' y el enlace AQUÍ/HERE/ICI/ЗДЕСЬ/這裡 abren correctamente el formulario de contacto en todos los idiomas. Enlace de política de privacidad actualizado. -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -65,8 +65,10 @@
   <button class="lang-btn" data-lang="ru" aria-label="Русский" title="Русский">
     <svg class="flag-svg" viewBox="0 0 3 2" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><rect width="3" height="0.6667" y="0" fill="#fff"></rect><rect width="3" height="0.6667" y="0.6667" fill="#0039A6"></rect><rect width="3" height="0.6667" y="1.3334" fill="#D52B1E"></rect></svg><span class="lang-label">RU</span></button>
   <!-- Bandera China -->
+
   <button class="lang-btn" data-lang="zh" aria-label="中文" title="中文">
     <svg class="flag-svg" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#DE2910"/><polygon points="5,3 6,7 10,7 7,9 8,13 5,11 2,13 3,9 0,7 4,7" fill="#FFDE00"/><circle cx="11" cy="3" r="1.2" fill="#FFDE00"/><circle cx="13" cy="5" r="1.2" fill="#FFDE00"/><circle cx="13" cy="8" r="1.2" fill="#FFDE00"/><circle cx="11" cy="10" r="1.2" fill="#FFDE00"/></svg><span class="lang-label">中文</span></button>
+  <a id="contact-link-bar" href="#contact-modal" style="margin-left:12px; color:#3366cc; text-decoration:underline; font-weight:bold;"></a>
 
   
     </div>
@@ -135,9 +137,8 @@
    </div>
 
    <!-- BTN para abrir el formulario de contacto (colocado ANTES del bloque negro cookie-banner) -->
-   <div id="contact-button-before-cookie" style="text-align:center; margin:18px 0;">
-      Si quieres concertar visita haz clic <a id="contact-link" class="contact-link" href="#contact-form" onclick="document.getElementById('contact-form').scrollIntoView({behavior: 'smooth'}); return false;">aquí</a>.
-   </div>
+
+  <div id="contact-button-before-cookie" style="text-align:center; margin:18px 0;"></div>
 
    <div id="cookie-banner" style="position: fixed; bottom: 0; width: 100%; background: #222; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; z-index: 10000;">
     <span></span>
@@ -154,35 +155,85 @@
       <script>
         // Traducciones para el enlace de contacto
         var contactTranslations = {
-          es: 'Contáctenos',
-          ca: 'Contacteu-nos',
-          en: 'Contact us',
-          fr: 'Contactez-nous',
-          ru: 'Связаться с нами',
-          zh: '联系我们'
+       es: 'Para concertar visita no dude en contactarnos pulsando AQUÍ',
+       ca: 'Per concertar visita no dubti en contactar-nos prement AQUÍ',
+       en: 'To arrange a visit do not hesitate to contact us by clicking HERE',
+       fr: 'Pour organiser une visite n\'hésitez pas à nous contacter en cliquant ICI',
+       ru: 'Чтобы договориться о визите, не стесняйтесь связаться с нами, нажав ЗДЕСЬ',
+       zh: '如需预约参观，请点击这里与我们联系：这里'
         };
-        // Cambia el enlace de política de privacidad según el idioma seleccionado
+
+        // Cambia el enlace de política de privacidad y el texto de contacto según el idioma seleccionado
         document.addEventListener('i18nLoaded', function(e) {
-          // Actualizar texto del enlace de contacto
-          var contactLang = lang;
-          var contactText = contactTranslations[contactLang] || contactTranslations['es'];
-          var contactLink = document.getElementById('contact-link');
-          if (contactLink) {
-            contactLink.textContent = contactText;
-            contactLink.href = '#contact-modal';
-            contactLink.onclick = function(ev) {
+          var lang = (e.detail && e.detail.lang) || 'es';
+          // Actualizar texto del bloque de contacto
+          var contactDiv = document.getElementById('contact-button-before-cookie');
+          if (contactDiv) {
+            var contactText = contactTranslations[lang] || contactTranslations['es'];
+            // Buscar la palabra clave (AQUÍ/HERE/ICI/ЗДЕСЬ/這裡) y convertirla en enlace
+            var linkWord = '';
+            switch(lang) {
+              case 'es': linkWord = 'AQUÍ'; break;
+              case 'ca': linkWord = 'AQUÍ'; break;
+              case 'en': linkWord = 'HERE'; break;
+              case 'fr': linkWord = 'ICI'; break;
+              case 'ru': linkWord = 'ЗДЕСЬ'; break;
+              case 'zh': linkWord = '這裡'; break;
+              default: linkWord = 'AQUÍ';
+            }
+            var html = contactText.replace(linkWord, '<a id="contact-link" class="contact-link" href="#contact-modal" style="text-decoration:underline; text-transform:uppercase;">'+linkWord+'</a>');
+            contactDiv.innerHTML = html;
+            var contactLink = document.getElementById('contact-link');
+            if (contactLink) {
+              contactLink.onclick = function(ev) {
+                ev.preventDefault();
+                if (typeof openModal === 'function') {
+                  openModal();
+                } else {
+                  var modal = document.getElementById('contact-modal');
+                  if (modal) {
+                    modal.style.display = 'flex';
+                    modal.setAttribute('aria-hidden', 'false');
+                  }
+                }
+              };
+            }
+          }
+          // Actualizar el enlace 'Contáctenos' en la barra de idioma
+          var contactBarLink = document.getElementById('contact-link-bar');
+          if (contactBarLink) {
+            var contactBtnText = '';
+            switch(lang) {
+              case 'es': contactBtnText = 'Contáctenos'; break;
+              case 'ca': contactBtnText = 'Contacteu-nos'; break;
+              case 'en': contactBtnText = 'Contact us'; break;
+              case 'fr': contactBtnText = 'Contactez-nous'; break;
+              case 'ru': contactBtnText = 'Связаться с нами'; break;
+              case 'zh': contactBtnText = '联系我们'; break;
+              default: contactBtnText = 'Contáctenos';
+            }
+            contactBarLink.textContent = contactBtnText;
+            contactBarLink.onclick = function(ev) {
               ev.preventDefault();
-              var btn = document.getElementById('open-contact-btn');
-              if (btn) btn.click();
+              // Intenta abrir el modal de contacto correctamente
+              if (typeof openModal === 'function') {
+                openModal();
+              } else {
+                var modal = document.getElementById('contact-modal');
+                if (modal) {
+                  modal.style.display = 'flex';
+                  modal.setAttribute('aria-hidden', 'false');
+                }
+              }
             };
           }
-          var lang = (e.detail && e.detail.lang) || 'es';
-          var href = 'js/application/politica-privacidad.html';
-          if (lang === 'ca') href = 'js/application/politica-privacidad-ca.html';
-          else if (lang === 'en') href = 'js/application/politica-privacidad-en.html';
-          else if (lang === 'fr') href = 'js/application/politica-privacidad-fr.html';
-          else if (lang === 'ru') href = 'js/application/politica-privacidad-ru.html';
-          else if (lang === 'zh') href = 'js/application/politica-privacidad-zh.html';
+          // Actualizar enlace de política de privacidad
+          var href = 'js/application/presentation/politica-privacidad/politica-privacidad.html';
+          if (lang === 'ca') href = 'js/application/presentation/politica-privacidad/politica-privacidad-ca.html';
+          else if (lang === 'en') href = 'js/application/presentation/politica-privacidad/politica-privacidad-en.html';
+          else if (lang === 'fr') href = 'js/application/presentation/politica-privacidad/politica-privacidad-fr.html';
+          else if (lang === 'ru') href = 'js/application/presentation/politica-privacidad/politica-privacidad-ru.html';
+          else if (lang === 'zh') href = 'js/application/presentation/politica-privacidad/politica-privacidad-zh.html';
           document.getElementById('footer-privacy').setAttribute('href', href);
         });
       </script>

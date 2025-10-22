@@ -23,11 +23,13 @@ Nota: la configuración `core.hooksPath` es local al clone; cada desarrollador q
 
 
 
+
 ## Versión actual y cambios subidos
 
-Versión subida: 64
+Versión subida: 65
 
-- El enlace 'Contáctenos' está en la barra gris de idiomas, traducido y funcional en todos los idiomas.
+- El enlace 'Contáctenos' y el enlace AQUÍ/HERE/ICI/ЗДЕСЬ/這裡 abren correctamente el formulario de contacto en todos los idiomas.
+- El enlace de política de privacidad apunta a la nueva ubicación y cambia según el idioma.
 
 Versión subida: 63
 
