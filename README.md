@@ -30,6 +30,16 @@ Nota: la configuración `core.hooksPath` es local al clone; cada desarrollador q
 
 ## Versión actual y cambios subidos
 
+Versión subida: 82
+
+- Corrección en el formulario de contacto: solo permite un envío por vez, evitando duplicados.
+- Versionado estricto en index.html y README.md en cada subida.
+
+Versión subida: 81
+
+- Logging de errores mejorado en backend: los mensajes detallados se envían al frontend y se muestran en el bloque de depuración.
+- Versionado estricto en index.html y README.md en cada subida.
+
 Versión subida: 80
 
 - El backend principal ahora es Render (https://casa-lujo.onrender.com), no Vercel.

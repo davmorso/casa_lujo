@@ -237,7 +237,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const base = normalizeBaseUrl(window.BACKEND_URL) || 'http://192.168.1.41:8080';
     const url = `${base}/api/contact`;
 
-    if (submitBtn) submitBtn.disabled = true;
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.classList.add('sending');
+      }
 
     try {
       const r = await fetch(url, {
@@ -283,7 +286,10 @@ document.addEventListener('DOMContentLoaded', () => {
         alert(debugMsg);
       }
     } finally {
-      if (submitBtn) submitBtn.disabled = false;
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.classList.remove('sending');
+        }
     }
   }
 
@@ -294,6 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
+    if (submitBtn && submitBtn.disabled) return; // Evita reenvíos múltiples
     if (!validateAll()) return;
     sendMailClient();
   });
