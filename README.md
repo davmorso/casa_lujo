@@ -30,6 +30,11 @@ Nota: la configuración `core.hooksPath` es local al clone; cada desarrollador q
 
 ## Versión actual y cambios subidos
 
+Versión subida: 83
+
+- Corregido dominio .com en BACKEND_URL de index.html.
+- Versionado estricto en index.html, README.md y contact-form.js en cada subida.
+
 Versión subida: 82
 
 - Corrección en el formulario de contacto: solo permite un envío por vez, evitando duplicados.
