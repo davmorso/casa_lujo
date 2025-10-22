@@ -115,7 +115,7 @@
       "Certificat energètic: No indicat"
     ]
   },
-  "contacte": {
+  "contacto": {
     "concertar_visita_btn": "Contacteu-nos",
     "boton_abrir": "Contacteu-nos",
     "labels": {
@@ -132,7 +132,7 @@
       "experiencia": "Breu descripció de la teva experiència (si escau)"
     },
     "botones": {
-      "enviar": "Preparar correu",
+  "enviar": "Enviar",
       "cancelar": "Cancel·lar"
     },
     "email": {

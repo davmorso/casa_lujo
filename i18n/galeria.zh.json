@@ -127,7 +127,7 @@
       "能源证书：未指明"
     ]
   },
-  "contact": {
+  "contacto": {
     "concertar_visita_btn": "如果您想预约参观，请点击这里",
     "boton_abrir": "联系我们",
     "labels": {
@@ -144,7 +144,7 @@
       "experiencia": "简要描述您的相关经验（如有）"
     },
     "botones": {
-      "enviar": "准备邮件",
+  "enviar": "发送",
       "cancelar": "取消"
     },
     "email": {

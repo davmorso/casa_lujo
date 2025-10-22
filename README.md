@@ -30,9 +30,12 @@ Nota: la configuración `core.hooksPath` es local al clone; cada desarrollador q
 
 ## Versión actual y cambios subidos
 
-Versión subida: 94
+Versión subida: 96
 
-- Formulario: campo Email añadido debajo del teléfono, validación y envío al backend.
+- Corrección: los botones de enviar y cancelar en el formulario de contacto ahora aparecen correctamente en inglés y en todos los idiomas.
+- Unificación de textos de envío en todos los idiomas: el botón siempre muestra "Enviar" o su equivalente correcto.
+- Mejora de i18n: la clave de traducción en inglés se renombró a "contacto" para que el sistema cargue los textos correctos.
+- Versionado estricto en index.html y README.md en cada subida.
 - Versionado estricto en index.html, README.md y contact-form.js en cada subida.
  
 - Backend: los correos enviados desde el formulario se envían siempre en ESPAÑOL (asunto y cuerpo), independientemente del idioma seleccionado por el usuario en la UI. Esto facilita la recepción y lectura de mensajes por el propietario.
