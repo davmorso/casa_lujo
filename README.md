@@ -26,11 +26,12 @@ Nota: la configuración `core.hooksPath` es local al clone; cada desarrollador q
 
 
 
+
 ## Versión actual y cambios subidos
 
-Versión subida: 67
+Versión subida: 68
 
-- Solicitud de subida de versión y push tras corrección de CORS y errores previos.
+- Cambios globales, subida de versión y push. Recuerda que para evitar errores CORS en el formulario, debes añadir los headers CORS en el backend (ver instrucciones en la conversación).
 
 Versión subida: 63
 
