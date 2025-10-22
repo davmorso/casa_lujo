@@ -121,6 +121,7 @@
     "labels": {
       "nombre": "Nom",
       "telefono": "Telèfon",
+      "email": "E-mail",
       "estructura_compra": "Com imagines estructurar la compra de la teva futura vivenda (finançament, recursos propis, combinació, etc.)?",
       "experiencia": "Quin nivell d'experiència tens en operacions immobiliàries d'aquest tipus o en l'adquisició de propietats premium?",
       "acepto": "Accepto la política de privacitat"

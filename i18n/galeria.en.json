@@ -118,11 +118,12 @@
 		"titulo": "Contact about this property",
 		"boton_abrir": "Contact us",
 		"labels": {
-			"nombre": "Name",
-			"telefono": "Phone",
-			"estructura_compra": "How do you imagine structuring the purchase of your future home (financing, own resources, combination, etc.)?",
-			"experiencia": "What level of experience do you have in real estate operations of this type or in acquiring premium properties?",
-			"acepto": "I accept the privacy policy"
+				"nombre": "Name",
+				"telefono": "Phone",
+				"email": "E-mail",
+				"estructura_compra": "How do you imagine structuring the purchase of your future home (financing, own resources, combination, etc.)?",
+				"experiencia": "What level of experience do you have in real estate operations of this type or in acquiring premium properties?",
+				"acepto": "I accept the privacy policy"
 		},
 		"placeholders": {
 			"nombre": "Your full name",

@@ -118,11 +118,12 @@
 		"titulo": "Contacter à propos de ce logement",
 		"boton_abrir": "Contactez-nous",
 		"labels": {
-			"nombre": "Nom",
-			"telefono": "Téléphone",
-			"estructura_compra": "Comment imaginez-vous structurer l'achat de votre futur logement (financement, ressources propres, combinaison, etc.) ?",
-			"experiencia": "Quel niveau d'expérience avez-vous dans des opérations immobilières de ce type ou dans l'acquisition de biens premium ?",
-			"acepto": "J'accepte la politique de confidentialité"
+				"nombre": "Nom",
+				"telefono": "Téléphone",
+				"email": "E-mail",
+				"estructura_compra": "Comment imaginez-vous structurer l'achat de votre futur logement (financement, ressources propres, combinaison, etc.) ?",
+				"experiencia": "Quel niveau d'expérience avez-vous dans des opérations immobilières de ce type ou dans l'acquisition de biens premium ?",
+				"acepto": "J'accepte la politique de confidentialité"
 		},
 		"placeholders": {
 			"nombre": "Votre nom complet",

@@ -133,8 +133,9 @@
     "labels": {
       "nombre": "姓名",
       "telefono": "联系电话",
+      "email": "E-mail",
       "estructura_compra": "您设想如何安排购房（融资、自有资金、组合等）？",
-      "experiencia": "您在此类房地产交易或高端房产购置方面有何经验？",
+      "experiencia": "您在此类房产交易或高端房产购买方面有何经验？",
       "acepto": "我接受隐私政策"
     },
     "placeholders": {
