@@ -1,5 +1,5 @@
-<!-- version 82 -->
-<!-- Versión 82: El formulario de contacto solo permite un envío por vez, evitando duplicados. -->
+<!-- version 83 -->
+<!-- Versión 83: Corregido dominio .com en BACKEND_URL. Versionado estricto en todos los ficheros. -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -255,7 +255,7 @@
     if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
       window.BACKEND_URL = 'http://localhost:8000'; // Desarrollo local
     } else {
-      window.BACKEND_URL = 'https://casa-lujo.onrender.'; // Producción en Render
+  window.BACKEND_URL = 'https://casa-lujo.onrender.com'; // Producción en Render (.com corregido)
     }
   </script>
   <script src="js/infraestructure/scripts/contact-form.js"></script>
