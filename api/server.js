@@ -43,10 +43,12 @@ console.log(process);
 
 // CORS simple (ajusta el Access-Control-Allow-Origin en producción)
 app.use((req, res, next) => {
+  console.log(`[CORS] ${req.method} ${req.originalUrl} from ${req.headers.origin}`);
   res.setHeader('Access-Control-Allow-Origin', 'https://davmorso.github.io');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   if (req.method === 'OPTIONS') {
+    console.log('[CORS] OPTIONS preflight respondido');
     res.status(200).end();
     return;
   }
@@ -61,9 +63,13 @@ const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 app.post('/api/contact', async (req, res) => {
+  console.log('[CONTACT] POST /api/contact');
+  console.log('[CONTACT] Headers:', req.headers);
+  console.log('[CONTACT] Body:', req.body);
   try {
     const { nombre, telefono, estructura, experiencia, acepta, asunto } = req.body;
     if (!nombre || !telefono || !estructura || !experiencia || !acepta) {
+      console.warn('[CONTACT] Faltan campos obligatorios:', { nombre, telefono, estructura, experiencia, acepta });
       return res.status(400).json({ ok: false, message: 'Faltan campos obligatorios.' });
     }
     const from = process.env.SENDGRID_FROM;
@@ -87,10 +93,12 @@ app.post('/api/contact', async (req, res) => {
       subject,
       html
     };
+    console.log('[CONTACT] Enviando email:', msg);
     await sgMail.send(msg);
+    console.log('[CONTACT] Email enviado correctamente');
     return res.status(200).json({ ok: true, message: 'Mensaje enviado correctamente.' });
   } catch (err) {
-    console.error('Error enviando email:', err);
+    console.error('[CONTACT] Error enviando email:', err);
     return res.status(500).json({ ok: false, message: 'No se pudo enviar el email.' });
   }
 });
