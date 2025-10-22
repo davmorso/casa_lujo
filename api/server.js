@@ -1,5 +1,9 @@
 // ...otros requires y configuración...
 
+// Eliminada inicialización duplicada de Express y app. Corrección definitiva de error de app.
+// version 75
+// Nota: En Vercel, el puerto es asignado dinámicamente, pero se mantiene la lógica para pruebas locales.
+// ...otros requires y configuración...
 const express = require('express');
 const app = express();
 
@@ -48,10 +52,8 @@ try {
 }
 
 // 3) App Express (sin envío de correo)
-const express = require('express');
 // Eliminado Mailgun: no se usará envío de correo
 
-const app = express();
 // Nota: En Vercel, el puerto es asignado dinámicamente, pero se mantiene la lógica para pruebas locales.
 
 // --- Configuración y Middleware ---
