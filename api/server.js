@@ -1,6 +1,11 @@
+// ...otros requires y configuración...
 
-// version 76
-// Eliminada inicialización duplicada de Express y app. Corrección definitiva de error de doble declaración.
+// Eliminada inicialización duplicada de Express y app. Corrección definitiva de error de app.
+// version 75
+// Nota: En Vercel, el puerto es asignado dinámicamente, pero se mantiene la lógica para pruebas locales.
+// ...otros requires y configuración...
+const express = require('express');
+const app = express();
 
 // Log especial para depuración de CORS: muestra el Origin recibido en cada petición
 app.use((req, res, next) => {
