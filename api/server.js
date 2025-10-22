@@ -1,3 +1,12 @@
+// Log especial para depuración de CORS: muestra el Origin recibido en cada petición
+app.use((req, res, next) => {
+  if (req.headers.origin) {
+    console.log(`[CORS-DEBUG] Origin recibido: ${req.headers.origin}`);
+  } else {
+    console.log('[CORS-DEBUG] Origin no presente en la petición');
+  }
+  next();
+});
 // Sin integración de email (Mailgun eliminado)
 // server.js
 // version 70
