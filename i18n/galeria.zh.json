@@ -176,5 +176,5 @@
 			"contacto_boton": "这里"
 		}
 	},
-	"politica_privacidad_url": "/js/application/presentation/politica-privacidad/politica-privacidad-zh.html"
+		"politica_privacidad_url": "/presentation/politica-privacidad/politica-privacidad-zh.html"
 }

@@ -30,7 +30,14 @@ Nota: la configuración `core.hooksPath` es local al clone; cada desarrollador q
 
 ## Versión actual y cambios subidos
 
+Versión subida: 104
 
+- Actualización de versión en index.html a 104.
+- Añadido bloque de versión 104 en README.md encima de 103, sin modificar nada debajo.
+- Sincronización final de enlaces y scripts tras refactor DDD.
+- Confirmada traducción dinámica del banner de cookies según idioma seleccionado.
+- Todos los links de política de privacidad y scripts actualizados a la nueva estructura presentation/.
+- Validación de versionado estricto y documentación.
 
 Versión subida: 103
 
