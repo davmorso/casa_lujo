@@ -124,7 +124,7 @@
 			"email": "E-mail",
 			"estructura_compra": "Как вы планируете структурировать покупку будущего жилья (финансирование, собственные средства, комбинация и т.д.)?",
 			"experiencia": "Какой у вас опыт в подобных сделках или приобретении премиальной недвижимости?",
-			"acepto": "Я принимаю <a href=\"presentation/politica-privacidad/politica-privacidad-ru.html\" target=\"_blank\" rel=\"noopener\" style=\"color:#3366cc;text-decoration:underline;\">политику конфиденциальности</a>"
+			"acepto": "Я принимаю <a href=\"/docs/politica-privacidad-ru.html\" target=\"_blank\" rel=\"noopener\" style=\"color:#3366cc;text-decoration:underline;\">политику конфиденциальности</a>"
 		},
 		"placeholders": {
 			"nombre": "Ваше полное имя",
@@ -176,5 +176,5 @@
 			"contacto_boton": "здесь"
 		}
 	},
-		"politica_privacidad_url": "/presentation/politica-privacidad/politica-privacidad-ru.html"
+		"politica_privacidad_url": "/docs/politica-privacidad-ru.html"
 }

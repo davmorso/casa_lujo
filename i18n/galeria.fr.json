@@ -59,7 +59,7 @@
 				{ "src": "./img/planta 2/casa 2.jpeg", "alt": "Deuxième étage : couloir et accès à la chambre" },
 				{ "src": "./img/planta 2/casa 3.jpeg", "alt": "Deuxième étage : chambre principale" },
 				{ "src": "./img/planta 2/casa 4.jpeg", "alt": "Deuxième étage : terrasse privée de la chambre" },
-				{ "src": "./img/planta 2/casa 5.jpeg", "alt": "Deuxième étage : salle de bain de la chambre, bac de douche" }
+					"contacto_boton": "Contactez-nous"
 			]
 		},
 		"planta-3": {
@@ -81,7 +81,7 @@
 				"Toit terrasse offrant de belles vues.",
 				"Espace idéal pour profiter de l'extérieur et pour de petites réunions."
 			],
-			"imagenes": [
+				"politica_privacidad_url": "/docs/politica-privacidad-fr.html"
 				{ "src": "./img/planta 4/casa 1.jpeg", "alt": "Quatrième étage : toit/terrasse avec vue" }
 			]
 		}
