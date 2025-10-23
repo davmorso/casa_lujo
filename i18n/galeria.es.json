@@ -1,13 +1,13 @@
 {
   "meta": {
     "title": "Casa de lujo en venta en Centro de Arenys de Mar",
-    "description": "Exclusivo tríplex de diseño de tres plantas en el centro de Arenys de Mar. Luz natural, privacidad y diseño cuidado en un entorno único.",
+    "description": "Exclusiva Casa de lujo en el centro de Arenys de Mar. Luz natural, privacidad y diseño cuidado en un entorno único.",
     "price": "375.000 €",
     "keywords": "casa de lujo, Arenys de Mar, casa, centro, céntrica, vivienda exclusiva, terraza, ascensor, luz natural, sur, este, oeste",
     "author": "David M",
     "og": {
       "title": "Casa de lujo en venta en Centro de Arenys de Mar",
-      "description": "Exclusivo tríplex de diseño de tres plantas en el centro de Arenys de Mar. Luz natural, privacidad y diseño cuidado en un entorno único.",
+      "description": "Casa de lujo en el centro de Arenys de Mar. Luz natural, privacidad y diseño cuidado en un entorno único.",
       "type": "website",
       "url": "https://davmorso.github.io/casa/",
       "image": "/portada.jpg"
@@ -15,7 +15,7 @@
     "twitter": {
       "card": "summary_large_image",
       "title": "Casa de lujo en venta en Centro de Arenys de Mar",
-      "description": "Descubre este exclusivo tríplex con luz natural, privacidad y diseño único en Arenys de Mar.",
+      "description": "Descubre este exclusiva Casa de lujo con luz natural, privacidad y diseño único en Arenys de Mar.",
       "image": "/img/portada.jpg"
     }
   },
