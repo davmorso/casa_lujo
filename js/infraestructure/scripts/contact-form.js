@@ -237,7 +237,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Validación de email (si existe campo)
     if (document.getElementById('contact-email')) {
       const emailRegex = /^[\w.-]+@[\w.-]+\.[A-Za-z]{2,}$/;
-      if (!emailRegex.test(email)) {
+      if (email && !emailRegex.test(email)) {
         setError('email', 'Email inválido.');
         ok = false;
       }

@@ -30,6 +30,13 @@ Nota: la configuración `core.hooksPath` es local al clone; cada desarrollador q
 
 ## Versión actual y cambios subidos
 
+Versión subida: 100
+
+- Actualizadas meta keywords en todos los idiomas relevantes (español, inglés, francés, catalán, ruso, chino) en index.html.
+- Eliminadas referencias a piscina en descripción y keywords.
+- Resumen de la vivienda ajustado según el anuncio real.
+- Versionado estricto en index.html y README.md en cada subida.
+
 Versión subida: 98
 
 - El label del campo email en el formulario de contacto ahora se actualiza dinámicamente y correctamente en todos los idiomas.
