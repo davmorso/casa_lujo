@@ -31,6 +31,16 @@ Nota: la configuración `core.hooksPath` es local al clone; cada desarrollador q
 ## Versión actual y cambios subidos
 
 
+
+Versión subida: 103
+
+- Refactor completo a estructura DDD: todos los scripts de UI movidos a presentation/components/.
+- Eliminados scripts duplicados y referencias antiguas en index.html.
+- El banner de cookies ahora se traduce dinámicamente según el idioma seleccionado (i18n).
+- Todos los links de scripts y de política de privacidad actualizados a la nueva estructura.
+- Sincronización de enlaces y textos multilingües en los archivos i18n y HTML.
+- Versionado estricto en index.html y README.md en cada subida.
+
 Versión subida: 102
 
 - Traducción completa de galeria.es.json al ruso y chino, y actualización de los enlaces de política de privacidad en ambos idiomas para que apunten a sus respectivos archivos.

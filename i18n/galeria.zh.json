@@ -18,7 +18,7 @@
 			"description": "探索这座独家豪华住宅，拥有自然采光、私密性和独特设计，位于阿雷尼斯德马尔。",
 			"image": "/img/portada.jpg"
 		},
-		"politica_privacidad_url": "/js/application/presentation/politica-privacidad/politica-privacidad.html"
+		"politica_privacidad_url": "/presentation/politica-privacidad/politica-privacidad-zh.html"
 	},
 	"header": {
 		"title_desktop": "位于阿雷尼斯德马尔中心的豪华住宅出售",
@@ -124,7 +124,7 @@
 			"email": "电子邮件",
 			"estructura_compra": "您如何规划未来住宅的购买结构（融资、自有资金、组合等）？",
 			"experiencia": "您在此类房地产交易或高端物业购买方面有何经验？",
-			"acepto": "我接受<a href=\"js/application/presentation/politica-privacidad/politica-privacidad-zh.html\" target=\"_blank\" rel=\"noopener\" style=\"color:#3366cc;text-decoration:underline;\">隐私政策</a>"
+			"acepto": "我接受<a href=\"presentation/politica-privacidad/politica-privacidad-zh.html\" target=\"_blank\" rel=\"noopener\" style=\"color:#3366cc;text-decoration:underline;\">隐私政策</a>"
 		},
 		"placeholders": {
 			"nombre": "您的全名",
@@ -176,5 +176,5 @@
 			"contacto_boton": "这里"
 		}
 	},
-	"politica_privacidad_url": "/js/application/presentation/politica-privacidad/politica-privacidad.html"
+	"politica_privacidad_url": "/js/application/presentation/politica-privacidad/politica-privacidad-zh.html"
 }

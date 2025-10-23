@@ -7,16 +7,16 @@ const j = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
 const imgs = [];
 
 if (j.textos) {
-  Object.values(j.textos).forEach(section => {
-    if (Array.isArray(section.imagenes)) section.imagenes.forEach(i => imgs.push(i.src));
-  });
+	Object.values(j.textos).forEach(section => {
+		if (Array.isArray(section.imagenes)) section.imagenes.forEach(i => imgs.push(i.src));
+	});
 }
 
 imgs.push(...(j.detalles?.imagenes || []));
 
 const missing = imgs.filter(src => {
-  const p = path.join(root, src.replace(/^\.\//,'')); // normalizar ./ prefix
-  return !fs.existsSync(p);
+	const p = path.join(root, src.replace(/^\.\//,'')); // normalizar ./ prefix
+	return !fs.existsSync(p);
 });
 
 console.log('Total imágenes referenciadas:', imgs.length);

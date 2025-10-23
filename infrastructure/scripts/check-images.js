@@ -11,19 +11,19 @@ if (!fs.existsSync(imgRoot)) { console.error('No existe', imgRoot); process.exit
 const j = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
 const refs = [];
 if (j.textos) {
-  Object.entries(j.textos).forEach(([k, sec]) => {
-    if (Array.isArray(sec.imagenes)) sec.imagenes.forEach(im => refs.push({ key: k, src: im.src }));
-  });
+	Object.entries(j.textos).forEach(([k, sec]) => {
+		if (Array.isArray(sec.imagenes)) sec.imagenes.forEach(im => refs.push({ key: k, src: im.src }));
+	});
 }
 
 const missing = [];
 const duplicates = {};
 refs.forEach(r => {
-  const norm = (r.src || '').replace(/^\.\//, '').replace(/\\/g,'/').trim();
-  duplicates[norm] = duplicates[norm] || [];
-  duplicates[norm].push(r.key);
-  const p = path.join(root, norm);
-  if (!fs.existsSync(p)) missing.push(norm);
+	const norm = (r.src || '').replace(/^\.\//, '').replace(/\\/g,'/').trim();
+	duplicates[norm] = duplicates[norm] || [];
+	duplicates[norm].push(r.key);
+	const p = path.join(root, norm);
+	if (!fs.existsSync(p)) missing.push(norm);
 });
 
 // listar rutas que faltan
@@ -34,7 +34,7 @@ else console.log('Ninguna.');
 // listar duplicados entre secciones
 console.log('\n--- Duplicados (mismo src referenciado por varias plantas) ---');
 Object.entries(duplicates).forEach(([src, keys]) => {
-  if (keys.length > 1) console.log(`${src} -> ${keys.join(', ')}`);
+	if (keys.length > 1) console.log(`${src} -> ${keys.join(', ')}`);
 });
 
 // mostrar conteos por planta

@@ -1,4 +1,4 @@
-<!-- version 103 -->
+<!-- version 104 -->
 <!DOCTYPE html>
 <html lang="es" id="html-root">
 <head>
@@ -156,10 +156,10 @@
   <footer style="background-color: #222; color: white; padding: 20px; text-align: center; border-top: 2px solid #444;">
     <p id="footer-copy" style="margin: 0;"></p>
     <p style="margin: 5px 0 0;">
-  <a id="footer-privacy" href="politica-privacidad.html" style="color: #aaa; text-decoration: underline;" target="_blank" rel="noopener"></a>
+  <a id="footer-privacy" href="presentation/politica-privacidad/politica-privacidad.html" style="color: #aaa; text-decoration: underline;" target="_blank" rel="noopener"></a>
       <!-- JS logic for contact, privacy, and language bar moved to separate files -->
-  <script src="js/infraestructure/scripts/contact-ui.js"></script>
-  <script src="js/infraestructure/scripts/privacy-link.js"></script>
+  <script src="presentation/components/contact-ui.js"></script>
+  <script src="presentation/components/privacy-link.js"></script>
       <!-- Solo <title> y <html lang> cambian con el idioma -->
       <script>
         document.addEventListener('i18nLoaded', function(e) {
@@ -180,24 +180,24 @@
   </footer>
 
   <!-- Script de galería y UI (cliente) -->
-  <script src="js/infraestructure/scripts/galeriaUseCase.js"></script>
-  <script src="js/infraestructure/scripts/galeriaView.js"></script>
-  <script src="js/infraestructure/scripts/i18n-loader.js"></script>
+  <script src="infrastructure/scripts/galeriaUseCase.js"></script>
+  <script src="presentation/components/galeriaView.js"></script>
+  <script src="infrastructure/scripts/i18n-loader.js"></script>
   <!-- JS logic for backend URL assignment moved to separate file -->
-  <script src="js/infraestructure/scripts/backend-url.js"></script>
-  <script src="js/infraestructure/scripts/contact-form.js"></script>
+  <script src="infrastructure/scripts/backend-url.js"></script>
+  <script src="presentation/components/contact-form.js"></script>
   
-  <script src="js/lang-switcher.js"></script>
-  <script src="js/infraestructure/scripts/i18n-loader.js"></script>
+  <script src="presentation/components/lang-switcher.js"></script>
+  <script src="infrastructure/scripts/i18n-loader.js"></script>
   <script src="js/galeria.js"></script>
-  <script src="js/zoomable-modal.js"></script>
-  <script src="js/infraestructure/scripts/contact-form.js"></script>
-  <script src="js/bootstrap.js"></script>
-  <script src="js/infraestructure/scripts/cookieService.js"></script>
-  <script src="js/infraestructure/scripts/cookieBannerView.js"></script>
+  <script src="presentation/components/zoomable-modal.js"></script>
+  <script src="infrastructure/scripts/contact-form.js"></script>
+  <script src="presentation/components/bootstrap.js"></script>
+  <script src="infrastructure/scripts/cookieService.js"></script>
+  <script src="presentation/components/cookieBannerView.js"></script>
 
   <!-- JS logic for modal UI and gestures moved to separate file -->
-  <script src="js/infraestructure/scripts/modal-ui.js"></script>
+  <script src="presentation/components/modal-ui.js"></script>
   
   <!-- Modal formulario de contacto -->
   <div id="contact-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" style="display:none;">
