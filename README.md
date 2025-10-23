@@ -30,6 +30,13 @@ Nota: la configuración `core.hooksPath` es local al clone; cada desarrollador q
 
 ## Versión actual y cambios subidos
 
+
+Versión subida: 102
+
+- Traducción completa de galeria.es.json al ruso y chino, y actualización de los enlaces de política de privacidad en ambos idiomas para que apunten a sus respectivos archivos.
+- Sincronización de textos y enlaces multilingües.
+- Versionado estricto en index.html y README.md en cada subida.
+
 Versión subida: 101
 
 - Añadida la meta etiqueta og:image con la URL de la primera foto para mejorar la previsualización en WhatsApp y redes sociales.

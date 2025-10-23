@@ -1,28 +1,27 @@
-<!-- version 104 -->
+<!-- version 103 -->
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" id="html-root">
 <head>
-  <title>Casa de lujo en Arenys de Mar</title>
+  <title id="page-title">Casa de lujo en Arenys de Mar</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!-- ...existing code... -->
-  <!-- Meta SEO (se rellenarán desde i18n) -->
+  <!-- Meta SEO (solo español, estáticos) -->
   <meta name="description" content="Casa de lujo en Arenys de Mar. Vivienda exclusiva con vistas al mar, amplios espacios y jardín privado. Ideal para familias que buscan confort y tranquilidad cerca de Barcelona." />
   <meta name="keywords" content="casa de lujo, Arenys de Mar, venta, vivienda exclusiva, jardín, vistas al mar, Barcelona, familia, inmobiliaria, luxury house, exclusive property, garden, sea views, Barcelona, family, real estate, maison de luxe, Arenys de Mar, vente, propriété exclusive, jardin, vue sur mer, Barcelone, famille, immobilier, casa de luxe, Arenys de Mar, venda, propietat exclusiva, jardí, vistes al mar, Barcelona, família, immobiliària, роскошный дом, Arenys de Mar, продажа, эксклюзивная недвижимость, сад, вид на море, Барселона, семья, недвижимость, 豪宅, 阿雷尼斯-德马尔, 出售, 独家房产, 花园, 海景, 巴塞罗那, 家庭, 房地产" />
   <meta name="author" content="" />
 
-  <!-- Meta para redes sociales (vacíos, se rellenan desde i18n) -->
+  <!-- Meta para redes sociales (solo español, estáticos) -->
   <meta property="og:title" content="Casa de lujo en Arenys de Mar" />
   <meta property="og:description" content="Casa de lujo en Arenys de Mar. Vivienda exclusiva con vistas al mar, amplios espacios y jardín privado. Ideal para familias que buscan confort y tranquilidad cerca de Barcelona." />
-  <meta property="og:type" content="" />
-  <meta property="og:url" content="" />
-  <meta property="og:image" content="" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://davmorso.github.io/casa_lujo/" />
   <meta property="og:image" content="https://davmorso.github.io/casa_lujo/img/planta%201/casa%200.jpeg" />
 
-  <meta name="twitter:card" content="" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Casa de lujo en Arenys de Mar" />
   <meta name="twitter:description" content="Casa de lujo en Arenys de Mar. Vivienda exclusiva con vistas al mar, amplios espacios y jardín privado. Ideal para familias que buscan confort y tranquilidad cerca de Barcelona." />
-  <meta name="twitter:image" content="" />
+  <meta name="twitter:image" content="https://davmorso.github.io/casa_lujo/img/planta%201/casa%200.jpeg" />
   
   <link rel="stylesheet" href="css/estilos.css" />
 
@@ -48,26 +47,26 @@
   <nav class="lang-bar" id="lang-bar" style="background: #f7f7f7; border-bottom: 1px solid #eee;">
   <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 0.5vw; min-height: 40px;">
       <button class="lang-btn" data-lang="ca" aria-label="Català" title="Català">
-    <svg width="28" height="18" viewBox="0 0 28 18" aria-hidden="true"><rect width="28" height="18" fill="#FFD700"/><g fill="#E03C31"><rect y="0" x="0" width="28" height="3"/><rect y="6" x="0" width="28" height="3"/><rect y="12" x="0" width="28" height="3"/></g></svg><span class="lang-label">CAT</span></button>
+    <svg width="28" height="18" viewBox="0 0 28 18" aria-hidden="true"><rect width="28" height="18" fill="#FFD700"/><g fill="#E03C31"><rect y="0" x="0" width="28" height="3"/><rect y="6" x="0" width="28" height="3"/><rect y="12" x="0" width="28" height="3"/></g></svg><span class="lang-label" data-i18n="ui.lang.cat">CAT</span></button>
 
   <!-- Inline bandera España -->
   <button class="lang-btn" data-lang="es" aria-label="Español" title="Español">
-    <svg class="flag-svg" viewBox="0 0 3 2" preserveAspectRatio="xMidYMid meet" aria-hidden="true" role="img"><rect width="3" height="0.5" y="0" fill="#c60b1e"></rect><rect width="3" height="1.0" y="0.5" fill="#ffc400"></rect><rect width="3" height="0.5" y="1.5" fill="#c60b1e"></rect></svg><span class="lang-label">ES</span></button>
+    <svg class="flag-svg" viewBox="0 0 3 2" preserveAspectRatio="xMidYMid meet" aria-hidden="true" role="img"><rect width="3" height="0.5" y="0" fill="#c60b1e"></rect><rect width="3" height="1.0" y="0.5" fill="#ffc400"></rect><rect width="3" height="0.5" y="1.5" fill="#c60b1e"></rect></svg><span class="lang-label" data-i18n="ui.lang.es">ES</span></button>
 
   <!-- Inline bandera UK -->
   <button class="lang-btn" data-lang="en" aria-label="English" title="English">
-    <svg class="flag-svg" viewBox="0 0 60 30" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><rect width="60" height="30" fill="#012169"/><g stroke="#fff" stroke-width="6"><path d="M0 0 L60 30" /><path d="M60 0 L0 30" /></g><g stroke="#C8102E" stroke-width="4"><path d="M0 0 L60 30" /><path d="M60 0 L0 30" /></g><rect x="25" width="10" height="30" fill="#fff"/><rect y="10" width="60" height="10" fill="#fff"/><rect x="27" width="6" height="30" fill="#C8102E"/><rect y="12" width="60" height="6" fill="#C8102E"/></svg><span class="lang-label">EN</span></button>
+    <svg class="flag-svg" viewBox="0 0 60 30" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><rect width="60" height="30" fill="#012169"/><g stroke="#fff" stroke-width="6"><path d="M0 0 L60 30" /><path d="M60 0 L0 30" /></g><g stroke="#C8102E" stroke-width="4"><path d="M0 0 L60 30" /><path d="M60 0 L0 30" /></g><rect x="25" width="10" height="30" fill="#fff"/><rect y="10" width="60" height="10" fill="#fff"/><rect x="27" width="6" height="30" fill="#C8102E"/><rect y="12" width="60" height="6" fill="#C8102E"/></svg><span class="lang-label" data-i18n="ui.lang.en">EN</span></button>
 
   <button class="lang-btn" data-lang="fr" aria-label="Français" title="Français">
-    <svg class="flag-svg" viewBox="0 0 3 2" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><rect width="1" height="2" x="0" fill="#0055A4"></rect><rect width="1" height="2" x="1" fill="#FFFFFF"></rect><rect width="1" height="2" x="2" fill="#EF4135"></rect></svg><span class="lang-label">FR</span></button>
+    <svg class="flag-svg" viewBox="0 0 3 2" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><rect width="1" height="2" x="0" fill="#0055A4"></rect><rect width="1" height="2" x="1" fill="#FFFFFF"></rect><rect width="1" height="2" x="2" fill="#EF4135"></rect></svg><span class="lang-label" data-i18n="ui.lang.fr">FR</span></button>
 
   <!-- NUEVO: botón ruso -->
   <button class="lang-btn" data-lang="ru" aria-label="Русский" title="Русский">
-    <svg class="flag-svg" viewBox="0 0 3 2" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><rect width="3" height="0.6667" y="0" fill="#fff"></rect><rect width="3" height="0.6667" y="0.6667" fill="#0039A6"></rect><rect width="3" height="0.6667" y="1.3334" fill="#D52B1E"></rect></svg><span class="lang-label">RU</span></button>
+    <svg class="flag-svg" viewBox="0 0 3 2" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><rect width="3" height="0.6667" y="0" fill="#fff"></rect><rect width="3" height="0.6667" y="0.6667" fill="#0039A6"></rect><rect width="3" height="0.6667" y="1.3334" fill="#D52B1E"></rect></svg><span class="lang-label" data-i18n="ui.lang.ru">RU</span></button>
   <!-- Bandera China -->
 
   <button class="lang-btn" data-lang="zh" aria-label="中文" title="中文">
-    <svg class="flag-svg" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#DE2910"/><polygon points="5,3 6,7 10,7 7,9 8,13 5,11 2,13 3,9 0,7 4,7" fill="#FFDE00"/><circle cx="11" cy="3" r="1.2" fill="#FFDE00"/><circle cx="13" cy="5" r="1.2" fill="#FFDE00"/><circle cx="13" cy="8" r="1.2" fill="#FFDE00"/><circle cx="11" cy="10" r="1.2" fill="#FFDE00"/></svg><span class="lang-label">中文</span></button>
+    <svg class="flag-svg" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#DE2910"/><polygon points="5,3 6,7 10,7 7,9 8,13 5,11 2,13 3,9 0,7 4,7" fill="#FFDE00"/><circle cx="11" cy="3" r="1.2" fill="#FFDE00"/><circle cx="13" cy="5" r="1.2" fill="#FFDE00"/><circle cx="13" cy="8" r="1.2" fill="#FFDE00"/><circle cx="11" cy="10" r="1.2" fill="#FFDE00"/></svg><span class="lang-label" data-i18n="ui.lang.zh">中文</span></button>
   <a id="contact-link-bar" href="#contact-modal" style="margin-left:12px; color:#3366cc; text-decoration:underline; font-weight:bold;"></a>
 
   
@@ -158,91 +157,25 @@
     <p id="footer-copy" style="margin: 0;"></p>
     <p style="margin: 5px 0 0;">
   <a id="footer-privacy" href="politica-privacidad.html" style="color: #aaa; text-decoration: underline;" target="_blank" rel="noopener"></a>
+      <!-- JS logic for contact, privacy, and language bar moved to separate files -->
+  <script src="js/infraestructure/scripts/contact-ui.js"></script>
+  <script src="js/infraestructure/scripts/privacy-link.js"></script>
+      <!-- Solo <title> y <html lang> cambian con el idioma -->
       <script>
-        // Traducciones para el enlace de contacto
-        var contactTranslations = {
-       es: 'Para concertar visita no dude en contactarnos pulsando AQUÍ',
-       ca: 'Per concertar visita no dubti en contactar-nos prement AQUÍ',
-       en: 'To arrange a visit do not hesitate to contact us by clicking HERE',
-       fr: 'Pour organiser une visite n\'hésitez pas à nous contacter en cliquant ICI',
-       ru: 'Чтобы договориться о визите, не стесняйтесь связаться с нами, нажав ЗДЕСЬ',
-       zh: '如需预约参观，请点击这里与我们联系：这里'
-        };
-
-        // Cambia el enlace de política de privacidad y el texto de contacto según el idioma seleccionado
         document.addEventListener('i18nLoaded', function(e) {
-          var lang = (e.detail && e.detail.lang) || 'es';
-          // Actualizar texto del bloque de contacto
-          var contactDiv = document.getElementById('contact-button-before-cookie');
-          if (contactDiv) {
-            var contactText = contactTranslations[lang] || contactTranslations['es'];
-            // Buscar la palabra clave (AQUÍ/HERE/ICI/ЗДЕСЬ/這裡) y convertirla en enlace
-            var linkWord = '';
-            switch(lang) {
-              case 'es': linkWord = 'AQUÍ'; break;
-              case 'ca': linkWord = 'AQUÍ'; break;
-              case 'en': linkWord = 'HERE'; break;
-              case 'fr': linkWord = 'ICI'; break;
-              case 'ru': linkWord = 'ЗДЕСЬ'; break;
-              case 'zh': linkWord = '這裡'; break;
-              default: linkWord = 'AQUÍ';
-            }
-            var html = contactText.replace(linkWord, '<a id="contact-link" class="contact-link" href="#contact-modal" style="text-decoration:underline; text-transform:uppercase;">'+linkWord+'</a>');
-            contactDiv.innerHTML = html;
-            var contactLink = document.getElementById('contact-link');
-            if (contactLink) {
-              contactLink.onclick = function(ev) {
-                ev.preventDefault();
-                if (typeof openModal === 'function') {
-                  openModal();
-                } else {
-                  var modal = document.getElementById('contact-modal');
-                  if (modal) {
-                    modal.style.display = 'flex';
-                    modal.setAttribute('aria-hidden', 'false');
-                  }
-                }
-              };
-            }
+          var json = e.detail && e.detail.i18n;
+          var lang = e.detail && e.detail.lang;
+          if (json && json.ui && json.ui.title) {
+            var title = document.getElementById('page-title');
+            if (title) title.textContent = json.ui.title;
           }
-          // Actualizar el enlace 'Contáctenos' en la barra de idioma
-          var contactBarLink = document.getElementById('contact-link-bar');
-          if (contactBarLink) {
-            var contactBtnText = '';
-            switch(lang) {
-              case 'es': contactBtnText = 'Contáctenos'; break;
-              case 'ca': contactBtnText = 'Contacteu-nos'; break;
-              case 'en': contactBtnText = 'Contact us'; break;
-              case 'fr': contactBtnText = 'Contactez-nous'; break;
-              case 'ru': contactBtnText = 'Связаться с нами'; break;
-              case 'zh': contactBtnText = '联系我们'; break;
-              default: contactBtnText = 'Contáctenos';
-            }
-            contactBarLink.textContent = contactBtnText;
-            contactBarLink.onclick = function(ev) {
-              ev.preventDefault();
-              // Intenta abrir el modal de contacto correctamente
-              if (typeof openModal === 'function') {
-                openModal();
-              } else {
-                var modal = document.getElementById('contact-modal');
-                if (modal) {
-                  modal.style.display = 'flex';
-                  modal.setAttribute('aria-hidden', 'false');
-                }
-              }
-            };
+          if (lang) {
+            var html = document.getElementById('html-root');
+            if (html) html.setAttribute('lang', lang);
           }
-          // Actualizar enlace de política de privacidad
-          var href = 'js/application/presentation/politica-privacidad/politica-privacidad.html';
-          if (lang === 'ca') href = 'js/application/presentation/politica-privacidad/politica-privacidad-ca.html';
-          else if (lang === 'en') href = 'js/application/presentation/politica-privacidad/politica-privacidad-en.html';
-          else if (lang === 'fr') href = 'js/application/presentation/politica-privacidad/politica-privacidad-fr.html';
-          else if (lang === 'ru') href = 'js/application/presentation/politica-privacidad/politica-privacidad-ru.html';
-          else if (lang === 'zh') href = 'js/application/presentation/politica-privacidad/politica-privacidad-zh.html';
-          document.getElementById('footer-privacy').setAttribute('href', href);
         });
       </script>
+  <!-- Eliminado cualquier JS que modifique los meta tags salvo keywords -->
     </p>
   </footer>
 
@@ -250,14 +183,8 @@
   <script src="js/infraestructure/scripts/galeriaUseCase.js"></script>
   <script src="js/infraestructure/scripts/galeriaView.js"></script>
   <script src="js/infraestructure/scripts/i18n-loader.js"></script>
-  <script>
-    // Detecta entorno y asigna BACKEND_URL automáticamente
-    if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
-      window.BACKEND_URL = 'http://localhost:8000'; // Desarrollo local
-    } else {
-  window.BACKEND_URL = 'https://casa-lujo.onrender.com'; // Producción en Render (.com corregido)
-    }
-  </script>
+  <!-- JS logic for backend URL assignment moved to separate file -->
+  <script src="js/infraestructure/scripts/backend-url.js"></script>
   <script src="js/infraestructure/scripts/contact-form.js"></script>
   
   <script src="js/lang-switcher.js"></script>
@@ -269,95 +196,8 @@
   <script src="js/infraestructure/scripts/cookieService.js"></script>
   <script src="js/infraestructure/scripts/cookieBannerView.js"></script>
 
-  <script>
-    // Forzar actualización de los textos del modal tras cada cambio de idioma
-    document.addEventListener('i18nLoaded', function(e) {
-      try {
-        var json = e.detail && e.detail.i18n;
-        if (json && json.ui && json.ui.modal) {
-          var btnAnterior = document.getElementById('anterior');
-          var btnSiguiente = document.getElementById('siguiente');
-          var btnPlantaAnterior = document.getElementById('planta-anterior');
-          var btnPlantaSiguiente = document.getElementById('planta-siguiente');
-          if (btnAnterior && json.ui.modal.anterior) btnAnterior.textContent = json.ui.modal.anterior;
-          if (btnSiguiente && json.ui.modal.siguiente) btnSiguiente.textContent = json.ui.modal.siguiente;
-          if (btnPlantaAnterior && json.ui.modal.plantaAnterior) btnPlantaAnterior.textContent = json.ui.modal.plantaAnterior;
-          if (btnPlantaSiguiente && json.ui.modal.plantaSiguiente) btnPlantaSiguiente.textContent = json.ui.modal.plantaSiguiente;
-        }
-      } catch (err) { /* noop */ }
-    });
-
-    // Gestos táctiles en el modal para móviles/tablets
-    (function() {
-      var modal = document.getElementById('modal');
-      var btnSiguiente = document.getElementById('siguiente');
-      var btnAnterior = document.getElementById('anterior');
-      var btnPlantaSiguiente = document.getElementById('planta-siguiente');
-      var btnPlantaAnterior = document.getElementById('planta-anterior');
-
-      var startX = null, startY = null;
-      var threshold = 50; // px mínimo para considerar swipe
-      var restraint = 30; // tolerancia perpendicular
-
-      function isTouchDevice() {
-        return ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
-      }
-
-      function shouldEnableGestures() {
-        return window.innerWidth <= 900 && isTouchDevice();
-      }
-
-      if (!modal || !shouldEnableGestures()) return;
-
-      modal.addEventListener('touchstart', function(e) {
-        if (e.touches && e.touches.length === 1) {
-          startX = e.touches[0].clientX;
-          startY = e.touches[0].clientY;
-        }
-      }, { passive: true });
-
-      modal.addEventListener('touchmove', function(e) {
-        // No hacemos nada aquí, solo prevenimos que el navegador tome el gesto
-      }, { passive: true });
-
-      modal.addEventListener('touchend', function(e) {
-        if (!startX || !startY) { startX = null; startY = null; return; }
-        if (!e.changedTouches || e.changedTouches.length !== 1) { startX = null; startY = null; return; }
-        var endX = e.changedTouches[0].clientX;
-        var endY = e.changedTouches[0].clientY;
-        var deltaX = endX - startX;
-        var deltaY = endY - startY;
-
-        // Determinar si el swipe es horizontal o vertical comparando magnitudes
-        if (Math.abs(deltaX) > Math.abs(deltaY)) {
-          // Horizontal
-          if (Math.abs(deltaX) >= threshold) {
-            if (deltaX < 0) {
-              // swipe derecha->izquierda: siguiente
-              if (btnSiguiente) btnSiguiente.click();
-            } else {
-              // swipe izquierda->derecha: anterior
-              if (btnAnterior) btnAnterior.click();
-            }
-          }
-        } else {
-          // Vertical
-          if (Math.abs(deltaY) >= threshold) {
-            if (deltaY > 0) {
-              // swipe arriba->abajo (de arriba a bajo): según tu petición, "subes planta"
-              if (btnPlantaSiguiente) btnPlantaSiguiente.click();
-            } else {
-              // swipe abajo->arriba (de abajo a arriba): "bajas planta"
-              if (btnPlantaAnterior) btnPlantaAnterior.click();
-            }
-          }
-        }
-
-        startX = null;
-        startY = null;
-      }, { passive: true });
-    })();
-  </script>
+  <!-- JS logic for modal UI and gestures moved to separate file -->
+  <script src="js/infraestructure/scripts/modal-ui.js"></script>
   
   <!-- Modal formulario de contacto -->
   <div id="contact-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" style="display:none;">
