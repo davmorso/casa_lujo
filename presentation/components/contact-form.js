@@ -194,6 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (lastFocused && typeof lastFocused.focus === 'function') {
       lastFocused.focus();
     }
+    // Si se cierra el formulario y hay una imagen seleccionada en galería, asegúrate que el modal de galería se puede abrir correctamente
   }
 
   // --------- Validación

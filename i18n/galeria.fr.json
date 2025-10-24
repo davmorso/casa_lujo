@@ -58,8 +58,7 @@
 				{ "src": "./img/planta 2/casa 1.jpeg", "alt": "Deuxième étage : suite avec dressing" },
 				{ "src": "./img/planta 2/casa 2.jpeg", "alt": "Deuxième étage : couloir et accès à la chambre" },
 				{ "src": "./img/planta 2/casa 3.jpeg", "alt": "Deuxième étage : chambre principale" },
-				{ "src": "./img/planta 2/casa 4.jpeg", "alt": "Deuxième étage : terrasse privée de la chambre" },
-					"contacto_boton": "Contactez-nous"
+				{ "src": "./img/planta 2/casa 4.jpeg", "alt": "Deuxième étage : terrasse privée de la chambre" }
 			]
 		},
 		"planta-3": {
@@ -81,7 +80,7 @@
 				"Toit terrasse offrant de belles vues.",
 				"Espace idéal pour profiter de l'extérieur et pour de petites réunions."
 			],
-				"politica_privacidad_url": "/docs/politica-privacidad-fr.html"
+			"imagenes": [
 				{ "src": "./img/planta 4/casa 1.jpeg", "alt": "Quatrième étage : toit/terrasse avec vue" }
 			]
 		}
@@ -159,8 +158,8 @@
 			},
 			"modal": {
 			"cerrar": "×",
-			"plantaAnterior": "⬆ Étage précédent",
-			"plantaSiguiente": "⬇ Étage suivant",
+			"plantaAnterior": "↓ Descendre d'étage",
+			"plantaSiguiente": "↑ Monter d'étage",
 			"anterior": "Précédent",
 			"siguiente": "Suivant",
 			"caption": "Premier étage : détail de décoration et intérieur (5 sur 8)"

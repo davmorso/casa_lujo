@@ -159,8 +159,8 @@
 		},
 		"modal": {
 			"cerrar": "×",
-			"plantaAnterior": "⬆ 上一层",
-			"plantaSiguiente": "⬇ 下一层",
+		"plantaAnterior": "↓ 下楼层",
+		"plantaSiguiente": "↑ 上楼层",
 			"anterior": "上一页",
 			"siguiente": "下一页",
 			"caption": "一层：装饰与室内细节（8张中的第5张）"

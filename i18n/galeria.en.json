@@ -158,8 +158,8 @@
 			},
 			"modal": {
 			"cerrar": "×",
-			"plantaAnterior": "⬆ Previous floor",
-			"plantaSiguiente": "⬇ Next floor",
+		"plantaAnterior": "\u2193 Go down floor",
+		"plantaSiguiente": "\u2191 Go up floor",
 			"anterior": "Previous",
 			"siguiente": "Next",
 			"caption": "First floor: decoration and interior detail (5 of 8)"

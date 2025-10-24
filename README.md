@@ -30,12 +30,23 @@ Nota: la configuración `core.hooksPath` es local al clone; cada desarrollador q
 
 ## Versión actual y cambios subidos
 
+
+Versión subida: 108
+
+- Actualización de versión en index.html a 108.
+- Botones de planta ahora muestran correctamente 'Bajar piso' y 'Subir piso' en todos los idiomas.
+- El botón 'Bajar piso' se oculta en la planta baja y 'Subir piso' en la azotea.
+- Al cerrar el formulario de contacto y clicar una foto de la galería, se amplía la imagen seleccionada.
+- Corrección de restauración de imagen seleccionada tras reconstrucción de galería.
+- Gestos táctiles en móvil para navegación por fotos y plantas funcionan correctamente.
+- Versión visible en el código fuente.
+
 Versión subida: 107
 
-- Actualización de versión en index.html a 107.
-- Corrección definitiva de todos los enlaces de política de privacidad en los archivos JSON de idiomas para que apunten a docs/.
-- Validación de enlaces en index.html y archivos multilingües.
-- Sin cambios funcionales adicionales.
+Actualización de versión en index.html a 107.
+Corrección definitiva de todos los enlaces de política de privacidad en los archivos JSON de idiomas para que apunten a docs/.
+Validación de enlaces en index.html y archivos multilingües.
+Sin cambios funcionales adicionales.
 
 Versión subida: 106
 

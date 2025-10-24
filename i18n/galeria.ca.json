@@ -159,8 +159,8 @@
     },
     "modal": {
   "cerrar": "×",
-  "plantaAnterior": "⬆ Planta anterior",
-  "plantaSiguiente": "⬇ Planta següent",
+  "plantaAnterior": "↓ Baixar pis",
+  "plantaSiguiente": "↑ Pujar pis",
   "anterior": "Anterior",
   "siguiente": "Següent",
   "caption": "Primera planta: detall de decoració i interior (5 de 8)"

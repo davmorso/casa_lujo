@@ -159,8 +159,8 @@
     },
     "modal": {
   "cerrar": "×",
-  "plantaAnterior": "⬆ Planta anterior",
-  "plantaSiguiente": "⬇ Planta siguiente",
+  "plantaAnterior": "↓ Bajar piso",
+  "plantaSiguiente": "↑ Subir piso",
   "anterior": "Anterior",
   "siguiente": "Siguiente",
   "caption": "Primera planta: detalle de decoración e interior (5 de 8)"

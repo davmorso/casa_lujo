@@ -16,9 +16,23 @@ document.addEventListener('DOMContentLoaded', async () => {
   let seccionActual = null;
   let imagenActualIndex = 0;
 
+  // Exponer variables y función globalmente para integración con otros scripts
+  window.seccionActual = seccionActual;
+  window.imagenActualIndex = imagenActualIndex;
+  window.mostrarImagen = mostrarImagen;
+  window.pisos = pisos;
+
+  // Exponer variables y función globalmente para integración con otros scripts
+  window.seccionActual = null;
+  window.imagenActualIndex = 0;
+  window.mostrarImagen = mostrarImagen;
+
   // Función para construir/reconstruir la galería desde i18n
   function buildGallery(newI18n) {
     i18n = newI18n || {};
+    // Guardar posición actual antes de reconstruir
+    const prevSeccion = seccionActual;
+    const prevIndex = imagenActualIndex;
     pisos = {};
     Object.keys(DOM_TO_JSON_KEY).forEach(domId => {
       const jsonKey = DOM_TO_JSON_KEY[domId];
@@ -29,17 +43,24 @@ document.addEventListener('DOMContentLoaded', async () => {
         pisos[domId] = [];
       }
     });
+    window.pisos = pisos;
     plantas = Object.keys(pisos);
-    // Si la sección actual no existe en el nuevo idioma, selecciona la primera
-    if (!seccionActual || !pisos[seccionActual]) {
+    // Restaurar posición si existe y es válida
+    // Si las variables globales han sido actualizadas por un click en miniatura, respétalas
+    let restoreSeccion = window.seccionActual || prevSeccion;
+    let restoreIndex = typeof window.imagenActualIndex === 'number' ? window.imagenActualIndex : prevIndex;
+    if (restoreSeccion && pisos[restoreSeccion] && restoreIndex >= 0 && restoreIndex < pisos[restoreSeccion].length) {
+      seccionActual = restoreSeccion;
+      imagenActualIndex = restoreIndex;
+    } else {
       seccionActual = plantas[0] || null;
       imagenActualIndex = 0;
     }
-    // Limpiar miniaturas y recargar
+    window.seccionActual = seccionActual;
+    window.imagenActualIndex = imagenActualIndex;
     cargarMiniaturas(true);
     mostrarImagen();
     actualizarBotones();
-    // Actualizar textos de botones
     actualizarBotonesI18n();
   }
 
@@ -142,11 +163,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         img.addEventListener('click', () => {
           seccionActual = planta;
           imagenActualIndex = index;
+          window.seccionActual = planta;
+          window.imagenActualIndex = index;
           mostrarImagen();
-          if (modal) {
-            modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-          }
+          abrirModal();
         });
 
         img.addEventListener('keydown', (e) => {
@@ -169,22 +189,24 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // Mostrar la imagen actual en el modal (actualizado para centrar/reset)
   function mostrarImagen() {
-    const imgs = pisos[seccionActual] || [];
+    // Usar variables globales si existen
+    const plantaKey = window.seccionActual || seccionActual;
+    const imgIdx = typeof window.imagenActualIndex === 'number' ? window.imagenActualIndex : imagenActualIndex;
+    const imgs = pisos[plantaKey] || [];
     if (!imgs || imgs.length === 0) {
       cerrarModal();
       return;
     }
 
-    if (imagenActualIndex < 0) imagenActualIndex = 0;
-    if (imagenActualIndex >= imgs.length) imagenActualIndex = imgs.length - 1;
+    let idx = imgIdx;
+    if (idx < 0) idx = 0;
+    if (idx >= imgs.length) idx = imgs.length - 1;
 
-    const imgObj = imgs[imagenActualIndex];
+    const imgObj = imgs[idx];
 
     if (!imagenAmpliada) return;
 
-    // romper transform anterior y cargar nueva src; esperar a onload para reset/centrado
     imagenAmpliada.onload = () => {
-      // reset de zoom (escala 1, origen centrado)
       scale = 1;
       originX = 0;
       originY = 0;
@@ -196,23 +218,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     imagenAmpliada.alt = imgObj.alt || '';
 
     if (caption) {
-      // Preferir la descripción (alt/caption) definida en el JSON i18n si existe.
-      // DOM_TO_JSON_KEY mapea el id de la sección al key en el JSON (p.ej. 'primer-piso' -> 'planta-1')
       let captionText = imgObj.alt || '';
       try {
-        const jsonKey = DOM_TO_JSON_KEY[seccionActual];
+        const jsonKey = DOM_TO_JSON_KEY[plantaKey];
         if (i18n && i18n.textos && jsonKey && i18n.textos[jsonKey] && Array.isArray(i18n.textos[jsonKey].imagenes)) {
-          const jsonImg = i18n.textos[jsonKey].imagenes[imagenActualIndex];
+          const jsonImg = i18n.textos[jsonKey].imagenes[idx];
           if (jsonImg && (jsonImg.alt || jsonImg.caption)) {
             captionText = jsonImg.alt || jsonImg.caption || captionText;
           }
         }
       } catch (e) {
-        // en caso de error, mantenemos captionText como estaba
         console.warn('Error leyendo caption desde i18n:', e);
       }
-
-      caption.textContent = `${captionText} (${imagenActualIndex + 1} ${getOfWord()} ${imgs.length})`;
+      caption.textContent = `${captionText} (${idx + 1} ${getOfWord()} ${imgs.length})`;
     }
   }
 
@@ -256,16 +274,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     // botón "anterior"
     if (!btnAnterior) return; // seguridad
     if (imagenActualIndex > 0) {
-      btnAnterior.style.display = ''; // mostrar
+      btnAnterior.style.display = '';
       btnAnterior.disabled = false;
     } else {
-      // estamos en la primera imagen de la planta actual
       if (idxPlanta > 0) {
-        // no estamos en la primera planta: ir a la última de la planta anterior
         btnAnterior.style.display = '';
         btnAnterior.disabled = false;
       } else {
-        // primera planta, primera foto -> ocultar botón anterior
         btnAnterior.style.display = 'none';
       }
     }
@@ -273,18 +288,36 @@ document.addEventListener('DOMContentLoaded', async () => {
     // botón "siguiente"
     if (!btnSiguiente) return;
     if (imagenActualIndex < imgs.length - 1) {
-      // aún hay imágenes en la misma planta
       btnSiguiente.style.display = '';
       btnSiguiente.disabled = false;
     } else {
-      // última imagen de la planta actual
       if (idxPlanta < plantas.length - 1) {
-        // hay una siguiente planta -> mostrar botón para pasar a la siguiente planta
         btnSiguiente.style.display = '';
         btnSiguiente.disabled = false;
       } else {
-        // estamos en la última planta y en su última imagen -> ocultar siguiente
         btnSiguiente.style.display = 'none';
+      }
+    }
+
+    // botón "Bajar piso" (planta-anterior)
+    if (btnPlantaAnterior) {
+      if (idxPlanta <= 0) {
+        btnPlantaAnterior.style.display = 'none';
+        btnPlantaAnterior.disabled = true;
+      } else {
+        btnPlantaAnterior.style.display = '';
+        btnPlantaAnterior.disabled = false;
+      }
+    }
+
+    // botón "Subir piso" (planta-siguiente)
+    if (btnPlantaSiguiente) {
+      if (idxPlanta >= plantas.length - 1) {
+        btnPlantaSiguiente.style.display = 'none';
+        btnPlantaSiguiente.disabled = true;
+      } else {
+        btnPlantaSiguiente.style.display = '';
+        btnPlantaSiguiente.disabled = false;
       }
     }
   }
@@ -296,6 +329,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       // si no es la primera imagen de la planta, retroceder
       if (imagenActualIndex > 0) {
         imagenActualIndex--;
+        window.imagenActualIndex = imagenActualIndex;
         mostrarImagen();
         return;
       }
@@ -306,6 +340,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         const prevImgs = pisos[prevPlanta] || [];
         seccionActual = prevPlanta;
         imagenActualIndex = Math.max(0, prevImgs.length - 1); // última imagen de la planta anterior
+        window.seccionActual = seccionActual;
+        window.imagenActualIndex = imagenActualIndex;
         mostrarImagen();
       }
       // si idxPlanta === 0 => primera planta y primera foto -> no hacer nada (botón está oculto)
@@ -319,6 +355,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       // si no es la última imagen de la planta, avanzar
       if (imagenActualIndex < imgs.length - 1) {
         imagenActualIndex++;
+        window.imagenActualIndex = imagenActualIndex;
         mostrarImagen();
         return;
       }
@@ -329,6 +366,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         const nextImgs = pisos[nextPlanta] || [];
         seccionActual = nextPlanta;
         imagenActualIndex = 0; // primera imagen de la siguiente planta
+        window.seccionActual = seccionActual;
+        window.imagenActualIndex = imagenActualIndex;
         mostrarImagen();
       }
       // si idxPlanta es la última planta -> no hacer nada (botón estará oculto)
@@ -343,6 +382,8 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (idxPlanta > 0) {
         seccionActual = plantas[idxPlanta - 1];
         imagenActualIndex = 0; // posicionar en la PRIMERA foto de la planta anterior
+        window.seccionActual = seccionActual;
+        window.imagenActualIndex = imagenActualIndex;
         mostrarImagen();
         if (modal) { modal.style.display = 'flex'; document.body.style.overflow = 'hidden'; }
       }
@@ -356,6 +397,8 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (idxPlanta < plantas.length - 1) {
         seccionActual = plantas[idxPlanta + 1];
         imagenActualIndex = 0; // posicionar en la PRIMERA foto de la planta siguiente
+        window.seccionActual = seccionActual;
+        window.imagenActualIndex = imagenActualIndex;
         mostrarImagen();
         if (modal) { modal.style.display = 'flex'; document.body.style.overflow = 'hidden'; }
       }
@@ -378,10 +421,17 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // Cargar i18n inicial y miniaturas
   await loadInitialI18n();
-  // Escuchar cambio de idioma para recargar galería
-  document.addEventListener('i18nLoaded', function(e) {
-    if (e.detail && e.detail.i18n) {
-      buildGallery(e.detail.i18n);
+
+  // Escuchar evento de i18n aplicado para recargar galería/miniaturas
+  document.addEventListener('i18nApplied', function() {
+    // Usar el i18n global si está disponible
+    if (window.i18n) {
+      buildGallery(window.i18n);
+    } else if (typeof window.getCurrentI18n === 'function') {
+      buildGallery(window.getCurrentI18n());
+    } else {
+      // fallback: intentar reconstruir con el último i18n usado
+      buildGallery(i18n);
     }
   });
 

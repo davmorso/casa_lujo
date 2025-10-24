@@ -159,8 +159,8 @@
 		},
 		"modal": {
 			"cerrar": "×",
-			"plantaAnterior": "⬆ Предыдущий этаж",
-			"plantaSiguiente": "⬇ Следующий этаж",
+				"plantaAnterior": "↓ Спуститься этажом ниже",
+				"plantaSiguiente": "↑ Подняться этажом выше",
 			"anterior": "Предыдущий",
 			"siguiente": "Следующий",
 			"caption": "Первый этаж: детали декора и интерьера (5 из 8)"

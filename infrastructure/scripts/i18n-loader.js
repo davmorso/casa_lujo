@@ -120,9 +120,9 @@ function applyI18n(json = {}) {
 			const key = sec.getAttribute('data-texto');
 			const data = textos[key];
 			const textoCont = sec.querySelector('.piso-texto');
+			const imgCont = sec.querySelector('.imagenes');
 
 			if (!data) {
-				// si no hay traducción, ocultar sección para evitar mostrar texto en otro idioma
 				sec.style.display = 'none';
 				return;
 			} else {
@@ -130,21 +130,29 @@ function applyI18n(json = {}) {
 			}
 
 			if (textoCont) {
-				textoCont.innerHTML = '';
-				const h = document.createElement('h2');
-				h.textContent = data.titulo || '';
-				textoCont.appendChild(h);
-				if (Array.isArray(data.puntos) && data.puntos.length) {
-					const ul = document.createElement('ul');
-					data.puntos.forEach(p => {
-						const li = document.createElement('li');
-						li.innerHTML = p;
-						ul.appendChild(li);
-					});
-					textoCont.appendChild(ul);
-				}
+					textoCont.innerHTML = '';
+					const h = document.createElement('h2');
+					h.textContent = data.titulo || '';
+					textoCont.appendChild(h);
+					if (Array.isArray(data.puntos) && data.puntos.length) {
+						const ul = document.createElement('ul');
+						data.puntos.forEach(p => {
+							const li = document.createElement('li');
+							li.textContent = p;
+							ul.appendChild(li);
+						});
+						textoCont.appendChild(ul);
+					}
+			}
+
+			// Limpiar contenedor de imágenes, pero NO generar miniaturas aquí
+			if (imgCont) {
+				imgCont.innerHTML = '';
 			}
 		});
+
+		// Disparar evento personalizado para notificar que el i18n ha sido aplicado
+		document.dispatchEvent(new CustomEvent('i18nApplied'));
 
 		// detalles (mantener sección en su sitio, reemplazar contenido interno)
 		if (json.detalles) {
@@ -204,6 +212,8 @@ function applyI18n(json = {}) {
 				if (fp) fp.textContent = json.ui.links.politica_privacidad;
 			}
 		}
+		// Guardar el i18n globalmente para otros módulos (como galería)
+		window.i18n = json;
 	} catch (err) {
 		console.warn('[i18n-loader] applyI18n error', err);
 	}

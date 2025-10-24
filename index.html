@@ -1,11 +1,20 @@
-<!-- version 110 -->
+<!-- version 1 -->
+<!-- Versión: 108 -->
+<!-- Cambios respecto a la 107:
+ - Botones de planta ahora muestran correctamente 'Bajar piso' y 'Subir piso' en todos los idiomas.
+ - El botón 'Bajar piso' se oculta en la planta baja y 'Subir piso' en la azotea.
+ - Al cerrar el formulario de contacto y clicar una foto de la galería, se amplía la imagen seleccionada.
+ - Corrección de restauración de imagen seleccionada tras reconstrucción de galería.
+ - Gestos táctiles en móvil para navegación por fotos y plantas funcionan correctamente.
+ - Versión visible en el código fuente.
+-->
 <!DOCTYPE html>
 <html lang="es" id="html-root">
 <head>
   <title id="page-title">Casa de lujo en Arenys de Mar</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- ...existing code... -->
+      
   <!-- Meta SEO (solo español, estáticos) -->
   <meta name="description" content="Casa de lujo en Arenys de Mar. Vivienda exclusiva con vistas al mar, amplios espacios y jardín privado. Ideal para familias que buscan confort y tranquilidad cerca de Barcelona." />
   <meta name="keywords" content="casa de lujo, Arenys de Mar, venta, vivienda exclusiva, jardín, vistas al mar, Barcelona, familia, inmobiliaria, luxury house, exclusive property, garden, sea views, Barcelona, family, real estate, maison de luxe, Arenys de Mar, vente, propriété exclusive, jardin, vue sur mer, Barcelone, famille, immobilier, casa de luxe, Arenys de Mar, venda, propietat exclusiva, jardí, vistes al mar, Barcelona, família, immobiliària, роскошный дом, Arenys de Mar, продажа, эксклюзивная недвижимость, сад, вид на море, Барселона, семья, недвижимость, 豪宅, 阿雷尼斯-德马尔, 出售, 独家房产, 花园, 海景, 巴塞罗那, 家庭, 房地产" />
@@ -182,16 +191,15 @@
   <!-- Script de galería y UI (cliente) -->
   <script src="infrastructure/scripts/galeriaUseCase.js"></script>
   <script src="presentation/components/galeriaView.js"></script>
+  <script src="presentation/components/galeria.js"></script>
   <script src="infrastructure/scripts/i18n-loader.js"></script>
   <!-- JS logic for backend URL assignment moved to separate file -->
   <script src="infrastructure/scripts/backend-url.js"></script>
   <script src="presentation/components/contact-form.js"></script>
   
   <script src="presentation/components/lang-switcher.js"></script>
-  <script src="infrastructure/scripts/i18n-loader.js"></script>
-  <script src="js/galeria.js"></script>
   <script src="presentation/components/zoomable-modal.js"></script>
-  <script src="infrastructure/scripts/contact-form.js"></script>
+  <script src="presentation/components/contact-form.js"></script>
   <script src="presentation/components/bootstrap.js"></script>
   <script src="infrastructure/scripts/cookieService.js"></script>
   <script src="presentation/components/cookieBannerView.js"></script>
