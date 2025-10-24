@@ -31,6 +31,11 @@ Nota: la configuración `core.hooksPath` es local al clone; cada desarrollador q
 ## Versión actual y cambios subidos
 
 
+Versión subida: 110
+
+- Enlaces de política de privacidad actualizados para funcionar correctamente en GitHub Pages (/casa_lujo/...).
+- Corrección en todos los idiomas y en index.html.
+
 Versión subida: 109
 
 - Enlaces de política de privacidad corregidos en todos los idiomas para que apunten a la raíz y funcionen en GitHub Pages.
