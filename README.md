@@ -31,6 +31,10 @@ Nota: la configuración `core.hooksPath` es local al clone; cada desarrollador q
 ## Versión actual y cambios subidos
 
 
+Versión subida: 111
+
+- El botón 'Contáctenos' en la barra gris ahora es responsivo y aparece centrado en móvil, incluso si salta de línea.
+
 Versión subida: 110
 
 - Enlaces de política de privacidad actualizados para funcionar correctamente en GitHub Pages (/casa_lujo/...).

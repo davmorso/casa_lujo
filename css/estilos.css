@@ -572,3 +572,22 @@ html[lang^="zh"] #siguiente::after {
   margin-right: 8px;
   box-sizing: border-box;
 }
+
+/* Barra de idioma responsiva para móvil: salto de línea y centrado de botón de contacto */
+@media (max-width: 600px) {
+  #lang-bar > div {
+    flex-wrap: wrap;
+    justify-content: center;
+    min-height: 60px;
+  }
+  .lang-btn {
+    margin-bottom: 8px;
+  }
+  .contact-bar-btn, #contact-link-bar {
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 8px;
+  }
+}
