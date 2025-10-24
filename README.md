@@ -31,6 +31,13 @@ Nota: la configuración `core.hooksPath` es local al clone; cada desarrollador q
 ## Versión actual y cambios subidos
 
 
+Versión subida: 109
+
+- Enlaces de política de privacidad corregidos en todos los idiomas para que apunten a la raíz y funcionen en GitHub Pages.
+- Archivos HTML de política de privacidad copiados a la raíz del proyecto.
+- Validación de enlaces en i18n y en index.html.
+- Preparación de versión y comentario en index.html.
+
 Versión subida: 108
 
 - Actualización de versión en index.html a 108.
@@ -124,7 +131,7 @@ Versión subida: 89
 Versión subida: 88
 
 - En el email enviado, el campo 'Estructura compra' ahora muestra la pregunta completa: ¿Cómo imaginas estructurar la compra de tu futura vivienda (financiación, recursos propios, combinación, etc.)?
-- Versionado estricto en index.html, README.md y server.js en cada subida.
+- Versionado estricto in index.html, README.md y server.js en cada subida.
 
 Versión subida: 87
 
