@@ -30,6 +30,18 @@ Nota: la configuración `core.hooksPath` es local al clone; cada desarrollador q
 
 ## Versión actual y cambios subidos
 
+Versión subida: 112
+
+- El formulario de contacto ahora actualiza los textos y enlaces al abrir el modal, mostrando siempre el idioma seleccionado.
+- El enlace de política de privacidad en el footer cambia dinámicamente según el idioma.
+- Todos los enlaces de política de privacidad en los archivos de idiomas apuntan a la raíz del proyecto.
+- Se corrige la propiedad `meta.politica_privacidad_url` en todos los idiomas.
+- Actualización de versión en index.html a 112.
+
+- Refactorización de componentes y lógica siguiendo principios SOLID y DDD.
+- Reorganización y limpieza de directorios en `presentation/components` para mejorar la estructura y mantenibilidad.
+
+
 
 Versión subida: 111
 

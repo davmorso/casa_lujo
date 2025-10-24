@@ -15,7 +15,7 @@ if (j.textos) {
 imgs.push(...(j.detalles?.imagenes || []));
 
 const missing = imgs.filter(src => {
-	const p = path.join(root, src.replace(/^\.\//,'')); // normalizar ./ prefix
+	const p = path.join(root, src.replace(/^\.\//,''));
 	return !fs.existsSync(p);
 });
 

@@ -26,18 +26,15 @@ refs.forEach(r => {
 	if (!fs.existsSync(p)) missing.push(norm);
 });
 
-// listar rutas que faltan
 console.log('--- Imágenes faltantes (404) ---');
 if (missing.length) missing.forEach(m => console.log(m));
 else console.log('Ninguna.');
 
-// listar duplicados entre secciones
 console.log('\n--- Duplicados (mismo src referenciado por varias plantas) ---');
 Object.entries(duplicates).forEach(([src, keys]) => {
 	if (keys.length > 1) console.log(`${src} -> ${keys.join(', ')}`);
 });
 
-// mostrar conteos por planta
 console.log('\n--- Conteo por planta ---');
 const count = {};
 refs.forEach(r => count[r.key] = (count[r.key]||0) + 1);

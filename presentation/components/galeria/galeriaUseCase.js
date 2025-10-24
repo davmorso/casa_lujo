@@ -1,3 +1,5 @@
+// Eliminar archivo galeriaUseCase.js
+// GaleriaUseCase: lógica de negocio y navegación de la galería
 class GaleriaUseCase {
 	constructor(repository) {
 		this.repository = repository;
@@ -9,10 +11,12 @@ class GaleriaUseCase {
 	seleccionarPlanta(planta) {
 		this.seccionActual = planta;
 		this.imagenActualIndex = 0;
+		this._emitChange();
 	}
 
 	seleccionarImagen(index) {
 		this.imagenActualIndex = index;
+		this._emitChange();
 	}
 
 	imagenActual() {
@@ -31,15 +35,21 @@ class GaleriaUseCase {
 
 	puedeIrSiguiente() {
 		const imgs = this.repository.getImagenes(this.seccionActual);
-		return this.imagenActualIndex < imgs.length - 1;
+		return imgs && this.imagenActualIndex < imgs.length - 1;
 	}
 
 	irAnterior() {
-		if (this.puedeIrAnterior()) this.imagenActualIndex--;
+		if (this.puedeIrAnterior()) {
+			this.imagenActualIndex--;
+			this._emitChange();
+		}
 	}
 
 	irSiguiente() {
-		if (this.puedeIrSiguiente()) this.imagenActualIndex++;
+		if (this.puedeIrSiguiente()) {
+			this.imagenActualIndex++;
+			this._emitChange();
+		}
 	}
 
 	puedeIrPlantaAnterior() {
@@ -55,6 +65,7 @@ class GaleriaUseCase {
 		if (idx > 0) {
 			this.seccionActual = this.plantas[idx - 1];
 			this.imagenActualIndex = 0;
+			this._emitChange();
 		}
 	}
 
@@ -63,11 +74,24 @@ class GaleriaUseCase {
 		if (idx < this.plantas.length - 1) {
 			this.seccionActual = this.plantas[idx + 1];
 			this.imagenActualIndex = 0;
+			this._emitChange();
 		}
+	}
+
+	// Evento para notificar cambios a la vista
+	_emitChange() {
+		document.dispatchEvent(
+			new CustomEvent('galeriaChanged', {
+				detail: {
+					seccionActual: this.seccionActual,
+					imagenActualIndex: this.imagenActualIndex,
+					imagenActual: this.imagenActual(),
+					imagenes: this.imagenesDePlanta(),
+					plantas: this.plantas,
+				},
+			})
+		);
 	}
 }
 
-// Exponer constructor/función globalmente para bootstrap
-if (typeof window.GaleriaUseCase === 'undefined') {
-	window.GaleriaUseCase = GaleriaUseCase; // o la función/constructor real
-}
+window.GaleriaUseCase = GaleriaUseCase;

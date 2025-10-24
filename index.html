@@ -1,8 +1,5 @@
-<!-- version 6 -->
-<!-- Versión: 111 -->
-<!-- Cambios respecto a la 110:
-- Botón 'Contáctenos' en la barra gris ahora es responsivo y salta a la línea siguiente centrado en móvil, manteniendo el fondo gris.
--->
+<!-- version 1 -->
+<!-- Versión: 112 -->
 <!DOCTYPE html>
 <html lang="es" id="html-root">
 <head>
@@ -160,47 +157,59 @@
   <footer style="background-color: #222; color: white; padding: 20px; text-align: center; border-top: 2px solid #444;">
     <p id="footer-copy" style="margin: 0;"></p>
     <p style="margin: 5px 0 0;">
-    <a id="footer-privacy" href="/casa_lujo/politica-privacidad.html" style="color: #aaa; text-decoration: underline;" target="_blank" rel="noopener"></a>
-      <!-- JS logic for contact, privacy, and language bar moved to separate files -->
-  <script src="presentation/components/contact-ui.js"></script>
-  <script src="presentation/components/privacy-link.js"></script>
-      <!-- Solo <title> y <html lang> cambian con el idioma -->
-      <script>
-        document.addEventListener('i18nLoaded', function(e) {
-          var json = e.detail && e.detail.i18n;
-          var lang = e.detail && e.detail.lang;
-          if (json && json.ui && json.ui.title) {
-            var title = document.getElementById('page-title');
-            if (title) title.textContent = json.ui.title;
-          }
-          if (lang) {
-            var html = document.getElementById('html-root');
-            if (html) html.setAttribute('lang', lang);
-          }
-        });
-      </script>
-  <!-- Eliminado cualquier JS que modifique los meta tags salvo keywords -->
+  <a id="footer-privacy" href="/politica-privacidad.html" style="color: #aaa; text-decoration: underline;" target="_blank" rel="noopener"></a>
     </p>
   </footer>
 
-  <!-- Script de galería y UI (cliente) -->
-  <script src="infrastructure/scripts/galeriaUseCase.js"></script>
-  <script src="presentation/components/galeriaView.js"></script>
-  <script src="presentation/components/galeria.js"></script>
-  <script src="infrastructure/scripts/i18n-loader.js"></script>
-  <!-- JS logic for backend URL assignment moved to separate file -->
-  <script src="infrastructure/scripts/backend-url.js"></script>
-  <script src="presentation/components/contact-form.js"></script>
-  
-  <script src="presentation/components/lang-switcher.js"></script>
-  <script src="presentation/components/zoomable-modal.js"></script>
-  <script src="presentation/components/contact-form.js"></script>
-  <script src="presentation/components/bootstrap.js"></script>
-  <script src="infrastructure/scripts/cookieService.js"></script>
-  <script src="presentation/components/cookieBannerView.js"></script>
 
-  <!-- JS logic for modal UI and gestures moved to separate file -->
+  <!-- Scripts: UI y lógica agrupados por funcionalidad -->
+  <!-- Internacionalización y configuración -->
+  <script src="presentation/components/lang/i18n-loader.js"></script>
+  <script src="presentation/components/lang/lang-switcher.js"></script>
+  <script>
+    document.addEventListener('i18nLoaded', function(e) {
+      var json = e.detail && e.detail.i18n;
+      var lang = e.detail && e.detail.lang;
+      if (json && json.ui && json.ui.title) {
+        var title = document.getElementById('page-title');
+        if (title) title.textContent = json.ui.title;
+      }
+      if (lang) {
+        var html = document.getElementById('html-root');
+        if (html) html.setAttribute('lang', lang);
+      }
+      // Actualizar el enlace de privacidad del footer según idioma
+      var privacyLink = document.getElementById('footer-privacy');
+      if (privacyLink) {
+        var url = '/politica-privacidad.html';
+        if (json && json.meta && json.meta.politica_privacidad_url) {
+          url = json.meta.politica_privacidad_url;
+        }
+        privacyLink.setAttribute('href', url);
+      }
+    });
+  </script>
+  <script src="infrastructure/scripts/backend-url.js"></script>
+
+  <!-- Galería -->
+  <script src="presentation/components/galeria/galeriaRepository.js"></script>
+  <script src="application/usecases/galeriaUseCase.js"></script>
+  <script src="presentation/components/galeria/galeriaView.js"></script>
+  <script src="presentation/components/galeria/galeria.js"></script>
+  <script src="presentation/components/zoomable-modal.js"></script>
   <script src="presentation/components/modal-ui.js"></script>
+
+  <!-- Contacto -->
+  <script src="presentation/components/contact/contact-form.js"></script>
+  <script src="presentation/components/contact/contact-ui.js"></script>
+
+  <!-- Privacidad y cookies -->
+  <script src="presentation/components/privacy/privacy-link.js"></script>
+  <script src="presentation/components/cookie/cookieBannerView.js"></script>
+  <script src="infrastructure/scripts/cookieService.js"></script>
+
+  <!-- Bootstrap y utilidades generales -->
+  <script src="presentation/components/bootstrap.js"></script>
   
   <!-- Modal formulario de contacto -->
   <div id="contact-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" style="display:none;">

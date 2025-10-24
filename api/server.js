@@ -1,13 +1,6 @@
-// ...otros requires y configuración...
-
-// Eliminada inicialización duplicada de Express y app. Corrección definitiva de error de app.
-// version 75
-// Nota: En Vercel, el puerto es asignado dinámicamente, pero se mantiene la lógica para pruebas locales.
-// ...otros requires y configuración...
 const express = require('express');
 const app = express();
 
-// Log especial para depuración de CORS: muestra el Origin recibido en cada petición
 app.use((req, res, next) => {
   if (req.headers.origin) {
     console.log(`[CORS-DEBUG] Origin recibido: ${req.headers.origin}`);
@@ -16,22 +9,14 @@ app.use((req, res, next) => {
   }
   next();
 });
-// Sin integración de email (Mailgun eliminado)
-// server.js
-// version 70
-// Filtrado seguro de logs: las claves/API y datos sensibles se ocultan en los logs. Eliminar este bloque tras depuración.
-// version 71
-// Añadidos logs detallados para depuración de errores y variables clave en POST /api/contact. Eliminar este bloque tras depuración.
 
-// 1) Variables de entorno: Cargar desde .env (opcional) y configuration.env
 try { require('dotenv').config(); } catch (e) { /* dotenv no es obligatorio */ }
 
 const fs = require('fs');
 const path = require('path');
 
-// 2) Cargar configuration.env y volcar a process.env (sin pisar lo ya definido)
 try {
-  const cfgPath = path.join(process.cwd(), '../configuration.env');
+  const cfgPath = path.join(process.cwd(), 'configuration.env');
   if (fs.existsSync(cfgPath)) {
     const envContent = fs.readFileSync(cfgPath, 'utf8');
     envContent.split(/\r?\n/).forEach(line => {
@@ -52,8 +37,6 @@ try {
 }
 
 
-// --- Configuración y Middleware ---
-// Middleware CORS único y global
 app.use((req, res, next) => {
   // Logging de depuración CORS
   if (req.headers.origin) {
@@ -64,6 +47,7 @@ app.use((req, res, next) => {
   console.log('[CORS-DEBUG] Headers:', req.headers);
   const allowedOrigins = [
     'https://davmorso.github.io',
+    'http://localhost:8080',
     'http://localhost:8000',
     'http://127.0.0.1:8000'
   ];
@@ -84,21 +68,10 @@ app.use((req, res, next) => {
 });
 app.use(express.json());
 
-// [ADVERTENCIA] El siguiente log de configuration.env es solo para depuración. Eliminar tras revisar problemas de entorno.
-console.warn('[ADVERTENCIA] El log de process.env y configuration.env contiene datos sensibles. Eliminar tras depuración.');
-
-// [ADVERTENCIA] Solo para depuración. Eliminar este log tras revisar problemas.
-// Filtra datos sensibles antes de mostrar en logs:
-const safeEnv = { ...process.env };
-if (safeEnv.SENDGRID_API_KEY) safeEnv.SENDGRID_API_KEY = '[HIDDEN]';
-if (safeEnv.twilio) safeEnv.twilio = '[HIDDEN]';
-console.log('[DEBUG] process.env (filtrado):', safeEnv);
-// ...eliminar este bloque tras depuración
-
-// CORS simple (ajusta el Access-Control-Allow-Origin en producción)
 
 
-// No hay configuración de email
+
+
 
 // --- Endpoint de Contacto ---
 const sgMail = require('@sendgrid/mail');

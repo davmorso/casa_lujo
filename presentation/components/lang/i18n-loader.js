@@ -26,21 +26,17 @@ function replaceUlWithItems(container, items) {
 }
 
 function applyI18n(json = {}) {
-		// Botones de navegación del modal (anterior/siguiente/planta)
 		if (json.ui && json.ui.modal) {
 			const btnAnterior = document.getElementById('anterior');
 			const btnSiguiente = document.getElementById('siguiente');
 			const btnPlantaAnterior = document.getElementById('planta-anterior');
 			const btnPlantaSiguiente = document.getElementById('planta-siguiente');
-			// Actualizar caption del modal si existe y hay traducción
 			const caption = document.getElementById('caption');
 			if (caption && json.ui && json.ui.modal && json.ui.modal.caption) {
 				caption.textContent = json.ui.modal.caption;
 			}
 	if (btnSiguiente && json.ui.modal.siguiente) {
-		// usar textContent para evitar insertar HTML y crear un span para la flecha
 		btnSiguiente.textContent = json.ui.modal.siguiente;
-		// añadir flecha visual si no existe ya (evitar duplicados)
 		if (!btnSiguiente.querySelector('.btn-arrow')) {
 			const span = document.createElement('span');
 			span.className = 'btn-arrow';
@@ -51,13 +47,11 @@ function applyI18n(json = {}) {
 			if (btnPlantaAnterior && json.ui.modal.plantaAnterior) btnPlantaAnterior.textContent = json.ui.modal.plantaAnterior;
 			if (btnPlantaSiguiente && json.ui.modal.plantaSiguiente) btnPlantaSiguiente.textContent = json.ui.modal.plantaSiguiente;
 		}
-		// Contact link (barra superior)
 		if (json.ui && json.ui.links && json.ui.links.contacto_boton) {
 			const contactLink = document.getElementById('contact-link');
 			if (contactLink) contactLink.textContent = json.ui.links.contacto_boton;
 		}
 	try {
-		// meta
 		if (json.meta) {
 			if (json.meta.title) document.title = json.meta.title;
 			const setMeta = (selector, value, attr = 'content') => {
@@ -79,7 +73,6 @@ function applyI18n(json = {}) {
 			setMeta('meta[name="twitter:image"]', json.meta.twitter?.image);
 		}
 
-		// header
 		if (json.header) {
 			const hdDesktop = document.getElementById('header-title-desktop');
 			const hdMobile = document.getElementById('header-title-mobile');
@@ -89,11 +82,9 @@ function applyI18n(json = {}) {
 			if (hdPrice && (json.header.price !== undefined)) hdPrice.textContent = json.header.price;
 		}
 
-		// descripción general
 		const desc = document.getElementById('descripcion-text');
 		if (desc && typeof json.descripcion === 'string') desc.innerHTML = json.descripcion;
 
-		// características colocadas en #caracteristicas-section (entre descripción y primera planta en HTML)
 		if (json.detalles && Array.isArray(json.detalles.caracteristicas)) {
 			const carSec = document.getElementById('caracteristicas-section');
 			if (carSec) {
@@ -107,7 +98,6 @@ function applyI18n(json = {}) {
 			}
 		}
 
-		// secciones de planta (.piso-seccion[data-texto])
 		const textos = json.textos || {};
 		document.querySelectorAll('.piso-seccion[data-texto]').forEach(sec => {
 			const key = sec.getAttribute('data-texto');
@@ -138,16 +128,13 @@ function applyI18n(json = {}) {
 					}
 			}
 
-			// Limpiar contenedor de imágenes, pero NO generar miniaturas aquí
 			if (imgCont) {
 				imgCont.innerHTML = '';
 			}
 		});
 
-		// Disparar evento personalizado para notificar que el i18n ha sido aplicado
 		document.dispatchEvent(new CustomEvent('i18nApplied'));
 
-		// detalles (mantener sección en su sitio, reemplazar contenido interno)
 		if (json.detalles) {
 			const det = document.getElementById('detalles-section');
 			if (det) {
@@ -167,7 +154,6 @@ function applyI18n(json = {}) {
 			}
 		}
 
-		// contacto
 		if (json.contacto) {
 			const c = document.getElementById('contacto-section');
 			if (c) {
@@ -183,7 +169,6 @@ function applyI18n(json = {}) {
 			}
 		}
 
-		// cookie banner
 		if (json.ui && json.ui.cookieBanner) {
 			const banner = document.getElementById('cookie-banner');
 			if (banner) {
@@ -196,7 +181,6 @@ function applyI18n(json = {}) {
 			}
 		}
 
-		// footer
 		if (json.ui && json.ui.footer) {
 			const footerP = document.getElementById('footer-copy');
 			if (footerP) footerP.textContent = json.ui.footer;
@@ -205,7 +189,6 @@ function applyI18n(json = {}) {
 				if (fp) fp.textContent = json.ui.links.politica_privacidad;
 			}
 		}
-		// Guardar el i18n globalmente para otros módulos (como galería)
 		window.i18n = json;
 	} catch (err) {
 		console.warn('[i18n-loader] applyI18n error', err);
@@ -214,12 +197,10 @@ function applyI18n(json = {}) {
 
 async function ensureCompleteI18n(json = {}, lang = 'es') {
 	try {
-		// si el JSON ya tiene las claves principales aplicamos directo
 		if (json && (json.descripcion || json.textos || json.detalles)) {
 			applyI18n(json);
 			return;
 		}
-		// fallback: cargar ES y mergear
 		const resp = await fetch('./i18n/galeria.es.json', { cache: 'no-cache' });
 		if (!resp.ok) {
 			applyI18n(json);
@@ -234,7 +215,6 @@ async function ensureCompleteI18n(json = {}, lang = 'es') {
 	}
 }
 
-/* inicial: cargar ES por defecto */
 (async function init() {
 	try {
 		const res = await fetch('./i18n/galeria.es.json', { cache: 'no-cache' });
@@ -247,13 +227,11 @@ async function ensureCompleteI18n(json = {}, lang = 'es') {
 	}
 })();
 
-/* escuchar cambiador de idioma */
 document.addEventListener('i18nLoaded', (ev) => {
 	const j = ev?.detail?.i18n || {};
 	const lang = ev?.detail?.lang || 'es';
 	ensureCompleteI18n(j, lang);
 });
 
-/* exponer para que lang-switcher pueda llamar directamente */
 window.applyI18n = applyI18n;
 window.ensureCompleteI18n = ensureCompleteI18n;

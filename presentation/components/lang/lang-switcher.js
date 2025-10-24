@@ -1,4 +1,5 @@
 // Gestor de idioma: por defecto ES al recargar; selección temporal al clicar bandera (no se persiste)
+// Este archivo ha sido movido a la carpeta lang/
 document.addEventListener('DOMContentLoaded', () => {
   const DEFAULT = 'es';
   const STORAGE_KEY = 'selectedLang';
@@ -102,3 +103,4 @@ document.addEventListener('DOMContentLoaded', () => {
   setActive(lang);
   loadI18n(lang).catch(()=>{});
 });
+

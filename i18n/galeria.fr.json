@@ -18,7 +18,7 @@
 			"description": "Découvrez ce tríplex exclusif avec lumière naturelle, intimité et design unique à Arenys de Mar.",
 			"image": "/img/portada.jpg"
 		},
-			"politica_privacidad_url": "/casa_lujo/politica-privacidad-fr.html"
+			"politica_privacidad_url": "/politica-privacidad-fr.html"
 	},
 	"header": {
 		"title_desktop": "Maison de luxe à vendre au centre d'Arenys de Mar",
@@ -87,6 +87,7 @@
 	},
 	"detalles": {
 		"titulo": "Détails supplémentaires",
+		"caracteristicas_titulo": "Caractéristiques",
 		"puntos": [
 			"Escaliers confortables et sûrs entre les étages.",
 			"L'ensemble du logement bénéficie d'espaces extérieurs et d'une grande luminosité.",
@@ -123,7 +124,7 @@
 				"email": "E-mail",
 				"estructura_compra": "Comment imaginez-vous structurer l'achat de votre futur logement (financement, ressources propres, combinaison, etc.) ?",
 				"experiencia": "Quel niveau d'expérience avez-vous dans des opérations immobilières de ce type ou dans l'acquisition de biens premium ?",
-				"acepto": "J'accepte la <a href=\"/casa_lujo/politica-privacidad-fr.html\" target=\"_blank\" rel=\"noopener\" style=\"color:#3366cc;text-decoration:underline;\">politique de confidentialité</a>"
+				"acepto": "J'accepte la <a href=\"/politica-privacidad-fr.html\" target=\"_blank\" rel=\"noopener\" style=\"color:#3366cc;text-decoration:underline;\">politique de confidentialité</a>"
 		},
 		"placeholders": {
 			"nombre": "Votre nom complet",
