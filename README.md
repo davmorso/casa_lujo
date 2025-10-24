@@ -30,10 +30,24 @@ Nota: la configuración `core.hooksPath` es local al clone; cada desarrollador q
 
 ## Versión actual y cambios subidos
 
+Versión subida: 107
+
+- Actualización de versión en index.html a 107.
+- Corrección definitiva de todos los enlaces de política de privacidad en los archivos JSON de idiomas para que apunten a docs/.
+- Validación de enlaces en index.html y archivos multilingües.
+- Sin cambios funcionales adicionales.
+
+Versión subida: 106
+
+- Actualización de versión en index.html a 106.
+- Validación y corrección de enlaces de política de privacidad en todos los archivos JSON de idiomas.
+- Revisión de enlaces en index.html y archivos multilingües para asegurar compatibilidad con docs/.
+- Sin cambios funcionales adicionales.
+
 Versión subida: 105
 
 - Actualización de versión en index.html a 105.
-- Todos los enlaces de política de privacidad en los archivos JSON de idiomas actualizados a /docs/politica-privacidad-*.html.
+- Enlaces de política de privacidad en los archivos JSON de idiomas actualizados a /docs/politica-privacidad-*.html.
 - Archivos de política de privacidad movidos a docs/ para compatibilidad con GitHub Pages.
 - Corregido enlace de política de privacidad en index.html.
 - Validación y corrección de errores de sintaxis en archivos de idiomas.
