@@ -57,7 +57,7 @@ class SendContactUseCase {
 
 // Vista: ContactFormView
 class ContactFormView {
-  constructor({ modalId = 'contact-modal', formId = 'contact-form', openBtnId = 'open-contact-btn', closeBtnId = 'contact-close', cancelBtnId = 'contact-cancel', noteId = 'contact-note', submitBtnId = 'contact-submit', labels = {} }) {
+  constructor({ modalId = 'contact-modal', formId = 'contact-form', openBtnId = 'open-contact-btn', closeBtnId = 'contact-close', cancelBtnId = 'contact-cancel', noteId = 'contact-note', submitBtnId = 'contact-submit', labels = {}, privacyLinkService }) {
     this.modal = document.getElementById(modalId);
     this.form = document.getElementById(formId);
     this.openBtn = document.getElementById(openBtnId);
@@ -66,6 +66,7 @@ class ContactFormView {
     this.note = document.getElementById(noteId);
     this.submitBtn = document.getElementById(submitBtnId);
     this.labels = labels;
+    this.privacyLinkService = privacyLinkService;
     this.lastFocused = null;
     this._bindEvents();
   }
@@ -112,13 +113,11 @@ class ContactFormView {
         const botones = json.contacto.botones || {};
         const titulo = json.contacto.titulo || '';
         // Si existe PrivacyLinkService, actualiza el enlace de política en el label
-        if (window.PrivacyLinkService && json.meta && json.meta.politica_privacidad_url) {
+        if (this.privacyLinkService && json.meta && json.meta.politica_privacidad_url) {
           var fileName = json.meta.politica_privacidad_url.split('/').pop();
-          var privacyService = new window.PrivacyLinkService();
-          var url = privacyService.getPrivacyUrl(fileName);
-          // Reemplaza el href en el label
+          var url = this.privacyLinkService.getPrivacyUrl(fileName);
           if (labels.acepto) {
-            labels.acepto = labels.acepto.replace(/href=\"[^\"]+\"/, 'href="' + url + '"');
+            labels.acepto = this.privacyLinkService.getSanitizedPrivacyLabel(labels.acepto, url);
           }
         }
         const labelMap = {
@@ -136,13 +135,7 @@ class ContactFormView {
           const el = document.getElementById(id);
           if (el && text) {
             if (id === 'label-acepto') {
-              // Sanitizar: solo permitir <a> con atributos seguros
-              const safe = text.replace(/<a\s+([^>]*)>/gi, function(match, attrs) {
-                // Permitir solo href, target, rel, style
-                const allowed = attrs.match(/(href|target|rel|style)="[^"]*"/g) || [];
-                return '<a ' + allowed.join(' ') + '>';
-              }).replace(/<\/a>/gi, '</a>');
-              el.innerHTML = safe;
+              el.innerHTML = this.privacyLinkService ? this.privacyLinkService.getSanitizedPrivacyLabel(text) : text;
             } else {
               el.textContent = text;
             }
@@ -219,13 +212,16 @@ class ContactFormView {
 
 // Inicialización
 document.addEventListener('DOMContentLoaded', function() {
-  window.contactFormView = new ContactFormView({ labels: {
-    errores: {
-      requerido: 'Este campo es obligatorio',
-      aceptar_politica: 'Debes aceptar la política de privacidad'
+  window.contactFormView = new ContactFormView({
+    labels: {
+      errores: {
+        requerido: 'Este campo es obligatorio',
+        aceptar_politica: 'Debes aceptar la política de privacidad'
+      },
+      nota_envio_success: 'Mensaje enviado correctamente.'
     },
-    nota_envio_success: 'Mensaje enviado correctamente.'
-  }});
+    privacyLinkService: window.PrivacyLinkService ? new window.PrivacyLinkService() : null
+  });
 
   // Vincular el evento de clic a ambos posibles enlaces de contacto
   ['contact-link-bar', 'contact-link'].forEach(function(id) {

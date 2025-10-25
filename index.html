@@ -1,4 +1,4 @@
-<!-- version 117 -->
+<!-- version 118 -->
 <!DOCTYPE html>
 <html lang="es" id="html-root">
 <head>
@@ -179,27 +179,18 @@
       }
       // Actualizar el enlace de privacidad del footer según idioma y entorno
       var privacyLink = document.getElementById('footer-privacy');
-      if (privacyLink) {
+      var privacyService = window.PrivacyLinkService ? new window.PrivacyLinkService() : null;
+      if (privacyLink && privacyService) {
         var url = '';
         var linkText = '';
         if (json && json.meta && json.meta.politica_privacidad_url) {
           var fileName = json.meta.politica_privacidad_url.split('/').pop();
-          if (window.location.hostname === 'localhost' && window.location.port === '8080') {
-            url = '/' + fileName;
-          } else {
-            url = '/casa_lujo/' + fileName;
-          }
+          url = privacyService.getPrivacyUrl(fileName);
         } else {
-          // Fallback por defecto
-          if (window.location.hostname === 'localhost' && window.location.port === '8080') {
-            url = '/politica-privacidad.html';
-          } else {
-            url = '/casa_lujo/politica-privacidad.html';
-          }
+          url = privacyService.getPrivacyUrl('politica-privacidad.html');
         }
-        // Sanitizar el texto del enlace
         if (json && json.ui && json.ui.links && json.ui.links.politica_privacidad) {
-          linkText = String(json.ui.links.politica_privacidad).replace(/</g, '&lt;').replace(/>/g, '&gt;');
+          linkText = privacyService.getSanitizedPrivacyText(json.ui.links.politica_privacidad);
         } else {
           linkText = 'Política de privacidad';
         }

@@ -29,6 +29,20 @@ Nota: la configuración `core.hooksPath` es local al clone; cada desarrollador q
 
 
 ## Versión actual y cambios subidos
+### Refactorización SOLID v116
+
+version 116
+
+1. Se refactoriza el frontend para cumplir 100% con SOLID:
+	- PrivacyLinkService se inyecta como dependencia en los componentes de UI (modal y footer), eliminando acoplamiento y duplicidad.
+	- La lógica de sanitización y generación de enlaces de política de privacidad queda centralizada en el servicio.
+	- La vista ContactFormView y el script de index.html delegan toda la gestión de enlaces y sanitización al servicio.
+2. Mejor mantenibilidad y testabilidad:
+	- Cada componente tiene responsabilidad única y puede ser testeado o extendido fácilmente.
+	- Si se requiere otro tipo de enlace o sanitización, basta con implementar un nuevo servicio.
+3. Seguridad:
+	- Se mantiene la sanitización estricta en todos los puntos donde se usa innerHTML.
+
 ### Revisión de seguridad y sanitización v114
 
 version 115
