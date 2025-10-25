@@ -111,6 +111,16 @@ class ContactFormView {
         const labels = json.contacto.labels;
         const botones = json.contacto.botones || {};
         const titulo = json.contacto.titulo || '';
+        // Si existe PrivacyLinkService, actualiza el enlace de política en el label
+        if (window.PrivacyLinkService && json.meta && json.meta.politica_privacidad_url) {
+          var fileName = json.meta.politica_privacidad_url.split('/').pop();
+          var privacyService = new window.PrivacyLinkService();
+          var url = privacyService.getPrivacyUrl(fileName);
+          // Reemplaza el href en el label
+          if (labels.acepto) {
+            labels.acepto = labels.acepto.replace(/href=\"[^\"]+\"/, 'href="' + url + '"');
+          }
+        }
         const labelMap = {
           'label-nombre': labels.nombre,
           'label-telefono': labels.telefono,

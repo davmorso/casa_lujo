@@ -1,5 +1,4 @@
-<!-- version 2 -->
-<!-- Versión: 113 -->
+<!-- version 115 -->
 <!DOCTYPE html>
 <html lang="es" id="html-root">
 <head>
@@ -178,12 +177,15 @@
         var html = document.getElementById('html-root');
         if (html) html.setAttribute('lang', lang);
       }
-      // Actualizar el enlace de privacidad del footer según idioma
+      // Actualizar el enlace de privacidad del footer según idioma y entorno
       var privacyLink = document.getElementById('footer-privacy');
       if (privacyLink) {
         var url = '/casa_lujo/politica-privacidad.html';
         if (json && json.meta && json.meta.politica_privacidad_url) {
-          url = json.meta.politica_privacidad_url;
+          // Extraer solo el nombre del archivo
+          var fileName = json.meta.politica_privacidad_url.split('/').pop();
+          var privacyService = window.PrivacyLinkService ? new window.PrivacyLinkService() : null;
+          url = privacyService ? privacyService.getPrivacyUrl(fileName) : json.meta.politica_privacidad_url;
         }
         privacyLink.setAttribute('href', url);
       }

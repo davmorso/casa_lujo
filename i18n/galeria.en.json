@@ -1,7 +1,7 @@
 {
 	"meta": {
 		"title": "Luxury house for sale in the center of Arenys de Mar",
-		"politica_privacidad_url": "/casa_lujo/politica-privacidad-en.html",
+		"politica_privacidad_url": "politica-privacidad-en.html",
 		"description": "Exclusive designer triplex with three floors in the center of Arenys de Mar. Natural light, privacy, and careful design in a unique setting.",
 		"price": "1,290,000 €",
 		"keywords": "luxury house, Arenys de Mar, house, center, exclusive home, terrace, elevator, natural light, south, east, west",
@@ -125,7 +125,7 @@
 				"email": "E-mail",
 				"estructura_compra": "How do you imagine structuring the purchase of your future home (financing, own resources, combination, etc.)?",
 				"experiencia": "What level of experience do you have in real estate operations of this type or in acquiring premium properties?",
-			"acepto": "I accept the <a href=\"/politica-privacidad-en.html\" target=\"_blank\" rel=\"noopener\" style=\"color:#3366cc;text-decoration:underline;\">privacy policy</a>"
+			"acepto": "I accept the <a href=\"politica-privacidad-en.html\" target=\"_blank\" rel=\"noopener\" style=\"color:#3366cc;text-decoration:underline;\">privacy policy</a>"
 		},
 		"placeholders": {
 			"nombre": "Your full name",

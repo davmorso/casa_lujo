@@ -29,10 +29,14 @@ Nota: la configuración `core.hooksPath` es local al clone; cada desarrollador q
 
 
 ## Versión actual y cambios subidos
+version subida: 114
+
+- Enlaces de política de privacidad multilingües y adaptativos por entorno (localhost/producción) usando PrivacyLinkService.
+- Corrección de JSON i18n en todos los idiomas.
 
 version subida: 113
 
- - Se añader a politicas de privacidad /casa_lujo
+ - Se añade funcionalidad nueva de politicas de privacidad /casa_lujo
 
 Versión subida: 112
 

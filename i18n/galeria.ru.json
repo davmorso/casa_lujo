@@ -18,7 +18,7 @@
 			"description": "Откройте для себя этот эксклюзивный роскошный дом с естественным светом, приватностью и уникальным дизайном в Ареньс-де-Мар.",
 			"image": "/img/portada.jpg"
 		},
-		"politica_privacidad_url": "/casa_lujo/politica-privacidad-ru.html"
+		"politica_privacidad_url": "politica-privacidad-ru.html"
 	},
 	"header": {
 		"title_desktop": "Роскошный дом на продажу в центре Ареньс-де-Мар",
@@ -125,7 +125,7 @@
 			"email": "E-mail",
 			"estructura_compra": "Как вы планируете структурировать покупку будущего жилья (финансирование, собственные средства, комбинация и т.д.)?",
 			"experiencia": "Какой у вас опыт в подобных сделках или приобретении премиальной недвижимости?",
-			"acepto": "Я принимаю <a href=\"/politica-privacidad-ru.html\" target=\"_blank\" rel=\"noopener\" style=\"color:#3366cc;text-decoration:underline;\">политику конфиденциальности</a>"
+			"acepto": "Я принимаю <a href=\"politica-privacidad-ru.html\" target=\"_blank\" rel=\"noopener\" style=\"color:#3366cc;text-decoration:underline;\">политику конфиденциальности</a>"
 		},
 		"placeholders": {
 			"nombre": "Ваше полное имя",
