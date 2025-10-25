@@ -136,7 +136,13 @@ class ContactFormView {
           const el = document.getElementById(id);
           if (el && text) {
             if (id === 'label-acepto') {
-              el.innerHTML = text;
+              // Sanitizar: solo permitir <a> con atributos seguros
+              const safe = text.replace(/<a\s+([^>]*)>/gi, function(match, attrs) {
+                // Permitir solo href, target, rel, style
+                const allowed = attrs.match(/(href|target|rel|style)="[^"]*"/g) || [];
+                return '<a ' + allowed.join(' ') + '>';
+              }).replace(/<\/a>/gi, '</a>');
+              el.innerHTML = safe;
             } else {
               el.textContent = text;
             }

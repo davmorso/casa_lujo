@@ -29,6 +29,35 @@ Nota: la configuración `core.hooksPath` es local al clone; cada desarrollador q
 
 
 ## Versión actual y cambios subidos
+### Revisión de seguridad y sanitización v114
+
+version 115
+
+1. Modal de contacto:
+	- El label de política de privacidad ya se sanitiza antes de insertarse con innerHTML, permitiendo solo el enlace seguro.
+	- El resto de labels y textos se insertan con textContent, que es seguro.
+
+2. Footer:
+	- El texto del enlace de política de privacidad se sanitiza antes de insertarse, evitando inyección de HTML.
+
+3. Enlaces dinámicos:
+	- La lógica de generación de URLs para la política de privacidad distingue correctamente entre local y producción, evitando rutas erróneas.
+
+4. Archivos i18n:
+	- Los textos y enlaces en los JSON de idiomas están limpios, sin HTML ni scripts embebidos.
+
+5. Otros componentes:
+	- Los labels y textos en la UI se insertan con textContent salvo el caso especial del label de política, que ya está protegido.
+
+6. Backend:
+	- El validador de formulario revisa los campos y rechaza entradas inválidas, pero podrías reforzar la sanitización en el backend si permites HTML en algún campo.
+
+7. Scripts y listeners:
+	- No se detectan listeners globales peligrosos ni inserciones directas de HTML sin control.
+
+Conclusión: 
+La sanitización y seguridad en la inserción de textos y enlaces está cubierta en los puntos críticos (modal y footer). El resto de la UI usa métodos seguros. Para máxima robustez, revisa también la sanitización en el backend y mantén esta práctica en cualquier nuevo componente que use innerHTML.
+
 version subida: 114
 
 - Enlaces de política de privacidad multilingües y adaptativos por entorno (localhost/producción) usando PrivacyLinkService.
