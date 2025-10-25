@@ -124,7 +124,7 @@
       "email": "E-mail",
       "estructura_compra": "¿Cómo imaginas estructurar la compra de tu futura vivienda (financiación, recursos propios, combinación, etc.)?",
       "experiencia": "¿Qué nivel de experiencia tienes en operaciones inmobiliarias de este tipo o en la adquisición de propiedades premium?",
-  "acepto": "Acepto la <a href=\"/politica-privacidad.html\" target=\"_blank\" rel=\"noopener\" style=\"color:#3366cc;text-decoration:underline;\">política de privacidad</a>"
+  "acepto": "Acepto la <a href=\"/casa_lujo/politica-privacidad.html\" target=\"_blank\" rel=\"noopener\" style=\"color:#3366cc;text-decoration:underline;\">política de privacidad</a>"
     },
     "placeholders": {
       "nombre": "Tu nombre completo",

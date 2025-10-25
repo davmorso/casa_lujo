@@ -30,6 +30,10 @@ Nota: la configuración `core.hooksPath` es local al clone; cada desarrollador q
 
 ## Versión actual y cambios subidos
 
+version subida: 113
+
+ - Se añader a politicas de privacidad /casa_lujo
+
 Versión subida: 112
 
 - El formulario de contacto ahora actualiza los textos y enlaces al abrir el modal, mostrando siempre el idioma seleccionado.
