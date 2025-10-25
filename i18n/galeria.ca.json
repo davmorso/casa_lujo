@@ -125,7 +125,7 @@
   "email": "E-mail",
   "estructura_compra": "Com imagines estructurar la compra de la teva futura vivenda (finançament, recursos propis, combinació, etc.)?",
   "experiencia": "Quin nivell d'experiència tens en operacions immobiliàries d'aquest tipus o en l'adquisició de propietats premium?",
-  "acepto": "Accepto la <a href=\"/politica-privacidad-ca.html\" target=\"_blank\" rel=\"noopener\" style=\"color:#3366cc;text-decoration:underline;\">política de privacitat</a>"
+  "acepto": "Accepto la <a href=\"/casa_lujo/politica-privacidad-ca.html\" target=\"_blank\" rel=\"noopener\" style=\"color:#3366cc;text-decoration:underline;\">política de privacitat</a>"
     },
     "placeholders": {
       "nombre": "El teu nom complet",
@@ -177,5 +177,5 @@
   "contacto_boton": "AQUÍ"
     }
   },
-  "politica_privacidad_url": "/politica-privacidad-ca.html"
+  "politica_privacidad_url": "/casa_lujo/politica-privacidad-ca.html"
 }
