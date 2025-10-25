@@ -1,4 +1,4 @@
-<!-- version 115 -->
+<!-- version 116 -->
 <!DOCTYPE html>
 <html lang="es" id="html-root">
 <head>
@@ -156,7 +156,7 @@
   <footer style="background-color: #222; color: white; padding: 20px; text-align: center; border-top: 2px solid #444;">
     <p id="footer-copy" style="margin: 0;"></p>
     <p style="margin: 5px 0 0;">
-  <a id="footer-privacy" href="/casa_lujo/politica-privacidad.html" style="color: #aaa; text-decoration: underline;" target="_blank" rel="noopener"></a>
+  <a id="footer-privacy" href="" style="color: #aaa; text-decoration: underline;" target="_blank" rel="noopener"></a>
     </p>
   </footer>
 
@@ -180,14 +180,31 @@
       // Actualizar el enlace de privacidad del footer según idioma y entorno
       var privacyLink = document.getElementById('footer-privacy');
       if (privacyLink) {
-        var url = '/casa_lujo/politica-privacidad.html';
+        var url = '';
+        var linkText = '';
         if (json && json.meta && json.meta.politica_privacidad_url) {
-          // Extraer solo el nombre del archivo
           var fileName = json.meta.politica_privacidad_url.split('/').pop();
-          var privacyService = window.PrivacyLinkService ? new window.PrivacyLinkService() : null;
-          url = privacyService ? privacyService.getPrivacyUrl(fileName) : json.meta.politica_privacidad_url;
+          if (window.location.hostname === 'localhost' && window.location.port === '8080') {
+            url = '/' + fileName;
+          } else {
+            url = '/casa_lujo/' + fileName;
+          }
+        } else {
+          // Fallback por defecto
+          if (window.location.hostname === 'localhost' && window.location.port === '8080') {
+            url = '/politica-privacidad.html';
+          } else {
+            url = '/casa_lujo/politica-privacidad.html';
+          }
+        }
+        // Sanitizar el texto del enlace
+        if (json && json.ui && json.ui.links && json.ui.links.politica_privacidad) {
+          linkText = String(json.ui.links.politica_privacidad).replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        } else {
+          linkText = 'Política de privacidad';
         }
         privacyLink.setAttribute('href', url);
+        privacyLink.textContent = linkText;
       }
     });
   </script>
