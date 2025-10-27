@@ -37,14 +37,14 @@
 				"空间布局合理，实用且极具建筑美感。"
 			],
 			"imagenes": [
-				{ "src": "./img/planta 1/casa 0.jpeg", "alt": "一层：宽敞明亮的客厅-餐厅，全景" },
-				{ "src": "./img/planta 1/casa 1.jpeg", "alt": "一层：高端半开放式厨房，台面" },
-				{ "src": "./img/planta 1/casa 2.jpeg", "alt": "一层：厨房及工作区" },
-				{ "src": "./img/planta 1/casa 3.jpeg", "alt": "一层：带沙发的休息区" },
-				{ "src": "./img/planta 1/casa 4.jpeg", "alt": "一层：装饰与室内细节" },
-				{ "src": "./img/planta 1/casa 5.jpeg", "alt": "一层：通往室外露台" },
-				{ "src": "./img/planta 1/casa 6.jpeg", "alt": "一层：底层浴室/卫生间" },
-				{ "src": "./img/planta 1/casa 7.jpeg", "alt": "一层：室外景观与采光" }
+				{ "src": "img/planta 1/casa 0.jpeg", "alt": "一层：宽敞明亮的客厅-餐厅，全景" },
+				{ "src": "img/planta 1/casa 1.jpeg", "alt": "一层：高端半开放式厨房，台面" },
+				{ "src": "img/planta 1/casa 2.jpeg", "alt": "一层：厨房及工作区" },
+				{ "src": "img/planta 1/casa 3.jpeg", "alt": "一层：带沙发的休息区" },
+				{ "src": "img/planta 1/casa 4.jpeg", "alt": "一层：装饰与室内细节" },
+				{ "src": "img/planta 1/casa 5.jpeg", "alt": "一层：通往室外露台" },
+				{ "src": "img/planta 1/casa 6.jpeg", "alt": "一层：底层浴室/卫生间" },
+				{ "src": "img/planta 1/casa 7.jpeg", "alt": "一层：室外景观与采光" }
 			]
 		},
 		"planta-2": {
@@ -55,11 +55,11 @@
 				"空间宽敞，采光充足。"
 			],
 			"imagenes": [
-				{ "src": "./img/planta 2/casa 1.jpeg", "alt": "二层：带衣帽间的套房" },
-				{ "src": "./img/planta 2/casa 2.jpeg", "alt": "二层：走廊及房间入口" },
-				{ "src": "./img/planta 2/casa 3.jpeg", "alt": "二层：主卧" },
-				{ "src": "./img/planta 2/casa 4.jpeg", "alt": "二层：卧室私人露台" },
-				{ "src": "./img/planta 2/casa 5.jpeg", "alt": "二层：卧室浴室，淋浴间" }
+				{ "src": "img/planta 2/casa 1.jpeg", "alt": "二层：带衣帽间的套房" },
+				{ "src": "img/planta 2/casa 2.jpeg", "alt": "二层：走廊及房间入口" },
+				{ "src": "img/planta 2/casa 3.jpeg", "alt": "二层：主卧" },
+				{ "src": "img/planta 2/casa 4.jpeg", "alt": "二层：卧室私人露台" },
+				{ "src": "img/planta 2/casa 5.jpeg", "alt": "二层：卧室浴室，淋浴间" }
 			]
 		},
 		"planta-3": {
@@ -70,9 +70,9 @@
 				"可通往另一私人露台。"
 			],
 			"imagenes": [
-				{ "src": "./img/planta 3/casa 1.jpeg", "alt": "三层：休息区或露台" },
-				{ "src": "./img/planta 3/casa 2.jpeg", "alt": "三层：第二套房，带阁楼" },
-				{ "src": "./img/planta 3/casa 3.jpeg", "alt": "三层：洗衣房" }
+				{ "src": "img/planta 3/casa 1.jpeg", "alt": "三层：休息区或露台" },
+				{ "src": "img/planta 3/casa 2.jpeg", "alt": "三层：第二套房，带阁楼" },
+				{ "src": "img/planta 3/casa 3.jpeg", "alt": "三层：洗衣房" }
 			]
 		},
 		"planta-4": {
@@ -82,7 +82,7 @@
 				"理想的户外休闲与小型聚会空间。"
 			],
 			"imagenes": [
-				{ "src": "./img/planta 4/casa 1.jpeg", "alt": "四层：屋顶/露台景观" }
+				{ "src": "img/planta 4/casa 1.jpeg", "alt": "四层：屋顶/露台景观" }
 			]
 		}
 	},
@@ -150,7 +150,13 @@
 		},
 		"nota_envio": "您的邮件客户端将打开此消息。请检查并在邮件应用中点击发送。"
 	},
-	"ui": {
+		"ui": {
+			"errors": {
+				"network": "由于网络错误，无法加载信息。请检查您的连接。",
+				"form": "由于网络错误，无法提交表单。",
+			"gallery": "由于图库资源丢失或不可用，无法显示图库。请稍后重试或联系管理员。",
+				"lang": "由于网络错误，无法切换语言。"
+			},
 		"contact": {
 			"text": "想了解更多信息或预约参观？请点击 <button id=\"contact-link-bar\" style=\"background:none;border:none;color:#3366cc;text-decoration:underline;font-weight:bold;cursor:pointer;text-transform:uppercase;\">这里</button>。",
 			"linkWord": "这里"
@@ -160,10 +166,10 @@
 		},
 		"modal": {
 			"cerrar": "×",
-		"plantaAnterior": "↓ 下楼层",
-		"plantaSiguiente": "↑ 上楼层",
-			"anterior": "上一页",
-			"siguiente": "下一页",
+		"plantaAnterior": "下楼层",
+		"plantaSiguiente": "上楼层",
+			"anterior": "←",
+			"siguiente": "→",
 			"caption": "一层：装饰与室内细节（8张中的第5张）"
 		},
 		"cookieBanner": {
@@ -171,7 +177,7 @@
 			"aceptar": "接受",
 			"rechazar": "拒绝"
 		},
-		"footer": "© 2025 davmorso. 版权所有。",
+		"footer": "© 2025 casa_lujo. 版权所有。",
 		"links": {
 			"politica_privacidad": "隐私政策",
 			"contacto_boton": "这里"

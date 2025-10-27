@@ -1,4 +1,0 @@
-
-// cookieBannerView.js SOLID
-
-

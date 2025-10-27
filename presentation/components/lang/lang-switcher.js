@@ -67,6 +67,9 @@ document.addEventListener('DOMContentLoaded', () => {
       return json;
     } catch (err) {
       console.warn('[lang-switcher] load failed for', lang, err);
+      if (err && (err.message?.toLowerCase().includes('network') || err.message?.toLowerCase().includes('failed to fetch'))) {
+        alert('No se pudo cambiar el idioma por un error de red. Por favor, revisa tu conexión.');
+      }
       if (lang !== DEFAULT) return loadI18n(DEFAULT);
       // fallback notify
       window.__i18n_buffer = { lang: DEFAULT, i18n: {} };

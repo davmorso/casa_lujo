@@ -151,6 +151,12 @@
     "nota_envio": "S'obrirà el teu client de correu amb el missatge. Revisa i prem enviar a la teva aplicació de correu."
   },
   "ui": {
+    "errors": {
+      "network": "No s'ha pogut carregar la informació per un error de xarxa. Si us plau, revisa la teva connexió.",
+      "form": "No s'ha pogut enviar el formulari per un error de xarxa.",
+  "gallery": "No es pot mostrar la galeria perquè el recurs s'ha perdut o no està disponible. Torna-ho a intentar més tard o contacta amb l'administrador.",
+      "lang": "No s'ha pogut canviar l'idioma per un error de xarxa."
+    },
     "contact": {
   "text": "Vols més informació o concertar una visita? Fes clic <button id=\"contact-link-bar\" style=\"background:none;border:none;color:#3366cc;text-decoration:underline;font-weight:bold;cursor:pointer;text-transform:uppercase;\">AQUÍ</button>.",
   "linkWord": "AQUÍ"
@@ -160,10 +166,10 @@
     },
     "modal": {
   "cerrar": "×",
-  "plantaAnterior": "↓ Baixar pis",
-  "plantaSiguiente": "↑ Pujar pis",
-  "anterior": "Anterior",
-  "siguiente": "Següent",
+  "plantaAnterior": "Baixar pis",
+  "plantaSiguiente": "Pujar pis",
+  "anterior": "◀",
+  "siguiente": "▶",
   "caption": "Primera planta: detall de decoració i interior (5 de 8)"
     },
     "cookieBanner": {
@@ -171,7 +177,7 @@
       "aceptar": "Acceptar",
       "rechazar": "Rebutjar"
     },
-    "footer": "© 2025 davmorso. Tots els drets reservats.",
+    "footer": "© 2025 casa_lujo. Tots els drets reservats.",
     "links": {
       "politica_privacidad": "Política de privacitat",
       "contacto_boton": "AQUÍ"

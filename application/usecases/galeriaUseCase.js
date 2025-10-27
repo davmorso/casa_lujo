@@ -1,73 +1,96 @@
-class GaleriaUseCase {
+import GalleryRepository from '../../presentation/components/gallery/galleryRepository.js';
+import IGaleriaUseCase from '../../domain/usecases/IGaleriaUseCase.js';
+
+export default class GalleryUseCase extends IGaleriaUseCase {
 	constructor(repository) {
+		super();
 		this.repository = repository;
-		this.plantas = this.repository.getPlantas();
-		this.seccionActual = this.plantas[0];
-		this.imagenActualIndex = 0;
+		this.floors = this.repository.getFloors();
+		this.currentFloor = this.floors[0];
+		this.currentImageIndex = 0;
 	}
 
-	seleccionarPlanta(planta) {
-		this.seccionActual = planta;
-		this.imagenActualIndex = 0;
-	}
+		selectFloor(floor) {
+			this.currentFloor = floor;
+			this.currentImageIndex = 0;
+			this._emitChange();
+		}
 
-	seleccionarImagen(index) {
-		this.imagenActualIndex = index;
-	}
+		selectImage(index) {
+			this.currentImageIndex = index;
+			this._emitChange();
+		}
 
-	imagenActual() {
-		const imgs = this.repository.getImagenes(this.seccionActual);
+	currentImage() {
+		const imgs = this.repository.getImages(this.currentFloor);
 		if (!imgs || imgs.length === 0) return null;
-		return imgs[this.imagenActualIndex];
+		return imgs[this.currentImageIndex];
 	}
 
-	imagenesDePlanta() {
-		return this.repository.getImagenes(this.seccionActual);
+	imagesOfFloor() {
+		return this.repository.getImages(this.currentFloor);
 	}
 
-	puedeIrAnterior() {
-		return this.imagenActualIndex > 0;
+	canGoPrevious() {
+		return this.currentImageIndex > 0;
 	}
 
-	puedeIrSiguiente() {
-		const imgs = this.repository.getImagenes(this.seccionActual);
-		return this.imagenActualIndex < imgs.length - 1;
+	canGoNext() {
+		const imgs = this.repository.getImages(this.currentFloor);
+		return this.currentImageIndex < imgs.length - 1;
 	}
 
-	irAnterior() {
-		if (this.puedeIrAnterior()) this.imagenActualIndex--;
-	}
-
-	irSiguiente() {
-		if (this.puedeIrSiguiente()) this.imagenActualIndex++;
-	}
-
-	puedeIrPlantaAnterior() {
-		return this.plantas.indexOf(this.seccionActual) > 0;
-	}
-
-	puedeIrPlantaSiguiente() {
-		return this.plantas.indexOf(this.seccionActual) < this.plantas.length - 1;
-	}
-
-	irPlantaAnterior() {
-		const idx = this.plantas.indexOf(this.seccionActual);
-		if (idx > 0) {
-			this.seccionActual = this.plantas[idx - 1];
-			this.imagenActualIndex = 0;
+		goPrevious() {
+			if (this.canGoPrevious()) {
+				this.currentImageIndex--;
+				this._emitChange();
+			}
 		}
-	}
 
-	irPlantaSiguiente() {
-		const idx = this.plantas.indexOf(this.seccionActual);
-		if (idx < this.plantas.length - 1) {
-			this.seccionActual = this.plantas[idx + 1];
-			this.imagenActualIndex = 0;
+		goNext() {
+			if (this.canGoNext()) {
+				this.currentImageIndex++;
+				this._emitChange();
+			}
 		}
-	}
-}
 
-// Exponer constructor/función globalmente para bootstrap
-if (typeof window.GaleriaUseCase === 'undefined') {
-	window.GaleriaUseCase = GaleriaUseCase; // o la función/constructor real
+	canGoPreviousFloor() {
+		return this.floors.indexOf(this.currentFloor) > 0;
+	}
+
+	canGoNextFloor() {
+		return this.floors.indexOf(this.currentFloor) < this.floors.length - 1;
+	}
+
+		goPreviousFloor() {
+			const idx = this.floors.indexOf(this.currentFloor);
+			if (idx > 0) {
+				this.currentFloor = this.floors[idx - 1];
+				this.currentImageIndex = 0;
+				this._emitChange();
+			}
+		}
+
+		goNextFloor() {
+			const idx = this.floors.indexOf(this.currentFloor);
+			if (idx < this.floors.length - 1) {
+				this.currentFloor = this.floors[idx + 1];
+				this.currentImageIndex = 0;
+				this._emitChange();
+			}
+		}
+	// Event to notify view of changes
+	_emitChange() {
+		document.dispatchEvent(
+			new CustomEvent('galleryChanged', {
+				detail: {
+					currentFloor: this.currentFloor,
+					currentImageIndex: this.currentImageIndex,
+					currentImage: this.currentImage(),
+					images: this.imagesOfFloor(),
+					floors: this.floors,
+				},
+			})
+		);
+	}
 }

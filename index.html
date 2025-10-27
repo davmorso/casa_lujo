@@ -1,4 +1,4 @@
-<!-- version 118 -->
+<!-- version 119 -->
 <!DOCTYPE html>
 <html lang="es" id="html-root">
 <head>
@@ -133,11 +133,15 @@
     <img class="modal-contenido" id="imagen-ampliada" alt="">
     <div id="caption"></div>
 
-    <div style="text-align:center; margin-top:10px;">
-      <button id="planta-anterior" data-i18n="ui.modal.plantaAnterior" style="margin-right: 10px;"></button>
-      <button id="planta-siguiente" data-i18n="ui.modal.plantaSiguiente" style="margin-right: 20px;"></button>
-      <button id="anterior" data-i18n="ui.modal.anterior" style="margin-right: 10px;"></button>
-  <button id="siguiente" data-i18n="ui.modal.siguiente"></button>
+    <div style="text-align:center; margin-top:10px; display: flex; flex-direction: column; align-items: center; gap: 8px;">
+      <div style="margin-bottom: 28px; display: flex; flex-direction: column; align-items: center; gap: 18px;">
+        <button id="planta-anterior" data-i18n="ui.modal.plantaAnterior" class="plantaAnterior"></button>
+        <button id="planta-siguiente" data-i18n="ui.modal.plantaSiguiente" class="plantaSiguiente"></button>
+      </div>
+      <div style="display: flex; gap: 10px;">
+        <button id="anterior" data-i18n="ui.modal.anterior"></button>
+        <button id="siguiente" data-i18n="ui.modal.siguiente"></button>
+      </div>
     </div>
    </div>
 
@@ -161,11 +165,12 @@
   </footer>
 
 
+
   <!-- Scripts: UI y lógica agrupados por funcionalidad -->
   <!-- Internacionalización y configuración -->
-  <script src="presentation/components/lang/i18n-loader.js"></script>
-  <script src="presentation/components/lang/lang-switcher.js"></script>
-  <script>
+  <script type="module" src="presentation/components/lang/i18n-loader.js"></script>
+  <script type="module" src="presentation/components/lang/lang-switcher.js"></script>
+  <script type="module">
     document.addEventListener('i18nLoaded', function(e) {
       var json = e.detail && e.detail.i18n;
       var lang = e.detail && e.detail.lang;
@@ -199,27 +204,20 @@
       }
     });
   </script>
-  <script src="infrastructure/scripts/backend-url.js"></script>
+  <script type="module" src="infrastructure/scripts/backend-url.js"></script>
 
   <!-- Galería -->
-  <script src="presentation/components/galeria/galeriaRepository.js"></script>
-  <script src="application/usecases/galeriaUseCase.js"></script>
-  <script src="presentation/components/galeria/galeriaView.js"></script>
-  <script src="presentation/components/galeria/galeria.js"></script>
-  <script src="presentation/components/zoomable-modal.js"></script>
-  <script src="presentation/components/modal-ui.js"></script>
+  <script type="module" src="presentation/components/gallery/gallery.js"></script>
 
   <!-- Contacto -->
-  <script src="presentation/components/contact/contact-form.js"></script>
-  <script src="presentation/components/contact/contact-ui.js"></script>
+  <script type="module" src="presentation/components/contact/contact-form.js"></script>
 
   <!-- Privacidad y cookies -->
-  <script src="presentation/components/privacy/privacy-link.js"></script>
-  <script src="presentation/components/cookie/cookieBannerView.js"></script>
-  <script src="infrastructure/scripts/cookieService.js"></script>
+  <!-- <script type="module" src="presentation/components/privacy/privacy-link.js"></script> -->
+  <script type="module" src="presentation/components/cookie/cookieBannerView.js"></script>
 
   <!-- Bootstrap y utilidades generales -->
-  <script src="presentation/components/bootstrap.js"></script>
+  <script type="module" src="presentation/components/bootstrap.js"></script>
   
   <!-- Modal formulario de contacto -->
   <div id="contact-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" style="display:none;">
@@ -230,30 +228,30 @@
       <form id="contact-form" novalidate>
         <div class="form-row">
           <label for="contact-nombre" id="label-nombre"></label>
-          <input id="contact-nombre" name="nombre" type="text" />
+          <input id="contact-nombre" name="nombre" type="text" autocomplete="name" />
           <div class="field-error" data-for="nombre"></div>
         </div>
 
         <div class="form-row">
           <label for="contact-telefono" id="label-telefono"></label>
-          <input id="contact-telefono" name="telefono" type="tel" />
+          <input id="contact-telefono" name="telefono" type="tel" autocomplete="tel" />
           <div class="field-error" data-for="telefono"></div>
         </div>
         <div class="form-row">
           <label for="contact-email" id="label-email"></label>
-          <input id="contact-email" name="email" type="email" />
+          <input id="contact-email" name="email" type="email" autocomplete="email" />
           <div class="field-error" data-for="email"></div>
         </div>
 
         <div class="form-row">
           <label for="contact-estructura" id="label-estructura"></label>
-          <textarea id="contact-estructura" name="estructura_compra" rows="4"></textarea>
+          <textarea id="contact-estructura" name="estructura_compra" rows="4" autocomplete="off"></textarea>
           <div class="field-error" data-for="estructura_compra"></div>
         </div>
 
         <div class="form-row">
           <label for="contact-experiencia" id="label-experiencia"></label>
-          <textarea id="contact-experiencia" name="experiencia" rows="3"></textarea>
+          <textarea id="contact-experiencia" name="experiencia" rows="3" autocomplete="off"></textarea>
           <div class="field-error" data-for="experiencia"></div>
         </div>
 

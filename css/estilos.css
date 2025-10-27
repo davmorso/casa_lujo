@@ -181,14 +181,7 @@ h1.titulo-pegado-izquierda {
 }
 
 /* Solo una flecha por botón, alineada a la derecha del texto */
-#anterior::before { content: '◀'; font-size: 1.2rem; margin-right: 6px; }
-#siguiente::after { content: '▶'; font-size: 1.2rem; margin-left: 6px; }
-
-/* Evitar flechas duplicadas en idiomas que ya incluyen símbolos (ej. chino) */
-html[lang^="zh"] #anterior::before,
-html[lang^="zh"] #siguiente::after {
-  content: none !important;
-}
+/* Las flechas se gestionan solo por idioma, no por CSS. */
 
 /* separación desde el borde para no tapar esquinas */
 #anterior { left: 28px; }
@@ -590,4 +583,12 @@ html[lang^="zh"] #siguiente::after {
     text-align: center;
     margin-top: 8px;
   }
+}
+
+.plantaAnterior {
+  margin-right: 50px;
+}
+
+.plantaSiguiente {
+  margin-left: 50px;
 }

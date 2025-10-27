@@ -150,7 +150,13 @@
 		},
 		"nota_envio": "Your email client will open with the message. Review and press send in your email application."
 	},
-	"ui": {
+		"ui": {
+			"errors": {
+				"network": "Failed to load information due to a network error. Please check your connection.",
+				"form": "Failed to submit the form due to a network error.",
+				"gallery": "Gallery cannot be displayed because the resource is missing or unavailable. Please try again later or contact the administrator.",
+				"lang": "Failed to change language due to a network error."
+			},
 			"contact": {
 					"text": "Want more information or to schedule a visit? Click <button id=\"contact-link-bar\" style=\"background:none;border:none;color:#3366cc;text-decoration:underline;font-weight:bold;cursor:pointer;text-transform:uppercase;\">HERE</button>.",
 				"linkWord": "HERE"
@@ -160,10 +166,10 @@
 			},
 			"modal": {
 			"cerrar": "×",
-		"plantaAnterior": "\u2193 Go down floor",
-		"plantaSiguiente": "\u2191 Go up floor",
-			"anterior": "Previous",
-			"siguiente": "Next",
+		"plantaAnterior": "Go down floor",
+		"plantaSiguiente": "Go up floor",
+			"anterior": "",
+			"siguiente": "",
 			"caption": "First floor: decoration and interior detail (5 of 8)"
 		},
 		"cookieBanner": {
@@ -171,7 +177,7 @@
 			"aceptar": "Accept",
 			"rechazar": "Reject"
 		},
-		"footer": "© 2025 davmorso. All rights reserved.",
+		"footer": "© 2025 casa_lujo. All rights reserved.",
 		"links": {
 			"politica_privacidad": "Privacy policy",
 			"contacto_boton": "HERE"

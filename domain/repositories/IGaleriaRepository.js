@@ -1,7 +1,8 @@
+
 // Interface para el repositorio de galería
 // Cumple con DDD y SOLID
 
-class IGaleriaRepository {
+export default class IGaleriaRepository {
   /**
    * Obtiene todas las imágenes de la galería
    * @returns {Promise<Array>} Array de imágenes
@@ -15,5 +16,3 @@ class IGaleriaRepository {
    */
   async getImageById(id) { throw new Error('Not implemented'); }
 }
-
-module.exports = IGaleriaRepository;

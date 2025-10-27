@@ -37,12 +37,9 @@ function applyI18n(json = {}) {
 			}
 	if (btnSiguiente && json.ui.modal.siguiente) {
 		btnSiguiente.textContent = json.ui.modal.siguiente;
-		if (!btnSiguiente.querySelector('.btn-arrow')) {
-			const span = document.createElement('span');
-			span.className = 'btn-arrow';
-			span.textContent = ' ▶';
-			btnSiguiente.appendChild(span);
-		}
+	}
+	if (btnAnterior && json.ui.modal.anterior) {
+		btnAnterior.textContent = json.ui.modal.anterior;
 	}
 			if (btnPlantaAnterior && json.ui.modal.plantaAnterior) btnPlantaAnterior.textContent = json.ui.modal.plantaAnterior;
 			if (btnPlantaSiguiente && json.ui.modal.plantaSiguiente) btnPlantaSiguiente.textContent = json.ui.modal.plantaSiguiente;
@@ -224,6 +221,9 @@ async function ensureCompleteI18n(json = {}, lang = 'es') {
 		}
 	} catch (err) {
 		console.warn('[i18n-loader] initial load failed', err);
+		if (err && (err.message?.toLowerCase().includes('network') || err.message?.toLowerCase().includes('failed to fetch'))) {
+			alert('No se pudo cargar la traducción por un error de red. Por favor, revisa tu conexión.');
+		}
 	}
 })();
 

@@ -150,6 +150,12 @@
     "nota_envio": "Se abrirá tu cliente de correo con el mensaje. Revisa y pulsa enviar en tu aplicación de correo."
   },
   "ui": {
+    "errors": {
+      "network": "No se pudo cargar la información por un error de red. Por favor, revisa tu conexión.",
+      "form": "No se pudo enviar el formulario por un error de red.",
+  "gallery": "No se puede mostrar la galería porque el recurso se ha perdido o no está disponible. Intenta de nuevo más tarde o contacta con el administrador.",
+      "lang": "No se pudo cambiar el idioma por un error de red."
+    },
     "contact": {
   "text": "¿Quieres más información o concertar una visita? Haz clic <button id=\"contact-link-bar\" style=\"background:none;border:none;color:#3366cc;text-decoration:underline;font-weight:bold;cursor:pointer;text-transform:uppercase;\">AQUÍ</button>.",
   "linkWord": "AQUÍ"
@@ -159,10 +165,10 @@
     },
     "modal": {
   "cerrar": "×",
-  "plantaAnterior": "↓ Bajar piso",
-  "plantaSiguiente": "↑ Subir piso",
-  "anterior": "Anterior",
-  "siguiente": "Siguiente",
+  "plantaAnterior": "Bajar piso",
+  "plantaSiguiente": "Subir piso",
+  "anterior": "◀",
+  "siguiente": "▶",
   "caption": "Primera planta: detalle de decoración e interior (5 de 8)"
     },
     "cookieBanner": {
@@ -170,7 +176,7 @@
       "aceptar": "Aceptar",
       "rechazar": "Rechazar"
     },
-    "footer": "© 2025 davmorso. Todos los derechos reservados.",
+    "footer": "© 2025 casa_lujo. Todos los derechos reservados.",
     "links": {
   "politica_privacidad": "Política de privacidad",
   "contacto_boton": "aquí"

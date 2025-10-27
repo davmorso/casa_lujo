@@ -149,7 +149,13 @@
 		},
 		"nota_envio": "Votre client de messagerie s'ouvrira avec le message. Vérifiez et appuyez sur envoyer dans votre application de messagerie."
 	},
-	"ui": {
+		"ui": {
+			"errors": {
+				"network": "Impossible de charger les informations en raison d'une erreur réseau. Veuillez vérifier votre connexion.",
+				"form": "Impossible d'envoyer le formulaire en raison d'une erreur réseau.",
+				"gallery": "La galerie ne peut pas être affichée car la ressource est perdue ou indisponible. Veuillez réessayer plus tard ou contacter l'administrateur.",
+				"lang": "Impossible de changer la langue en raison d'une erreur réseau."
+			},
 			"contact": {
 					"text": "Vous souhaitez plus d'informations ou organiser une visite ? Cliquez <button id=\"contact-link-bar\" style=\"background:none;border:none;color:#3366cc;text-decoration:underline;font-weight:bold;cursor:pointer;text-transform:uppercase;\">ICI</button>.",
 				"linkWord": "ICI"
@@ -159,10 +165,10 @@
 			},
 			"modal": {
 			"cerrar": "×",
-			"plantaAnterior": "↓ Descendre d'étage",
-			"plantaSiguiente": "↑ Monter d'étage",
-			"anterior": "Précédent",
-			"siguiente": "Suivant",
+			"plantaAnterior": "Descendre d'étage",
+			"plantaSiguiente": "Monter d'étage",
+			"anterior": "",
+			"siguiente": "",
 			"caption": "Premier étage : détail de décoration et intérieur (5 sur 8)"
 		},
 		"cookieBanner": {
@@ -170,7 +176,7 @@
 			"aceptar": "Accepter",
 			"rechazar": "Refuser"
 		},
-		"footer": "© 2025 davmorso. Tous droits réservés.",
+		"footer": "© 2025 casa_lujo. Tous droits réservés.",
 		"links": {
 				"politica_privacidad": "Politique de confidentialité",
 			"contacto_boton": "Contactez-nous"
