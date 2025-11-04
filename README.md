@@ -1,3 +1,6 @@
+### Versión subida: 120
+
+- GalleryModal ahora detecta automáticamente si está en producción (GitHub Pages /casa_lujo/) y ajusta la ruta de importación de galleryRepository.js para evitar errores 404. El modal funciona correctamente tanto en local como en producción.
 ### Versión subida: 119
 
 - GalleryModal corrige automáticamente los paths de las imágenes: si la web está en producción (URL contiene /casa_lujo/), antepone /casa_lujo/ al src de cada imagen (excepto si ya lo tiene o es una URL absoluta). Esto soluciona la carga de imágenes en producción (GitHub Pages).
