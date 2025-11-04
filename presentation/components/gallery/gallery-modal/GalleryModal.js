@@ -59,10 +59,9 @@ export default class GalleryModal {
         if (!this._galleryRepository) {
           // Detecta si está en producción (GitHub Pages /casa_lujo/)
           const isProd = window.location.pathname.includes('/casa_lujo/');
-          const repoPath = isProd ? '../_gallery/galleryRepository.js' : '../../_gallery/galleryRepository.js';
-
-          repoPath = "../_gallery/galleryRepository.js";
-
+          const repoPath = isProd
+            ? '../gallery/_gallery/galleryRepository.js'
+            : '../../gallery/_gallery/galleryRepository.js';
           import(repoPath).then(module => {
             // Pasa window._casaData como i18n para asegurar acceso correcto
             this._galleryRepository = module.default ? new module.default(window._casaData) : new module.GalleryRepository(window._casaData);
