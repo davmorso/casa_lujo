@@ -1,6 +1,15 @@
 // GalleryModal.js
 // Modal de navegación por la galería
 export default class GalleryModal {
+  // Devuelve el path correcto según entorno (local o producción)
+  _fixImagePath(src) {
+    if (!src) return src;
+    const isProd = window.location.pathname.includes('/casa_lujo/');
+    if (isProd && !src.startsWith('/casa_lujo/') && !src.startsWith('http')) {
+      return '/casa_lujo/' + src.replace(/^\/?/, '');
+    }
+    return src;
+  }
   constructor() {
     this.modal = null;
     this.img = null;
@@ -47,7 +56,6 @@ export default class GalleryModal {
       }
 
       _initFloors(plantNames, images) {
-        debugger;
         if (!this._galleryRepository) {
           import('../../_gallery/galleryRepository.js').then(module => {
             // Pasa window._casaData como i18n para asegurar acceso correcto
@@ -65,7 +73,6 @@ export default class GalleryModal {
       }
 
       _setFloors(plantNames, images) {
-        debugger;
         // Suponemos que window._casaData.textos contiene los datos por idioma
         const textos = (window._casaData && window._casaData.textos) ? window._casaData.textos : {};
         this.floors = plantNames.map((name, idx) => {
@@ -137,16 +144,15 @@ export default class GalleryModal {
       });
       return;
     }
-    this.img.src = imgObj.src || '';
-    this.img.alt = imgObj.alt || '';
-    this.caption.textContent = imgObj.alt || '';
+  this.img.src = this._fixImagePath(imgObj.src || '');
+  this.img.alt = imgObj.alt || '';
+  this.caption.textContent = imgObj.alt || '';
     // Visibilidad botón anterior
     this.btnAnterior.style.display = (this.currentIndex === 0 && this.currentFloorIdx === 0) ? 'none' : '';
     // Visibilidad botón siguiente
     const isLastImage = this.currentIndex === this.images.length - 1;
     const isLastFloor = this.currentFloorIdx === 3 || this.currentFloorIdx === 4;
 
-    debugger;
 
     if (isLastImage && !isLastFloor) {
       this.btnSiguiente.style.display = '';
@@ -173,7 +179,6 @@ export default class GalleryModal {
   }
 
   _bindEvents() {
-    debugger;
     // Cerrar modal
     this.btnCerrar.addEventListener('click', () => {
       this.images = [];
@@ -215,7 +220,7 @@ export default class GalleryModal {
           currentFloorIdx: this.currentFloorIdx,
           floorsLength: this.floors.length
         });
-        debugger;
+
         if (this.currentFloorIdx < this.floors.length - 1) {
           this.currentFloorIdx++;
           this.images = Array.isArray(this.floors[this.currentFloorIdx].imagenes) ? this.floors[this.currentFloorIdx].imagenes : [];

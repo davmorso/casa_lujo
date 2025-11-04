@@ -25,7 +25,6 @@ class ContactFormView {
   }
 
   getContactFromForm() {
-    debugger;
     return new Contact({
       nombre: this._getValue('contact-nombre'),
       telefono: this._getValue('contact-telefono'),

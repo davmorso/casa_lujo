@@ -1,3 +1,6 @@
+### Versión subida: 119
+
+- GalleryModal corrige automáticamente los paths de las imágenes: si la web está en producción (URL contiene /casa_lujo/), antepone /casa_lujo/ al src de cada imagen (excepto si ya lo tiene o es una URL absoluta). Esto soluciona la carga de imágenes en producción (GitHub Pages).
 
 ## Cambios en la versión 1.1.8
 
