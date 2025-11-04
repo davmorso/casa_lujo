@@ -1,185 +1,193 @@
 {
-	"meta": {
-		"title": "Maison de luxe à vendre au centre d'Arenys de Mar",
-		"description": "Tríplex de créateur exclusif de trois étages au centre d'Arenys de Mar. Lumière naturelle, intimité et design soigné dans un cadre unique.",
-		"price": "1.290.000 €",
-		"keywords": "maison de luxe, Arenys de Mar, maison, centre, logement exclusif, terrasse, ascenseur, lumière naturelle, sud, est, ouest",
-		"author": "David M",
-		"og": {
-			"title": "Maison de luxe à vendre au centre d'Arenys de Mar",
-			"description": "Tríplex de créateur exclusif de trois étages au centre d'Arenys de Mar. Lumière naturelle, intimité et design soigné dans un cadre unique.",
-			"type": "website",
-			"url": "https://davmorso.github.io/casa/",
-			"image": "/portada.jpg"
-		},
-		"twitter": {
-			"card": "summary_large_image",
-			"title": "Maison de luxe à vendre au centre d'Arenys de Mar",
-			"description": "Découvrez ce tríplex exclusif avec lumière naturelle, intimité et design unique à Arenys de Mar.",
-			"image": "/img/portada.jpg"
-		},
-			"politica_privacidad_url": "politica-privacidad-fr.html"
-	},
-	"header": {
-		"title_desktop": "Maison de luxe à vendre au centre d'Arenys de Mar",
-		"title_mobile": "Maison de luxe à Arenys de Mar",
-		"price": "1.290.000 €"
-	},
-	"descripcion": "Au cœur d'Arenys de Mar, dans la rue la plus emblématique et prestigieuse de la ville, nous présentons cette résidence exclusive et incomparable, proche de la plage, de la gare et de tous les services.<br />Avec une surface de 450 m², le logement a été entièrement rénové et équipé avec des finitions haut de gamme, devenant une véritable pépite qui allie l'élégance de son architecture d'origine au confort d'une maison moderne.<br /><br />Il dispose d'un vaste séjour-salle à manger, d'une cuisine indépendante de design entièrement équipée avec sortie sur un spectaculaire patio, et d'un total de 5 chambres (plusieurs en suite), toutes conçues pour un confort maximal. Le logement bénéficie de parquets haut de gamme, d'un mobilier de luxe, de la climatisation dans toutes les pièces, de 4 salles de bain, d'un bureau avec cheminée, d'un hall d'entrée polyvalent, d'une cave à vin, d'un jardin et d'un garage inclus dans le prix. De plus, il est équipé d'un ascenseur pour plus de commodité. Toutes les installations de la maison (électricité, gaz, climatisation) ont été installées à neuf avec les technologies les plus modernes.<br /><br />À l'extérieur, le spacieux patio offre la possibilité de construire une piscine privée, créant une oasis de luxe en plein centre de la ville.<br /><br />Un bien unique et irrépétible dans le Maresme, parfait pour ceux qui recherchent exclusivité, design et confort dans un emplacement privilégié en bord de mer.<br /><br />Les frais d'achat ne sont pas inclus dans le prix de vente.",
-	"textos": {
-		"planta-1": {
-			"titulo": "Premier étage – Espace jour",
-			"puntos": [
-				"Grand et lumineux séjour-salle à manger avec cuisine semi-ouverte.",
-				"Accès direct à une confortable terrasse extérieure.",
-				"Excellente entrée de lumière.",
-				"Cuisine haut de gamme, moderne et en parfait état.",
-				"Espaces bien intégrés, pratiques et au goût architectural remarquable."
-			],
-			"imagenes": [
-				{ "src": "./img/planta 1/casa 0.jpeg", "alt": "Premier étage : séjour-salle à manger spacieux et lumineux, vue générale" },
-				{ "src": "./img/planta 1/casa 1.jpeg", "alt": "Premier étage : cuisine semi-ouverte haut de gamme, plan de travail" },
-				{ "src": "./img/planta 1/casa 2.jpeg", "alt": "Premier étage : cuisine et espace de travail" },
-				{ "src": "./img/planta 1/casa 3.jpeg", "alt": "Premier étage : coin salon avec canapé" },
-				{ "src": "./img/planta 1/casa 4.jpeg", "alt": "Premier étage : détail de décoration et intérieur" },
-				{ "src": "./img/planta 1/casa 5.jpeg", "alt": "Premier étage : accès à la terrasse extérieure" },
-				{ "src": "./img/planta 1/casa 6.jpeg", "alt": "Premier étage : toilette / salle d'eau du rez-de-chaussée" },
-				{ "src": "./img/planta 1/casa 7.jpeg", "alt": "Premier étage : vues extérieures et bonne entrée de lumière" }
-			]
-		},
-		"planta-2": {
-			"titulo": "Deuxième étage – Suite principale",
-			"puntos": [
-				"Suite principale avec terrasse et vue sur la rue principale.",
-				"Deuxième suite avec dressing et salle de bain complète avec vue sur le jardin.",
-				"Espaces généreux et beaucoup de lumière naturelle."
-			],
-			"imagenes": [
-				{ "src": "./img/planta 2/casa 1.jpeg", "alt": "Deuxième étage : suite avec dressing" },
-				{ "src": "./img/planta 2/casa 2.jpeg", "alt": "Deuxième étage : couloir et accès à la chambre" },
-				{ "src": "./img/planta 2/casa 3.jpeg", "alt": "Deuxième étage : chambre principale" },
-				{ "src": "./img/planta 2/casa 4.jpeg", "alt": "Deuxième étage : terrasse privée de la chambre" }
-			]
-		},
-		"planta-3": {
-			"titulo": "Troisième étage – Seconde suite",
-			"puntos": [
-				"Seconde chambre en suite avec salle de bain design et puits de lumière qui apporte la lumière naturelle toute la journée, légèrement plus petite et mansardée.",
-				"Chambre très accueillante et spéciale.",
-				"Accès à une autre terrasse privée."
-			],
-			"imagenes": [
-				{ "src": "./img/planta 3/casa 1.jpeg", "alt": "Troisième étage : coin salon ou terrasse" },
-				{ "src": "./img/planta 3/casa 2.jpeg", "alt": "Troisième étage : seconde suite, légèrement mansardée" },
-				{ "src": "./img/planta 3/casa 3.jpeg", "alt": "Troisième étage : zone buanderie" }
-			]
-		},
-		"planta-4": {
-			"titulo": "Quatrième étage – Toit terrasse",
-			"puntos": [
-				"Toit terrasse offrant de belles vues.",
-				"Espace idéal pour profiter de l'extérieur et pour de petites réunions."
-			],
-			"imagenes": [
-				{ "src": "./img/planta 4/casa 1.jpeg", "alt": "Quatrième étage : toit/terrasse avec vue" }
-			]
-		}
-	},
-	"detalles": {
-		"titulo": "Détails supplémentaires",
-		"caracteristicas_titulo": "Caractéristiques",
-		"puntos": [
-			"Escaliers confortables et sûrs entre les étages.",
-			"L'ensemble du logement bénéficie d'espaces extérieurs et d'une grande luminosité.",
-			"Une habitation unique, spéciale et très bien conservée.",
-			"Orientation sud, est et ouest : ensoleillement l'après-midi.",
-			"Ascenseur dans l'immeuble.",
-			"Parking pour 2 grandes voitures (3 petites) inclus dans le prix.",
-			"Grand local de stockage inclus dans le prix."
-		],
-		"caracteristicas": [
-			"Comprend un jardin privé",
-			"Comprend un garage privé double avec accès direct à la maison.",
-			"450 m² construits, 450 m² utiles",
-			"5 chambres",
-			"4 salles de bain",
-			"3 terrasses",
-			"3 petits débarras",
-			"Seconde main / bon état",
-			"Placards intégrés",
-			"Orientation sud, est, ouest",
-			"Construit en 2009",
-			"Chauffage individuel : pompe à chaleur (chauffage/climatisation)",
-			"1er étage - extérieur",
-			"Avec ascenseur",
-			"Certificat énergétique : Non indiqué"
-		]
-	},
-		"contacto": {
-		"titulo": "Contacter à propos de ce logement",
-		"boton_abrir": "Contactez-nous",
-		"labels": {
-				"nombre": "Nom",
-				"telefono": "Téléphone",
-				"email": "E-mail",
-				"estructura_compra": "Comment imaginez-vous structurer l'achat de votre futur logement (financement, ressources propres, combinaison, etc.) ?",
-				"experiencia": "Quel niveau d'expérience avez-vous dans des opérations immobilières de ce type ou dans l'acquisition de biens premium ?",
-			"acepto": "J'accepte la <a href=\"politica-privacidad-fr.html\" target=\"_blank\" rel=\"noopener\" style=\"color:#3366cc;text-decoration:underline;\">politique de confidentialité</a>"
-		},
-		"placeholders": {
-			"nombre": "Votre nom complet",
-			"telefono": "Téléphone de contact",
-			"estructura_compra": "Décrivez comment vous financeriez l'achat...",
-			"experiencia": "Brève description de votre expérience (si applicable)"
-		},
-		"botones": {
-			"enviar": "Envoyer",
-			"cancelar": "Annuler"
-		},
-		"email": {
-			"recipientes": [
-				"dmoraroca@gmail.com",
-				"mmora@canalip.com"
-			],
-			"asunto_prefijo": "Intérêt pour le logement - Maison"
-		},
-		"errores": {
-			"requerido": "Ce champ est obligatoire",
-			"aceptar_politica": "Vous devez accepter la politique de confidentialité pour continuer"
-		},
-		"nota_envio": "Votre client de messagerie s'ouvrira avec le message. Vérifiez et appuyez sur envoyer dans votre application de messagerie."
-	},
-		"ui": {
-			"errors": {
-				"network": "Impossible de charger les informations en raison d'une erreur réseau. Veuillez vérifier votre connexion.",
-				"form": "Impossible d'envoyer le formulaire en raison d'une erreur réseau.",
-				"gallery": "La galerie ne peut pas être affichée car la ressource est perdue ou indisponible. Veuillez réessayer plus tard ou contacter l'administrateur.",
-				"lang": "Impossible de changer la langue en raison d'une erreur réseau."
-			},
-			"contact": {
-					"text": "Vous souhaitez plus d'informations ou organiser une visite ? Cliquez <button id=\"contact-link-bar\" style=\"background:none;border:none;color:#3366cc;text-decoration:underline;font-weight:bold;cursor:pointer;text-transform:uppercase;\">ICI</button>.",
-				"linkWord": "ICI"
-			},
-			"contactBar": {
-				"text": "Contactez-nous"
-			},
-			"modal": {
-			"cerrar": "×",
-			"plantaAnterior": "Descendre d'étage",
-			"plantaSiguiente": "Monter d'étage",
-			"anterior": "",
-			"siguiente": "",
-			"caption": "Premier étage : détail de décoration et intérieur (5 sur 8)"
-		},
-		"cookieBanner": {
-			"texto": "Ce site utilise des cookies à des fins d'analyse. Vous pouvez accepter ou refuser.",
-			"aceptar": "Accepter",
-			"rechazar": "Refuser"
-		},
-		"footer": "© 2025 casa_lujo. Tous droits réservés.",
-		"links": {
-				"politica_privacidad": "Politique de confidentialité",
-			"contacto_boton": "Contactez-nous"
-		}
-	}
+  "meta": {
+    "title": "Maison de luxe à vendre au centre d'Arenys de Mar",
+    "description": "Maison de luxe exclusive au centre d'Arenys de Mar. Lumière naturelle, intimité et design soigné dans un cadre unique.",
+    "price": "375 000 €",
+    "keywords": "maison de luxe, Arenys de Mar, maison, centre, centrale, logement exclusif, terrasse, ascenseur, lumière naturelle, sud, est, ouest",
+    "author": "David M",
+    "og": {
+      "title": "Maison de luxe à vendre au centre d'Arenys de Mar",
+      "description": "Maison de luxe au centre d'Arenys de Mar. Lumière naturelle, intimité et design soigné dans un cadre unique.",
+      "type": "website",
+      "url": "https://davmorso.github.io/casa/",
+      "image": "/portada.jpg"
+    },
+    "twitter": {
+      "card": "summary_large_image",
+      "title": "Maison de luxe à vendre au centre d'Arenys de Mar",
+      "description": "Découvrez cette maison de luxe exclusive avec lumière naturelle, intimité et design unique à Arenys de Mar.",
+      "image": "/img/portada.jpg"
+    },
+    "politica_privacidad_url": "/casa_lujo/politica-privacidad.html"
+  },
+  "header": {
+    "title_desktop": "Maison de luxe à vendre au centre d'Arenys de Mar",
+    "title_mobile": "Maison de luxe à Arenys de Mar",
+    "price": "1 290 000 €"
+  },
+  "descripcion": "Au cœur d'Arenys de Mar, dans la rue la plus emblématique et prestigieuse de la ville, nous présentons cette résidence exclusive et incomparable, proche de la plage, de la gare et de tous les services.<br />Avec une surface de 450 m², la maison a été entièrement rénovée et équipée de finitions haut de gamme, devenant un véritable bijou qui combine l'élégance de son architecture d'origine avec le confort d'une maison moderne.<br /><br />Elle dispose d'un grand salon-salle à manger, d'une cuisine indépendante design entièrement équipée avec accès à une spectaculaire cour, et d'un total de 5 chambres (plusieurs en suite), toutes conçues pour un confort maximal. La maison dispose de parquet haut de gamme, de mobilier de luxe, de la climatisation dans toutes les pièces, de 4 salles de bains, d'un bureau avec cheminée, d'une salle d'entrée polyvalente, d'une cave, d'un jardin et d'un garage inclus dans le prix. De plus, elle est équipée d'un ascenseur pour plus de confort. Toutes les installations de la maison (électricité, gaz, climatisation) ont été installées à partir de zéro avec les technologies les plus modernes.<br /><br />À l'extérieur, la cour spacieuse offre la possibilité de construire une piscine privée, créant une oasis de luxe au centre de la ville.<br /><br />Une propriété unique et inimitable dans le Maresme, parfaite pour ceux qui recherchent exclusivité, design et confort dans un cadre privilégié au bord de la mer.<br /><br />Frais d'achat non inclus dans le prix de vente.",
+  "textos": {
+    "planta-1": {
+      "titulo": "Premier étage – Espace de jour",
+      "puntos": [
+        "Grand salon-salle à manger lumineux avec cuisine semi-ouverte.",
+        "Accès direct à une terrasse extérieure confortable.",
+        "Excellente entrée de lumière.",
+        "Cuisine haut de gamme, moderne et en parfait état.",
+        "Espaces bien intégrés, pratiques et avec beaucoup de goût architectural."
+      ],
+      "imagenes": [
+        { "src": "./img/planta 1/casa 0.jpeg", "alt": "Premier étage : vue générale" },
+        { "src": "./img/planta 1/casa 1.jpeg", "alt": "Premier étage : vue générale" },
+        { "src": "./img/planta 1/casa 2.jpeg", "alt": "Premier étage : entrée de la maison" },
+        { "src": "./img/planta 1/casa 3.jpeg", "alt": "Premier étage : salle d'invités" },
+        { "src": "./img/planta 1/casa 4.jpeg", "alt": "Premier étage : escaliers vers l'étage supérieur" },
+        { "src": "./img/planta 1/casa 5.jpeg", "alt": "Premier étage : salon" },
+        { "src": "./img/planta 1/casa 6.jpeg", "alt": "Premier étage : cuisine" },
+        { "src": "./img/planta 1/casa 7.jpeg", "alt": "Premier étage : cuisine" },
+        { "src": "./img/planta 1/casa 8.jpeg", "alt": "Premier étage : jardin" },        
+        { "src": "./img/planta 1/casa 9.jpeg", "alt": "Premier étage : jardin" },
+        { "src": "./img/planta 1/casa 10.jpeg", "alt": "Premier étage : garage" }        
+      ]
+    },
+    "planta-2": {
+      "titulo": "Deuxième étage – Suite principale",
+      "puntos": [
+        "Suite principale avec terrasse et vue sur la rue principale.",
+        "Deuxième suite avec dressing et salle de bain complète avec vue sur le jardin.",
+        "Espaces généreux et beaucoup de lumière naturelle."
+      ],
+      "imagenes": [
+        { "src": "./img/planta 2/casa 1.jpeg", "alt": "Deuxième étage : suite principale" },
+        { "src": "./img/planta 2/casa 4.jpeg", "alt": "Deuxième étage : suite principale" },
+        { "src": "./img/planta 2/casa 3.jpeg", "alt": "Deuxième étage : salle de bain suite principale" },        
+        { "src": "./img/planta 2/casa 2.jpeg", "alt": "Deuxième étage : deuxième suite" },        
+        { "src": "./img/planta 2/casa 6.jpeg", "alt": "Deuxième étage : salle de bain deuxième suite" },
+        { "src": "./img/planta 2/casa 5.jpeg", "alt": "Deuxième étage : escaliers" }
+      ]
+    },
+    "planta-3": {
+      "titulo": "Troisième étage – Deuxième suite",
+      "puntos": [
+        "Deuxième chambre type suite avec salle de bain design et puits de lumière qui apporte de la lumière naturelle toute la journée, un peu plus petite et mansardée.",
+        "Une chambre très chaleureuse et spéciale.",
+        "Accès à une autre terrasse privée."
+      ],
+      "imagenes": [
+        { "src": "./img/planta 3/casa 1.jpeg", "alt": "Troisième étage : bureau" },
+        { "src": "./img/planta 3/casa 2.jpeg", "alt": "Troisième étage : bureau" },
+        { "src": "./img/planta 3/casa 3.jpeg", "alt": "Troisième étage : petite suite" }
+      ]
+    },
+    "planta-4": {
+      "titulo": "Quatrième étage – Toit-terrasse",
+      "puntos": [
+        "Toit-terrasse et terrasse supérieure avec belle vue.",
+        "Espace idéal pour profiter de l'extérieur et de petites réunions."
+      ],
+      "imagenes": [
+        { "src": "./img/planta 4/casa 1.jpeg", "alt": "Quatrième étage : toit-terrasse/terrasse avec vue" },
+        { "src": "./img/planta 4/casa 2.jpeg", "alt": "Quatrième étage : vue toit-terrasse" }
+      ]
+    }
+  },
+  "detalles": {
+    "titulo": "Détails supplémentaires",
+    "puntos": [
+      "Escaliers confortables et sûrs entre les étages.",
+      "Toute la maison bénéficie d'espaces extérieurs et d'une grande luminosité.",
+      "Une maison unique, spéciale et très bien conservée.",
+      "Orientation sud, est et ouest : soleil l'après-midi.",
+      "Ascenseur dans l'immeuble.",
+      "Parking pour 2 grandes voitures (3 petites) inclus dans le prix.",
+      "Grand débarras inclus dans le prix."
+    ]    
+  },
+  "caracteristicas": {
+      "titulo": "Caractéristiques",      
+      "puntos": [
+        "Comprend un jardin privé",
+        "Comprend un garage privé double avec accès direct à la maison.",
+        "450 m² construits, 450 m² utiles",
+        "5 chambres",
+        "4 salles de bains",
+        "3 terrasses",
+        "3 petits débarras",
+        "Seconde main / bon état",
+        "Placards intégrés",
+        "Orientation sud, est, ouest",
+        "Construit en 2009",
+        "Chauffage individuel : pompe chaud/froid",
+        "1er étage extérieur",
+        "Avec ascenseur",
+        "Certificat énergétique : Non indiqué"
+      ]
+    },
+  "contacto": {
+    "titulo": "Contacter au sujet de ce logement",
+    "boton_abrir": "Contactez-nous",
+    "labels": {
+      "nombre": "Nom",
+      "telefono": "Téléphone",
+      "email": "E-mail",
+      "estructura_compra": "Comment imaginez-vous structurer l'achat de votre future maison (financement, ressources propres, combinaison, etc.)?",
+      "experiencia": "Quel niveau d'expérience avez-vous dans des opérations immobilières de ce type ou dans l'acquisition de propriétés premium?",
+      "acepto": "J'accepte la <a href=\"politica-privacidad.html\" target=\"_blank\" rel=\"noopener\" style=\"color:#3366cc;text-decoration:underline;\">politique de confidentialité</a>"
+    },
+    "placeholders": {
+      "nombre": "Votre nom complet",
+      "telefono": "Téléphone de contact",
+      "estructura_compra": "Décrivez comment vous financeriez l'achat...",
+      "experiencia": "Brève description de votre expérience (le cas échéant)"
+    },
+    "botones": {
+      "enviar": "Envoyer",
+      "cancelar": "Annuler"
+    },
+    "email": {
+      "recipientes": [
+        "dmoraroca@gmail.com",
+        "mmora@canalip.com"
+      ],
+      "asunto_prefijo": "Intérêt pour le logement - Maison"
+    },
+    "errores": {
+      "requerido": "Ce champ est obligatoire",
+      "aceptar_politica": "Vous devez accepter la politique de confidentialité pour continuer"
+    },
+    "nota_envio": "Votre client de messagerie s'ouvrira avec le message. Vérifiez et appuyez sur envoyer dans votre application de messagerie."
+  },
+  "ui": {
+    "errors": {
+      "network": "Impossible de charger les informations en raison d'une erreur réseau. Veuillez vérifier votre connexion.",
+      "form": "Impossible d'envoyer le formulaire en raison d'une erreur réseau.",
+      "gallery": "La galerie ne peut pas être affichée car la ressource a été perdue ou n'est pas disponible. Veuillez réessayer plus tard ou contacter l'administrateur.",
+      "lang": "Impossible de changer la langue en raison d'une erreur réseau."
+    },
+    "contact": {
+      "text": "Voulez-vous plus d'informations ou organiser une visite ?"
+    },
+    "contactBar": {
+      "text": "Contactez-nous"
+    },
+    "modal": {
+      "cerrar": "×",
+      "plantaAnterior": "Descendre d'étage",
+      "plantaSiguiente": "Monter d'étage",
+      "anterior": "◀",
+      "siguiente": "▶",
+      "caption": "Premier étage : détail de la décoration et de l'intérieur (5 sur 8)"
+    },
+    "cookieBanner": {
+      "texto": "Ce site web utilise des cookies pour l'analyse. Vous pouvez accepter ou refuser.",
+      "aceptar": "Accepter",
+      "rechazar": "Refuser"
+    },
+    "footer": "© 2025 casa_lujo. Tous droits réservés.",
+    "links": {
+      "politica_privacidad": "Politique de confidentialité",
+      "contacto_boton": "Contactez-nous"
+    }
+  },
+  "politica_privacidad_url": "politica-privacidad.html"
 }

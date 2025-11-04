@@ -1,4 +1,9 @@
-"test" 
+
+## Cambios en la versión 1.1.8
+
+1. El bloque de contacto-info (texto superior de contacto) ahora se oculta automáticamente en todos los idiomas. Solo se muestra el texto informativo y el botón "Contáctenos" en la parte inferior, justo encima del footer.
+
+2. Se elimina cualquier duplicado del texto informativo de contacto, asegurando que solo aparezca una vez en la parte inferior, independientemente del idioma seleccionado.
 ## Activar hook pre-commit para bump automático de versión
 
 Si quieres que tu copia local actualice automáticamente el comentario de versión en `index.html` antes de cada commit, ejecuta en la raíz del repositorio:
@@ -21,15 +26,14 @@ Nota: la configuración `core.hooksPath` es local al clone; cada desarrollador q
 
 
 
-
-
-
-
-
-
-
 ## Versión actual y cambios subidos
-### Refactorización SOLID v116
+
+
+### Versión subida: 118
+
+- El bloque de contacto-info (texto superior) ahora se oculta automáticamente en todos los idiomas. Solo se muestra el texto informativo y el botón "Contáctenos" en la parte inferior, justo encima del footer.
+- Se elimina cualquier duplicado del texto informativo de contacto, asegurando que solo aparezca una vez en la parte inferior, independientemente del idioma seleccionado.
+-traducciones
 
 Versión subida: 117
 
@@ -38,7 +42,7 @@ Versión subida: 117
 - Depuración mejorada: se añadieron logs para verificar el flujo de eventos y el estado de la galería.
 - Refuerzo de lógica en _showImage: la visibilidad de los botones depende del contenido real de cada planta, evitando errores de navegación y experiencia de usuario confusa.
 
-version 116
+### Refactorización SOLID v116
 
 1. Refactorización completa del frontend para cumplir con los principios SOLID:
 	- PrivacyLinkService ahora se inyecta como dependencia en los componentes de UI (modal y footer), eliminando acoplamientos innecesarios y duplicidad de lógica.

@@ -166,7 +166,7 @@
       "lang": "No se pudo cambiar el idioma por un error de red."
     },
     "contact": {
-  "text": "¿Quieres más información o concertar una visita? Haz clic <button id=\"contact-link-bar\" style=\"background:none;border:none;color:#3366cc;text-decoration:underline;font-weight:bold;cursor:pointer;text-transform:uppercase;\">Contactenos</button>.",
+  "text": "¿Quieres más información o concertar una visita?",
   "linkWord": "Contactenos"
     },
     "contactBar": {

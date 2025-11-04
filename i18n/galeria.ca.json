@@ -1,0 +1,193 @@
+{
+  "meta": {
+    "title": "Casa de luxe en venda al centre d'Arenys de Mar",
+    "description": "Exclusiva casa de luxe al centre d'Arenys de Mar. Llum natural, privacitat i disseny acurat en un entorn únic.",
+    "price": "375.000 €",
+    "keywords": "casa de luxe, Arenys de Mar, casa, centre, cèntrica, habitatge exclusiva, terrassa, ascensor, llum natural, sud, est, oest",
+    "author": "David M",
+    "og": {
+      "title": "Casa de luxe en venda al centre d'Arenys de Mar",
+      "description": "Casa de luxe al centre d'Arenys de Mar. Llum natural, privacitat i disseny acurat en un entorn únic.",
+      "type": "website",
+      "url": "https://davmorso.github.io/casa/",
+      "image": "/portada.jpg"
+    },
+    "twitter": {
+      "card": "summary_large_image",
+      "title": "Casa de luxe en venda al centre d'Arenys de Mar",
+      "description": "Descobreix aquesta exclusiva casa de luxe amb llum natural, privacitat i disseny únic a Arenys de Mar.",
+      "image": "/img/portada.jpg"
+    },
+    "politica_privacidad_url": "/casa_lujo/politica-privacidad.html"
+  },
+  "header": {
+    "title_desktop": "Casa de luxe en venda al centre d'Arenys de Mar",
+    "title_mobile": "Casa de luxe a Arenys de Mar",
+    "price": "1.290.000 €"
+  },
+  "descripcion": "Al cor d'Arenys de Mar, al carrer més emblemàtic i prestigiós de la localitat, presentem aquesta residència exclusiva i incomparable, a prop de la platja, l'estació i tots els serveis.<br />Amb una superfície de 450 m², l'habitatge ha estat completament reformada i equipada amb acabats d'alta gamma, convertint-se en una autèntica joia que combina l'elegància de la seva arquitectura original amb el confort d'una casa moderna.<br /><br />Disposa d'un ampli saló-menjador, cuina independent de disseny totalment equipada amb sortida a un espectacular pati, i un total de 5 habitacions (diverses en suite), totes pensades per al màxim confort. L'habitatge compta amb terres de parquet d'alta gamma, mobiliari de luxe, aire condicionat a totes les estances, 4 banys, despatx amb llar de foc, sala d'entrada polivalent, celler, jardí i garatge inclòs en el preu. A més, està equipada amb ascensor per a més comoditat. Totes les instal·lacions de la casa (electricitat, gas, aire condicionat) s'han instal·lat des de zero amb les tecnologies més modernes.<br /><br />A l'exterior, el espaiós pati ofereix la possibilitat de construir una piscina privada, creant un oasi de luxe al centre de la localitat.<br /><br />Una propietat única i irrepetible al Maresme, perfecta per a qui busca exclusivitat, disseny i confort en un entorn privilegiat vora el mar.<br /><br />Despeses de compra no incloses en el preu de venda.",
+  "textos": {
+    "planta-1": {
+      "titulo": "Primera planta – Zona de dia",
+      "puntos": [
+        "Ampli i lluminós saló-menjador amb cuina semioberta.",
+        "Accés directe a una còmoda terrassa exterior.",
+        "Excel·lent entrada de llum.",
+        "Cuina d'alta gamma, moderna i en perfecte estat.",
+        "Espais ben integrats, pràctics i amb molt bon gust arquitectònic."
+      ],
+      "imagenes": [
+        { "src": "./img/planta 1/casa 0.jpeg", "alt": "Primera planta: vista general" },
+        { "src": "./img/planta 1/casa 1.jpeg", "alt": "Primera planta: vista general" },
+        { "src": "./img/planta 1/casa 2.jpeg", "alt": "Primera planta: entrada casa" },
+        { "src": "./img/planta 1/casa 3.jpeg", "alt": "Primera planta: sala d'invitats" },
+        { "src": "./img/planta 1/casa 4.jpeg", "alt": "Primera planta: escales pis superior" },
+        { "src": "./img/planta 1/casa 5.jpeg", "alt": "Primera planta: saló" },
+        { "src": "./img/planta 1/casa 6.jpeg", "alt": "Primera planta: cuina" },
+        { "src": "./img/planta 1/casa 7.jpeg", "alt": "Primera planta: cuina" },
+        { "src": "./img/planta 1/casa 8.jpeg", "alt": "Primera planta: jardí" },        
+        { "src": "./img/planta 1/casa 9.jpeg", "alt": "Primera planta: jardí" },
+        { "src": "./img/planta 1/casa 10.jpeg", "alt": "Primera planta: garatge" }        
+      ]
+    },
+    "planta-2": {
+      "titulo": "Segona planta – Suite principal",
+      "puntos": [
+        "Suite principal amb terrassa i vistes al carrer principal.",
+        "Segona suite amb vestidor i bany complet amb vistes al jardí.",
+        "Espais generosos i molta llum natural."
+      ],
+      "imagenes": [
+        { "src": "./img/planta 2/casa 1.jpeg", "alt": "Segona planta: suite principal" },
+        { "src": "./img/planta 2/casa 4.jpeg", "alt": "Segona planta: suite principal" },
+        { "src": "./img/planta 2/casa 3.jpeg", "alt": "Segona planta: lavabo suite principal" },        
+        { "src": "./img/planta 2/casa 2.jpeg", "alt": "Segona planta: segona suite" },        
+        { "src": "./img/planta 2/casa 6.jpeg", "alt": "Segona planta: lavabo segona suite" },
+        { "src": "./img/planta 2/casa 5.jpeg", "alt": "Segona planta: escala" }
+      ]
+    },
+    "planta-3": {
+      "titulo": "Tercera planta – Segona suite",
+      "puntos": [
+        "Segona habitació tipus suite amb bany de disseny amb claraboia que proporciona llum natural tot el dia, una mica més petita i sota teulada.",
+        "Una habitació molt acollidora i especial.",
+        "Accés a una altra terrassa privada."
+      ],
+      "imagenes": [
+        { "src": "./img/planta 3/casa 1.jpeg", "alt": "Tercera planta: despatx" },
+        { "src": "./img/planta 3/casa 2.jpeg", "alt": "Tercera planta: despatx" },
+        { "src": "./img/planta 3/casa 3.jpeg", "alt": "Tercera planta: suite petita" }
+      ]
+    },
+    "planta-4": {
+      "titulo": "Quarta planta – Terrat",
+      "puntos": [
+        "Terrat i terrassa superior amb bones vistes.",
+        "Espai ideal per gaudir a l'aire lliure i petites reunions."
+      ],
+      "imagenes": [
+        { "src": "./img/planta 4/casa 1.jpeg", "alt": "Quarta planta: terrat/terrassa amb vistes" },
+        { "src": "./img/planta 4/casa 2.jpeg", "alt": "Quarta planta: vista terrat" }
+      ]
+    }
+  },
+  "detalles": {
+    "titulo": "Detalls addicionals",
+    "puntos": [
+      "Escales còmodes i segures entre plantes.",
+      "Tota l'habitatge gaudeix d'espais exteriors i una gran lluminositat.",
+      "Un habitatge únic, especial i molt ben conservat.",
+      "Orientació sud, est i oest: sol a les tardes.",
+      "Ascensor a l'edifici.",
+      "Aparcament per a 2 cotxes grans (3 petits) inclòs en el preu.",
+      "Traster gran inclòs en el preu."
+    ]    
+  },
+  "caracteristicas": {
+      "titulo": "Característiques",      
+      "puntos": [
+        "Inclou jardí privat",
+        "Inclou garatge particular doble amb accés directe a l'habitatge.",
+        "450 m² construïts, 450 m² útils",
+        "5 habitacions",
+        "4 banys",
+        "3 terrasses",
+        "3 petits trasters",
+        "Segona mà / bon estat",
+        "Armaris encastats",
+        "Orientació sud, est, oest",
+        "Construït el 2009",
+        "Calefacció individual: bomba de fred/calor",
+        "Planta 1a exterior",
+        "Amb ascensor",
+        "Certificat energètic: No indicat"
+      ]
+    },
+  "contacto": {
+    "titulo": "Contactar sobre aquest habitatge",
+    "boton_abrir": "Contacta'ns",
+    "labels": {
+      "nombre": "Nom",
+      "telefono": "Telèfon",
+      "email": "E-mail",
+      "estructura_compra": "Com imagines estructurar la compra del teu futur habitatge (finançament, recursos propis, combinació, etc.)?",
+      "experiencia": "Quin nivell d'experiència tens en operacions immobiliàries d'aquest tipus o en l'adquisició de propietats premium?",
+      "acepto": "Accepto la <a href=\"politica-privacidad.html\" target=\"_blank\" rel=\"noopener\" style=\"color:#3366cc;text-decoration:underline;\">política de privacitat</a>"
+    },
+    "placeholders": {
+      "nombre": "El teu nom complet",
+      "telefono": "Telèfon de contacte",
+      "estructura_compra": "Descriu com finançaries la compra...",
+      "experiencia": "Breu descripció de la teva experiència (si s'escau)"
+    },
+    "botones": {
+      "enviar": "Enviar",
+      "cancelar": "Cancel·lar"
+    },
+    "email": {
+      "recipientes": [
+        "dmoraroca@gmail.com",
+        "mmora@canalip.com"
+      ],
+      "asunto_prefijo": "Interès en habitatge - Casa"
+    },
+    "errores": {
+      "requerido": "Aquest camp és obligatori",
+      "aceptar_politica": "Has d'acceptar la política de privacitat per continuar"
+    },
+    "nota_envio": "S'obrirà el teu client de correu amb el missatge. Revisa i prem enviar a la teva aplicació de correu."
+  },
+  "ui": {
+    "errors": {
+      "network": "No s'ha pogut carregar la informació per un error de xarxa. Si us plau, revisa la teva connexió.",
+      "form": "No s'ha pogut enviar el formulari per un error de xarxa.",
+      "gallery": "No es pot mostrar la galeria perquè el recurs s'ha perdut o no està disponible. Torna-ho a intentar més tard o contacta amb l'administrador.",
+      "lang": "No s'ha pogut canviar l'idioma per un error de xarxa."
+    },
+    "contact": {
+      "text": "Vols més informació o concertar una visita?"
+    },
+    "contactBar": {
+      "text": "Contacta'ns"
+    },
+    "modal": {
+      "cerrar": "×",
+      "plantaAnterior": "Baixar pis",
+      "plantaSiguiente": "Pujar pis",
+      "anterior": "◀",
+      "siguiente": "▶",
+      "caption": "Primera planta: detall de decoració i interior (5 de 8)"
+    },
+    "cookieBanner": {
+      "texto": "Aquest lloc web utilitza cookies per a l'anàlisi. Pots acceptar o rebutjar.",
+      "aceptar": "Acceptar",
+      "rechazar": "Rebutjar"
+    },
+    "footer": "© 2025 casa_lujo. Tots els drets reservats.",
+    "links": {
+      "politica_privacidad": "Política de privacitat",
+      "contacto_boton": "Contacta'ns"
+    }
+  },
+  "politica_privacidad_url": "politica-privacidad.html"
+}

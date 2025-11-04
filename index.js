@@ -80,3 +80,103 @@ function initContactModal() {
 }
 
 document.getElementById('contactenos-btn').addEventListener('click', initContactModal);
+// --- Renderizar la casa al cambiar idioma dinámicamente ---
+document.addEventListener('i18nLoaded', (ev) => {
+  const { lang, i18n } = ev.detail || {};
+  const mainContainer = document.getElementById('main-content') || document.body;
+  // Limpiar el contenido principal
+  while (mainContainer.firstChild) mainContainer.removeChild(mainContainer.firstChild);
+  // Instanciar la casa con el nuevo idioma y JSON
+  import('./presentation/components/house/house.js').then(mod => {
+    new mod.default({
+      idioma: lang,
+      data: i18n,
+      container: mainContainer
+    });
+  });
+});
+
+// --- Eliminar el bloque de contacto-info y añadir botón inferior fijo ---
+document.addEventListener('i18nLoaded', (ev) => {
+  // Ocultar el bloque de contacto-info si existe
+  const contactoDiv = document.getElementById('contacto-info');
+  if (contactoDiv) {
+    contactoDiv.style.display = 'none';
+  }
+
+    // Eliminar cualquier texto informativo duplicado arriba del bloque contacto-info-block
+    const oldInfoBlocks = document.querySelectorAll('.contacto-info-text');
+    if (oldInfoBlocks.length > 1) {
+      // Mantener solo el último (el de abajo)
+      for (let i = 0; i < oldInfoBlocks.length - 1; i++) {
+        const el = oldInfoBlocks[i];
+        if (el && el.parentNode) el.parentNode.removeChild(el);
+      }
+    }
+
+
+  // Añadir texto y botón inferior antes del footer
+  let infoBlock = document.getElementById('contacto-info-block');
+  if (!infoBlock) {
+    infoBlock = document.createElement('div');
+    infoBlock.id = 'contacto-info-block';
+    infoBlock.style.maxWidth = '900px';
+    infoBlock.style.margin = '48px auto 0 auto';
+    infoBlock.style.textAlign = 'center';
+    // Insertar antes del footer negro
+    const footer = document.getElementById('cookie-banner');
+    if (footer && footer.parentNode) {
+      footer.parentNode.insertBefore(infoBlock, footer);
+    } else {
+      document.body.appendChild(infoBlock);
+    }
+  }
+
+    // Texto informativo según idioma (sin link)
+    const i18n = ev.detail && ev.detail.i18n;
+    let infoText = (i18n && i18n.ui && i18n.ui.contact && i18n.ui.contact.text)
+      ? i18n.ui.contact.text.replace(/<button[^>]*>.*?<\/button>/, '').replace(/<a[^>]*>.*?<\/a>/, '')
+      : '¿Quieres más información o concertar una visita?';
+
+    // Evitar duplicados: solo añadir el div de texto si no existe
+    let infoTextDiv = infoBlock.querySelector('.contacto-info-text');
+    if (!infoTextDiv) {
+      infoTextDiv = document.createElement('div');
+      infoTextDiv.className = 'contacto-info-text';
+      infoTextDiv.style.fontSize = '1.22rem';
+      infoTextDiv.style.color = '#222';
+      infoTextDiv.style.lineHeight = '1.7';
+      infoTextDiv.style.marginBottom = '18px';
+      infoTextDiv.textContent = "";
+      infoBlock.appendChild(infoTextDiv);
+    } else {
+      infoTextDiv.textContent = "";
+    }
+
+    // Añadir botón debajo, solo si no existe
+    let btnBottom = document.getElementById('contactenos-bottom-btn');
+    if (!btnBottom) {
+      btnBottom = document.createElement('button');
+      btnBottom.id = 'contactenos-bottom-btn';
+      btnBottom.style.display = 'block';
+      btnBottom.style.margin = '0 auto 48px auto';
+      btnBottom.style.background = '#3366cc';
+      btnBottom.style.color = '#fff';
+      btnBottom.style.fontWeight = 'bold';
+      btnBottom.style.fontSize = '1.2rem';
+      btnBottom.style.padding = '12px 32px';
+      btnBottom.style.border = 'none';
+      btnBottom.style.borderRadius = '8px';
+      btnBottom.style.boxShadow = '0 2px 12px rgba(0,0,0,0.12)';
+      btnBottom.style.cursor = 'pointer';
+      infoBlock.appendChild(btnBottom);
+    }
+    let textoBtn = (i18n && i18n.ui && i18n.ui.contactBar && i18n.ui.contactBar.text) ? i18n.ui.contactBar.text : 'Contáctenos';
+    if (ev.detail && ev.detail.lang === 'es') textoBtn = 'Contáctenos';
+    btnBottom.textContent = textoBtn;
+    btnBottom.onclick = () => {
+      if (typeof window.initContactModal === 'function') {
+        window.initContactModal();
+      }
+    };
+});

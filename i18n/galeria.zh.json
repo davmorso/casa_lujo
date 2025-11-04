@@ -1,187 +1,193 @@
 {
-	"meta": {
-		"title": "位于阿雷尼斯德马尔中心的豪华住宅出售",
-		"description": "阿雷尼斯德马尔中心的豪华住宅。自然采光、私密性和精心设计，环境独特。",
-		"price": "375.000 €",
-		"keywords": "豪华住宅, 阿雷尼斯德马尔, 住宅, 市中心, 独家住宅, 露台, 电梯, 自然采光, 南, 东, 西",
-		"author": "David M",
-		"og": {
-			"title": "位于阿雷尼斯德马尔中心的豪华住宅出售",
-			"description": "阿雷尼斯德马尔中心的豪华住宅。自然采光、私密性和精心设计，环境独特。",
-			"type": "website",
-			"url": "https://davmorso.github.io/casa/",
-			"image": "/portada.jpg"
-		},
-		"twitter": {
-			"card": "summary_large_image",
-			"title": "位于阿雷尼斯德马尔中心的豪华住宅出售",
-			"description": "探索这座独家豪华住宅，拥有自然采光、私密性和独特设计，位于阿雷尼斯德马尔。",
-			"image": "/img/portada.jpg"
-		},
-		"politica_privacidad_url": "politica-privacidad-zh.html"
-	},
-	"header": {
-		"title_desktop": "位于阿雷尼斯德马尔中心的豪华住宅出售",
-		"title_mobile": "阿雷尼斯德马尔豪华住宅",
-		"price": "1.290.000 €"
-	},
-	"descripcion": "位于阿雷尼斯德马尔的心脏地带，在该市最具标志性和声望的街道上，我们为您呈现这座独特无比的专属住宅，靠近海滩、车站和所有服务设施。<br />住宅面积450平方米，已全面翻新并配备高端装饰，成为一颗真正的明珠，将原有建筑的优雅与现代住宅的舒适完美结合。<br /><br />设有宽敞的客厅-餐厅、独立设计师厨房，直通壮观的庭院，共有5间卧室（多间套房），均为最大舒适度而设计。住宅配备高端实木地板、豪华家具、全屋空调、4间浴室、带壁炉的书房、多功能入口大厅、酒窖、花园和车库（价格已含）。此外还配有电梯，提升居住便利性。所有设施（电力、燃气、空调）均采用最现代化技术全新安装。<br /><br />室外宽敞的庭院可建私人泳池，打造市中心的奢华绿洲。<br /><br />马雷斯梅地区独一无二的物业，适合追求专属、设计与舒适的海滨优质生活。<br /><br />购买费用未包含在销售价格中。",
-	"textos": {
-		"planta-1": {
-			"titulo": "一层 – 日间区",
-			"puntos": [
-				"宽敞明亮的客厅-餐厅，配半开放式厨房。",
-				"可直接通往舒适的室外露台。",
-				"采光极佳。",
-				"高端现代厨房，状况极佳。",
-				"空间布局合理，实用且极具建筑美感。"
-			],
-			"imagenes": [
-				{ "src": "img/planta 1/casa 0.jpeg", "alt": "一层：宽敞明亮的客厅-餐厅，全景" },
-				{ "src": "img/planta 1/casa 1.jpeg", "alt": "一层：高端半开放式厨房，台面" },
-				{ "src": "img/planta 1/casa 2.jpeg", "alt": "一层：厨房及工作区" },
-				{ "src": "img/planta 1/casa 3.jpeg", "alt": "一层：带沙发的休息区" },
-				{ "src": "img/planta 1/casa 4.jpeg", "alt": "一层：装饰与室内细节" },
-				{ "src": "img/planta 1/casa 5.jpeg", "alt": "一层：通往室外露台" },
-				{ "src": "img/planta 1/casa 6.jpeg", "alt": "一层：底层浴室/卫生间" },
-				{ "src": "img/planta 1/casa 7.jpeg", "alt": "一层：室外景观与采光" }
-			]
-		},
-		"planta-2": {
-			"titulo": "二层 – 主套房",
-			"puntos": [
-				"主套房带露台，俯瞰主街。",
-				"第二套房带衣帽间和全套浴室，俯瞰花园。",
-				"空间宽敞，采光充足。"
-			],
-			"imagenes": [
-				{ "src": "img/planta 2/casa 1.jpeg", "alt": "二层：带衣帽间的套房" },
-				{ "src": "img/planta 2/casa 2.jpeg", "alt": "二层：走廊及房间入口" },
-				{ "src": "img/planta 2/casa 3.jpeg", "alt": "二层：主卧" },
-				{ "src": "img/planta 2/casa 4.jpeg", "alt": "二层：卧室私人露台" },
-				{ "src": "img/planta 2/casa 5.jpeg", "alt": "二层：卧室浴室，淋浴间" }
-			]
-		},
-		"planta-3": {
-			"titulo": "三层 – 第二套房",
-			"puntos": [
-				"第二间套房带设计师浴室和天窗，全天自然采光，空间略小且带阁楼。",
-				"非常温馨特别的房间。",
-				"可通往另一私人露台。"
-			],
-			"imagenes": [
-				{ "src": "img/planta 3/casa 1.jpeg", "alt": "三层：休息区或露台" },
-				{ "src": "img/planta 3/casa 2.jpeg", "alt": "三层：第二套房，带阁楼" },
-				{ "src": "img/planta 3/casa 3.jpeg", "alt": "三层：洗衣房" }
-			]
-		},
-		"planta-4": {
-			"titulo": "四层 – 顶层露台",
-			"puntos": [
-				"屋顶及顶层露台，视野开阔。",
-				"理想的户外休闲与小型聚会空间。"
-			],
-			"imagenes": [
-				{ "src": "img/planta 4/casa 1.jpeg", "alt": "四层：屋顶/露台景观" }
-			]
-		}
-	},
-	"detalles": {
-		"titulo": "更多细节",
-		"caracteristicas_titulo": "特色",
-		"puntos": [
-			"楼层间楼梯舒适安全。",
-			"全屋享有室外空间与充足采光。",
-			"特色",
-			"南、东、西朝向：下午有阳光。",
-			"楼内配有电梯。",
-			"含2辆大型（或3辆小型）车位。",
-			"含大储藏室。"
-		],
-		"caracteristicas": [
-			"含私人花园",
-			"含双车位私人车库，直通住宅。",
-			"450平方米建筑面积，450平方米实用面积",
-			"5间卧室",
-			"4间浴室",
-			"3个露台",
-			"3个小储藏室",
-			"二手房 / 状况良好",
-			"嵌入式衣柜",
-			"南、东、西朝向",
-			"建于2009年",
-			"独立供暖：冷热泵",
-			"一层外部",
-			"带电梯",
-			"能源证书：未注明"
-		]
-	},
-	"contacto": {
-		"titulo": "咨询此住宅",
-		"boton_abrir": "联系我们",
-		"labels": {
-			"nombre": "姓名",
-			"telefono": "电话",
-			"email": "电子邮件",
-			"estructura_compra": "您如何规划未来住宅的购买结构（融资、自有资金、组合等）？",
-			"experiencia": "您在此类房地产交易或高端物业购买方面有何经验？",
-			"acepto": "我接受<a href=\"politica-privacidad-zh.html\" target=\"_blank\" rel=\"noopener\" style=\"color:#3366cc;text-decoration:underline;\">隐私政策</a>"
-		},
-		"placeholders": {
-			"nombre": "您的全名",
-			"telefono": "联系电话",
-			"estructura_compra": "请描述您的购房资金安排...",
-			"experiencia": "简要描述您的相关经验（如有）"
-		},
-		"botones": {
-			"enviar": "发送",
-			"cancelar": "取消"
-		},
-		"email": {
-			"recipientes": [
-				"dmoraroca@gmail.com",
-				"mmora@canalip.com"
-			],
-			"asunto_prefijo": "购房意向 - 住宅"
-		},
-		"errores": {
-			"requerido": "此字段为必填项",
-			"aceptar_politica": "您必须接受隐私政策才能继续"
-		},
-		"nota_envio": "您的邮件客户端将打开此消息。请检查并在邮件应用中点击发送。"
-	},
-		"ui": {
-			"errors": {
-				"network": "由于网络错误，无法加载信息。请检查您的连接。",
-				"form": "由于网络错误，无法提交表单。",
-			"gallery": "由于图库资源丢失或不可用，无法显示图库。请稍后重试或联系管理员。",
-				"lang": "由于网络错误，无法切换语言。"
-			},
-		"contact": {
-			"text": "想了解更多信息或预约参观？请点击 <button id=\"contact-link-bar\" style=\"background:none;border:none;color:#3366cc;text-decoration:underline;font-weight:bold;cursor:pointer;text-transform:uppercase;\">这里</button>。",
-			"linkWord": "这里"
-		},
-		"contactBar": {
-			"text": "联系我们"
-		},
-		"modal": {
-			"cerrar": "×",
-		"plantaAnterior": "下楼层",
-		"plantaSiguiente": "上楼层",
-			"anterior": "←",
-			"siguiente": "→",
-			"caption": "一层：装饰与室内细节（8张中的第5张）"
-		},
-		"cookieBanner": {
-			"texto": "本网站使用cookies进行分析。您可以接受或拒绝。",
-			"aceptar": "接受",
-			"rechazar": "拒绝"
-		},
-		"footer": "© 2025 casa_lujo. 版权所有。",
-		"links": {
-			"politica_privacidad": "隐私政策",
-			"contacto_boton": "这里"
-		}
-	},
-		"politica_privacidad_url": "/casa_lujo/politica-privacidad-zh.html"
+  "meta": {
+    "title": "阿雷尼斯-德马尔市中心豪宅出售",
+    "description": "阿雷尼斯-德马尔市中心独家豪宅。自然采光、私密性和精心设计，独特环境。",
+    "price": "375,000 €",
+    "keywords": "豪宅, 阿雷尼斯-德马尔, 房子, 市中心, 中心, 独家住宅, 露台, 电梯, 自然采光, 南, 东, 西",
+    "author": "David M",
+    "og": {
+      "title": "阿雷尼斯-德马尔市中心豪宅出售",
+      "description": "阿雷尼斯-德马尔市中心豪宅。自然采光、私密性和精心设计，独特环境。",
+      "type": "website",
+      "url": "https://davmorso.github.io/casa/",
+      "image": "/portada.jpg"
+    },
+    "twitter": {
+      "card": "summary_large_image",
+      "title": "阿雷尼斯-德马尔市中心豪宅出售",
+      "description": "探索这座独家豪宅，拥有自然采光、私密性和独特设计，位于阿雷尼斯-德马尔。",
+      "image": "/img/portada.jpg"
+    },
+    "politica_privacidad_url": "/casa_lujo/politica-privacidad.html"
+  },
+  "header": {
+    "title_desktop": "阿雷尼斯-德马尔市中心豪宅出售",
+    "title_mobile": "阿雷尼斯-德马尔豪宅",
+    "price": "1,290,000 €"
+  },
+  "descripcion": "位于阿雷尼斯-德马尔的心脏地带，在该市最具标志性和声望的街道上，我们呈现这座独家且无与伦比的住宅，靠近海滩、车站和所有服务设施。<br />房屋面积450平方米，经过全面翻新，配备高端饰面，成为一颗真正的宝石，将原始建筑的优雅与现代住宅的舒适完美结合。<br /><br />拥有宽敞的客厅-餐厅、独立设计师厨房，配备齐全并可通往壮观的庭院，共有5间卧室（多间套房），均为最大舒适度而设计。房屋配备高端地板、豪华家具、所有房间均有空调、4间浴室、带壁炉的办公室、多功能入口大厅、酒窖、花园和车库均包含在价格内。此外，配备电梯以提升舒适度。所有设施（电、水、空调）均采用最现代化技术从零安装。<br /><br />室外宽敞的庭院可建造私人游泳池，在市中心打造奢华绿洲。<br /><br />马雷斯梅地区独一无二的物业，适合追求独特性、设计和舒适的海滨优质环境人士。<br /><br />购买费用未包含在销售价格中。",
+  "textos": {
+    "planta-1": {
+      "titulo": "一楼 – 日间区域",
+      "puntos": [
+        "宽敞明亮的客厅-餐厅，配半开放式厨房。",
+        "可直达舒适的户外露台。",
+        "采光极佳。",
+        "高端现代厨房，状况完美。",
+        "空间布局合理，实用且极具建筑美感。"
+      ],
+      "imagenes": [
+        { "src": "./img/planta 1/casa 0.jpeg", "alt": "一楼：全景" },
+        { "src": "./img/planta 1/casa 1.jpeg", "alt": "一楼：全景" },
+        { "src": "./img/planta 1/casa 2.jpeg", "alt": "一楼：房屋入口" },
+        { "src": "./img/planta 1/casa 3.jpeg", "alt": "一楼：客房" },
+        { "src": "./img/planta 1/casa 4.jpeg", "alt": "一楼：通往上层的楼梯" },
+        { "src": "./img/planta 1/casa 5.jpeg", "alt": "一楼：客厅" },
+        { "src": "./img/planta 1/casa 6.jpeg", "alt": "一楼：厨房" },
+        { "src": "./img/planta 1/casa 7.jpeg", "alt": "一楼：厨房" },
+        { "src": "./img/planta 1/casa 8.jpeg", "alt": "一楼：花园" },        
+        { "src": "./img/planta 1/casa 9.jpeg", "alt": "一楼：花园" },
+        { "src": "./img/planta 1/casa 10.jpeg", "alt": "一楼：车库" }        
+      ]
+    },
+    "planta-2": {
+      "titulo": "二楼 – 主套房",
+      "puntos": [
+        "主套房带露台，俯瞰主街。",
+        "第二套房带更衣室和全景浴室，俯瞰花园。",
+        "空间宽敞，采光充足。"
+      ],
+      "imagenes": [
+        { "src": "./img/planta 2/casa 1.jpeg", "alt": "二楼：主套房" },
+        { "src": "./img/planta 2/casa 4.jpeg", "alt": "二楼：主套房" },
+        { "src": "./img/planta 2/casa 3.jpeg", "alt": "二楼：主套房浴室" },        
+        { "src": "./img/planta 2/casa 2.jpeg", "alt": "二楼：第二套房" },        
+        { "src": "./img/planta 2/casa 6.jpeg", "alt": "二楼：第二套房浴室" },
+        { "src": "./img/planta 2/casa 5.jpeg", "alt": "二楼：楼梯" }
+      ]
+    },
+    "planta-3": {
+      "titulo": "三楼 – 第二套房",
+      "puntos": [
+        "第二套房带设计师浴室和天窗，全天自然采光，空间较小且带阁楼。",
+        "非常温馨特别的房间。",
+        "可通往另一处私人露台。"
+      ],
+      "imagenes": [
+        { "src": "./img/planta 3/casa 1.jpeg", "alt": "三楼：书房" },
+        { "src": "./img/planta 3/casa 2.jpeg", "alt": "三楼：书房" },
+        { "src": "./img/planta 3/casa 3.jpeg", "alt": "三楼：小套房" }
+      ]
+    },
+    "planta-4": {
+      "titulo": "四楼 – 顶层露台",
+      "puntos": [
+        "顶层露台，视野开阔。",
+        "户外休闲和小型聚会的理想空间。"
+      ],
+      "imagenes": [
+        { "src": "./img/planta 4/casa 1.jpeg", "alt": "四楼：顶层露台/观景露台" },
+        { "src": "./img/planta 4/casa 2.jpeg", "alt": "四楼：顶层露台视角" }
+      ]
+    }
+  },
+  "detalles": {
+    "titulo": "其他细节",
+    "puntos": [
+      "楼层间楼梯舒适安全。",
+      "整栋房屋均享有户外空间和充足采光。",
+      "独特、特别且保存完好的住宅。",
+      "朝向南、东、西：下午有阳光。",
+      "楼内配备电梯。",
+      "价格包含2辆大型车（或3辆小型车）停车位。",
+      "价格包含大型储藏室。"
+    ]    
+  },
+  "caracteristicas": {
+      "titulo": "特色",      
+      "puntos": [
+        "包含私人花园",
+        "包含双车位私人车库，直通住宅。",
+        "建筑面积450平方米，实用面积450平方米",
+        "5间卧室",
+        "4间浴室",
+        "3个露台",
+        "3个小型储藏室",
+        "二手房 / 状况良好",
+        "嵌入式衣柜",
+        "朝向南、东、西",
+        "建于2009年",
+        "独立供暖：冷热泵",
+        "外部一楼",
+        "配备电梯",
+        "能源证书：未注明"
+      ]
+    },
+  "contacto": {
+    "titulo": "咨询此房产",
+    "boton_abrir": "联系我们",
+    "labels": {
+      "nombre": "姓名",
+      "telefono": "电话",
+      "email": "电子邮件",
+      "estructura_compra": "您如何规划未来住房的购买（融资、自有资金、组合等）？",
+      "experiencia": "您在此类房地产交易或高端房产购置方面有何经验？",
+      "acepto": "我接受<a href=\"politica-privacidad.html\" target=\"_blank\" rel=\"noopener\" style=\"color:#3366cc;text-decoration:underline;\">隐私政策</a>"
+    },
+    "placeholders": {
+      "nombre": "您的全名",
+      "telefono": "联系电话",
+      "estructura_compra": "请描述您将如何融资购买...",
+      "experiencia": "简要描述您的经验（如适用）"
+    },
+    "botones": {
+      "enviar": "发送",
+      "cancelar": "取消"
+    },
+    "email": {
+      "recipientes": [
+        "dmoraroca@gmail.com",
+        "mmora@canalip.com"
+      ],
+      "asunto_prefijo": "房产意向 - 房屋"
+    },
+    "errores": {
+      "requerido": "此字段为必填项",
+      "aceptar_politica": "您必须接受隐私政策才能继续"
+    },
+    "nota_envio": "您的邮件客户端将打开此消息。请检查并在邮件应用中点击发送。"
+  },
+  "ui": {
+    "errors": {
+      "network": "由于网络错误，无法加载信息。请检查您的连接。",
+      "form": "由于网络错误，无法发送表单。",
+      "gallery": "由于资源丢失或不可用，无法显示画廊。请稍后重试或联系管理员。",
+      "lang": "由于网络错误，无法切换语言。"
+    },
+    "contact": {
+      "text": "想了解更多信息或预约参观？"
+    },
+    "contactBar": {
+      "text": "联系我们"
+    },
+    "modal": {
+      "cerrar": "×",
+      "plantaAnterior": "下楼",
+      "plantaSiguiente": "上楼",
+      "anterior": "◀",
+      "siguiente": "▶",
+      "caption": "一楼：装饰与室内细节（8张中的第5张）"
+    },
+    "cookieBanner": {
+      "texto": "本网站使用cookies进行分析。您可以接受或拒绝。",
+      "aceptar": "接受",
+      "rechazar": "拒绝"
+    },
+    "footer": "© 2025 casa_lujo. 版权所有。",
+    "links": {
+      "politica_privacidad": "隐私政策",
+      "contacto_boton": "联系我们"
+    }
+  },
+  "politica_privacidad_url": "politica-privacidad.html"
 }
