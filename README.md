@@ -1,3 +1,7 @@
+### Versión subida: 123
+
+- Corregido error 'Assignment to constant variable' usando let en vez de const para repoPath en GalleryModal.js.
+- El import dinámico de galleryRepository.js ahora funciona correctamente en producción y local tras mover el archivo y ajustar la ruta.
 ### Versión subida: 120
 
 - GalleryModal ahora detecta automáticamente si está en producción (GitHub Pages /casa_lujo/) y ajusta la ruta de importación de galleryRepository.js para evitar errores 404. El modal funciona correctamente tanto en local como en producción.
