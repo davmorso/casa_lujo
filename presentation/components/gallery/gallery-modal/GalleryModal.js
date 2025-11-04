@@ -1,3 +1,4 @@
+// Carpeta de repositorio de galería (para facilitar cambios futuros)
 // GalleryModal.js
 // Modal de navegación por la galería
 export default class GalleryModal {
@@ -60,8 +61,8 @@ export default class GalleryModal {
           // Detecta si está en producción (GitHub Pages /casa_lujo/)
           const isProd = window.location.pathname.includes('/casa_lujo/');
           let repoPath = isProd
-            ? '../gallery/_gallery/galleryRepository.js'
-            : '../../gallery/_gallery/galleryRepository.js';
+            ? `../gallery/galleryRepository.js`
+            : `../../galleryRepository.js`;
           import(repoPath).then(module => {
             // Pasa window._casaData como i18n para asegurar acceso correcto
             this._galleryRepository = module.default ? new module.default(window._casaData) : new module.GalleryRepository(window._casaData);
