@@ -1,7 +1,7 @@
 // Interfaz para el caso de uso de galería
 // Cumple con SOLID
 
-export default class IGaleriaUseCase {
+export default class IGalleryUseCase {
   /**
    * Selecciona el piso actual
    * @param {string} floor

@@ -31,6 +31,13 @@ Nota: la configuración `core.hooksPath` es local al clone; cada desarrollador q
 ## Versión actual y cambios subidos
 ### Refactorización SOLID v116
 
+Versión subida: 117
+
+- Navegación de galería robusta por plantas: el botón "subir planta" ahora solo aparece si la siguiente planta tiene imágenes, evitando navegación a plantas vacías.
+- Corrección de visibilidad: el botón se oculta correctamente en la última planta y si la siguiente está vacía.
+- Depuración mejorada: se añadieron logs para verificar el flujo de eventos y el estado de la galería.
+- Refuerzo de lógica en _showImage: la visibilidad de los botones depende del contenido real de cada planta, evitando errores de navegación y experiencia de usuario confusa.
+
 version 116
 
 1. Refactorización completa del frontend para cumplir con los principios SOLID:
@@ -41,7 +48,7 @@ version 116
 	- Cada componente tiene responsabilidad única y puede ser testeado o extendido fácilmente.
 	- Si se requiere otro tipo de enlace o sanitización, basta con implementar un nuevo servicio.
 3. Seguridad:
-	- Se mantiene la sanitización estricta en todos los puntos donde se usa innerHTML.
+	- Se mantiene la sanitización estricta en todos los punten el commit pon un resumen os donde se usa innerHTML.
 
 ### Revisión de seguridad y sanitización v115
 
@@ -427,4 +434,7 @@ FROM_ADDRESS=tu_usuario@gmail.com
 **Advertencia:** Si usas `console.log` para depurar variables sensibles (por ejemplo, mostrando el contenido de `configuration.env` o `process.env` en `server.js`), recuerda eliminar ese código tras la depuración. Nunca dejes logs de credenciales o datos privados en producción.
 
 Nota de seguridad: el servidor imprime en consola el usuario y contraseña SMTP para depuración local. Elimina ese log tras probar y nunca subas `configuration.env` al repositorio.
+
+
+version 117
 

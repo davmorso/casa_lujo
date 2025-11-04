@@ -26,6 +26,7 @@ function replaceUlWithItems(container, items) {
 }
 
 function applyI18n(json = {}) {
+	console.log('[applyI18n] called', json);
 		// Botones de navegación del modal (anterior/siguiente/planta)
 		if (json.ui && json.ui.modal) {
 			const btnAnterior = document.getElementById('anterior');
@@ -40,21 +41,89 @@ function applyI18n(json = {}) {
 	if (btnSiguiente && json.ui.modal.siguiente) {
 		// usar textContent para evitar insertar HTML y crear un span para la flecha
 		btnSiguiente.textContent = json.ui.modal.siguiente;
-		// añadir flecha visual si no existe ya (evitar duplicados)
-		if (!btnSiguiente.querySelector('.btn-arrow')) {
-			const span = document.createElement('span');
-			span.className = 'btn-arrow';
-			span.textContent = ' ▶';
-			btnSiguiente.appendChild(span);
-		}
+		// eliminar flechas previas
+		const oldArrows = btnSiguiente.querySelectorAll('.btn-arrow');
+		oldArrows.forEach(a => a.remove());
+		// añadir flecha visual única
+		const span = document.createElement('span');
+		span.className = 'btn-arrow';
+		span.textContent = ' ▶';
+		btnSiguiente.appendChild(span);
 	}
-			if (btnPlantaAnterior && json.ui.modal.plantaAnterior) btnPlantaAnterior.textContent = json.ui.modal.plantaAnterior;
-			if (btnPlantaSiguiente && json.ui.modal.plantaSiguiente) btnPlantaSiguiente.textContent = json.ui.modal.plantaSiguiente;
+	if (btnAnterior && json.ui.modal.anterior) {
+		btnAnterior.textContent = json.ui.modal.anterior;
+		// eliminar flechas previas
+		const oldArrows = btnAnterior.querySelectorAll('.btn-arrow');
+		oldArrows.forEach(a => a.remove());
+		// añadir flecha visual única
+		const span = document.createElement('span');
+		span.className = 'btn-arrow';
+		span.textContent = ' ◀';
+		btnAnterior.insertBefore(span, btnAnterior.firstChild);
+	}
+			if (btnPlantaAnterior) {
+				// eliminar flechas previas y texto
+				btnPlantaAnterior.textContent = '';
+				const oldArrows = btnPlantaAnterior.querySelectorAll('.btn-arrow');
+				oldArrows.forEach(a => a.remove());
+				// crear circunferencia con flecha arriba
+				const circleUp = document.createElement('span');
+				circleUp.className = 'btn-arrow';
+				circleUp.style.display = 'inline-flex';
+				circleUp.style.alignItems = 'center';
+				circleUp.style.justifyContent = 'center';
+				circleUp.style.width = '48px';
+				circleUp.style.height = '48px';
+				circleUp.style.borderRadius = '50%';
+				circleUp.style.background = 'rgba(0,0,0,0.8)';
+				circleUp.style.boxShadow = '0 2px 8px rgba(0,0,0,0.18)';
+				circleUp.style.color = 'white';
+				circleUp.style.fontSize = '2em';
+				circleUp.innerHTML = '&#9650;'; // flecha arriba
+				btnPlantaAnterior.appendChild(circleUp);
+			}
+			if (btnPlantaSiguiente) {
+				// eliminar flechas previas y texto
+				btnPlantaSiguiente.textContent = '';
+				const oldArrows = btnPlantaSiguiente.querySelectorAll('.btn-arrow');
+				oldArrows.forEach(a => a.remove());
+				// crear circunferencia con flecha abajo
+				const circleDown = document.createElement('span');
+				circleDown.className = 'btn-arrow';
+				circleDown.style.display = 'inline-flex';
+				circleDown.style.alignItems = 'center';
+				circleDown.style.justifyContent = 'center';
+				circleDown.style.width = '48px';
+				circleDown.style.height = '48px';
+				circleDown.style.borderRadius = '50%';
+				circleDown.style.background = 'rgba(0,0,0,0.8)';
+				circleDown.style.boxShadow = '0 2px 8px rgba(0,0,0,0.18)';
+				circleDown.style.color = 'white';
+				circleDown.style.fontSize = '2em';
+				circleDown.innerHTML = '&#9660;'; // flecha abajo
+				btnPlantaSiguiente.appendChild(circleDown);
+			}
 		}
-		// Contact link (barra superior)
+		
+		// Botón 'contactenos' al lado del chino
 		if (json.ui && json.ui.links && json.ui.links.contacto_boton) {
-			const contactLink = document.getElementById('contact-link');
-			if (contactLink) contactLink.textContent = json.ui.links.contacto_boton;
+			console.log('[applyI18n] contacto_boton:', json.ui.links.contacto_boton);
+			let contactenosBtn = document.getElementById('contactenos-btn');
+			if (contactenosBtn) {
+				contactenosBtn.textContent = json.ui.links.contacto_boton;
+				contactenosBtn.onclick = function() {
+					var modal = document.getElementById('contact-modal');
+					if (modal) {
+						modal.style.display = 'block';
+						modal.setAttribute('aria-hidden', 'false');
+					}
+				};
+				console.log('[applyI18n] set button text:', contactenosBtn.textContent);
+			} else {
+				console.log('[applyI18n] contactenos-btn not found');
+			}
+		} else {
+			console.log('[applyI18n] contacto_boton key not found');
 		}
 	try {
 		// meta

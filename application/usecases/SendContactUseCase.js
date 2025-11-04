@@ -1,7 +1,7 @@
 // Caso de uso: Enviar contacto
-import IEnviarFormularioContacto from '../../domain/usecases/IEnviarFormularioContacto.js';
+import ISendContactForm from '../../domain/usecases/ISendContactForm.js';
 
-class SendContactUseCase extends IEnviarFormularioContacto {
+class SendContactUseCase extends ISendContactForm {
   constructor({ backendUrl }) {
     super();
     this.backendUrl = backendUrl;

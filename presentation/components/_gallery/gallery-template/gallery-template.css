@@ -1,0 +1,17 @@
+.gallery-thumbnails {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+.gallery-thumbnails img {
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+.gallery-thumbnails img:hover {
+  box-shadow: 0 0 0 3px #ffcc00;
+}

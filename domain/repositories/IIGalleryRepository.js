@@ -2,7 +2,7 @@
 // Interface para el repositorio de galería
 // Cumple con DDD y SOLID
 
-export default class IGaleriaRepository {
+export default class IGalleryRepository {
   /**
    * Obtiene todas las imágenes de la galería
    * @returns {Promise<Array>} Array de imágenes

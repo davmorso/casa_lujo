@@ -10,12 +10,8 @@ class PrivacyLinkService {
 
   getPrivacyUrl(filename) {
     if (!filename) return '';
-    // En local, usar raíz sin /casa_lujo; en producción, incluir basePath
-    if (this.isLocal) {
-      return `/${filename}`;
-    } else {
-      return `${this.basePath}/${filename}`;
-    }
+    // Siempre devolver solo el nombre del archivo, sin rutas ni prefijos
+    return filename.replace(/^.*[\/]/, '');
   }
 }
 

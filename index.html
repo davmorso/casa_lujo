@@ -1,4 +1,4 @@
-<!-- version 116 -->
+<!-- version 117 -->
 <!DOCTYPE html>
 <html lang="es" id="html-root">
 <head>
@@ -24,9 +24,9 @@
   <meta name="twitter:image" content="https://davmorso.github.io/casa_lujo/img/planta%201/casa%200.jpeg" />
   
   <link rel="stylesheet" href="css/estilos.css" />
-
-  <!-- Cookie Consent (usaremos un aviso ligero y funcional) -->
+  <link rel="stylesheet" href="presentation/components/contact-form/contact-template/contact-form.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+  
   <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
 </head>
 <meta name="google-site-verification" content="sHT64-8pI_MjA_3JmpP-Xt5A5Z7TYWhp6hdiEauIM6I" />
@@ -46,36 +46,26 @@
   <!-- Barra de idioma (gris) -->
   <nav class="lang-bar" id="lang-bar" style="background: #f7f7f7; border-bottom: 1px solid #eee;">
   <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 0.5vw; min-height: 40px;">
-      <button class="lang-btn" data-lang="ca" aria-label="Català" title="Català">
-    <svg width="28" height="18" viewBox="0 0 28 18" aria-hidden="true"><rect width="28" height="18" fill="#FFD700"/><g fill="#E03C31"><rect y="0" x="0" width="28" height="3"/><rect y="6" x="0" width="28" height="3"/><rect y="12" x="0" width="28" height="3"/></g></svg><span class="lang-label" data-i18n="ui.lang.cat">CAT</span></button>
-
-  <!-- Inline bandera España -->
-  <button class="lang-btn" data-lang="es" aria-label="Español" title="Español">
-    <svg class="flag-svg" viewBox="0 0 3 2" preserveAspectRatio="xMidYMid meet" aria-hidden="true" role="img"><rect width="3" height="0.5" y="0" fill="#c60b1e"></rect><rect width="3" height="1.0" y="0.5" fill="#ffc400"></rect><rect width="3" height="0.5" y="1.5" fill="#c60b1e"></rect></svg><span class="lang-label" data-i18n="ui.lang.es">ES</span></button>
-
-  <!-- Inline bandera UK -->
-  <button class="lang-btn" data-lang="en" aria-label="English" title="English">
-    <svg class="flag-svg" viewBox="0 0 60 30" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><rect width="60" height="30" fill="#012169"/><g stroke="#fff" stroke-width="6"><path d="M0 0 L60 30" /><path d="M60 0 L0 30" /></g><g stroke="#C8102E" stroke-width="4"><path d="M0 0 L60 30" /><path d="M60 0 L0 30" /></g><rect x="25" width="10" height="30" fill="#fff"/><rect y="10" width="60" height="10" fill="#fff"/><rect x="27" width="6" height="30" fill="#C8102E"/><rect y="12" width="60" height="6" fill="#C8102E"/></svg><span class="lang-label" data-i18n="ui.lang.en">EN</span></button>
-
-  <button class="lang-btn" data-lang="fr" aria-label="Français" title="Français">
-    <svg class="flag-svg" viewBox="0 0 3 2" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><rect width="1" height="2" x="0" fill="#0055A4"></rect><rect width="1" height="2" x="1" fill="#FFFFFF"></rect><rect width="1" height="2" x="2" fill="#EF4135"></rect></svg><span class="lang-label" data-i18n="ui.lang.fr">FR</span></button>
-
-  <!-- NUEVO: botón ruso -->
-  <button class="lang-btn" data-lang="ru" aria-label="Русский" title="Русский">
-    <svg class="flag-svg" viewBox="0 0 3 2" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><rect width="3" height="0.6667" y="0" fill="#fff"></rect><rect width="3" height="0.6667" y="0.6667" fill="#0039A6"></rect><rect width="3" height="0.6667" y="1.3334" fill="#D52B1E"></rect></svg><span class="lang-label" data-i18n="ui.lang.ru">RU</span></button>
-  <!-- Bandera China -->
-
-  <button class="lang-btn" data-lang="zh" aria-label="中文" title="中文">
-    <svg class="flag-svg" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#DE2910"/><polygon points="5,3 6,7 10,7 7,9 8,13 5,11 2,13 3,9 0,7 4,7" fill="#FFDE00"/><circle cx="11" cy="3" r="1.2" fill="#FFDE00"/><circle cx="13" cy="5" r="1.2" fill="#FFDE00"/><circle cx="13" cy="8" r="1.2" fill="#FFDE00"/><circle cx="11" cy="10" r="1.2" fill="#FFDE00"/></svg><span class="lang-label" data-i18n="ui.lang.zh">中文</span></button>
-  <a id="contact-link-bar" href="#contact-modal" style="margin-left:12px; color:#3366cc; text-decoration:underline; font-weight:bold;"></a>
-
-  
-    </div>
+    <div id="contactformview-debug" style="color:red; font-size:12px; margin-left:10px;"></div>
+    <button class="lang-btn" data-lang="ca" aria-label="Català" title="Català">
+      <svg width="28" height="18" viewBox="0 0 28 18" aria-hidden="true"><rect width="28" height="18" fill="#FFD700"/><g fill="#E03C31"><rect y="0" x="0" width="28" height="3"/><rect y="6" x="0" width="28" height="3"/><rect y="12" x="0" width="28" height="3"/></g></svg><span class="lang-label" data-i18n="ui.lang.cat">CAT</span></button>
+    <button class="lang-btn" data-lang="es" aria-label="Español" title="Español">
+      <svg class="flag-svg" viewBox="0 0 3 2" preserveAspectRatio="xMidYMid meet" aria-hidden="true" role="img"><rect width="3" height="0.5" y="0" fill="#c60b1e"></rect><rect width="3" height="1.0" y="0.5" fill="#ffc400"></rect><rect width="3" height="0.5" y="1.5" fill="#c60b1e"></rect></svg><span class="lang-label" data-i18n="ui.lang.es">ES</span></button>
+    <button class="lang-btn" data-lang="en" aria-label="English" title="English">
+      <svg class="flag-svg" viewBox="0 0 60 30" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><rect width="60" height="30" fill="#012169"/><g stroke="#fff" stroke-width="6"><path d="M0 0 L60 30" /><path d="M60 0 L0 30" /></g><g stroke="#C8102E" stroke-width="4"><path d="M0 0 L60 30" /><path d="M60 0 L0 30" /></g><rect x="25" width="10" height="30" fill="#fff"/><rect y="10" width="60" height="10" fill="#fff"/><rect x="27" width="6" height="30" fill="#C8102E"/><rect y="12" width="60" height="6" fill="#C8102E"/></svg><span class="lang-label" data-i18n="ui.lang.en">EN</span></button>
+    <button class="lang-btn" data-lang="fr" aria-label="Français" title="Français">
+      <svg class="flag-svg" viewBox="0 0 3 2" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><rect width="1" height="2" x="0" fill="#0055A4"></rect><rect width="1" height="2" x="1" fill="#FFFFFF"></rect><rect width="1" height="2" x="2" fill="#EF4135"></rect></svg><span class="lang-label" data-i18n="ui.lang.fr">FR</span></button>
+    <button class="lang-btn" data-lang="ru" aria-label="Русский" title="Русский">
+      <svg class="flag-svg" viewBox="0 0 3 2" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><rect width="3" height="0.6667" y="0" fill="#fff"></rect><rect width="3" height="0.6667" y="0.6667" fill="#0039A6"></rect><rect width="3" height="0.6667" y="1.3334" fill="#D52B1E"></rect></svg><span class="lang-label" data-i18n="ui.lang.ru">RU</span></button>
+    <button class="lang-btn" data-lang="zh" aria-label="中文" title="中文">
+      <svg class="flag-svg" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#DE2910"/><polygon points="5,3 6,7 10,7 7,9 8,13 5,11 2,13 3,9 0,7 4,7" fill="#FFDE00"/><circle cx="11" cy="3" r="1.2" fill="#FFDE00"/><circle cx="13" cy="5" r="1.2" fill="#FFDE00"/><circle cx="13" cy="8" r="1.2" fill="#FFDE00"/><circle cx="11" cy="10" r="1.2" fill="#FFDE00"/></svg><span class="lang-label" data-i18n="ui.lang.zh">中文</span></button>
+    <button id="contactenos-btn" style="margin-left:12px; color:#3366cc; font-weight:bold; cursor:pointer; background:none; border:1px solid #3366cc; padding:4px 12px; border-radius:4px;"></button>
+  </div>
   </nav>
 
   <!-- Imagen destacada entre la zona azul (header) y la descripción -->
   <div id="portada" style="text-align:center; margin:18px 0;">
-    <img class="portada-img" src="img/planta 1/casa 0.jpeg" alt="Vista destacada" />
+    <img class="portada-img" src="img/planta 1/casa 9.jpeg" alt="Vista destacada" />
   </div>
 
   <!-- Bloque de depuración para mostrar errores y estado del backend -->
@@ -84,66 +74,12 @@
     <pre id="debug-log" style="white-space:pre-wrap; word-break:break-all;"></pre>
   </div>
 
-  <!-- Presentación del piso -->
-  <section id="descripcion" style="max-width: 800px; margin: auto; padding: 20px;">
-    <!-- Contenido dinámico: se rellenará desde i18n/galeria.es.json -> descripcion -->
-    <div id="descripcion-text"></div>
-
+  <!-- Bloque de características destacado -->
   
-    <!-- Características: se rellená desde i18n.detalles.caracteristicas -->
-    <div id="caracteristicas-section"></div>
-    <!-- Espaciado controlado por CSS -->
-     
-     <!-- Primera planta -->
-    <!-- Primera planta: placeholder. Se rellenará desde textos.planta-1 -->
-    <div class="piso-seccion" id="primer-piso" data-texto="planta-1">
-      <div class="piso-texto"></div>
-      <div class="imagenes"></div>
-    </div>
- 
-     <!-- Segunda planta -->
-    <div class="piso-seccion" id="segundo-piso" data-texto="planta-2">
-      <div class="piso-texto"></div>
-      <div class="imagenes"></div>
-    </div>
- 
-     <!-- Tercera planta -->
-    <div class="piso-seccion" id="tercer-piso" data-texto="planta-3">
-      <div class="piso-texto"></div>
-      <div class="imagenes"></div>
-    </div>
-    
-    <!-- Cuarta planta placeholder (si existe textos.planta-4 se mostrará) -->
-    <div class="piso-seccion" id="cuarto-piso" data-texto="planta-4" style="display:none;">
-      <div class="piso-texto"></div>
-      <div class="imagenes"></div>
-    </div>
 
-    <!-- Detalles adicionales (se rellenará desde i18n.detalles) -->
-    <div id="detalles-section"></div>
+  <!-- Contenedor principal para la casa y las plantas -->
+  <div id="main-content"></div>
 
-    <!-- Contacto (rellenable desde i18n.contacto) -->
-    <div id="contacto-section" style="text-align:center; margin-top: 38px;"></div>
-
-  </section>
-
-  <!-- Modal -->
-  <div id="modal" class="modal" role="dialog" aria-modal="true">
-    <span id="cerrar" style="cursor:pointer;"></span>
-    <img class="modal-contenido" id="imagen-ampliada" alt="">
-    <div id="caption"></div>
-
-    <div style="text-align:center; margin-top:10px; display: flex; flex-direction: column; align-items: center; gap: 8px;">
-      <div style="margin-bottom: 28px; display: flex; flex-direction: column; align-items: center; gap: 18px;">
-        <button id="planta-anterior" data-i18n="ui.modal.plantaAnterior" class="plantaAnterior"></button>
-        <button id="planta-siguiente" data-i18n="ui.modal.plantaSiguiente" class="plantaSiguiente"></button>
-      </div>
-      <div style="display: flex; gap: 10px;">
-        <button id="anterior" data-i18n="ui.modal.anterior"></button>
-        <button id="siguiente" data-i18n="ui.modal.siguiente"></button>
-      </div>
-    </div>
-   </div>
 
    <!-- BTN para abrir el formulario de contacto (colocado ANTES del bloque negro cookie-banner) -->
 
@@ -160,7 +96,7 @@
   <footer style="background-color: #222; color: white; padding: 20px; text-align: center; border-top: 2px solid #444;">
     <p id="footer-copy" style="margin: 0;"></p>
     <p style="margin: 5px 0 0;">
-  <a id="footer-privacy" href="" style="color: #aaa; text-decoration: underline;" target="_blank" rel="noopener"></a>
+  <a id="footer-privacy" href="#" style="color: #aaa; text-decoration: underline;" target="_blank" rel="noopener">Política de privacidad</a>
     </p>
   </footer>
 
@@ -168,49 +104,12 @@
 
   <!-- Scripts: UI y lógica agrupados por funcionalidad -->
   <!-- Internacionalización y configuración -->
-  <script type="module" src="presentation/components/lang/i18n-loader.js"></script>
+  <script src="infrastructure/scripts/i18n-loader.js"></script>
   <script type="module" src="presentation/components/lang/lang-switcher.js"></script>
-  <script type="module">
-    document.addEventListener('i18nLoaded', function(e) {
-      var json = e.detail && e.detail.i18n;
-      var lang = e.detail && e.detail.lang;
-      if (json && json.ui && json.ui.title) {
-        var title = document.getElementById('page-title');
-        if (title) title.textContent = json.ui.title;
-      }
-      if (lang) {
-        var html = document.getElementById('html-root');
-        if (html) html.setAttribute('lang', lang);
-      }
-      // Actualizar el enlace de privacidad del footer según idioma y entorno
-      var privacyLink = document.getElementById('footer-privacy');
-      var privacyService = window.PrivacyLinkService ? new window.PrivacyLinkService() : null;
-      if (privacyLink && privacyService) {
-        var url = '';
-        var linkText = '';
-        if (json && json.meta && json.meta.politica_privacidad_url) {
-          var fileName = json.meta.politica_privacidad_url.split('/').pop();
-          url = privacyService.getPrivacyUrl(fileName);
-        } else {
-          url = privacyService.getPrivacyUrl('politica-privacidad.html');
-        }
-        if (json && json.ui && json.ui.links && json.ui.links.politica_privacidad) {
-          linkText = privacyService.getSanitizedPrivacyText(json.ui.links.politica_privacidad);
-        } else {
-          linkText = 'Política de privacidad';
-        }
-        privacyLink.setAttribute('href', url);
-        privacyLink.textContent = linkText;
-      }
-    });
-  </script>
-  <script type="module" src="infrastructure/scripts/backend-url.js"></script>
 
-  <!-- Galería -->
-  <script type="module" src="presentation/components/gallery/gallery.js"></script>
-
+  
   <!-- Contacto -->
-  <script type="module" src="presentation/components/contact/contact-form.js"></script>
+  <script type="module" src="presentation/components/contact-form/contact-bootstrap.js"></script>
 
   <!-- Privacidad y cookies -->
   <!-- <script type="module" src="presentation/components/privacy/privacy-link.js"></script> -->
@@ -218,57 +117,8 @@
 
   <!-- Bootstrap y utilidades generales -->
   <script type="module" src="presentation/components/bootstrap.js"></script>
+  <script type="module" src="presentation/components/bootstrap/contactformview-debug.js"></script>
   
-  <!-- Modal formulario de contacto -->
-  <div id="contact-modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" style="display:none;">
-    <div class="modal-panel" role="document">
-      <button id="contact-close" class="modal-close" aria-label="Cerrar">×</button>
-      <h2 id="contact-title"></h2>
-
-      <form id="contact-form" novalidate>
-        <div class="form-row">
-          <label for="contact-nombre" id="label-nombre"></label>
-          <input id="contact-nombre" name="nombre" type="text" autocomplete="name" />
-          <div class="field-error" data-for="nombre"></div>
-        </div>
-
-        <div class="form-row">
-          <label for="contact-telefono" id="label-telefono"></label>
-          <input id="contact-telefono" name="telefono" type="tel" autocomplete="tel" />
-          <div class="field-error" data-for="telefono"></div>
-        </div>
-        <div class="form-row">
-          <label for="contact-email" id="label-email"></label>
-          <input id="contact-email" name="email" type="email" autocomplete="email" />
-          <div class="field-error" data-for="email"></div>
-        </div>
-
-        <div class="form-row">
-          <label for="contact-estructura" id="label-estructura"></label>
-          <textarea id="contact-estructura" name="estructura_compra" rows="4" autocomplete="off"></textarea>
-          <div class="field-error" data-for="estructura_compra"></div>
-        </div>
-
-        <div class="form-row">
-          <label for="contact-experiencia" id="label-experiencia"></label>
-          <textarea id="contact-experiencia" name="experiencia" rows="3" autocomplete="off"></textarea>
-          <div class="field-error" data-for="experiencia"></div>
-        </div>
-
-        <div class="form-row checkbox-row">
-          <input id="contact-acepto" name="acepto" type="checkbox" />
-          <label for="contact-acepto" id="label-acepto"></label>
-          <div class="field-error" data-for="acepto"></div>
-        </div>
-
-        <div class="form-actions">
-          <button type="button" id="contact-cancel" class="btn-secondary"></button>
-          <button type="submit" id="contact-submit" class="btn-primary"></button>
-        </div>
-          <!-- Frase de nota eliminada por requerimiento del usuario -->
-      </form>
-    </div>
-  </div>
-
+  <script type="module" src="index.js"></script>
 </body>
 </html>

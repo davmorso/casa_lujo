@@ -1,7 +1,7 @@
-import GalleryRepository from '../../presentation/components/gallery/galleryRepository.js';
-import IGaleriaUseCase from '../../domain/usecases/IGaleriaUseCase.js';
+import GalleryRepository from '../../presentation/components/_gallery/galleryRepository.js';
+import IGalleryUseCase from '../../domain/usecases/IGalleryUseCase.js';
 
-export default class GalleryUseCase extends IGaleriaUseCase {
+export default class GalleryUseCase extends IGalleryUseCase {
 	constructor(repository) {
 		super();
 		this.repository = repository;

@@ -1,0 +1,17 @@
+.floor-description {
+  max-width: 800px;
+  margin: 0 auto 24px auto;
+  padding: 16px;
+  background: #f7f7f7;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.floor-title {
+  font-size: 1.5rem;
+  color: #3366cc;
+  margin-bottom: 8px;
+}
+.floor-text {
+  font-size: 1rem;
+  color: #333;
+}

@@ -43,11 +43,19 @@ class ContactBarView {
   }
 
   _updateContactBarLink(json) {
-    if (!this.contactBarLink || !json || !json.ui || !json.ui.contactBar || !json.ui.contactBar.text) return;
-    this.contactBarLink.textContent = json.ui.contactBar.text;
+    if (!this.contactBarLink) return;
+
+    console.log(this.contactBarLink);
+    
+    this.contactBarLink.textContent = json?.ui?.contactBar?.text || 'Contáctenos';
+    // Siempre vincular el evento para abrir el modal
     this.contactBarLink.onclick = (ev) => {
       ev.preventDefault();
-      this._openModal();
+      if (window.contactFormView && typeof window.contactFormView.openModal === 'function') {
+        window.contactFormView.openModal();
+      } else {
+        this._openModal();
+      }
     };
   }
 

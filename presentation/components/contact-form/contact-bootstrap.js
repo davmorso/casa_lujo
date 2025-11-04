@@ -1,7 +1,7 @@
-import ContactFormView from './ContactFormView.js';
+import ContactBootstrap from '../../../application/usecases/ContactFormView.js';
 
 window.addEventListener('DOMContentLoaded', () => {
-  window.contactFormView = new ContactFormView({
+  window.contactFormView = new ContactBootstrap({
     labels: {
       errores: {
         requerido: 'Este campo es obligatorio',

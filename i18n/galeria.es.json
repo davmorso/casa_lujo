@@ -37,14 +37,18 @@
         "Espacios bien integrados, prácticos y con mucho gusto arquitectónico."
       ],
       "imagenes": [
-        { "src": "./img/planta 1/casa 0.jpeg", "alt": "Primera planta: salón-comedor amplio y luminoso, vista general" },
-        { "src": "./img/planta 1/casa 1.jpeg", "alt": "Primera planta: cocina semiabierta de alta gama, encimera" },
-        { "src": "./img/planta 1/casa 2.jpeg", "alt": "Primera planta: cocina y zona de trabajo" },
-        { "src": "./img/planta 1/casa 3.jpeg", "alt": "Primera planta: zona de estar con sofá" },
-        { "src": "./img/planta 1/casa 4.jpeg", "alt": "Primera planta: detalle de decoración e interior" },
-        { "src": "./img/planta 1/casa 5.jpeg", "alt": "Primera planta: acceso a terraza exterior" },
-        { "src": "./img/planta 1/casa 6.jpeg", "alt": "Primera planta: baño/aseo de planta baja" },
-        { "src": "./img/planta 1/casa 7.jpeg", "alt": "Primera planta: vistas exteriores y buena entrada de luz" }        
+        { "src": "./img/planta 1/casa 0.jpeg", "alt": "Primera planta: vista general" },
+        { "src": "./img/planta 1/casa 1.jpeg", "alt": "Primera planta: vista general" },
+        { "src": "./img/planta 1/casa 2.jpeg", "alt": "Primera planta: entada casa" },
+        { "src": "./img/planta 1/casa 3.jpeg", "alt": "Primera planta: sala de invitados" },
+        { "src": "./img/planta 1/casa 4.jpeg", "alt": "Primera planta: escaleras piso superior" },
+        { "src": "./img/planta 1/casa 5.jpeg", "alt": "Primera planta: salóm" },
+        { "src": "./img/planta 1/casa 6.jpeg", "alt": "Primera planta: cocina" },
+        { "src": "./img/planta 1/casa 7.jpeg", "alt": "Primera planta: cocina" },
+        { "src": "./img/planta 1/casa 8.jpeg", "alt": "Primera planta: jardín" },        
+        { "src": "./img/planta 1/casa 9.jpeg", "alt": "Primera planta: jardín" },
+        { "src": "./img/planta 1/casa 10.jpeg", "alt": "Primera planta: garaje" }        
+        
       ]
     },
     "planta-2": {
@@ -55,11 +59,12 @@
         "Espacios generosos y mucha luz natural."
       ],
       "imagenes": [
-        { "src": "./img/planta 2/casa 1.jpeg", "alt": "Segunda planta: suite con vestidor" },
-        { "src": "./img/planta 2/casa 2.jpeg", "alt": "Segunda planta: pasillo y acceso a la habitación" },
-        { "src": "./img/planta 2/casa 3.jpeg", "alt": "Segunda planta: habitación principal" },
-        { "src": "./img/planta 2/casa 4.jpeg", "alt": "Segunda planta: terraza privada de la habitación" },
-        { "src": "./img/planta 2/casa 5.jpeg", "alt": "Segunda planta: baño de la habitación, plato de ducha" }
+        { "src": "./img/planta 2/casa 1.jpeg", "alt": "Segunda planta: suite principal" },
+        { "src": "./img/planta 2/casa 4.jpeg", "alt": "Segunda planta: suite principal" },
+        { "src": "./img/planta 2/casa 3.jpeg", "alt": "Segunda planta: lavabo ite principal" },        
+        { "src": "./img/planta 2/casa 2.jpeg", "alt": "Segunda planta: segunda suite" },        
+        { "src": "./img/planta 2/casa 6.jpeg", "alt": "Segunda planta: lavabo segunda suite" },
+        { "src": "./img/planta 2/casa 5.jpeg", "alt": "Segunda planta: escalera" }
       ]
     },
     "planta-3": {
@@ -70,9 +75,9 @@
         "Acceso a otra terraza privada."
       ],
       "imagenes": [
-        { "src": "./img/planta 3/casa 1.jpeg", "alt": "Tercera planta: zona de estar o terraza" },
-        { "src": "./img/planta 3/casa 2.jpeg", "alt": "Tercera planta: segunda suite, algo abuhardillada" },
-        { "src": "./img/planta 3/casa 3.jpeg", "alt": "Tercera planta: lavadero" }
+        { "src": "./img/planta 3/casa 1.jpeg", "alt": "Tercera planta: despacho" },
+        { "src": "./img/planta 3/casa 2.jpeg", "alt": "Tercera planta: despacho" },
+        { "src": "./img/planta 3/casa 3.jpeg", "alt": "Tercera planta: suite pequeña" }
       ]
     },
     "planta-4": {
@@ -82,7 +87,8 @@
         "Espacio ideal para disfrutar al aire libre y pequeñas reuniones."
       ],
       "imagenes": [
-        { "src": "./img/planta 4/casa 1.jpeg", "alt": "Cuarta planta: azotea/terraza con vistas" }
+        { "src": "./img/planta 4/casa 1.jpeg", "alt": "Cuarta planta: azotea/terraza con vistas" },
+        { "src": "./img/planta 4/casa 2.jpeg", "alt": "Cuarta planta: vista azotea" }
       ]
     }
   },
@@ -96,25 +102,28 @@
       "Ascensor en el edificio.",
       "Parking para 2 coches grandes (3 pequeños) incluido en el precio.",
       "Trastero grande incluido en el precio."
-    ],
-    "caracteristicas": [
-      "Incluye jardín privado",
-      "Incluye garaje particular doble con acceso directo a la vivienda.",
-      "450 m² construidos, 450 m² útiles",
-      "5 habitaciones",
-      "4 baños",
-      "3 terrazas",
-      "3 pequeños trasteros",
-      "Segunda mano / buen estado",
-      "Armarios empotrados",
-      "Orientación sur, este, oeste",
-      "Construido en 2009",
-      "Calefacción individual: Bomba de frío/calor",
-      "Planta 1ª exterior",
-      "Con ascensor",
-      "Certificado energético: No indicado"
-    ]
+    ]    
   },
+  "caracteristicas": {
+      "titulo": "Características",      
+      "puntos": [
+        "Incluye jardín privado",
+        "Incluye garaje particular doble con acceso directo a la vivienda.",
+        "450 m² construidos, 450 m² útiles",
+        "5 habitaciones",
+        "4 baños",
+        "3 terrazas",
+        "3 pequeños trasteros",
+        "Segunda mano / buen estado",
+        "Armarios empotrados",
+        "Orientación sur, este, oeste",
+        "Construido en 2009",
+        "Calefacción individual: Bomba de frío/calor",
+        "Planta 1ª exterior",
+        "Con ascensor",
+        "Certificado energético: No indicado"
+      ]
+    },
   "contacto": {
     "titulo": "Contactar sobre esta vivienda",
   "boton_abrir": "Contáctenos",
@@ -157,11 +166,11 @@
       "lang": "No se pudo cambiar el idioma por un error de red."
     },
     "contact": {
-  "text": "¿Quieres más información o concertar una visita? Haz clic <button id=\"contact-link-bar\" style=\"background:none;border:none;color:#3366cc;text-decoration:underline;font-weight:bold;cursor:pointer;text-transform:uppercase;\">AQUÍ</button>.",
-  "linkWord": "AQUÍ"
+  "text": "¿Quieres más información o concertar una visita? Haz clic <button id=\"contact-link-bar\" style=\"background:none;border:none;color:#3366cc;text-decoration:underline;font-weight:bold;cursor:pointer;text-transform:uppercase;\">Contactenos</button>.",
+  "linkWord": "Contactenos"
     },
     "contactBar": {
-      "text": "Contáctenos"
+  "text": "Contactenos"
     },
     "modal": {
   "cerrar": "×",
@@ -179,7 +188,7 @@
     "footer": "© 2025 casa_lujo. Todos los derechos reservados.",
     "links": {
   "politica_privacidad": "Política de privacidad",
-  "contacto_boton": "aquí"
+  "contacto_boton": "Contactenos"
     }
   },
   "politica_privacidad_url": "politica-privacidad.html"

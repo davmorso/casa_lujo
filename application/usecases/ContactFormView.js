@@ -1,7 +1,7 @@
 // Vista: ContactFormView
-import Contact from './Contact.js';
-import { ContactValidator, requiredFieldsValidator } from './ContactValidator.js';
-import SendContactUseCase from '../../../application/usecases/SendContactUseCase.js';
+import Contact from '../../domain/entities/Contact.js';
+import ContactValidator from '../../presentation/components/contact-form/ContactValidator.js';
+import SendContactUseCase from './SendContactUseCase.js';
 
 class ContactFormView {
   constructor({ modalId = 'contact-modal', formId = 'contact-form', openBtnId = 'open-contact-btn', closeBtnId = 'contact-close', cancelBtnId = 'contact-cancel', noteId = 'contact-note', submitBtnId = 'contact-submit', labels = {}, privacyLinkService }) {
@@ -15,11 +15,17 @@ class ContactFormView {
     this.labels = labels;
     this.privacyLinkService = privacyLinkService;
     this.lastFocused = null;
-    this.validator = new ContactValidator([requiredFieldsValidator]);
+  this.validator = ContactValidator;
     this._bindEvents();
+    // Ocultar el modal al cargar
+    if (this.modal) {
+      this.modal.style.display = 'none';
+      this.modal.setAttribute('aria-hidden', 'true');
+    }
   }
 
   getContactFromForm() {
+    debugger;
     return new Contact({
       nombre: this._getValue('contact-nombre'),
       telefono: this._getValue('contact-telefono'),
@@ -48,24 +54,32 @@ class ContactFormView {
   }
 
   openModal() {
-    if (!this.modal) return;
+    console.log('DEBUG: openModal llamado');
+    if (!this.modal) {
+      console.warn('DEBUG: this.modal no existe');
+      return;
+    }
     this.form && this.form.reset();
     this.clearErrors();
     this.note && (this.note.textContent = '');
     this.lastFocused = document.activeElement;
-    // Actualizar los labels del formulario con el idioma actual
+    // Actualizar los labels y placeholders del formulario con el idioma actual
     if (window.i18n && typeof window.i18n.getCurrentI18n === 'function') {
       const json = window.i18n.getCurrentI18n();
       if (json && json.contacto && json.contacto.labels) {
         const labels = json.contacto.labels;
         const botones = json.contacto.botones || {};
         const titulo = json.contacto.titulo || '';
+        const placeholders = json.contacto.placeholders || {};
         // Si existe PrivacyLinkService, actualiza el enlace de política en el label
         if (this.privacyLinkService && json.meta && json.meta.politica_privacidad_url) {
           var fileName = json.meta.politica_privacidad_url.split('/').pop();
           var url = this.privacyLinkService.getPrivacyUrl(fileName);
           if (labels.acepto) {
-            labels.acepto = this.privacyLinkService.getSanitizedPrivacyLabel(labels.acepto, url);
+            // Reemplazar el href del enlace de política de privacidad por la URL calculada y forzar target="_blank"
+            // Reemplazar el href del enlace de política de privacidad por la URL calculada y forzar target="_blank"
+            labels.acepto = labels.acepto.replace(/href="[^"]*"/g, `href="${url}" target="_blank" rel="noopener"`);
+            // También aseguramos que el enlace no tenga href="#" y no dependa de click JS
           }
         }
         const labelMap = {
@@ -89,6 +103,19 @@ class ContactFormView {
             }
           }
         });
+        // Actualizar placeholders si existen
+        const placeholderMap = {
+          'contact-nombre': placeholders.nombre,
+          'contact-telefono': placeholders.telefono,
+          'contact-estructura': placeholders.estructura_compra,
+          'contact-experiencia': placeholders.experiencia
+        };
+        Object.entries(placeholderMap).forEach(([id, text]) => {
+          const el = document.getElementById(id);
+          if (el && text) {
+            el.setAttribute('placeholder', text);
+          }
+        });
       }
     }
     this.modal.style.display = 'flex';
@@ -109,13 +136,24 @@ class ContactFormView {
     this.openBtn?.addEventListener('click', () => this.openModal());
     this.closeBtn?.addEventListener('click', () => this.closeModal());
     this.cancelBtn?.addEventListener('click', (e) => { e.preventDefault(); this.closeModal(); });
+    // Botón X (cerrar modal) - reconectar tras un pequeño delay para asegurar que el DOM está listo
+    setTimeout(() => {
+      const cerrarBtn = document.getElementById('contact-close');
+      cerrarBtn?.addEventListener('click', () => this.closeModal());
+    }, 0);
+    // Botón aceptar (checkbox)
+    const aceptaCheckbox = document.getElementById('contact-acepto');
+    aceptaCheckbox?.addEventListener('change', () => {
+      // Si quieres lógica adicional al aceptar, agrégala aquí
+    });
     this.form?.addEventListener('submit', async (e) => {
       e.preventDefault();
       if (this.submitBtn && this.submitBtn.disabled) return;
       const contact = this.getContactFromForm();
-      const errors = this.validator.validate(contact, this.labels?.errores);
-      if (Object.keys(errors).length) {
-        this.showErrors(errors);
+      try {
+        this.validator.validate(contact, this.labels?.errores);
+      } catch (validationError) {
+        this.showErrors({ form: validationError.message });
         return;
       }
       this.submitBtn.disabled = true;

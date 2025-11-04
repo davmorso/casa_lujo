@@ -1,0 +1,15 @@
+.photo-thumbnail {
+  display: inline-block;
+  margin: 6px;
+}
+.photo-thumbnail img.miniatura {
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+.photo-thumbnail img.miniatura:hover {
+  box-shadow: 0 0 0 3px #ffcc00;
+}

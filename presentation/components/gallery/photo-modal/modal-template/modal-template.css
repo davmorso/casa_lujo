@@ -1,0 +1,42 @@
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+.modal-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  margin: auto;
+}
+#imagen-ampliada {
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 8px;
+  display: block;
+  margin: auto;
+}
+#caption {
+  color: #fff;
+  text-align: center;
+  margin-top: 10px;
+}
+#cerrar, #anterior, #siguiente {
+  position: absolute;
+  background: #222;
+  color: #fff;
+  border: none;
+  font-size: 2rem;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+#cerrar { top: 10px; right: 10px; }
+#anterior { top: 50%; left: -60px; transform: translateY(-50%); }
+#siguiente { top: 50%; right: -60px; transform: translateY(-50%); }

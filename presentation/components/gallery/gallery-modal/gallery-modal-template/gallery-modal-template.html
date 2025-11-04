@@ -1,0 +1,33 @@
+<!-- Gallery Modal Template -->
+<div id="gallery-modal" class="modal" style="display:none;">
+  <button id="gallery-cerrar" title="Cerrar" style="position:fixed;top:32px;right:32px;z-index:10001;">
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 16L32 32M32 16L16 32" stroke="white" stroke-width="5" stroke-linecap="round"/>
+    </svg>
+  </button>
+  <button id="gallery-anterior" title="Foto anterior" style="position:fixed;top:50%;left:32px;transform:translateY(-50%);z-index:10001;">
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M30 12L18 24L30 36" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  <button id="gallery-siguiente" title="Foto siguiente" style="position:fixed;top:50%;right:32px;transform:translateY(-50%);z-index:10001;">
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M18 12L30 24L18 36" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  <button id="gallery-arriba" title="Subir planta" style="position:fixed;top:32px;left:50%;transform:translateX(-60px);z-index:10001;">
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 30L24 18L36 30" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  <button id="gallery-abajo" title="Bajar planta" style="position:fixed;top:32px;left:50%;transform:translateX(20px);z-index:10001;">
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 18L24 30L36 18" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  <div class="modal-content" style="position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;width:100vw;height:100vh;">
+    <img id="gallery-imagen-ampliada" src="" alt="" style="max-width:1200px;max-height:900px;display:block;margin:auto;box-shadow:0 8px 32px rgba(0,0,0,0.5);border-radius:16px;" />
+    <div id="gallery-caption" style="margin-top:18px;"></div>
+  </div>
+  </div>
+</div>

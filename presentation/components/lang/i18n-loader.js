@@ -187,6 +187,7 @@ function applyI18n(json = {}) {
 			}
 		}
 		window.i18n = json;
+		window.i18n.getCurrentI18n = function() { return window.i18n; };
 	} catch (err) {
 		console.warn('[i18n-loader] applyI18n error', err);
 	}
