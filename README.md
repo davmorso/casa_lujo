@@ -1,3 +1,7 @@
+### Versión subida: 127
+
+- Se ha adaptado la estructura HTML del modal de galería para soportar layout responsivo y flexible, permitiendo que la imagen y los botones se dispongan correctamente según la orientación del móvil (portrait y landscape).
+- Los botones de navegación y planta ahora pueden posicionarse arriba, abajo, izquierda o derecha según el modo, y el caption se centra horizontalmente debajo de la imagen.
 ### Versión subida: 123
 
 - Corregido error 'Assignment to constant variable' usando let en vez de const para repoPath en GalleryModal.js.
